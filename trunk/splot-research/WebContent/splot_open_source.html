@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Compromise
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20081103
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Welcome to the Software Product Lines Online Tools Homepage</title>
+
+<link type="text/css" rel="stylesheet" href="splot.css"/>
+
+</head>
+<body>
+
+<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
+
+<!-- end #header --> 
+<div id="menu"> 
+	<ul> 
+		<li class="first"><a href="index.html">Home</a></li> 
+		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="product_configuration.html">Product Configuration</a></li> 
+		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
+	</ul> 
+</div> 
+<!-- end #menu --> 
+	
+
+<div id="wrapper"> 
+	<div class="btm"> 
+		<div id="page"> 
+			<div id="content"> 
+				<div class="post"> 
+					<h1 class="title"><a href="#">S.P.L.O.T. goes Open Source!</a></h1> 
+					<div class="entry">
+						<p>
+						Now you can:
+						<ul>
+						<li><a href="#">Extend SPLOT to create your SPL tool, host SPLOT locally with your extensions, and request us to add a link to your work, or</a></li>
+						<li><a href="#">Extend SPLOT to create your SPL tool, commit your code extensions to the code repository, and see your tool as part of SPLOT</a></li>
+						</ul>
+						</p>
+						
+						<p>Ever since SPLOT's was launched in May/2009, we have received several requests to share SPLOT's source code 
+						mostly as a means to support researchers to build new Software Product Line tools.
+						We're happy to announce that SPLOT's source code is now available to interested academic and industrial parties. 						
+						</p>
+						<p>As a researcher or SPL enthusiastic you can download SPLOT's source code and use the available functionality to build or enhance 
+						your own SPL tool. Most importantly you can integrate your tool seamlessly with SPLOT and realize the benefits of having 
+						the large SPLOT's community using your tool and providing feedback.
+						As reported in <a href="/SPLOT/SplotAnalysesServlet?action=display_repository_statistics">our statistics page</a>, SPLOT has 
+						been visited regularly by a large number of research groups worldwide since its launch in May,2009.
+						</p>
+					</div>
+				</div>
+
+				<div class="post"> 
+					<h1 class="title"><a href="#">Getting the Source Code</a></h1> 
+					<div class="entry">
+						<p>SPLOT's source code is available from Google Code as an Apache license. You can download the code <a target="_new" href="http://code.google.com/p/splot-research/">here</a>.						
+						</p>
+					</div>
+				</div>
+
+				<div class="post"> 
+					<h1 class="title"><a href="#">Getting Started</a></h1> 
+					<div class="entry">
+						<p>
+							In order to install and extend SPLOT, you'll need to download the following support tools:
+							<ul>
+							<li><a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliosr">Eclipse JEE</a></li>
+							<li>SVN (<a href="http://subclipse.tigris.org/">Subeclipse</a> is a good choice)</li> 
+							<li><a href="http://tomcat.apache.org/download-60.cgi">Tomcat 6.x</a></li> 
+							</ul> 
+						</p>		
+					</div>
+				</div>
+
+				<div class="post"> 
+					<h1 class="title"><a href="#">Extending SPLOT's code</a></h1> 
+					<div class="entry">
+						<p>
+						SPLOT uses <a href="http://freemarker.sourceforge.net/">freemarker</a>, a template engine that generates text output based on templates. 
+						Freemarker enables the MVC pattern on SPLOT allowing for a clear separation between HTML formatting and program logic.
+						You will need to familiarize yourself a bit with freemarker before extending SPLOT's functionality. 
+						Thankfully freemarker is a simple language very similar to other server-based script languages such as JSP and ASP.
+						</p>		
+						<p>
+						SPLOT uses its own Web framework to handle HTML requests and responses. There are two basic framework concepts that need to be understood:
+						<i>Servlets</i> and <i>Handlers</i>. A Servlet is simply a Java <a href="">Servlet</a> that registers one
+						or more Handlers. You typically need a single Servlet to extend SPLOT but one or more Handlers might be required. Currently, SPLOT uses 
+						three Servlets and several handlers. A <i>Handler</i>
+						handles a specific functionality invoked via HTTP such as checking the consistency of a feature model, or counting the number of valid configurations,
+						or completing automatically a partial feature model configuration. The granularity of a Handler is up to the developer. Handlers must be attached
+						to a Servlet and invoked using the "action" attribute as part of the HTTP request parameters that indicates the handler's name. 
+						Most of the Handlers are associated with a freemarker
+						HTML template and thus extend the FreemarkerHandler class. Such handlers simply build a freemarker model that is automatically
+						combined with the template file to produce the final HTML output. For examples of Handlers check SPLOT packages 
+						<i>splot.services.handlers</i>. You can also see examples of freemarker templates in 
+						<i>/WebContent/WEB-INF/templates</i>.						
+						</p>
+						
+						<p>
+						It is mandatory that you create your new extensions (classes and freemarker templates) within the extension folders provided. 
+						New Servlets and handlers must be added to 
+						package <b>splot.services.extensions.yourpackage</b>, where yourpackage is a package created to host your extensions. New 
+						freemarker templates must
+						be added to <b>/WebContent/WEB-INF/templates/extensions/yourtemplatesfolder</b>, where <i>yourtemplatesfolder</i> host your templates.
+						</p>
+						<p>
+						Since we're still working on a better documentation the best way to learn how to extend SPLOT is actually browsing the source 
+						code and <a href="http://www.marcilio-mendonca.com/contact_splot.asp">bugging us</a>. 
+						</p>
+					</div>
+				</div>
+
+				<div class="post"> 
+					<h1 class="title"><a href="#">Requesting to be a Committer</a></h1> 
+					<div class="entry">
+						<p>
+						If you wish to be a code committer please contact the <a href="http://www.marcilio-mendonca.com/contact_splot.asp">SPLOT team</a>. We can certainly help you to ramp up on the code
+						and create your extensions. 
+						</p>		
+					</div>
+				</div> 
+			</div> 
+			<!-- end #content --> 
+			<div style="clear: both;">&nbsp;</div> 
+		</div> 
+		<!-- end #page --> 
+	</div> 
+</div> 
+
+<div id="footer"> 
+	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
+</div> 
+<!-- end #footer --> 
+	
+</body>
+</html>
+
