@@ -23,8 +23,6 @@ public class CreateFeatureModelViewsHandler extends FreeMarkerHandler {
 	public CreateFeatureModelViewsHandler(String handlerName, HttpServlet servlet, Configuration configuration,Template template) {
 		super(handlerName, servlet, configuration, template);
 	}
-
-	/*------------------ Here goes your Handler's logic ------------------*/
 	/**
 	 * This method implements the handler's logic. It basically fills the templateModel map with the necessary information
 	 * that will be later referenced by this handler's freemarker template.
