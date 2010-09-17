@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Compromise
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20081103
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Welcome to the Software Product Lines Online Tools Homepage</title>
+<script src="js/AC_OETags.js"></script>
+
+<link type="text/css" rel="stylesheet" href="splot.css"/>
+
+<script type="text/javascript"
+	 	src="http://ajax.googleapis.com/ajax/libs/dojo/1.3/dojo/dojo.xd.js" 
+	 	djConfig="parseOnLoad: true, isDebug: false, dojoBlankHtmlUrl: 'blank.html'">
+</script>
+
+<script type="text/javascript">
+  dojo.require("dojox.widget.FisheyeLite");
+  
+  dojo.addOnLoad(function(){      
+    dojo.query("img.imgBounce").forEach(function(n){
+      // all the images need a width and a height (well, not need,
+      // but to scale you do)
+      new dojox.widget.FisheyeLite({
+        properties: {
+          height:1.40,
+          width:1.40
+        }
+      },n);
+    });
+  });
+</script>
+<style type="text/css">
+  .imgBounce {
+    padding:0;
+    width:140px; height:140px;
+    vertical-align:middle;
+    position:relative;
+    top:0;
+    cursor:pointer;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 9;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Minor version of Flash required
+var requiredRevision = 124;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+
+</head>
+<body>
+
+<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
+
+<!--
+<div id="header"> 
+	<div id="logo"> 
+		<h1><a href="/SPLOT/index.html">SPLOT</a></h1> 
+		<p> (<b>S</b>oftware <b>P</b>roduct <b>L</b>ine <b>O</b>nline <b>T</b>ools)<br>(experimental)</p> 
+	</div> 
+</div> 
+-->
+
+<!-- end #header --> 
+<div id="menu"> 
+	<ul> 
+		<li><a href="index.html">Home</a></li> 
+		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="product_configuration.html">Product Configuration</a></li> 
+		<li class="first"><a href="feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
+	</ul> 
+</div> 
+<!-- end #menu --> 
+	
+<div id="wrapper"> 
+<div class="btm">
+	<div id="page"> 
+		<div id="content"> 
+			<div class="post"> 
+			
+				<h1 class="title"><a href="#">Real Feature Models</a></h1>
+				
+				<div class="entry">
+					<p>You can either access statistics about the feature model repository or the repository itself. Please, click on the appropriate icon below.</p>
+				
+					<table border="0" cellpadding="8" width="100%">
+					<tr>
+					<td align="right"><img class="imgBounce" title="Click to visualize realtime statistics of the repository" onclick="window.location.href='/SPLOT/SplotAnalysesServlet?action=display_repository_statistics'" src="images/feature_model_repository_stats.jpg"/></td>
+					<td align="left"><img class="imgBounce" title="Click to download and share feature models" onclick="window.location.href='feature_model_repository_depot.html'" src="images/feature_model_repository_icon.jpg"/></td>
+					</tr>
+					</table>
+				</div>
+				
+			</div>
+							
+			<div class="post">
+			
+				<h1 class="title"><a href="#">Automatically-Generated Feature Models</a></h1> 		
+				<div class="entry">
+					<p>The models below were generated automatically to support empirical studies on the 
+					performance and scalability of automated techniques for reasoning on feature models. 
+					In each generated model, each type of mandatory, optional, inclusive-OR and exclusive-OR 
+					feature was added with equal probability. The branching factor (number of children per parent node) 
+					of the feature tree varied from 1 to 6. The cross-tree constraints were generated as a single 
+					<i>Random 3-CNF formula</i>. More details about these kinds of generated feature models 
+					can be found in the section below about our feature model generator tool.</p>
+					<table class="standardTableStyle">
+					<tr>
+						<th>Collection Name</th>
+						<th>Number of Models</th>
+						<th>Model Type</th>
+						<th>Consistency</th>
+						<th>#Features</th>
+						<th>#3-CNF Variables</th>
+						<th>3-CNF Clause Density</th>
+						<th>Download</th>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-500-50-1.00-SAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All consistent</td>
+						<td>500</td>
+						<td>50</td>
+						<td>1.0</td>
+						<td><a href="genmodels/splot-3cnf-fm-500-50-sat.zip">Click</a></td>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-1000-100-1.00-SAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All consistent</td>
+						<td>1000</td>
+						<td>100</td>
+						<td>1.0</td>
+						<td><a href="genmodels/splot-3cnf-fm-1000-100-sat.zip">Click</a></td>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-2000-200-1.00-SAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All consistent</td>
+						<td>2000</td>
+						<td>200</td>
+						<td>0.5</td>
+						<td><a href="genmodels/splot-3cnf-fm-2000-200-sat.zip">Click</a></td>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-5000-500-1.00-SAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All consistent</td>
+						<td>5000</td>
+						<td>500</td>
+						<td>0.3</td>
+						<td><a href="genmodels/splot-3cnf-fm-5000-500-sat.zip">Click</a></td>
+					</tr>
+					<tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-10000-1000-1.00-SAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All consistent</td>
+						<td>10000</td>
+						<td>1000</td>
+						<td>0.1</td>
+						<td><a href="genmodels/splot-3cnf-fm-10000-1000-sat.zip">Click</a></td>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-500-50-1.00-UNSAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All INconsistent</td>
+						<td>500</td>
+						<td>50</td>
+						<td>1.0</td>
+						<td><a href="genmodels/splot-3cnf-fm-500-50-unsat.zip">Click</a></td>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-1000-100-1.00-UNSAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All INconsistent</td>
+						<td>1000</td>
+						<td>100</td>
+						<td>1.0</td>
+						<td><a href="genmodels/splot-3cnf-fm-1000-100-unsat.zip">Click</a></td>
+					</tr>
+					<tr>
+						<td>SPLOT-3CNF-FM-2000-200-1.00-UNSAT</td>
+						<td>10</td>
+						<td>3-CNF-FM</td>
+						<td>All INconsistent</td>
+						<td>2000</td>
+						<td>200</td>
+						<td>1.0</td>
+						<td><a href="genmodels/splot-3cnf-fm-2000-200-unsat.zip">Click</a></td>
+					</tr>
+					</table>
+				</div>				
+				<p class="meta"></p>
+			</div>
+			<div class="post">
+				<h1 class="title"><a href="#">Feature Model Generator</a></h1> 				 
+				<div class="entry">
+					<p>
+					If you need to generate customised feature models you can download our 
+					<b>SPLOT Feature Model Generator</b> tool. The tool generates a special kind of 
+					feature models called <i>3-CNF Feature Models (<b>3-CNF-FMs</b>)</i>.
+					Such models consist of a <i>feature tree</i> and a set of <i>cross-tree constraints</i> represented by
+					a single <a target="_new" href="http://en.wikipedia.org/wiki/Boolean_satisfiability_problem">Random 3-CNF formula</a>.  
+					<a target="_new" href="/SPLOT/articles/mendonca_sat_analysis_splc_2009.pdf" title="M. Mendonca, A. Wasowski, K. Czarnecki, SAT-Based Analysis of Feature Models is Easy, SPLC 2009, San Francisco, USA">
+					Research has shown</a> that, when translated to a SAT problem, 3-CNF-FMs tend to 
+					induce much harder problems than most of realistic models which makes 3-CNF-FMs a powerful 
+					benchmark for testing the performance and the scalability of feature model reasoning techniques.
+					</p>
+					<p><img src="images/download.png"/><a href="/SPLOT/splot_fm_generator.html">Download SPLOT Feature Model Generator</a></p>
+				</div>
+				<p class="meta"></p>
+			</div>
+			<div class="post">
+				<h1 class="title"><a href="#">Share Your Feature Models</a></h1> 				 
+				<div class="entry">
+					<p>
+					There are two possible ways to submit a model to SPLOT's feature model repository:
+					<ul>
+					<li> By e-mail using SPLOT's <a href="http://www.marcilio-mendonca.com/contact_splot.asp">online e-mail form</a></li>
+					<li> By providing the URL of your model to <a href="/SPLOT/feature_model_edition.html">SPLOT's Feature Model Editor</a> and saving the model in the repository afterwards</li>
+					</ul>
+					If you edited your model manually using a text editor you should <a href="/SPLOT/parse_feature_model_for_errors.html">check your feature model's syntax</a> prior to submitting.
+					</p>
+				</div>
+				<p class="meta"></p>
+			</div>
+			<div class="post">
+				<h1 class="title"><a href="#">The SXFM Feature Model Format</a></h1> 				 
+				<div class="entry">
+					<p>Currently, SPLOT requires feature models to be encoded in the <a href="sxfm.html">SXFM format</a>. Thankfully, we 
+					provide an API that allows reading SXFM files into Java objects which can greatly facilitate format conversions.</p>  
+				</div>
+			</div>			 
+		</div>
+		<!-- end #content --> 
+		<div style="clear: both;">&nbsp;</div> 
+	</div>
+</div>
+</div>
+
+<div id="footer"> 
+	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
+</div> 
+<!-- end #footer --> 
+	
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1626595-6");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>
+</html>
+

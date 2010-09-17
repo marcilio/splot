@@ -1,0 +1,186 @@
+<feature_model name="Trek Road Bikes">
+<meta>
+<data name="description">This feature models describes the features of Trek Bikes</data>
+<data name="creator">Marcilio Mendonca</data>
+<data name="email">marcilio.mendonca@gmail.com</data>
+<data name="date">May, 2009</data>
+<data name="department"></data>
+<data name="organization"></data>
+<data name="address"></data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Trek Bikes (trek_bikes)
+	:m Category (category)
+		:g [1,1]
+			: Road (_category_road)
+	:m Rider Gender (rider_gender)
+		:g [1,1]
+			: Female (_rider_gender_female)
+			: Male (_rider_gender_male)
+	:m Price (price_range)
+		:g [1,1]
+			: 1,000 or under (_price_range_1_000_or_under)
+			: 1,001 - 2,000 (_price_range_1_001___2_000)
+			: 2,001 - 3,000 (_price_range_2_001___3_000)
+			: 3,001 - 5,000 (_price_range_3_001___5_000)
+			: 5,001 - 10,000 (_price_range_5_001___10_000)
+	:m Frameset (frameset)
+		:m Size (frame_size)
+			:g [1,1]
+				: 43 (_frame_size_43)
+				: 47 (_frame_size_47)
+				: 50 (_frame_size_50)
+				: 52 (_frame_size_52)
+				: 54 (_frame_size_54)
+				: 56 (_frame_size_56)
+				: 58 (_frame_size_58)
+				: 60 (_frame_size_60)
+				: 62 (_frame_size_62)
+				: 64 (_frame_size_64)
+		:m Frame (frame)
+			:g [1,1]
+				: Alpha Black Aluminum (_frame_alpha_black_aluminum)
+				: Alpha White Aluminum (_frame_alpha_white_aluminum)
+				: OCLV Black Carbon (_frame_oclv_black_carbon)
+				: OCLV Red Carbon (_frame_oclv_red_carbon)
+				: OCLV White Carbon (_frame_oclv_white_carbon)
+				: TCT Carbon (_frame_tct_carbon)
+		:m Fork (fork)
+			:g [1,1]
+				: Bontrager Approved, carbon (_fork_bontrager_approved__carbon)
+				: Bontrager Race Lite, carbon w/E2 aluminum steerer; SpeedTrap compatible (_fork_bontrager_race_lite__carbon_w_e2_aluminum_steerer__speedtrap_compatible)
+				: Bontrager Race X Lite w/E2 aluminum steerer, carbon crown and legs (_fork_bontrager_race_x_lite_w_e2_aluminum_steerer__carbon_crown_and_legs)
+				: Bontrager Race XXX Lite w/E2 full carbon steerer (_fork_bontrager_race_xxx_lite_w_e2_full_carbon_steerer)
+				: Bontrager Race, carbon; SpeedTrap compatible (_fork_bontrager_race__carbon__speedtrap_compatible)
+	:m Wheels (wheels)
+		:m Type (wheels_type)
+			:g [1,1]
+				: Alloy hubs; Bontrager Approved alloy rims (_wheels_type_alloy_hubs__bontrager_approved_alloy_rims)
+				: Bontrager Aeolus 5.0, carbon Astana Edition (_wheels_type_bontrager_aeolus_5_0__carbon_astana_edition)
+				: Bontrager Race (_wheels_type_bontrager_race)
+				: Bontrager Race Lite (_wheels_type_bontrager_race_lite)
+				: Bontrager Race X Lite (_wheels_type_bontrager_race_x_lite)
+				: Bontrager Race XXX Lite, carbon (_wheels_type_bontrager_race_xxx_lite__carbon)
+				: Bontrager SSR (_wheels_type_bontrager_ssr)
+		:m Tires (tires)
+			:g [1,1]
+				: Bontrager Race Lite, 700x23c (_tires_bontrager_race_lite__700x23c)
+				: Bontrager Race Lite, 700x23c, folding (_tires_bontrager_race_lite__700x23c__folding)
+				: Bontrager Race X Lite AC, 700x23c, folding (_tires_bontrager_race_x_lite_ac__700x23c__folding)
+				: Bontrager Race X Lite, 700x23c, folding (_tires_bontrager_race_x_lite__700x23c__folding)
+				: Bontrager Select, 650x25c (_tires_bontrager_select__650x25c)
+				: Bontrager Select, 700x25c (_tires_bontrager_select__700x25c)
+	:m Drivetrain (drivetrain)
+		:m Shifters (shifters)
+			:g [1,1]
+				: SRAM Force, 10 speed (_shifters_sram_force__10_speed)
+				: SRAM Red (_shifters_sram_red)
+				: Shimano 105 STI, 10 speed (_shifters_shimano_105_sti__10_speed)
+				: Shimano 105 STI, 10 speed w/Bontrager FIT reach adjust (_shifters_shimano_105_sti__10_speed_w_bontrager_fit_reach_adjust)
+				: Shimano Dura-Ace 7900 STI, 10 speed (_shifters_shimano_dura_ace_7900_sti__10_speed)
+				: Shimano Sora STI, 9 speed (_shifters_shimano_sora_sti__9_speed)
+				: Shimano Ultegra SL STI, 10 speed (_shifters_shimano_ultegra_sl_sti__10_speed)
+				: Shimano Ultegra STI, 10 speed (_shifters_shimano_ultegra_sti__10_speed)
+		:m Front Derailleur (front_derailleur)
+			:g [1,1]
+				: SRAM Force (_front_derailleur_sram_force)
+				: SRAM Red (_front_derailleur_sram_red)
+				: Shimano 105 (_front_derailleur_shimano_105)
+				: Shimano Dura-Ace 7900 (_front_derailleur_shimano_dura_ace_7900)
+				: Shimano Sora (_front_derailleur_shimano_sora)
+				: Shimano Sora, triple (_front_derailleur_shimano_sora__triple)
+				: Shimano Ultegra (_front_derailleur_shimano_ultegra)
+				: Shimano Ultegra SL (_front_derailleur_shimano_ultegra_sl)
+		:m Rear Derailleur (rear_derailleur)
+			:g [1,1]
+				: SRAM Force (_rear_derailleur_sram_force)
+				: SRAM Red (_rear_derailleur_sram_red)
+				: Shimano Dura-Ace 7900 (_rear_derailleur_shimano_dura_ace_7900)
+				: Shimano Sora GS, 9 speed (_rear_derailleur_shimano_sora_gs__9_speed)
+				: Shimano Tiagra GS (_rear_derailleur_shimano_tiagra_gs)
+				: Shimano Ultegra (_rear_derailleur_shimano_ultegra)
+				: Shimano Ultegra SL (_rear_derailleur_shimano_ultegra_sl)
+		:m Crank (crank)
+			:g [1,1]
+				: FSA Vero 50/34 or 50/39/30 (_crank_fsa_vero_50_34_or_50_39_30)
+				: FSA Vero T 50/39/30 (_crank_fsa_vero_t_50_39_30)
+				: SRAM Force 50/34 (_crank_sram_force_50_34)
+				: SRAM Force 53/39 (_crank_sram_force_53_39)
+				: SRAM Red 50/34 (_crank_sram_red_50_34)
+				: SRAM Red 53/39 (_crank_sram_red_53_39)
+				: Shimano 105 50/34 or 50/39/30 (_crank_shimano_105_50_34_or_50_39_30)
+				: Shimano Dura-Ace 7900 50/34 (_crank_shimano_dura_ace_7900_50_34)
+				: Shimano Dura-Ace 7900 53/39 (_crank_shimano_dura_ace_7900_53_39)
+				: Shimano Ultegra 50/34 or 52/39/30 (_crank_shimano_ultegra_50_34_or_52_39_30)
+				: Shimano Ultegra SL 50/34 or 52/39/30 (_crank_shimano_ultegra_sl_50_34_or_52_39_30)
+				: Shimano Ultegra SL 53/39 (_crank_shimano_ultegra_sl_53_39)
+		:m Cassette (cassette)
+			:g [1,1]
+				: SRAM OpenGlide 1070 11-26, 10 speed (_cassette_sram_openglide_1070_11_26__10_speed)
+				: SRAM OpenGlide 1070 11-28, 10 speed (_cassette_sram_openglide_1070_11_28__10_speed)
+				: SRAM OpenGlide 1090 11-26, 10 speed (_cassette_sram_openglide_1090_11_26__10_speed)
+				: SRAM PG950 11-26, 9 speed (_cassette_sram_pg950_11_26__9_speed)
+				: Shimano 105 11-25 or 12-27  triple , 10 speed (_cassette_shimano_105_11_25_or_12_27__triple___10_speed)
+				: Shimano 105 11-25, 10 speed (_cassette_shimano_105_11_25__10_speed)
+				: Shimano 105 12-25 or 12-27  triple , 10 speed (_cassette_shimano_105_12_25_or_12_27__triple___10_speed)
+				: Shimano Dura-Ace 7900 11-25, 10 speed (_cassette_shimano_dura_ace_7900_11_25__10_speed)
+				: Shimano Dura-Ace 7900 11-28, 10 speed (_cassette_shimano_dura_ace_7900_11_28__10_speed)
+		:o Pedals (pedals)
+			:m Nylon body w/alloy cage (_pedals_nylon_body_w_alloy_cage)
+	:m Components (components)
+		:m Saddle (saddle)
+			:g [1,1]
+				: Bontrager Race (_saddle_bontrager_race)
+				: Bontrager Race Basic (_saddle_bontrager_race_basic)
+				: Bontrager Race FIT (_saddle_bontrager_race_fit)
+				: Bontrager Race Lite (_saddle_bontrager_race_lite)
+				: Bontrager Race Lite FIT (_saddle_bontrager_race_lite_fit)
+				: Bontrager Race X Lite (_saddle_bontrager_race_x_lite)
+		:m Seat Post (seat_post)
+			:g [1,1]
+				: Bontrager Alloy, Infinite Angle Adjustability (_seat_post_bontrager_alloy__infinite_angle_adjustability)
+				: Bontrager Carbon, Infinite Angle Adjustability (_seat_post_bontrager_carbon__infinite_angle_adjustability)
+				: Bontrager Race Lite Basic (_seat_post_bontrager_race_lite_basic)
+				: Carbon seat mast cap (_seat_post_carbon_seat_mast_cap)
+		:m Handlebars (handlebars)
+			:g [1,1]
+				: Bontrager FIT VR, 31.8mm (_handlebars_bontrager_fit_vr__31_8mm)
+				: Bontrager Race Lite VR, 31.8mm (_handlebars_bontrager_race_lite_vr__31_8mm)
+				: Bontrager Race VR OS, 31.8mm (_handlebars_bontrager_race_vr_os__31_8mm)
+				: Bontrager Race VR, 31.8mm (_handlebars_bontrager_race_vr__31_8mm)
+				: Bontrager Race X Lite Blade Carbon, 31.8mm (_handlebars_bontrager_race_x_lite_blade_carbon__31_8mm)
+				: Bontrager Race XXX Lite VR, 31.8mm (_handlebars_bontrager_race_xxx_lite_vr__31_8mm)
+				: Bontrager SSR VR Bend OS, 31.8mm (_handlebars_bontrager_ssr_vr_bend_os__31_8mm)
+		:m Stem (stem)
+			:g [1,1]
+				: Bontrager Race Lite OS, 7 degree, 31.8mm (_stem_bontrager_race_lite_os__7_degree__31_8mm)
+				: Bontrager Race Lite, 7 degree, 31.8mm (_stem_bontrager_race_lite__7_degree__31_8mm)
+				: Bontrager Race X Lite, 7 degree, 31.8mm (_stem_bontrager_race_x_lite__7_degree__31_8mm)
+				: Bontrager Race XXX Lite Carbon, 7 degree, 31.8mm (_stem_bontrager_race_xxx_lite_carbon__7_degree__31_8mm)
+				: Bontrager SSR OS, 10 degree, 31.8mm (_stem_bontrager_ssr_os__10_degree__31_8mm)
+		:m Headset (headset)
+			:g [1,1]
+				: Aheadset Slimstak w/semi-cartridge bearings, sealed (_headset_aheadset_slimstak_w_semi_cartridge_bearings__sealed)
+				: Aheadset w/cartridge bearings, integrated, sealed, alloy (_headset_aheadset_w_cartridge_bearings__integrated__sealed__alloy)
+				: Aheadset w/semi-cartridge bearings, integrated, sealed, alloy (_headset_aheadset_w_semi_cartridge_bearings__integrated__sealed__alloy)
+				: Cane Creek IS-2 Integrated w/cartridge bearings, sealed, alloy; 1 1/8" top, 1.5" bottom (_headset_cane_creek_is_2_integrated_w_cartridge_bearings__sealed__alloy__1_1_8__top__1_5__bottom)
+				: Cane Creek IS-8 Integrated w/cartridge bearings, sealed, alloy; 1 1/8" top, 1.5" bottom (_headset_cane_creek_is_8_integrated_w_cartridge_bearings__sealed__alloy__1_1_8__top__1_5__bottom)
+		:m Brakeset (brakeset)
+			:g [1,1]
+				: Alloy dual pivot w/Shimano 105 STI levers (_brakeset_alloy_dual_pivot_w_shimano_105_sti_levers)
+				: Alloy dual pivot w/Shimano Sora STI levers (_brakeset_alloy_dual_pivot_w_shimano_sora_sti_levers)
+				: Alloy dual pivot w/short reach Shimano 105 STI levers (_brakeset_alloy_dual_pivot_w_short_reach_shimano_105_sti_levers)
+				: Bontrager Speed Limit (_brakeset_bontrager_speed_limit)
+				: SRAM Red (_brakeset_sram_red)
+				: Shimano Dura-Ace w/Shimano Dura-Ace STI levers (_brakeset_shimano_dura_ace_w_shimano_dura_ace_sti_levers)
+				: Shimano Dura-Ace w/adjustable reach STI levers (_brakeset_shimano_dura_ace_w_adjustable_reach_sti_levers)
+				: Shimano Ultegra SL w/Shimano Ultegra SL STI levers (_brakeset_shimano_ultegra_sl_w_shimano_ultegra_sl_sti_levers)
+				: Shimano Ultegra w/Shimano Ultegra STI levers (_brakeset_shimano_ultegra_w_shimano_ultegra_sti_levers)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>
+

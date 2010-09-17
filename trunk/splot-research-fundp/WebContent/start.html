@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Compromise
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20081103
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Welcome to the Software Product Lines Online Tools Homepage</title>
+
+<link type="text/css" rel="stylesheet" href="splot.css"/>
+
+<script type="text/javascript"
+	 	src="http://ajax.googleapis.com/ajax/libs/dojo/1.3/dojo/dojo.xd.js" 
+	 	djConfig="parseOnLoad: true, isDebug: false, dojoBlankHtmlUrl: 'blank.html'">
+</script>
+
+<script type="text/javascript">
+  dojo.require("dojox.widget.FisheyeLite");
+  
+  dojo.addOnLoad(function(){      
+    dojo.query("img.imgBounce").forEach(function(n){
+      // all the images need a width and a height (well, not need,
+      // but to scale you do)
+      new dojox.widget.FisheyeLite({
+        properties: {
+          height:1.40,
+          width:1.40
+        }
+      },n);
+    });
+  });
+</script>
+<style type="text/css">
+  .imgBounce {
+    padding:0;
+    width:140px; height:140px;
+    vertical-align:middle;
+    position:relative;
+    top:0;
+    cursor:pointer;
+  }
+</style>
+
+</head>
+<body>
+
+<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
+
+<!-- end #header --> 
+<div id="menu"> 
+	<ul> 
+		<li class="first"><a href="index.html">Home</a></li> 
+		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="product_configuration.html">Product Configuration</a></li> 
+		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
+	</ul> 
+</div> 
+<!-- end #menu --> 
+
+<div id="wrapper"> 
+<div class="btm"> 
+	<div id="page"> 
+		<div id="content"> 
+<!-- BIG ANNOUNCEMENT --> 
+			<div class="post">
+<!-- 			
+<h1 style="color:#FF7900" >Try <a href="http://gdansk.uwaterloo.ca:8088/SPLOT/SplotConfigurationServlet?action=catalog_interactive_configuration_main&op=reset&selectedModels=trekbikes_fm.xml">SPLOT's configuration technology</a> to choose your new Trek bike</h1>
+ -->
+            <table border=0 width=100%>
+			<tr>
+			<td align="center" height="204">
+				<img class="imgBounce" title="Edit your feature model online now!" onclick="window.location.href='feature_model_edition.html'" src="images/feature_model_editor_icon.jpg"/>
+				<img class="imgBounce" title="Configure your feature model online" onclick="window.location.href='product_configuration.html'" src="images/product_configuration_icon.jpg"/>
+				<img class="imgBounce" title="Analyze your feature model online" onclick="window.location.href='automated_analyses.html'" src="images/automated_analysis_icon.jpg"/>
+				<img class="imgBounce" title="Download and share feature models" onclick="window.location.href='feature_model_repository.html'" src="images/feature_model_repository_icon.jpg"/>
+				<img class="imgBounce" title="Download SPLOT's source code" onclick="window.location.href='/SPLOT/splot_open_source.html'" src="images/splot_open_source.jpg"/>
+			</td></tr>
+            </table>
+ 			<p class="meta"></p>
+		 	</div>
+
+			<center><span onclick="window.location='/SPLOT/happy_anniversary_1.html'"><img title="" src="images/anniversary_banner.png"/></center>
+
+			<div class="post"> 
+				<h1 class="title"><a href="#">What's New?</a></h1> 
+				<div class="entry">
+					<table border=0>
+					
+					<tr><td valign="bottom">
+						<b>July 2010</b>
+					</td><td valign="top">
+						<img src="images/star.png"/><a href="/SPLOT/splot_open_source.html">S.P.L.O.T. goes Open Source!</a> 
+					</td></tr>
+					
+					<tr><td valign="bottom">
+						<b>May 2010</b>
+					</td><td valign="top">
+						<a href="/SPLOT/happy_anniversary_1.html">Happy First Anniversary</a> S.P.L.O.T. - We Thank YOU for your support! &nbsp;<img width="12" height="12" src="images/cake.jpg"/>
+					</td></tr>
+					
+					<tr><td valign="bottom">
+						<b>Mar 2010</b>
+					</td><td valign="top">
+						You can now access <a href="/SPLOT/SplotAnalysesServlet?action=display_repository_statistics">Realtime Statistics</a> of SPLOT's feature model repository</a>.
+					</td></tr>					
+					
+					<tr><td valign="bottom">
+						<b>Jan 2010</b>
+					</td><td valign="top">
+					- We're excited that <a href="splot_at_vamos2010.html">several research papers</a> have mentioned SPLOT at 
+					<a target="_new" href="http://www.vamos-workshop.net/2010/">VaMoS 2010</a>.
+					</td></tr>
+					
+					<tr><td valign="bottom">
+						<b>Nov 2009</b>
+					</td><td valign="top">
+					- SPLOT's <a href="feature_model_repository.html">Feature Model Repository</a> gains a new look
+					</td></tr>
+					
+					<tr><td valign="top">
+						<b>Oct 2009</b>
+					</td><td valign="top">
+					- SPLOT participated in <a target="_new" href="http://www.oopsla.org/oopsla2009/">OOPSLA 2009</a> in Orlando, USA. 
+					Download our <a href="splot-oopsla-2009-flyer.pdf">flyer</a>, the 
+					<a href="splot-oopsla-2009-poster.ppt">poster</a> or check out the works in the
+					<a target="_new" href="http://www.oopsla.org/oopsla2009/program/posters">poster session</a>!  
+					</td></tr>
+					<tr><td valign="top">
+						<b>Oct 2009</b>
+					</td><td valign="top">
+					- SPLOT now offers a <a href="feature_model_edition.html">Feature Model Editor</a> that integrates edition, analysis and configuration into a single GUI
+					</td></tr>
+					<tr><td valign="top">
+						<b>Sep 2009</b>
+					</td><td valign="top">
+					- <a href="splot_fm_generator.html">SPLOT Feature Model Generator</a> available for download!
+					</td></tr>
+					<tr><td valign="top">
+						<b>Sep 2009</b>
+					</td><td valign="top">
+					- SPLOT's <a href="feature_model_repository.html">feature model repository</a> now contains <b>30 models</b> extracted from relevant sources
+					</td></tr> 
+					<tr><td valign="top">
+						<b>Aug 2009</b>
+					</td><td valign="top">
+					- SPLOT is at <a target="_new" href="http://www.sei.cmu.edu/splc2009/">SPLC'09</a> in San Francisco-USA. Please contact Marcilio Mendonca for details.
+					</td></tr>
+					<tr><td valign="top">
+						<b>Jul 2009</b>
+					</td><td valign="top">
+					- SPLOT now offers a <a href="product_configuration.html"><i>Feature-Based Product Catalog Search</i></a> feature
+					</td></tr>
+					<tr><td valign="top"><b>May 2009</b></td>
+					<td valign="top">
+					- SPLOT is launched in experimental phase
+					</td>
+					</tr>
+					</table>
+				</div> 
+				<p class="meta"></p>
+			</div>
+			<div class="post"> 
+				<h1 class="title"><a href="#">Welcome to S.P.L.O.T. </a></h1> 
+				<div class="entry"> 
+					<p>Welcome to the SPLOT project's website. The primary goal of SPLOT is to <b><i>put Software Product Lines research 
+					into practice</i></b> through the delivery of state-of-the-art online tools targeting academics and practitioners in the field. 
+					With SPLOT you can edit, debug, analyze, configure, share and download feature models instantly.</p>
+					<p>We have tested SPLOT on the following Internet browsers (Windows): <b>Safari</b> (4.0.3), <b>Mozilla</b> (3.0.11), 
+					<b>Google Chrome</b> (2.0.172) and <b>Microsoft IE</b> (8.0).
+					Safari has proven to be the fastest browser (as claimed by Apple) followed by Google's browser, Mozilla, and MIE. </p>
+					<p> Please, let us know if you encountered any problems using SPLOT on other platforms and/or browsers. 
+					We value your <a href="http://www.marcilio-mendonca.com/contact_splot.asp">feedback</a> a lot!</p> 				
+				</div> 
+				<p class="meta"></p>
+			</div> 
+			<div class="post"> 
+				<h1 class="title"><a href="#">S.P.L.O.T. is Science</a></h1>
+				<div class="entry"> 
+					<p>
+					
+					<b>SPLOT's Official Reference:</b>
+					<ul>
+						<li>Marcilio Mendonca, Moises Branco, Donald Cowan: 
+						<a href="#">S.P.L.O.T. - Software Product Lines Online Tools</a>. 
+						In Companion to the 24th ACM SIGPLAN International Conference on Object-Oriented Programming, 
+						Systems, Languages, and Applications, OOPSLA 2009, October 2009, Orlando, Florida, USA.
+						<b></b>(<a target="_new" href="articles/mendonca_splot_oopsla_2009.pdf">Download</a>)</b>
+						</li>
+					</ul>
+					
+					<b>SPLOT's Related Publications:</b>
+					<ul>
+						<li>Marcilio Mendonca, Donald Cowan: 
+							<a href="http://dx.doi.org/10.1016/j.scico.2009.12.004">Decision-Making Coordination and Efficient Reasoning Techniques for Feature-Based Configuration</a>. 
+							Science of Computer Programming 75 (2010), pp. 311-332. 
+							DOI: <a target="_new" href="http://dx.doi.org/10.1016/j.scico.2009.12.004">http://dx.doi.org/10.1016/j.scico.2009.12.004</a> 
+						</li>
+						<li>Marcilio Mendonca, Andrzej Wasowski, Krzysztof Czarnecki: 
+							<a target="_new" href="/SPLOT/articles/mendonca_sat_analysis_splc_2009.pdf">SAT-based Analysis of Feature Models is Easy</a>. 
+							In Proceedings of the 13th International Software Product Line Conference (SPLC'09). Aug 2009, San Francisco, CA, USA.
+							<b></b>(<a href="articles/mendonca_sat_analysis_splc_2009.pdf">Download</a>)</b>
+						</li>
+						<li> Marcilio Mendonca: <a href="http://hdl.handle.net/10012/4201">Efficient Reasoning Techniques for Large Scale Feature Models</a>, PhD Thesis, University of Waterloo, 
+							Jan 2009, Waterloo, Ontario, Canada. Supervisors: Donald Cowan and Krzysztof Czarnecki. 
+							<b></b>(<a target="_new" href="http://hdl.handle.net/10012/4201">Download</a>)</b>
+						</li>
+						<li>Marcilio Mendonca, Andrzej Wasowski, Krzysztof Czarnecki, Donald Cowan: 
+							<a href="http://portal.acm.org/citation.cfm?id=1449913.1449918">Efficient Compilation Techniques for Large Scale Feature Models</a>. 
+							In Proceedings of the 7th ACM International Conference on Generative Programming and 
+							Component Engineering (GPCE'08). Oct 2008, Nashville, Tennessee, USA.
+							<b></b>(<a target="_new" href="http://portal.acm.org/citation.cfm?id=1449913.1449918">Download from ACM</a>)</b>
+						</li>
+					</ul>
+					</p>
+					 
+					<p>
+					<b>Third-party References to SPLOT:</b>
+					<ul>
+					<li>SPLOT at <a href="splot_at_vamos2010.html">VaMoS 2010</a></li>
+					</ul>
+					</p>
+				</div> 
+				<p class="meta"></p>
+			</div>
+			<div class="post"> 
+				<h1 class="title"><a href="#">Software Product Lines Research Venues</a></h1>
+				<div class="entry"> 
+				<p>
+					<ul>
+						<li>SPLC - Software Product Line Conference (<a href="http://splc.net/">http://splc.net/</a>)</li>
+						<li>VaMoS - Variability Modelling of Software-intensive Systems  (<a href="www.vamos-workshop.net">http://www.vamos-workshop.net</a>)</li>
+						<li>Practical Product Lines (<a href="http://practicalproductlines.org/ppl2009/">http://practicalproductlines.org/ppl2009/</a>)</li>
+						<li>International Conference on Software Engineering (<a href="http://www.icse-conferences.org/">http://www.icse-conferences.org/</a>)</li>
+						<li>SPLASH (former OOPSLA) -  Systems, Programming, Languages, and Applications: Software for Humanity (<a href="http://www.splashcon.org/">http://www.splashcon.org/</a>)</li>
+						<li>GPCE - Generative Programming and Component Engineering (<a href="http://www.hope.cs.rice.edu/twiki/bin/view/Gpce/WebHome">http://www.hope.cs.rice.edu/twiki/bin/view/Gpce/WebHome</a>)</li>						
+					</ul>
+				</p> 
+				</div> 				
+			</div> 
+		</div> 
+		<!-- end #content --> 
+		<div style="clear: both;">&nbsp;</div> 
+	</div> 
+	<!-- end #page --> 
+</div> 
+</div> 
+
+<div id="footer"> 
+	<p><a href="http://csg.uwaterloo.ca">Computer Systems Group</a> / <a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a>, University of Waterloo, Canada, 2009-2010.</p>
+	<p>Design by Free CSS Templates - http://www.freecsstemplates.org</p> 
+</div> 
+<!-- end #footer --> 
+	
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1626595-6");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>
+</html>
+

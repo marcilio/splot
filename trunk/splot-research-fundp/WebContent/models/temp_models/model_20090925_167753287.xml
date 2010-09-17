@@ -1,0 +1,19 @@
+<feature_model name="Type name for root feature">
+<meta>
+<data name="description"></data>
+<data name="creator"></data>
+<data name="address"></data>
+<data name="email"></data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization"></data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Type name for root feature(_r)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

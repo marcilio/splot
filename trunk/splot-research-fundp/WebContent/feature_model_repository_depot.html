@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Compromise
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20081103
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Welcome to the Software Product Lines Online Tools Homepage</title>
+<script src="js/AC_OETags.js"></script>
+
+<link type="text/css" rel="stylesheet" href="splot.css"/>
+
+<script type="text/javascript" src="js/ajax.js"></script> 
+<script type="text/javascript" src="js/ajax-dynamic-content.js"></script>
+
+<script type="text/javascript"> 
+<!--
+ 
+function openModelSelectionPage() 
+{
+	ajax_loadContent('model_list','/SPLOT/SplotAnalysesServlet?action=select_model&enableSelection=false&&showModelDetails=true');
+	document.getElementById('FMRepository').style.display = 'none';
+} 
+-->
+</script>
+
+
+<script type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 9;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Minor version of Flash required
+var requiredRevision = 124;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+
+</head>
+<body onload="openModelSelectionPage();">
+
+<div id="header"><div id="logo"><img src="images/splot.jpg"/></div></div> 
+
+<!--
+<div id="header"> 
+	<div id="logo"> 
+		<h1><a href="/SPLOT/index.html">SPLOT</a></h1> 
+		<p> (<b>S</b>oftware <b>P</b>roduct <b>L</b>ine <b>O</b>nline <b>T</b>ools)<br>(experimental)</p> 
+	</div> 
+</div> 
+-->
+
+<!-- end #header --> 
+<div id="menu"> 
+	<ul> 
+		<li><a href="index.html">Home</a></li> 
+		<li><a href="feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="product_configuration.html">Product Configuration</a></li> 
+		<li class="first"><a href="feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
+	</ul> 
+</div> 
+<!-- end #menu --> 
+	
+<div id="wrapper"> 
+<div class="btm">
+	<div id="page"> 
+		<div id="content"> 
+			<div class="post"> 
+			
+				<h1 class="title"><a href="#">Repository of Real Feature Models</a></h1>
+
+				<div class="entry">
+					<p>The models below were either extracted from academic publications and other relevant sources 
+					(on a best effort basis) or edited by their authors using SPLOT's 
+					<a href="feature_model_edition.html">online feature model editor</a>. 
+					If you're are an author and wish to update your feature model's entry please use the 
+					<a href="feature_model_edition.html">editor tool.</a> If you disagree with a repository 
+					entry please <a href="http://www.marcilio-mendonca.com/contact_splot.asp">contact us</a>. 
+					The main purpose of the repository is to encourage knowledge sharing among researchers and 
+					ultimately improve research quality.</p>
+					
+					<!-- 
+					<p style="text-align: center">
+					<span style="font-size:14px;">
+						If you cannot see the repository below, please <b><a href="javascript:openModelSelectionPage();return false;">click here for a standard HTML view</a></b>.
+					</span>
+					</p>
+					 -->
+					 
+					<div id="model_list"></div>
+					
+					<script type="text/javascript">
+					<!--
+					// Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
+					var hasProductInstall = DetectFlashVer(6, 0, 65);
+					
+					// Version check based upon the values defined in globals
+					var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+					
+					if ( hasProductInstall && !hasRequestedVersion ) {
+						// DO NOT MODIFY THE FOLLOWING FOUR LINES
+						// Location visited after installation is complete if installation is required
+						var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+						var MMredirectURL = window.location;
+					    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+					    var MMdoctitle = document.title;
+					
+						AC_FL_RunContent(
+							"src", "playerProductInstall",
+							"FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+							"width", "830",
+							"height", "600",
+							"align", "middle",
+							"id", "FMRepository",
+							"quality", "high",
+							"bgcolor", "#ffffff",
+							"name", "FMRepository",
+							"allowScriptAccess","sameDomain",
+							"type", "application/x-shockwave-flash",
+							"pluginspage", "http://www.adobe.com/go/getflashplayer"
+						);
+					} else if (hasRequestedVersion) {
+						// if we've detected an acceptable version
+						// embed the Flash Content SWF when all tests are passed
+						AC_FL_RunContent(
+								"src", "FMRepository",
+								"width", "830",
+								"height", "600",
+								"align", "middle",
+								"id", "FMRepository",
+								"quality", "high",
+								"bgcolor", "#ffffff",
+								"name", "FMRepository",
+								"allowScriptAccess","sameDomain",
+								"type", "application/x-shockwave-flash",
+								"pluginspage", "http://www.adobe.com/go/getflashplayer"
+						);
+					  } else {  // flash is too old or we can't detect the plugin
+					    var alternateContent = 'Alternate HTML content should be placed here. '
+					  	+ 'This content requires the Adobe Flash Player. '
+					   	+ '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';
+					    document.write(alternateContent);  // insert non-flash content
+					  }
+					// -->
+					</script>
+					<noscript>
+					  	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+								id="FMRepository" width="830" height="600"
+								codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+								<param name="movie" value="FMRepository.swf" />
+								<param name="quality" value="high" />
+								<param name="bgcolor" value="#ffffff" />
+								<param name="allowScriptAccess" value="sameDomain" />
+								<embed src="FMRepository.swf" quality="high" bgcolor="#ffffff"
+									width="830" height="600" name="FMRepository" align="middle"
+									play="true"
+									loop="false"
+									quality="high"
+									allowScriptAccess="sameDomain"
+									type="application/x-shockwave-flash"
+									pluginspage="http://www.adobe.com/go/getflashplayer">
+								</embed>
+						</object>
+					</noscript>					
+					<br>&nbsp;</br>
+					<p>
+					The quality of the feature model repository is enforced by the following rules: <br>
+					<ul>
+					<li><b>Consistency</b>: All models are guaranteed to be consistent (contain at least one valid configuration)</li>
+					<li><b>Correctness</b>: None of the models contain <i>dead</i> features</li>
+					<li><b>Transparency</b>: All models identify their authors (or related literature) and provide some contact information</li>
+					</ul>
+					</p>
+
+					<!-- <div id="model_list" class="entry">  -->
+					 								 			
+				</div>
+				<p class="meta"></p>
+			</div>
+		</div>
+		<!-- end #content --> 
+		<div style="clear: both;">&nbsp;</div> 
+	</div>
+</div>
+</div>
+
+<div id="footer"> 
+	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
+</div> 
+<!-- end #footer --> 
+	
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1626595-6");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>
+</html>
+
