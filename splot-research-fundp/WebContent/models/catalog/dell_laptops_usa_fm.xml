@@ -1,0 +1,134 @@
+<feature_model name="Dell Laptops - USA">
+<meta>
+<data name="description">This feature models describes the features of Dell Laptops - USA</data>
+<data name="creator">Marcilio Mendonca</data>
+<data name="email">marcilio.mendonca@gmail.com</data>
+<data name="date">July, 2009</data>
+<data name="department"></data>
+<data name="organization"></data>
+<data name="address"></data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Dell Laptops USA (dell_laptops_usa)
+	:m Category (category)
+		:g [1,1]
+			: Inspiron (_category_inspiron)
+			: Netbook (_category_netbook)
+			: Studio (_category_studio)
+			: Studio XPS (_category_studio_xps)
+	:m Price Range (price_range)
+		:g [1,1]
+			: less than $400 (_price_range_less_than__400)
+			: $400 - $800 (_price_range__400____800)
+			: $800 - $1200 (_price_range__800____1200)
+			: more than $1200 (_price_range_more_than__1200)
+	:m Processor (processor)
+		:g [1,1]
+			: Intel Atom Processor N270 -1.6GHz/533Mhz FSB/512K cache (_processor_intel__atom_processor__n270__1_6ghz_533mhz_fsb_512k_cache)
+			: Intel Celeron 900 -1MB cache/2.20GHz/800Mhz FSB (_processor_intel__celeron__900__1mb_cache_2_20ghz_800mhz_fsb)
+			: Intel Core 2 Duo P7350 -3MB cache/2.0GHz/1066Mhz FSB (_processor_intel__core__2_duo_p7350__3mb_cache_2_0ghz_1066mhz_fsb)
+			: Intel Core 2 Duo P8600 -3MB cache/2.4GHz/1066Mhz FSB (_processor_intel__core__2_duo_p8600__3mb_cache_2_4ghz_1066mhz_fsb)
+			: Intel Core 2 Duo T6400 -2.0GHz/800Mhz FSB/2MB cache (_processor_intel__core__2_duo_t6400__2_0ghz_800mhz_fsb_2mb_cache)
+			: Intel Core 2 Duo T6500 -2.1GHz/800Mhz FSB/2MB cache (_processor_intel__core__2_duo_t6500__2_1ghz_800mhz_fsb_2mb_cache)
+			: Intel Core 2 Duo T6600 -2.2GHz/800Mhz FSB/2MB cache (_processor_intel__core__2_duo_t6600__2_2ghz_800mhz_fsb_2mb_cache)
+			: Intel Pentium Dual Core T4200 -2.0GHz/800Mhz FSB/1MB cache (_processor_intel__pentium__dual_core_t4200__2_0ghz_800mhz_fsb_1mb_cache)
+			: IntelAtomProcessor Z520 -1.33GHz/533MHz FSB/512K Cache (_processor_intel_atom_processor_z520__1_33ghz_533mhz_fsb_512k_cache)
+			: IntelAtomProcessor Z530 -1.6GHz/533MHz FSB/512K Cache (_processor_intel_atom_processor_z530__1_6ghz_533mhz_fsb_512k_cache)
+	:m Operating System (operating_system)
+		:g [1,1]
+			: Genuine Windows Vista Home Basic Edition (_operating_system_genuine_windows_vista__home_basic_edition)
+			: Genuine Windows Vista Home Premium Edition (_operating_system_genuine_windows_vista__home_premium_edition)
+			: Genuine Windows XP Home Edition (_operating_system_genuine_windows__xp_home_edition)
+			: Ubuntu Desktop Edition version 8.10 (_operating_system_ubuntu_desktop_edition_version_8_10)
+			: Ubuntu Linux version 8.04.1 (_operating_system_ubuntu_linux_version_8_04_1)
+	:o Drives (drives)
+		:g [1,1]
+			: 8X CD / DVD Burner -Dual Layer DVD+/-R Drive (_drives_8x_cd___dvd_burner__dual_layer_dvd___r_drive)
+			: 8X DVD+/- RW-DVD/CD read/write Slot Load Drive (_drives_8x_dvd____rw_dvd_cd_read_write_slot_load_drive)
+			: 8X Slot Load CD / DVD Burner -Dual Layer DVD+/-R Drive (_drives_8x_slot_load_cd___dvd_burner__dual_layer_dvd___r_drive)
+			: 8X Slot Load CD / DVD Burner -Dual Layer DVD+/-RW Drive (_drives_8x_slot_load_cd___dvd_burner__dual_layer_dvd___rw_drive)
+			: 8X Slot Load Super Multi -DL DVD+/-R Drive + RAM support (_drives_8x_slot_load_super_multi__dl_dvd___r_drive___ram_support)
+			: Slot Load DVD+/-RW -DVD/CD read/write (_drives_slot_load_dvd___rw__dvd_cd_read_write)
+	:m Monitor (monitor)
+		:g [1,1]
+			: 10.1'' (_monitor_10_1__)
+			: 12.1'' (_monitor_12_1__)
+			: 13.3'' - Edge-to-Edge HD WXGA LCD - 2.0 Megapixel Camera (_monitor_13_3_____edge_to_edge_hd_wxga_lcd___2_0_megapixel_camera)
+			: 13.3'' - Edge-to-Edge HD WXGA Slim - 1.3 Megapixel Camera (_monitor_13_3_____edge_to_edge_hd_wxga_slim___1_3_megapixel_camera)
+			: 13.3'' - Glossy widescreen (_monitor_13_3_____glossy_widescreen)
+			: 14'' (_monitor_14__)
+			: 15.6'' - Bright, glossy widescreen (_monitor_15_6_____bright__glossy_widescreen)
+			: 15.6'' with Camera (_monitor_15_6___with_camera)
+			: 16'' - Edge-to-Edge HD - 2.0 Megapixel Camera (_monitor_16_____edge_to_edge_hd___2_0_megapixel_camera)
+			: 17'' - Glossy widescreen (_monitor_17_____glossy_widescreen)
+	:m Memory (memory)
+		:g [1,1]
+			: 1GB DDR2 SDRAM (_memory_1gb_ddr2_sdram)
+			: 1GB DDR2 SDRAM at 533MHz -onboard (_memory_1gb_ddr2_sdram_at_533mhz__onboard)
+			: 2GB Shared Dual Channel DDR2 -2 Dimms (_memory_2gb_shared_dual_channel_ddr2__2_dimms)
+			: 2GB Shared Dual Channel DDR2 at 800MHz (_memory_2gb_shared_dual_channel_ddr2_at_800mhz)
+			: 3GB DDR3 SDRAM at 1067MHz -2 Dimms (_memory_3gb_ddr3_sdram_at_1067mhz__2_dimms)
+			: 3GB Shared Dual Channel DDR2 -2 Dimms (_memory_3gb_shared_dual_channel_ddr2__2_dimms)
+			: 3GB Shared Dual Channel DDR2 at 800MHz (_memory_3gb_shared_dual_channel_ddr2_at_800mhz)
+			: 3GB Shared Dual Channel DDR3 at 1066MHz (_memory_3gb_shared_dual_channel_ddr3_at_1066mhz)
+			: 4GB Dual Channel DDR3 SDRAM at 1067MHz -2 Dimms (_memory_4gb_dual_channel_ddr3_sdram_at_1067mhz__2_dimms)
+			: 4GB Shared Dual Channel DDR2 at 800MHz (_memory_4gb_shared_dual_channel_ddr2_at_800mhz)
+	:m Hard drive (hard_drive)
+		:g [1,1]
+			: 40GB (_hard_drive_40gb)
+			: 60GB  (_hard_drive_60gb_)
+			: 80GB  (_hard_drive_80gb_)
+			: 120GB (_hard_drive_120gb)
+			: 160GB (_hard_drive_160gb)
+			: 250GB (_hard_drive_250gb)
+			: 320GB (_hard_drive_320gb)
+			: 500GB (_hard_drive_500gb)
+	:m Video Card (video_card)
+		:g [1,1]
+			: 256MB ATI Mobility Radeon HD 3650 (_video_card_256mb_ati_mobility_radeon_hd_3650)
+			: ATI Mobility RADEON HD 3670 - 512MB (_video_card_ati_mobility_radeon__hd_3670___512mb)
+			: ATI Mobility RADEON HD 4670 – 1GB (_video_card_ati_mobility_radeon__hd_4670___1gb)
+			: Intel Graphics Media Accelerator -GMA 950 (_video_card_intel_graphics_media_accelerator__gma_950)
+			: Intel Graphics Media Accelerator 4500MHD (_video_card_intel_graphics_media_accelerator_4500mhd)
+			: Intel Graphics Media Accelerator X3100 (_video_card_intel_graphics_media_accelerator_x3100)
+			: Intel Graphics Media Accelerator X4500HD (_video_card_intel_graphics_media_accelerator_x4500hd)
+			: IntelGraphics Media Accelerator 500 (_video_card_intel_graphics_media_accelerator_500)
+			: NVIDIA GeForce 9400M G (_video_card_nvidia__geforce__9400m_g)
+			: NVIDIA GeForce 9500M - 256MB (_video_card_nvidia__geforce__9500m___256mb)
+	:o Sound (sound)
+		:g [1,1]
+			: High Definition Audio 2.0 (_sound_high_definition_audio_2_0)
+			: Soundblaster X-Fi Hi Def Audio - Software Enabled (_sound_soundblaster_x_fi_hi_def_audio___software_enabled)
+	:m Wireless (wireless)
+		:g [1,1]
+			: Dell Wireless 1395 802.11g Mini-Card (_wireless_dell_wireless_1395_802_11g_mini_card)
+			: Dell Wireless 1397 802.11g Half Mini-Card (_wireless_dell_wireless_1397_802_11g_half_mini_card)
+			: Dell Wireless 1510 802.11n Half Mini-Card (_wireless_dell_wireless_1510_802_11n_half_mini_card)
+			: Dell Wireless 1515 Wireless-N Mini-card (_wireless_dell_wireless_1515_wireless_n_mini_card)
+			: IntelJWiFi Link 5100 802.11agn Half Mini-Card (_wireless_inteljwifi_link_5100_802_11agn_half_mini_card)
+			: Intel 5100 WLAN Wireless-N -1x2 Half Mini Card (_wireless_intel__5100_wlan_wireless_n__1x2_half_mini_card)
+			: Intel WiFi Link 5100 802.11agn Half Mini-Card (_wireless_intel__wifi_link_5100_802_11agn_half_mini_card)
+			: Wireless 802.11g Mini Card (_wireless_wireless_802_11g_mini_card)
+	:m Battery (battery)
+		:g [1,1]
+			: 4-cell Battery (_battery_4_cell_battery)
+			: 6-cell Battery (_battery_6_cell_battery)
+			: 24 WHr Lithium-Ion Battery -3-cell (_battery_24_whr_lithium_ion_battery__3_cell)
+			: 28 WHr Lithium-Ion Battery -3-cell (_battery_28_whr_lithium_ion_battery__3_cell)
+			: 37 Whr Lithium Ion Battery -4 cell (_battery_37_whr_lithium_ion_battery__4_cell)
+			: 56 WHr Lithium Ion Battery -6 cell (_battery_56_whr_lithium_ion_battery__6_cell)
+			: 74 Whr Lithium Ion Battery -8 cell (_battery_74_whr_lithium_ion_battery__8_cell)
+			: 85 WHr Lithium Ion Battery -9 cell (_battery_85_whr_lithium_ion_battery__9_cell)
+	:m Warranty (hardware_support)
+		:g [1,1]
+			: 1 Year (_hardware_support_1_year)
+			: 2 Years (_hardware_support_2_years)
+			: 3 Years (_hardware_support_3_years)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>
+
