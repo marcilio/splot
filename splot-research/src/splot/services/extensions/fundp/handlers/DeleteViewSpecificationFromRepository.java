@@ -21,7 +21,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
-import com.sun.tools.jdi.LinkedHashMap;
+
 import splar.core.fm.FeatureModelException;
 import splot.core.Handler;
 
