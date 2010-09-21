@@ -239,7 +239,6 @@ public class FCWInteractiveConfigurationElementsProducer {
 			
 			}else if (visualizationType.compareToIgnoreCase("pruned")==0){
 			basicDataMap.put("feature_id", feature.getID());
-			basicDataMap.put("feature_name", getFeatureName(feature));
 			basicDataMap.put("feature_type", getFeatureType(feature));
 			basicDataMap.put("feature_level", getfeatureLevel(  feature , viewDir, modelDir, featureModelFileName,  featureModelName,  viewName, visualizationType) );
 			basicDataMap.put("feature_parentid", getFeatureParent(feature));
@@ -249,15 +248,7 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
 			basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
-			basicDataMap.put("feature_group_min", -1);
-			basicDataMap.put("feature_group_max", -1 );
-			if ( feature instanceof FeatureGroup ) {
-				FeatureGroup group = (FeatureGroup)feature;
-				int min = group.getMin();
-				int max = group.getMax();
-				basicDataMap.put("feature_group_min", min);
-				basicDataMap.put("feature_group_max", max == -1 ? group.getChildCount() : max );
-			}
+
 			Methods.checkFeatureInViewStatus(feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType);  
 			basicDataMap.put("feature_show", new Boolean(result.show).toString());
 			basicDataMap.put("feature_available", new Boolean(result.available).toString());
@@ -282,6 +273,21 @@ public class FCWInteractiveConfigurationElementsProducer {
 			
 			basicDataMap.put("feature_max_visualization",featureCardinality.maxValue);
 			basicDataMap.put("feature_max_dummy_visualization",featureCardinality.maxDummyValue);
+			
+			basicDataMap.put("feature_group_min", -1);
+			basicDataMap.put("feature_group_max", -1 );
+		
+			if ( feature instanceof FeatureGroup ) {
+				FeatureGroup group = (FeatureGroup)feature;
+				basicDataMap.put("feature_group_min", featureCardinality.minValue);
+				basicDataMap.put("feature_group_max", featureCardinality.maxValue);
+			}
+
+			basicDataMap.put("feature_name", getFeatureName(feature,featureCardinality.minValue,featureCardinality.maxValue));
+			
+			
+			
+			
 
 
 			
@@ -297,15 +303,6 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
 			basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
-			basicDataMap.put("feature_group_min", -1);
-			basicDataMap.put("feature_group_max", -1 );
-			if ( feature instanceof FeatureGroup ) {
-				FeatureGroup group = (FeatureGroup)feature;
-				int min = group.getMin();
-				int max = group.getMax();
-				basicDataMap.put("feature_group_min", min);
-				basicDataMap.put("feature_group_max", max == -1 ? group.getChildCount() : max );
-			}
 			
 			
 			
@@ -338,6 +335,21 @@ public class FCWInteractiveConfigurationElementsProducer {
 				
 				basicDataMap.put("feature_max_visualization",featureCardinality.maxValue);
 				basicDataMap.put("feature_max_dummy_visualization",featureCardinality.maxDummyValue);
+				
+				basicDataMap.put("feature_group_min", -1);
+				basicDataMap.put("feature_group_max", -1 );
+			
+				if ( feature instanceof FeatureGroup ) {
+					FeatureGroup group = (FeatureGroup)feature;
+					basicDataMap.put("feature_group_min", featureCardinality.minValue);
+					basicDataMap.put("feature_group_max", featureCardinality.maxValue);
+				}
+
+				basicDataMap.put("feature_name", getFeatureName(feature,featureCardinality.minValue,featureCardinality.maxValue));
+				
+				
+				
+				
 			}else{
 				basicDataMap.put("feature_min",-1);
 				basicDataMap.put("feature_min_dummy",-1);
@@ -347,6 +359,18 @@ public class FCWInteractiveConfigurationElementsProducer {
 				basicDataMap.put("feature_min_dummy_visualization",-1);
 				basicDataMap.put("feature_max_visualization",-1);
 				basicDataMap.put("feature_max_dummy_visualization",-1);
+				
+				basicDataMap.put("feature_group_min", -1);
+				basicDataMap.put("feature_group_max", -1 );
+				if ( feature instanceof FeatureGroup ) {
+					FeatureGroup group = (FeatureGroup)feature;
+					int min = group.getMin();
+					int max = group.getMax();
+					basicDataMap.put("feature_group_min", min);
+					basicDataMap.put("feature_group_max", max == -1 ? group.getChildCount() : max );
+				}
+
+				
 			
 
 			}
@@ -481,6 +505,14 @@ public class FCWInteractiveConfigurationElementsProducer {
 		return feature.getName();
 	}
 	
+	
+	protected String getFeatureName( FeatureTreeNode feature, int min , int max ) {
+		if ( feature instanceof FeatureGroup ) {
+			return "[" + min + ".." + max +"]";
+		}
+		return feature.getName();
+	}
+	
 	protected String getFeatureType( FeatureTreeNode feature ) {
 		if ( feature.isRoot() ) { 
 			return "root";				
@@ -569,6 +601,8 @@ public class FCWInteractiveConfigurationElementsProducer {
 				FeatureCardinality fCardinality=new FeatureCardinality();
 				getFeatureCardinality (feature,fCardinality);
 				
+			
+				
 				if (feature.isLeaf()){
 					featureCardinality=fCardinality;
 				}else{
@@ -590,7 +624,7 @@ public class FCWInteractiveConfigurationElementsProducer {
 						featureCardinality.minValue=fCardinality.minValue-childNotInView;
 						featureCardinality.minDummyValue=-1;
 					}else{
-						featureCardinality.minValue=0;
+						featureCardinality.minValue=1;
 						featureCardinality.minDummyValue=-1;
 
 					}
