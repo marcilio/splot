@@ -137,8 +137,8 @@ Released   : 20081103
 	*******************************************************/
 	function detectToggleConflicts(toggleFeatureId) {
 	
-		viewName=document.getElementById('view_list').value;
-		viewType=document.getElementById('visualization_list').value;
+		viewName=getListSelectedValue(document.getElementById('view_list'));
+		viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
 		setToggleFeature(toggleFeatureId)
@@ -346,6 +346,16 @@ Released   : 20081103
 		featureModelFileName="${fm_file}";
 	} 
 	
+	
+	/******************************************************
+	*  get list selected value
+	*******************************************************/
+	function getListSelectedValue(listObj){
+	
+	return (listObj.options[listObj.selectedIndex].text);
+	}
+	
+	
 	/******************************************************
 	*  trim function
 	*******************************************************/	
@@ -366,8 +376,8 @@ Released   : 20081103
 	*******************************************************/
 
 	function rebuildFeatureModel(){
-	viewName=document.getElementById('view_list').value;
-	viewType=document.getElementById('visualization_list').value;
+	viewName=getListSelectedValue(document.getElementById('view_list'));
+	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
 	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&fm_file="+featureModelFileName;
@@ -384,8 +394,8 @@ Released   : 20081103
 		if (typeof parameter != 'undefined' && typeof value != 'undefined' ) {
 			parameters = '&' + parameter + '=' + value; 
 		}
-		viewName=document.getElementById('view_list').value;
-	    viewType=document.getElementById('visualization_list').value;
+		viewName=getListSelectedValue(document.getElementById('view_list'));
+	    viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 
 	    var xhrArgs = {

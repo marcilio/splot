@@ -97,7 +97,7 @@ public class SaveViewAllocationToRepository extends Handler {
                    											Element  taskNameElement=(Element) taskNameNodes.item(t);
                        										String   taskNameElementValue=Methods.getCharacterDataFromElement(taskNameElement);
                        										if ((taskNameElementValue.compareToIgnoreCase(task)==0)   && (workflowName.compareToIgnoreCase(workflow)==0) && (viewName.compareToIgnoreCase(view)==0) && (featureModelName.compareToIgnoreCase(featureModel)==0)  ){
-                       											resultToSend="This information already exists in repository.";
+                       											resultToSend="This information already exists in the repository.";
                        											break start;
                        										}else{
                        											Element taskElementToSave=doc.createElement("task_name");
@@ -109,6 +109,7 @@ public class SaveViewAllocationToRepository extends Handler {
                        										    DOMSource source=new DOMSource(doc);
                        										    StreamResult result=new StreamResult(viewFile);
                        										    transformer.transform(source, result);
+                       										    
                        										    break start;
                        											
                        										}
@@ -165,6 +166,7 @@ public class SaveViewAllocationToRepository extends Handler {
 										DOMSource source=new DOMSource(doc);
 										StreamResult result=new StreamResult(viewFile);
 										transformer.transform(source, result);
+			
 										break start;
       							    	
       							    	
@@ -179,7 +181,7 @@ public class SaveViewAllocationToRepository extends Handler {
    					}
    				}
    			}
-
+			
 		 response.getWriter().write(resultToSend);	
 		} catch (Exception e) {
 			//e.printStackTrace();

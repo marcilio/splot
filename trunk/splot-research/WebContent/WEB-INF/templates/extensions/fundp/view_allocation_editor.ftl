@@ -125,7 +125,7 @@ Released   : 20081103
 	*******************************************************/
 	
 	function onchangeFeatureListSelectedItem(){
-		val=document.getElementById("feature_list").value; 
+		val=getListSelectedValue(document.getElementById("feature_list")); 
 		if (val=='Select'){
 			return;
 		}
@@ -134,14 +134,14 @@ Released   : 20081103
 			if (document.base_info.base_info_radio[0].checked==true){
 					var selectedType="feature";
 					if (window.ActiveXObject){
- 						oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+ 					oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 					}else{
 						oXMLRequest = new XMLHttpRequest();
-					}    
+					}
 					var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+val ;
 					oXMLRequest.open("GET",strValidationServiceUrl,true);
 					oXMLRequest.onreadystatechange = updateWorkflowDetails;
-					oXMLRequest.send(null);   
+					oXMLRequest.send(null);
 			}
 		}catch(Error){
 			alert(Error);
@@ -155,9 +155,9 @@ Released   : 20081103
 	*  Receive workflow info from server based on selected feature model
 	*******************************************************/	
 	function updateWorkflowDetails(){
-			if (oXMLRequest.readyState  == 4){
-            	if (oXMLRequest.status  == 200){
-						strStatus = oXMLRequest.responseText; 
+			if (oXMLRequest.readyState == 4){
+			 	if (oXMLRequest.status == 200){
+						strStatus = oXMLRequest.responseText;
 						var workflowList=new Array();
 						workflowList=strStatus.split(",");
 						workflowLength=workflowList.length;
@@ -195,10 +195,7 @@ Released   : 20081103
 							}
 							
 						}
-                    try{ 
-					}catch(Error){
-						alert(Error);
-					} 
+					
 				}
 		    }		
 	}
@@ -211,7 +208,7 @@ Released   : 20081103
 	*******************************************************/
 	
 	function onchangeWorkflowListSelectedItem(){
-		val=document.getElementById("workflow_list").value; 
+		val=getListSelectedValue(document.getElementById("workflow_list")); 
 		if (val=='Select'){
 			return;
 		}
@@ -220,14 +217,14 @@ Released   : 20081103
 			if (document.base_info.base_info_radio[1].checked==true){
 					var selectedType="workflow";
 					if (window.ActiveXObject){
- 						oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+						oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 					}else{
 						oXMLRequest = new XMLHttpRequest();
-					}    
+					}
 					var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+val ;
 					oXMLRequest.open("GET",strValidationServiceUrl,true);
 					oXMLRequest.onreadystatechange = updateFeatureModelDetails;
-					oXMLRequest.send(null);   
+					oXMLRequest.send(null);
 			}
 		}catch(Error){
 			alert(Error);
@@ -241,9 +238,9 @@ Released   : 20081103
 	*  Receive workflow info from server based on selected feature model
 	*******************************************************/	
 	function updateFeatureModelDetails(){
-			if (oXMLRequest.readyState  == 4){
-            	if (oXMLRequest.status  == 200){
-						strStatus = oXMLRequest.responseText; 
+			if (oXMLRequest.readyState == 4){
+			 	if (oXMLRequest.status == 200){
+						strStatus = oXMLRequest.responseText;
 						var featureList=new Array();
 						featureList=strStatus.split(",");
 						featureLength=featureList.length;
@@ -279,15 +276,19 @@ Released   : 20081103
 							}
 							
 						}
-                    try{ 
-					}catch(Error){
-						alert(Error);
-					} 
+					
 				}
 		    }		
 	}
 	
 	
+	/******************************************************
+	*  get list's selected index value 
+	*******************************************************/
+	function getListSelectedValue(listObj){
+	
+	return (listObj.options[listObj.selectedIndex].text);
+	}
 		
 	/******************************************************
 	*  Load view allocation information 
@@ -296,9 +297,10 @@ Released   : 20081103
 	 function loadViewAllocationInfo() 
 	{
 		try{	
-			featureValue=document.getElementById("feature_list").value; 
-			WorkflowValue=document.getElementById("workflow_list").value; 
 			
+			
+			featureValue=getListSelectedValue(document.getElementById("feature_list"));
+			WorkflowValue=getListSelectedValue(document.getElementById("workflow_list"));	
 			if ((WorkflowValue=="Select") || (WorkflowValue=="")){
 				alert("Workflow must be selected!");
 				return;
@@ -317,15 +319,14 @@ Released   : 20081103
 			
 			
 			if (window.ActiveXObject){
- 				oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+				oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 			}else{
 				oXMLRequest = new XMLHttpRequest();
-			}    
-		
+			}
 			var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=load_view_allocation_information&featureModel=" +featureValue+"&workflow="+WorkflowValue;
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange =listViewAllocationInfo;
-			oXMLRequest.send(null);   
+			oXMLRequest.send(null);
 		}catch(Error){
 			alert(Error);
 		}	
@@ -338,24 +339,18 @@ Released   : 20081103
 	*  Receive view allocation information from server
 	*******************************************************/
 	function listViewAllocationInfo(){
-				if (oXMLRequest.readyState  == 4){
-            		if (oXMLRequest.status  == 200){
+				if (oXMLRequest.readyState == 4){
+			 		if (oXMLRequest.status == 200){
 						strStatus = oXMLRequest.responseText;
-						
-					
 						JSONList=strStatus.split("/");
 						viewCount=JSONList[0];
 						JSONString=JSONList[1];
 						receivedViewList=JSONList[2];
 						receivedTaskList=JSONList[3];
-						
 					
 						
 						
-						try{ 
-						
-						    
-							
+						try{
 							updateTaskList(receivedTaskList);
 							updateViewList(receivedViewList);
 							
@@ -378,7 +373,7 @@ Released   : 20081103
 							}
 							
 							
-           					
+				
 							for (i=0;i<viewCount;i++){
 								viewName=myJsonObj[i].view_name;
 								workflowName=myJsonObj[i].workflow_name;
@@ -388,7 +383,6 @@ Released   : 20081103
 								taskList=taskString.split(",");  
 								taskListLength=taskList.length;
 
-								
 								for (j=0;j<taskListLength;j++){
 									var row = table.insertRow(rowCount);
 									
@@ -429,40 +423,40 @@ Released   : 20081103
 	*  Delete table's all rows
 	*******************************************************/	
 	
-	 function deleteTableAllRows(tableID) {
+		function deleteTableAllRows(tableID) {
 
-            try {
-	            var table = document.getElementById(tableID);
-	            var rowCount = table.rows.length;
-	            for(var i=1; i<rowCount; i++) {
-	                        table.deleteRow(i);
-							rowCount--;
-                    		i--;
+		try {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+			for(var i=1; i<rowCount; i++) {
+				table.deleteRow(i);
+				rowCount--;
+				i--;
 	
-                }
-              }catch(e) {
-                alert(e);
-            }
-        }
+			}
+		}catch(e) {
+		alert(e);
+		}
+}
 	
 
 
 	/******************************************************
 	*  Delete table's selected rows
 	*******************************************************/
-        function deleteRow(tableID, index) {
-            try {
-	            var table = document.getElementById(tableID);
-	            var rowCount = table.rows.length;
-	            for(var i=0; i<rowCount; i++) {
-	                var row = table.rows[i];
-	                var indexValue = row.cells[0].innerHTML;
-	                if(indexValue==index) {
-	                    table.deleteRow(i);
-	                    rowCount--;
-	                    i--;
-	                }
-    	        }
+	function deleteRow(tableID, index) {
+		try {
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+			for(var i=0; i<rowCount; i++) {
+				var row = table.rows[i];
+				var indexValue = row.cells[0].innerHTML;
+				if(indexValue==index) {
+					table.deleteRow(i);
+					rowCount--;
+					i--;
+				}
+			}
 
 				rowIndex=0;
 				var rowCount = table.rows.length;
@@ -473,12 +467,11 @@ Released   : 20081103
 					
 				}
 
-            }catch(e){
-                alert(e);
+		}catch(e){
+		alert(e);
+		}
 
-            }
-
-        }
+}
 
 
 
@@ -487,13 +480,13 @@ Released   : 20081103
 	*******************************************************/
 		function  deleteSelectedRows(){
 		
-		     try {
-	            var table = document.getElementById("allocated_view_information");
-	            var rowCount = table.rows.length;
-	            for(var i=0; i<rowCount; i++) {
-	                var row = table.rows[i];
-	                var chkbox = row.cells[5].childNodes[0];
-	                if(null != chkbox && true == chkbox.checked) {
+		try {
+			var table = document.getElementById("allocated_view_information");
+			var rowCount = table.rows.length;
+			for(var i=0; i<rowCount; i++) {
+			var row = table.rows[i];
+			var chkbox = row.cells[5].childNodes[0];
+			if(null != chkbox && true == chkbox.checked) {
 						deletedIndex=row.cells[0].innerHTML;
 						tableSelectedIndex=deletedIndex;
 						deletedFeatureName=row.cells[1].innerHTML;
@@ -505,22 +498,21 @@ Released   : 20081103
 						
 						
 						if (window.ActiveXObject){
-			 				oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+							oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 						}else{
 							oXMLRequest = new XMLHttpRequest();
-						}    
+						}
 		
 						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_allocation&featureModel=" +deletedFeatureName+"&workflow="+deletedWorkflowName+"&taskName="+deletedTaskName+"&viewName="+deletedViewName;		
 						oXMLRequest.open("GET",strValidationServiceUrl,true);
 						oXMLRequest.onreadystatechange =updateTableAfterDelete;
-						oXMLRequest.send(null);   
-	                }
-    	        }
-            }catch(e){
-                alert(e);
-
-            }
-		}
+						oXMLRequest.send(null);
+				}
+			}
+	}catch(e){
+		alert(e);
+	}
+}
 
 
 
@@ -528,8 +520,8 @@ Released   : 20081103
 	*  Update  view allocation after delete
 	*******************************************************/
 		function updateTableAfterDelete(){
-				if (oXMLRequest.readyState  == 4){
-            		if (oXMLRequest.status  == 200){
+				if (oXMLRequest.readyState == 4){
+					if (oXMLRequest.status == 200){
 						strStatus = oXMLRequest.responseText;
 						
 						try{
@@ -632,10 +624,10 @@ Released   : 20081103
 	*******************************************************/		
 		
 		function  saveViewAllocationToRepository(){
-				featureValue=document.getElementById("feature_list").value; 
-				workflowValue=document.getElementById("workflow_list").value; 
-				taskValue=document.getElementById("task_list").value; 
-				viewValue=document.getElementById("view_list").value; 
+				featureValue=getListSelectedValue(document.getElementById("feature_list")); 
+				workflowValue=getListSelectedValue(document.getElementById("workflow_list")); 
+				taskValue=getListSelectedValue(document.getElementById("task_list")); 
+				viewValue=getListSelectedValue(document.getElementById("view_list")); 
 				
 				
 				
@@ -668,15 +660,15 @@ Released   : 20081103
 				try{
 				
 						if (window.ActiveXObject){
-			 				oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+							oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 						}else{
 							oXMLRequest = new XMLHttpRequest();
-						}    
+						}
 		
 						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_view_allocation&featureModel=" +featureValue+"&workflow="+workflowValue+"&taskName="+taskValue+"&viewName="+viewValue;		
 						oXMLRequest.open("GET",strValidationServiceUrl,true);
 						oXMLRequest.onreadystatechange =saveViewAllocationToRepositoryResult;
-						oXMLRequest.send(null);   
+						oXMLRequest.send(null);
 				
 				
 				}catch(error){
@@ -691,8 +683,8 @@ Released   : 20081103
 	*  Save view allocation reslut
 	*******************************************************/		
 	function saveViewAllocationToRepositoryResult(){
-					if (oXMLRequest.readyState  == 4){
-            		if (oXMLRequest.status  == 200){
+					if (oXMLRequest.readyState == 4){
+						if (oXMLRequest.status == 200){
 						strStatus = oXMLRequest.responseText;
 						
 						try{
