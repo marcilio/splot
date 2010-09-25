@@ -59,6 +59,7 @@ public class ViewAllocationEditorHandler  extends FreeMarkerHandler {
 	public void buildModel(HttpServletRequest request,HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		List<Map> featureModelList =new LinkedList<Map>();
 		try {
+			String showType=(String)request.getParameter("show_type");
 			String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
 			File  dir=new File(viewDir);
        		String[]  childeren=dir.list();
@@ -85,6 +86,7 @@ public class ViewAllocationEditorHandler  extends FreeMarkerHandler {
     		}
 
     		templateModel.put("featureModelList", featureModelList);
+    		templateModel.put("show_type", showType);
 		} catch (Exception e) {
 			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing view repository path":e.getMessage());
 
