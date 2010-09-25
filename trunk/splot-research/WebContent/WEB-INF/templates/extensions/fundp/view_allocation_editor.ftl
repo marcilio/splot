@@ -55,6 +55,7 @@ Released   : 20081103
 	*  variables
 	*******************************************************/
 	var  tableSelectedIndex=0;
+	var  show_type="${show_type}";
 	
 	
 	/******************************************************
@@ -351,9 +352,10 @@ Released   : 20081103
 						
 						
 						try{
-							updateTaskList(receivedTaskList);
-							updateViewList(receivedViewList);
-							
+							if (document.getElementById("task_list")!=null){
+								updateTaskList(receivedTaskList);
+								updateViewList(receivedViewList);
+							}
 						
 							var rowIndex=1;
 							var myJsonObj = jsonParse(JSONString);
@@ -544,7 +546,6 @@ Released   : 20081103
 	*  Update  task list
 	*******************************************************/		
 		function updateTaskList(tList){
-		
 			try{
 				document.getElementById("task_list").length = 0;
 			}catch(ex){
@@ -779,11 +780,13 @@ Released   : 20081103
 			<div id="animHintPost" class="hintBox">
 				<h1 class="title"><a title="Click to hide this Hint" onClick="hideShowHint('hide')" href="#">Instructions</a></h1>
 				<div  class="entry">
-					<ul>
-					
-					
-					<li>In order to <b> define a new allocation</b> between a feature model and a workflow,do not tick <i> Feature Model List</i>  and  <i>Workflow List</i>'s check box.</li>
-					<li>In order to <b> list existing allocation</b> between a feature model and a workflow, tick <i> Feature Model List</i>  or  <i>Workflow List</i>'s check box.</li>
+					<ul>					
+					<#if show_type=="readonly">
+					   <li>In order to <b> list existing allocation</b> between a feature model and a workflow, tick <i> Feature Model List</i>  or  <i>Workflow List</i>'s check box.</li>
+					<#else>
+					  <li>In order to <b> define a new allocation</b> between a feature model and a workflow,do not tick <i> Feature Model List</i>  and  <i>Workflow List</i>'s check box.</li>
+					  <li>In order to <b> list existing allocation</b> between a feature model and a workflow, tick <i> Feature Model List</i>  or  <i>Workflow List</i>'s check box.</li>
+					</#if> 
 					
 				</ul>
 						
@@ -850,7 +853,7 @@ Released   : 20081103
 											<b>Select feature model OR workflow and</b>
 									</td>
 									
-									<td align="left" ><input class="standardHighlight1" type="button"  onclick="loadViewAllocationInfo()" value="Click Here"/>
+									<td align="left" ><input class="standardHighlight1" type="button"  onclick="loadViewAllocationInfo()" value="List View Allocations"/>
 									</td>
 								</tr>
 							    
@@ -886,7 +889,7 @@ Released   : 20081103
 											   
 										 		
 											</tr>
-											
+							<#if show_type!="readonly">
 								<tr>
 									<td>
 										To assign a view to a task, select the task, then the view and click on <b>Save</b>.
@@ -931,8 +934,7 @@ Released   : 20081103
 								
 							  	<a href="javascript:void(0)"><b>(*)</b> Mandatory fields if you wish to add your view allocation to SPLOT's view allocation repository</a>								
 					 		</td></tr>
-					 		
-					 		
+					 	</#if>					 		
 					 	</table>
 				 	</td>
 				 	
