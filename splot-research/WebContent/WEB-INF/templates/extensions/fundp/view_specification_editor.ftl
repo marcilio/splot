@@ -1935,6 +1935,18 @@ Released   : 20081103
 	* View Specification functions 
 ************************************************************************************************************************************************
 ***********************************************************************************************************************************************/
+
+
+	/******************************************************
+	*  get list selected value
+	*******************************************************/
+	function getListSelectedValue(listObj){
+	
+	return (listObj.options[listObj.selectedIndex].text);
+	}
+
+
+
 	/******************************************************
 	*  Encode feature model as JSON to use in XPath validation
 	*******************************************************/
@@ -2037,7 +2049,7 @@ Released   : 20081103
 		}
 		*/
 		
-		var viewJSONString = '{ "view_old_name" : "' + document.getElementById("view_list").value + '",';
+		var viewJSONString = '{ "view_old_name" : "' +getListSelectedValue(document.getElementById("view_list")) + '",';
 		viewJSONString += ' "view_new_name" : "' + document.getElementById("view_name").value + '",';
 		viewJSONString += ' "view_xpath" : "' + document.getElementById("view_xpath").value + '",';
 		viewJSONString += ' "view_description" : "' + document.getElementById("view_description").value + '",';
@@ -2062,31 +2074,31 @@ Released   : 20081103
 		}
 
 		if (window.ActiveXObject){
- 			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		else{
 			oXMLRequest = new XMLHttpRequest();
-		}    
+		}
 	    
 	    try{ 
 			var XPathExpression=trimAll(document.getElementById("view_xpath").value);
 		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=validate_xpath&feature_model_file_name="+featureModelFileNameInRepository+"&xpath_expression="+XPathExpression;
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange = onCheckXPathValidationResult;
-			oXMLRequest.send(null); 
+			oXMLRequest.send(null);
 		}catch(Error){
 			alert(Error);
-		}	  
+		}	
 	}
 
 	/******************************************************
 	*  Receive checkXPathValidation's result from server
 	*******************************************************/
 	    function onCheckXPathValidationResult(){
-	       	if (oXMLRequest.readyState  == 4){
-          	 	 if (oXMLRequest.status  == 200){
-                    try{  
-					 	  strStatus = oXMLRequest.responseText; 
+	       	if (oXMLRequest.readyState == 4){
+				 if (oXMLRequest.status == 200){
+					try{
+					 	  strStatus = oXMLRequest.responseText;
 						  var resultJson = strStatus;
 						  var resultJsonObj = jsonParse(resultJson);
 						  document.getElementById("view_features").value=resultJsonObj.node_list;
@@ -2126,17 +2138,17 @@ Released   : 20081103
 			}
 			
 		if (window.ActiveXObject){
- 			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		else{
 			oXMLRequest = new XMLHttpRequest();
-		}    
+		}
 	                                                                 
 	
 	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_specification&feature_model_file_name=" + featureModelFileNameInRepository +"&related_feature_model="+relatedFeatureModel+ "&view_file_name_in_repository=" + viewFileNameInRepository+"&view_name="+trimAll(document.getElementById("view_name").value);
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = deleteViewResult;
-		oXMLRequest.send(null);   
+		oXMLRequest.send(null);
 	
 	}
 	
@@ -2146,14 +2158,14 @@ Released   : 20081103
 	*  Receives the deleteView's result from server 
 	*******************************************************/
     function deleteViewResult(){
-    	if (oXMLRequest.readyState  == 4){
-            if (oXMLRequest.status  == 200){
-                    try{  
-					 	 strStatus = oXMLRequest.responseText; 
+    	if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+				try{
+					 	 strStatus = oXMLRequest.responseText;
 					 	 if (strStatus=="true"){
 					 		  triggerNotificationDialog('', 'View Specification Editor', "The view is deleted from the repository.");
-					 		   var x=document.getElementById("view_list");
-  								x.remove(x.selectedIndex);
+					 		  var x=document.getElementById("view_list");
+								x.remove(x.selectedIndex);
 					 		  
 					 		    emptyTextEdits();
 					 	 }else{
@@ -2282,17 +2294,17 @@ Released   : 20081103
 		
 		
 		if (window.ActiveXObject){
- 			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		else{
 			oXMLRequest = new XMLHttpRequest();
-		}    
+		}
 	                                                                 
 	
 	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_view_to_repository&feature_model_file_name=" + featureModelFileNameInRepository +"&related_feature_model="+relatedFeatureModel+ "&view_file_name_in_repository=" + viewFileNameInRepository+"&view_in_json="+viewToJSON;
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = saveViewToRepositoryResult;
-		oXMLRequest.send(null);   
+		oXMLRequest.send(null);
 
 	}
 
@@ -2300,14 +2312,14 @@ Released   : 20081103
 	*  Receives saveViewToRepository's result from server 
 	*******************************************************/
     function saveViewToRepositoryResult(){
-    	if (oXMLRequest.readyState  == 4){
-            if (oXMLRequest.status  == 200){
-                    try{  
-					 	 strStatus = oXMLRequest.responseText; 
+    	if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+				try{
+					 	 strStatus = oXMLRequest.responseText;
 					 	 
 					 	 if (strStatus=="true"){
 					 	 
-					 			 if (document.getElementById("view_list").value=="New View"){
+					 			 if (getListSelectedValue(document.getElementById("view_list"))=="New View"){
 					 				   var viewList=document.getElementById("view_list");
 						 			   var defaultOption=document.createElement("option");
 						 			   defaultOption.text=document.getElementById("view_name").value;
@@ -2319,8 +2331,8 @@ Released   : 20081103
 							 			 }
 					 	 
 					 			}else{
-					 			   var x=document.getElementById("view_list");
-  						    	   x.remove(x.selectedIndex);
+					 			  var x=document.getElementById("view_list");
+						    	   x.remove(x.selectedIndex);
 
   									var viewList=document.getElementById("view_list");
 						 			var defaultOption=document.createElement("option");
@@ -2363,7 +2375,7 @@ Released   : 20081103
 	*******************************************************/
 	
 	function emptyTextEdits(){
-		document.getElementById("view_list").value="New View";
+		document.getElementById("view_list").text="New View";
 		document.getElementById("view_name").value="";
 		document.getElementById("view_description").value="";
 		document.getElementById("view_creator").value="";
@@ -2396,7 +2408,7 @@ Released   : 20081103
 	*******************************************************/
 	
 	function onchangeViewListSelectedItem() {
-	val=document.getElementById("view_list").value
+	val=getListSelectedValue(document.getElementById("view_list"));
 	if (val =="New View"){
 		emptyTextEdits();
 		return;
@@ -2404,17 +2416,17 @@ Released   : 20081103
 	}
 		
 	if (window.ActiveXObject){
- 		oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");  
+		oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	else{
 		oXMLRequest = new XMLHttpRequest();
-	}    
+	}
 	
 	
 	var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_view_detail&viewName=" +val+"&viewFileName="+viewFileNameInRepository ;
 	oXMLRequest.open("GET",strValidationServiceUrl,true);
 	oXMLRequest.onreadystatechange = updateViewDetails;
-	oXMLRequest.send(null);   
+	oXMLRequest.send(null);
 	}
 	
 	
@@ -2422,10 +2434,10 @@ Released   : 20081103
 	*  Receives view's information from server based on selected view in View List
 	*******************************************************/
 	function updateViewDetails(){
-		if (oXMLRequest.readyState  == 4){
-            if (oXMLRequest.status  == 200){
-                    try{  
-					 	  strStatus = oXMLRequest.responseText; 
+		if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+				try{
+					 	  strStatus = oXMLRequest.responseText;
 						  var myJson = strStatus;
 						  xpathValidationResult=0;
 						  var myJsonObj = jsonParse(myJson);
@@ -2473,7 +2485,7 @@ Released   : 20081103
 					  }
 					  
             }
-     	}            
+     	}       
 	}
 	
 </script>

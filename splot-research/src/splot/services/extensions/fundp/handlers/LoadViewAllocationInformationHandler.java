@@ -55,9 +55,10 @@ public class LoadViewAllocationInformationHandler extends Handler {
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int viewCount = 0;
-		String  featureModel=request.getParameter("featureModel").trim();
-		String  workflow=request.getParameter("workflow").trim();
+		String  featureModel=(String)request.getParameter("featureModel").trim();
+		String  workflow=(String)request.getParameter("workflow").trim();
 		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
+		
 		String parsedWorkflowDir=getServlet().getServletContext().getRealPath("/")+ "extensions/parsed_workflows"; //getServlet().getInitParameter("parsedWorkflowPath");
 		String taskList="";
 		String viewList="";
