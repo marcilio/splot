@@ -56,6 +56,8 @@ Released   : 20081103
 	*******************************************************/
 	var  tableSelectedIndex=0;
 	var  show_type="${show_type}";
+	var  imageFileName="";
+
 	
 	
 	/******************************************************
@@ -121,18 +123,204 @@ Released   : 20081103
 
 
 <script type="text/javascript">
+
+
+
+
+
+	/******************************************************
+	*  when the Apply Selection Filtering check box is changed
+	*******************************************************/
+	function onchangeApplySelectionFiltering(){
+
+			try{
+							if (document.getElementById("apply_selection_filtering").checked==false){		
+							
+								var selectedType="both";
+								
+								workflowImage=document.getElementById("workflow_image_src");
+								legendImage=document.getElementById("legend_image_src");
+								workflowImage.src="";
+								legendImage.src="";
+									
+								if (window.ActiveXObject){
+						 		oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+								}else{
+									oXMLRequest = new XMLHttpRequest();
+								}
+								var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_workflow_feature_list&selectedType=" +selectedType+"&selectedValue="+selectedType ;
+								oXMLRequest.open("GET",strValidationServiceUrl,true);
+								oXMLRequest.onreadystatechange = updateWorkflowAndFeatureModelDetails;
+								oXMLRequest.send(null);
+							}else{
+								featureVal=getListSelectedValue(document.getElementById("feature_list")); 
+								workflowVal=getListSelectedValue(document.getElementById("workflow_list")); 
+								if((featureVal=='Select') && (workflowVal=='Select')){
+									workflowImage=document.getElementById("workflow_image_src");
+									legendImage=document.getElementById("legend_image_src");
+									workflowImage.src="";
+									legendImage.src="";
+								
+									return;
+								}else if ((featureVal!='Select') && (workflowVal!='Select')){
+									return;
+								}else if(featureVal!='Select'){
+									workflowImage=document.getElementById("workflow_image_src");
+									legendImage=document.getElementById("legend_image_src");
+									workflowImage.src="";
+									legendImage.src="";
+								}else if (workflowVal!='Select'){
+									onchangeWorkflowListSelectedItem();
+									workflowImage=document.getElementById("workflow_image_src");
+									legendImage=document.getElementById("legend_image_src");
+									workflowImage.src="";
+									legendImage.src="";
+								} 
+								
+							}
+							
+			}catch(Error){
+				alert(Error);
+			}
+	}
+	
+	
+	/******************************************************
+	*  Receive workflow and feature model info from server 
+	*******************************************************/	
+	function updateWorkflowAndFeatureModelDetails(){
+			if (oXMLRequest.readyState == 4){
+			 	if (oXMLRequest.status == 200){
+			 			strStatus = oXMLRequest.responseText;
+			 			list=strStatus.split("/");
+						featurePart=list[0];
+						workflowPart=list[1];
+						
+						try{
+							document.getElementById("task_list").length = 0;
+						}catch(ex){
+							alert(ex);
+						}
+						
+						try{
+							document.getElementById("view_list").length = 0;
+						}catch(ex){
+							alert(ex);
+						}
+						
+						deleteTableAllRows("allocated_view_information");
+						
+						
+						/******************************************************
+						*  Update feature model list
+						*******************************************************/	
+						var featureList=new Array();
+						featureList=featurePart.split(",");
+						featureLength=featureList.length;
+						try{
+							document.getElementById("feature_list").length = 0;
+						}catch(ex){
+							alert(ex);
+						}
+						
+						var featureListBox=document.getElementById("feature_list");	
+						var defaultOption=document.createElement("option");
+						defaultOption.text="Select";
+						
+						try{
+							featureListBox.add(defaultOption,null);
+						}catch(Error){
+							featureListBox.add(defaultOption);
+						}
+						
+						for (i=0;i<featureLength;i++){													
+							try{
+								var newOption=document.createElement("option");
+								newOption.text=featureList[i];
+								
+							}catch(excep){
+								alert(excep);
+							}
+							
+							
+							try{
+								featureListBox.add(newOption,null);
+							}catch(Error){
+								featureListBox.add(newOption);
+							
+							}
+						}
+
+						
+						/******************************************************
+						*  Update workflow list
+						*******************************************************/	
+
+						var workflowList=new Array();
+						workflowList=workflowPart.split(",");
+						workflowLength=workflowList.length;
+						try{
+							document.getElementById("workflow_list").length = 0;
+						}catch(ex){
+							alert(ex);
+						}
+						
+						var workflowListBox=document.getElementById("workflow_list");
+						var defaultOption=document.createElement("option");
+						defaultOption.text="Select";
+						try{
+							workflowListBox.add(defaultOption,null);
+						}catch(Error){
+							workflowListBox.add(defaultOption);
+						}
+						
+						for (i=0;i<workflowLength;i++){
+							
+							try{
+								var newOption=document.createElement("option");
+								newOption.text=workflowList[i];
+								
+							}catch(excep){
+								alert(excep);
+							}
+							try{
+								workflowListBox.add(newOption,null);
+							}catch(Error){
+								workflowListBox.add(newOption);
+							
+							}
+							
+						}
+						
+			 		
+			 	}
+			 }
+
+	}
+
 	/******************************************************
 	*  Updates workflow list whenever a feature model is selected
 	*******************************************************/
 	
 	function onchangeFeatureListSelectedItem(){
 		val=getListSelectedValue(document.getElementById("feature_list")); 
+		workflowVal=getListSelectedValue(document.getElementById("workflow_list")); 
+		
 		if (val=='Select'){
+			workflowImage=document.getElementById("workflow_image_src");
+			legendImage=document.getElementById("legend_image_src");
+			workflowImage.src="";
+			legendImage.src="";
 			return;
 		}
 		
 		try{
-			if (document.base_info.base_info_radio[0].checked==true){
+			if (document.getElementById("apply_selection_filtering").checked==true){
+				if (workflowVal=="Select"){
+					workflowImage=document.getElementById("workflow_image_src");
+					legendImage=document.getElementById("legend_image_src");
+					workflowImage.src="";
+					legendImage.src="";
 					var selectedType="feature";
 					if (window.ActiveXObject){
  					oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
@@ -143,6 +331,7 @@ Released   : 20081103
 					oXMLRequest.open("GET",strValidationServiceUrl,true);
 					oXMLRequest.onreadystatechange = updateWorkflowDetails;
 					oXMLRequest.send(null);
+				}	
 			}
 		}catch(Error){
 			alert(Error);
@@ -210,12 +399,23 @@ Released   : 20081103
 	
 	function onchangeWorkflowListSelectedItem(){
 		val=getListSelectedValue(document.getElementById("workflow_list")); 
+		featureVal=getListSelectedValue(document.getElementById("feature_list")); 
+		
 		if (val=='Select'){
+			workflowImage=document.getElementById("workflow_image_src");
+			legendImage=document.getElementById("legend_image_src");
+			workflowImage.src="";
+			legendImage.src="";
 			return;
 		}
 		
 		try{
-			if (document.base_info.base_info_radio[1].checked==true){
+			if (document.getElementById("apply_selection_filtering").checked==true){
+				if (featureVal=="Select"){
+					workflowImage=document.getElementById("workflow_image_src");
+					legendImage=document.getElementById("legend_image_src");
+					workflowImage.src="";
+					legendImage.src="";
 					var selectedType="workflow";
 					if (window.ActiveXObject){
 						oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
@@ -226,6 +426,7 @@ Released   : 20081103
 					oXMLRequest.open("GET",strValidationServiceUrl,true);
 					oXMLRequest.onreadystatechange = updateFeatureModelDetails;
 					oXMLRequest.send(null);
+				}	
 			}
 		}catch(Error){
 			alert(Error);
@@ -236,7 +437,7 @@ Released   : 20081103
 	
 	
 	/******************************************************
-	*  Receive workflow info from server based on selected feature model
+	*  Receive feature model info from server based on selected workflow
 	*******************************************************/	
 	function updateFeatureModelDetails(){
 			if (oXMLRequest.readyState == 4){
@@ -348,14 +549,35 @@ Released   : 20081103
 						JSONString=JSONList[1];
 						receivedViewList=JSONList[2];
 						receivedTaskList=JSONList[3];
+						receivedConditionList=JSONList[4];
+						imageFileName=JSONList[5];
+						
+						workflowImage=document.getElementById("workflow_image_src");
+						legendImage=document.getElementById("legend_image_src");
+						
+						workflowImage.src="";
+						if (imageFileName!=""){
+							
+							workflowImage.src="extensions/workflow_images/"+imageFileName;
+							legendImage.src="extensions/workflow_images/legend.png";
+						}						
 					
+
+						
+						
+						
+						
 						
 						
 						try{
+
 							if (document.getElementById("task_list")!=null){
 								updateTaskList(receivedTaskList);
 								updateViewList(receivedViewList);
+								updateConditionList(receivedConditionList);
+								
 							}
+
 						
 							var rowIndex=1;
 							var myJsonObj = jsonParse(JSONString);
@@ -399,17 +621,29 @@ Released   : 20081103
 							   		var cell3 = row.insertCell(2);
 							   		cell3.innerHTML =workflowName;
 							
+							   		
+							   		
+							   		
+							   		taskStop=taskList[j].split("?");
+							   		taskPart=taskStop[0];
+							   		StopPart=taskStop[1];
+							   		
 							   		var cell4 = row.insertCell(3);
-							   		cell4.innerHTML =taskList[j];
+							   		cell4.innerHTML =taskPart;
+						
+									var cell5 = row.insertCell(4);
+							  		cell5.innerHTML =StopPart;
 							
-							   		var cell5 = row.insertCell(4);
-							  		cell5.innerHTML =viewName;
+							   		
 							  		
 							  		var cell6 = row.insertCell(5);
+							  		cell6.innerHTML =viewName;
+							  		
+							  		var cell7 = row.insertCell(6);
 							  		var elementRadio = document.createElement("input");
 							  		elementRadio.type = "radio";
 							  		elementRadio.name="selectToDelete";
-							  		cell6.appendChild(elementRadio);
+							  		cell7.appendChild(elementRadio);
 								} 
 							}
 						}catch(Error){
@@ -487,16 +721,18 @@ Released   : 20081103
 			var rowCount = table.rows.length;
 			for(var i=0; i<rowCount; i++) {
 			var row = table.rows[i];
-			var chkbox = row.cells[5].childNodes[0];
+			var chkbox = row.cells[6].childNodes[0];
 			if(null != chkbox && true == chkbox.checked) {
 						deletedIndex=row.cells[0].innerHTML;
 						tableSelectedIndex=deletedIndex;
 						deletedFeatureName=row.cells[1].innerHTML;
 						deletedWorkflowName=row.cells[2].innerHTML;
 						deletedTaskName=row.cells[3].innerHTML;
-						deletedViewName=row.cells[4].innerHTML;
+						deletedStopName=row.cells[4].innerHTML;
+						deletedViewName=row.cells[5].innerHTML;
 						
-						
+
+						deletedTaskStop=deletedTaskName+'?'+deletedStopName;
 						
 						
 						if (window.ActiveXObject){
@@ -505,7 +741,7 @@ Released   : 20081103
 							oXMLRequest = new XMLHttpRequest();
 						}
 		
-						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_allocation&featureModel=" +deletedFeatureName+"&workflow="+deletedWorkflowName+"&taskName="+deletedTaskName+"&viewName="+deletedViewName;		
+						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=delete_view_allocation&featureModel=" +deletedFeatureName+"&workflow="+deletedWorkflowName+"&taskName="+deletedTaskStop+"&viewName="+deletedViewName;		
 						oXMLRequest.open("GET",strValidationServiceUrl,true);
 						oXMLRequest.onreadystatechange =updateTableAfterDelete;
 						oXMLRequest.send(null);
@@ -579,6 +815,42 @@ Released   : 20081103
 			 
 		}
 		
+	/******************************************************
+	*  Update  condition list
+	*******************************************************/		
+		function updateConditionList(tList){
+			try{
+				document.getElementById("condition_list").length = 0;
+			}catch(ex){
+				alert(ex);
+			}
+			
+			var conditionListBox=document.getElementById("condition_list");	
+		
+			tListString=tList.split(","); 
+			tListLength=tListString.length;
+			for (i=0;i<tListLength;i++){
+				try{
+					var newOption=document.createElement("option");
+					newOption.text=tListString[i];
+					
+				}catch(ex){
+					alert(ex)
+				}
+				
+				
+				try{
+					conditionListBox.add(newOption,null);
+				}catch(Error){
+					conditionListBox.add(newOption);
+							
+				}
+				
+									
+			}
+			
+			 
+		}
 	
 	/******************************************************
 	*  Update  view list
@@ -628,9 +900,10 @@ Released   : 20081103
 				featureValue=getListSelectedValue(document.getElementById("feature_list")); 
 				workflowValue=getListSelectedValue(document.getElementById("workflow_list")); 
 				taskValue=getListSelectedValue(document.getElementById("task_list")); 
+				stopValue=getListSelectedValue(document.getElementById("condition_list")); 
 				viewValue=getListSelectedValue(document.getElementById("view_list")); 
 				
-				
+				stopTaskValue=taskValue+'?'+stopValue;
 				
 		
 				
@@ -666,7 +939,7 @@ Released   : 20081103
 							oXMLRequest = new XMLHttpRequest();
 						}
 		
-						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_view_allocation&featureModel=" +featureValue+"&workflow="+workflowValue+"&taskName="+taskValue+"&viewName="+viewValue;		
+						var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=save_view_allocation&featureModel=" +featureValue+"&workflow="+workflowValue+"&taskName="+stopTaskValue+"&viewName="+viewValue;		
 						oXMLRequest.open("GET",strValidationServiceUrl,true);
 						oXMLRequest.onreadystatechange =saveViewAllocationToRepositoryResult;
 						oXMLRequest.send(null);
@@ -774,24 +1047,32 @@ Released   : 20081103
 		 	<#else>
 		 
 			<div id="instructions" class="hintBox" style="display:none;">
-				<a onClick="hideShowHint('show')" href="javascript:void(0)">Show Instructions</a>
+				<a onClick="hideShowHint('show')" href="javascript:void(0)">Show Instructions and Hints</a>
 			</div>
 
 			<div id="animHintPost" class="hintBox">
-				<h1 class="title"><a title="Click to hide this Hint" onClick="hideShowHint('hide')" href="#">Instructions</a></h1>
+				<h1 class="title"><a title="Click to hide this Hint" onClick="hideShowHint('hide')" href="#">Instructions and Hints</a></h1>
 				<div  class="entry">
+
 					<ul>					
 					<#if show_type=="readonly">
-					   <li>In order to <b> list existing allocation</b> between a feature model and a workflow, tick <i> Feature Model List</i>  or  <i>Workflow List</i>'s check box.</li>
+					  <li>Use the <b> Apply Selection Filtering</b> check box  to filter feature models and workflows.</li>
+					  <li>In order to load available view, task, and stop allocations select a feature model, a workflow, and then click on <b>List View Allocations</b>.</li>
+					  <li>Each view can be linked to only one task and only one stop.</li>
+					  <li>By definition, stops are selected from the workflow's conditions.</li>
+
 					<#else>
-					  <li>In order to <b> define a new allocation</b> between a feature model and a workflow,do not tick <i> Feature Model List</i>  and  <i>Workflow List</i>'s check box.</li>
-					  <li>In order to <b> list existing allocation</b> between a feature model and a workflow, tick <i> Feature Model List</i>  or  <i>Workflow List</i>'s check box.</li>
+					  <li>Use the <b> Apply Selection Filtering</b> check box  to filter feature models and workflows.</li>
+					  <li>In order to load available view, task, and stop allocations select a feature model, a workflow, and then click on <b>List View Allocations</b>.</li>
+					  <li>Each view can be linked to only one task and only one stop.</li>
+					  <li>By definition, stops are selected from the workflow's conditions.</li>
 					</#if> 
+
 					
 				</ul>
 						
 					</div>
-				<p><a onClick="hideShowHint('hide')" href="javascript:void(0)">Hide instructions</a></p>
+				<p><a onClick="hideShowHint('hide')" href="javascript:void(0)">Hide instructions and Hints</a></p>
 			</div>
 			<div class="post"> 
 				<div  class="entry">
@@ -818,9 +1099,13 @@ Released   : 20081103
 					 		<tr><td class="stylishTitle"><span title="Click to expand/collapse" onclick="expandCollapseElement('base_information');">Feature Model and Workflow Selection</span></td></tr>
 					 		<tr><td>					 			 
 								<table border=0 id="base_information" class="feature_model_edition_table1">
+								<tr>
+							      <td align="left" ><input class="standardHighlight1" type="checkbox" name="apply_selection_filtering"  id="apply_selection_filtering" onchange="onchangeApplySelectionFiltering()"/>Apply Selection Filtering</td>
+							    </tr>
+								
 							    <tr>
 							      
-							      <td align="left" ><input class="standardHighlight1" type="radio" name="base_info_radio" value="feature_radio" id="feature_list_radio"/>Feature Model List:</td>
+							      <td align="left" >Feature Model List:</td>
 							      <td align="left" >
 							      	<select  name="feature_list" id="feature_list"  onchange="onchangeFeatureListSelectedItem()"> 
 							      		<option>Select</option>
@@ -835,7 +1120,7 @@ Released   : 20081103
 							    </tr>
 							    
 							    <tr>
-							      <td align="left" ><input class="standardHighlight1" type="radio" name="base_info_radio" value="workflow_radio" id="workflow_list_radio"/>Workflow List:</td>
+							      <td align="left" >Workflow List:</td>
 							      <td align="left" >
 							      	<select  name="workflow_list" id="workflow_list" onchange="onchangeWorkflowListSelectedItem()">
 							      		<option>Select</option> 
@@ -879,6 +1164,7 @@ Released   : 20081103
 																<th>Feature Model Name</th>
 																<th>Workflow Name</th>
 																<th>Task Name</th>
+																<th>Stop Name</th>
 																<th>View Name</th>
 																<th>Select</th>
 																
@@ -911,6 +1197,14 @@ Released   : 20081103
 								</tr>
 								
 								<tr>
+								  <td align="left" ><label for="condition_list">Condition List: </label>
+							      
+							      	<select  name="condition_list" id="condition_list"> 
+								    </select>
+							      (*)</td>
+
+								</tr>
+								<tr>
 								  <td align="left" ><label for="view_list">View List: </label>
 							      
 							      	<select  name="view_list" id="view_list"> 
@@ -918,6 +1212,8 @@ Released   : 20081103
 							      (*)</td>
 
 								</tr>
+								
+								
 								
 								<tr>
 									<td>
@@ -932,15 +1228,48 @@ Released   : 20081103
 								</tr>	
 									
 								
-							  	<a href="javascript:void(0)"><b>(*)</b> Mandatory fields if you wish to add your view allocation to SPLOT's view allocation repository</a>								
+							  	<a href="javascript:void(0)"><b>(*)</b> Mandatory fields if you wish to add your view allocation to the SPLOT's view repository</a>								
 					 		</td></tr>
-					 	</#if>					 		
+
+					 	</#if>			
+					 	
+								
+					 		<tr><td class="stylishTitle"><span title="Click to expand/collapse" onclick="expandCollapseElement('workflow_image');">Overview of the workflow </span></td></tr>
+					 		<tr><td>
+					 					<table border=0 id="workflow_image" class="feature_model_edition_table1">
+					 					<tr><td width="100%">
+					 						<div><img id="workflow_image_src"> </div>
+					 						
+					 						<div><img id="legend_image_src"></div>
+					 						
+					 					</td></tr>
+					 					</table>
+
+					 					 		
+
+					 		</td></tr>
+					 			 		
 					 	</table>
 				 	</td>
 				 	
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					<!--*********************************  
 					     Right-hand side TABLES 
 					**********************************-->
+				 	
+				 	
+				 	
+				 	
+				 	
 				 	
 				 	<td width="40%" align="right" valign="top">
 				 	

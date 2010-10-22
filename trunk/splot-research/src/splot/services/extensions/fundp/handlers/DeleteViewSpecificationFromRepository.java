@@ -59,7 +59,7 @@ public class DeleteViewSpecificationFromRepository extends Handler {
 	public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
         try{
         	
-        		String modelDir=getServlet().getInitParameter("modelsPath");
+        		String modelDir=getServlet().getServletContext().getRealPath("/")+ "models";
         		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath"); 
 	        	
         		String featureModelFileName=(String)request.getParameter("feature_model_file_name");

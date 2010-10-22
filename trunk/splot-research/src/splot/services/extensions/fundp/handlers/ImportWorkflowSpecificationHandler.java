@@ -10,6 +10,10 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.io.Writer;
 import java.io.File;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -28,6 +32,10 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+
+import splot.core.FreeMarkerHandler;
 import splot.core.Handler;
 import splot.core.HandlerExecutionException;
 
@@ -36,73 +44,88 @@ import splot.core.HandlerExecutionException;
 * @author  PReCISE (research center of the University of FUNDP)
 * @version 0.1
 */
-public class ImportWorkflowSpecificationHandler extends Handler{
+public class ImportWorkflowSpecificationHandler extends FreeMarkerHandler{
 	
 	/** ImportWorkflowSpecificationHandler is a constructor.  
 	 * 
 	 * @param handlerName	a string containing the handler's name which this class is responsible for that
 	 * @param servlet	the servlet which this handler handles part of its actions  
 	 */
-	public ImportWorkflowSpecificationHandler (String handlerName,HttpServlet servlet) {
-		super(handlerName, servlet);
+	public ImportWorkflowSpecificationHandler (String handlerName, HttpServlet servlet, Configuration configuration,Template template) {
+		super(handlerName, servlet, configuration, template);
 	}
 
 	
-
-	/** run called by the servlet container to start its activity.  
-	 * 
-	 * @throws	ServletException,IOException 	if an exception has occurred, based on its type, that interferes with the servlet's normal operation or IOException handler.
-	 * @param request	a  HttpServletRequest object containing the request received by handler from the client
-	 * @param response	a  HttpServletResponse object containing the response should be sent to the client 	
-	 */	
-	public  void run(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-		String responseMessage=""; // replied to client
-
-	   	String  xmlData="";    //  received file's content 
+	@Override
+	public void buildModel(HttpServletRequest request,
+			HttpServletResponse response, Map templateModel)
+			throws HandlerExecutionException {
+		// TODO Auto-generated method stub
+		
+	
+		String responseMessage=""; 
+	   	String  xmlData="";    
 		boolean validData=false;
 		boolean fileCreationStatus=false;
 
-		String xmlDir=getServlet().getServletContext().getRealPath("/")+ "extensions/imported_workflows";     //getServlet().getInitParameter("importedWorkflowPath");  // directory of workflow's xml files: SPLOT/WebContent/extensions/imported_workflows
+		String xmlDir=getServlet().getServletContext().getRealPath("/")+ "extensions/parsed_workflows";     //getServlet().getInitParameter("importedWorkflowPath");  // directory of workflow's xml files: SPLOT/WebContent/extensions/imported_workflows
 
 		String fileName=(String)request.getParameter("fileName").trim();// received file name
 		
 		// check received file's correct name
-		if ((fileName==null)||(fileName.equals("")) || (fileName.trim()=="") || (fileName.endsWith(".xml")==false)){
-			responseMessage="Illegal file name.\n";
+		if ((fileName==null)||(fileName.equals("")) || (fileName.trim()=="") ){
+			responseMessage="File name is empty.\n";
+			
+		}else if ((fileName.endsWith(".xml")==false) && (fileName.endsWith(".yawl")==false)) {
+			responseMessage="Illegal file extension.\n";
+
 		}else {
-			xmlData= getRequestAsString(request);// read the request body
+			try {
+				xmlData= getRequestAsString(request);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			
 			  //check files content
-			if ((xmlData.indexOf("task")==-1) || (xmlData==null) || (xmlData=="")){
+			if ((xmlData.indexOf("task")==-1) || (xmlData==null) || (xmlData=="") || (xmlData.indexOf("specificationSet")==-1) ){
 			    validData=false;
-			    responseMessage="Invalid file content.\n";
+			    responseMessage="Invalid file content.";
+
 			}else{
+
+				xmlData=xmlData.substring(xmlData.indexOf("<?xml"), xmlData.indexOf("</specificationSet>"))+" </specificationSet>";
 				validData=true;
 			}			
 		}
 		
 		
-		try {
-			if (checkWorkflowExistenceInImportedList(xmlData, xmlDir)){
+		if (validData){
+			try {
+				if (checkWorkflowExistenceInImportedList(xmlData, xmlDir)){
+					validData=false;
+					responseMessage="<b>"+getWorkflowName(xmlData,xmlDir)+ "</b> workflow exists in the repository.";
+					
+				}else{
+					validData=true;
+					
+					
+				}
+				
+				
+			} catch (HandlerExecutionException e1) {
+				responseMessage=e1.getMessage();
 				validData=false;
-				responseMessage=getWorkflowName(xmlData,xmlDir)+ " exists in the repository.";
-				
-			}else{
-				validData=true;
-				
-				
 			}
-		} catch (HandlerExecutionException e1) {
-			responseMessage=e1.getMessage();
-			validData=false;
-		}
+		}	
 		
 		if (validData){
 			File xmlFile=new File(xmlDir+"/"+fileName);
 			
 			// save file in repository
 			if (xmlFile.exists()){
-				responseMessage=fileName+" exists in the repository.\n";
+				responseMessage="<b>"+fileName+"</b> exists in the repository.\n";
 			}else{
 				try {
 					FileWriter fw=new FileWriter(xmlDir+"/"+fileName);
@@ -118,20 +141,18 @@ public class ImportWorkflowSpecificationHandler extends Handler{
 		}
 		
 		if (fileCreationStatus){
-			responseMessage="The file " + fileName + " is successfully saved in the repository.\n";
+			responseMessage="The file <b> " + fileName + " </b> is successfully saved in the repository.\n";
 		}
 		
-		// response to client
-		Writer outputStream=response.getWriter();	
-	    outputStream.write(responseMessage);
-	    outputStream.flush();
-	     try{
-	    	outputStream.close(); 
-	     }
-	     catch (Exception e) {
-	    	 e.printStackTrace();
-		}
-
+		Map message=new HashMap();
+		List<Map> messages=new LinkedList<Map>();
+		message.put("value", responseMessage);
+		messages.add(message);
+		templateModel.put("messages", messages);
+		
+		
+		
+		
 	
 			
 	}
@@ -187,7 +208,7 @@ private boolean checkWorkflowExistenceInImportedList(String XMLData,String impor
   		String[]  childeren=dir.list();
    		if (childeren!=null){
    			for (int i=0;i<childeren.length;i++){
-   				if (childeren[i].endsWith(".xml") !=false){
+   				if ((childeren[i].endsWith(".xml") !=false) || (childeren[i].endsWith(".yawl") !=false)){
   					String  fileName=childeren[i];
    					File importfile = new File(importedDir+"/"+fileName);
    					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -243,6 +264,10 @@ private String getWorkflowName(String XMLData,String importedDir) throws Handler
 	return retVal;
 	
 	}
+
+
+
+
 
 
 

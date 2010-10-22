@@ -50,7 +50,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 	      
            		 String viewType=(String)request.getParameter("viewType");
         		 String viewName=(String)request.getParameter("viewName");
-        		 String featureModelFileName=(String)request.getParameter("fm_file");
+        		 String featureModelFileName=(String)request.getParameter("selectedModels");
         		
         		 if (viewType.compareToIgnoreCase("none")==0){
         			 viewName="none"; 

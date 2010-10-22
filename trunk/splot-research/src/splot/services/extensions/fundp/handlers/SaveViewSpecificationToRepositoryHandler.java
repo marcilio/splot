@@ -60,7 +60,7 @@ public class SaveViewSpecificationToRepositoryHandler extends Handler {
 	public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
         try{
         	
-        		String modelDir=getServlet().getInitParameter("modelsPath");
+        		String modelDir=getServlet().getServletContext().getRealPath("/")+ "models";
         		String requestValidation=requestValidation(request, modelDir);
 
         		if (!(requestValidation.compareToIgnoreCase("true")==0)){

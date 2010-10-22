@@ -49,16 +49,17 @@ public class SaveViewAllocationToRepository extends Handler {
 	 */	
 	public void run(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		try {
 			String resultToSend="true";
+			Boolean taskExistence=false;
 			String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
 			File  dir=new File(viewDir);
 			String[]  childeren=dir.list();
 			String  featureModel=request.getParameter("featureModel").trim();
 			String  workflow=request.getParameter("workflow").trim();
-			String  task=request.getParameter("taskName").trim();
+			String   task=request.getParameter("taskName").trim();
 			String  view=request.getParameter("viewName").trim();
+			String receivedTaskStop=task.split("\\?")[0];
 			start:
    			for (int i=0;i<childeren.length;i++){
    				if (childeren!=null){
@@ -86,7 +87,7 @@ public class SaveViewAllocationToRepository extends Handler {
                							NodeList  workflowNodes=taskElement.getElementsByTagName("workflow");
                							int workflowNodesLength=workflowNodes.getLength();
                							if (workflowNodesLength>=1){
-               								for (int k = 0; k < workflowNodes.getLength(); k++){
+               								for (int k = 0; (k < workflowNodes.getLength() && (!taskExistence)); k++){
                									Element workflowElement = (Element) workflowNodes.item(k);
                    								String workflowName=workflowElement.getAttribute("name");
                    								if (workflowName.compareToIgnoreCase(workflow)==0){
@@ -96,26 +97,40 @@ public class SaveViewAllocationToRepository extends Handler {
                    										for (int t = 0; t < taskNameNodes.getLength(); t++){
                    											Element  taskNameElement=(Element) taskNameNodes.item(t);
                        										String   taskNameElementValue=Methods.getCharacterDataFromElement(taskNameElement);
-                       										if ((taskNameElementValue.compareToIgnoreCase(task)==0)   && (workflowName.compareToIgnoreCase(workflow)==0) && (viewName.compareToIgnoreCase(view)==0) && (featureModelName.compareToIgnoreCase(featureModel)==0)  ){
+                       										
+                       										
+                       										String existingTaskStop=taskNameElementValue.split("\\?")[0];
+                       										
+                       									                       										
+                       										
+                       										if ((existingTaskStop.compareToIgnoreCase(receivedTaskStop)==0)   && (workflowName.compareToIgnoreCase(workflow)==0) && (viewName.compareToIgnoreCase(view)==0) && (featureModelName.compareToIgnoreCase(featureModel)==0)  ){
                        											resultToSend="This information already exists in the repository.";
+                       											taskExistence=true;
                        											break start;
                        										}else{
-                       											Element taskElementToSave=doc.createElement("task_name");
-                       											taskElementToSave.appendChild(doc.createTextNode(task));
-                       											workflowElement.appendChild(taskElementToSave);
                        											
-                       											TransformerFactory transformerFactory=TransformerFactory.newInstance();
-                       										    Transformer transformer=transformerFactory.newTransformer();
-                       										    DOMSource source=new DOMSource(doc);
-                       										    StreamResult result=new StreamResult(viewFile);
-                       										    transformer.transform(source, result);
-                       										    
-                       										    break start;
                        											
                        										}
                        										
-                   											
                    										}
+                       										
+                   										if (!taskExistence){
+
+                   											Element taskElementToSave=doc.createElement("task_name");
+                   											taskElementToSave.appendChild(doc.createTextNode(task));
+                   											workflowElement.appendChild(taskElementToSave);
+                   											
+                   											TransformerFactory transformerFactory=TransformerFactory.newInstance();
+                   										    Transformer transformer=transformerFactory.newTransformer();
+                   										    DOMSource source=new DOMSource(doc);
+                   										    StreamResult result=new StreamResult(viewFile);
+                   										    transformer.transform(source, result);
+                   										    
+                   										    break start;
+                   										}
+                       										
+                   											
+                   										
                    									}else{
                    										Element taskElementToSave=doc.createElement("task_name");
                											taskElementToSave.appendChild(doc.createTextNode(task));
@@ -130,6 +145,21 @@ public class SaveViewAllocationToRepository extends Handler {
 
                    										
                    									}
+                   								}else{
+                   									Element workflowElementToSave=doc.createElement("workflow");
+                       								workflowElementToSave.setAttribute("name", workflow);
+           											taskElement.appendChild(workflowElementToSave);
+           											
+           											Element taskElementToSave=doc.createElement("task_name");
+           											taskElementToSave.appendChild(doc.createTextNode(task));
+           											workflowElementToSave.appendChild(taskElementToSave);
+           											
+           											TransformerFactory transformerFactory=TransformerFactory.newInstance();
+           										    Transformer transformer=transformerFactory.newTransformer();
+           										    DOMSource source=new DOMSource(doc);
+           										    StreamResult result=new StreamResult(viewFile);
+           										    transformer.transform(source, result);
+           									    	 break start;
                    								}
                								}
                							}else{

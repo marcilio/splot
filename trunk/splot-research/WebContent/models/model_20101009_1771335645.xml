@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Oct 11, 2010 - 2:27 PM  -->
+<feature_model name="SPL Research Topics">
+<meta>
+<data name="description">SPL Research Topics</data>
+<data name="creator">Ebrahim Khalil Abbasi</data>
+<data name="address"></data>
+<data name="email">eab@info.fundp.ac.be</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">FUNDP</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SPL(_r)
+	:m Feature Modeling(_r_2)
+		:m Configuration(_r_2_4)
+			:m Verification(_r_2_4_6)
+			:m Reconfiguration(_r_2_4_9)
+				:g (_r_2_4_9_16) [1,*] 
+					: Changes in features(_r_2_4_9_16_17)
+						:g (_r_2_4_9_16_17_18) [1,*] 
+							: New features added(_r_2_4_9_16_17_18_19)
+							: Existing features removed(_r_2_4_9_16_17_18_20)
+					: Backtracking(_r_2_4_9_16_21)
+			:m Workflow-based feature model configuration(_r_2_4_27)
+				:g (_r_2_4_27_29) [1,*] 
+					: Reconfiguration(_r_2_4_27_29_30)
+					: Dynamic Workflow(_r_2_4_27_29_31)
+			:m Completeness(_r_2_4_22)
+		:m Product(_r_2_5)
+			:m Validation(_r_2_5_7)
+				:m View-based validation(_r_2_5_7_33)
+		:m Floating Features(_r_2_32)
+	:m Workflow(_r_3)
+		:g (_r_3_24) [1,*] 
+			: Dynamic Workflow(_r_3_24_25)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

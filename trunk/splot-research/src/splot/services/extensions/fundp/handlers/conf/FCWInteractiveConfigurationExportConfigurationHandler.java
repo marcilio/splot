@@ -1,5 +1,7 @@
+
 package splot.services.extensions.fundp.handlers.conf;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,6 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -20,6 +32,7 @@ import splar.core.fm.SolitaireFeature;
 import splar.core.fm.configuration.ConfigurationEngine;
 import splot.core.FreeMarkerHandler;
 import splot.core.HandlerExecutionException;
+import splot.services.extensions.fundp.utilities.Methods;
 
 public class FCWInteractiveConfigurationExportConfigurationHandler extends FreeMarkerHandler{
 	public FCWInteractiveConfigurationExportConfigurationHandler(String handlerName, HttpServlet servlet, Configuration configuration, Template template) {
@@ -59,7 +72,6 @@ public class FCWInteractiveConfigurationExportConfigurationHandler extends FreeM
 			throw new HandlerExecutionException("Configuration engine must be created first", e);
 		}
 	}
-	
 	protected String getFeatureParent(FeatureTreeNode feature) {
 		FeatureTreeNode parent = (FeatureTreeNode)feature.getParent();
 		if ( parent == null ) {

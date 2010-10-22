@@ -1853,7 +1853,6 @@
           </resourcing>
           <customForm>http://localhost:8080/yawl4film/Input_Location_Notes.jsp</customForm>
           <decomposesTo id="Input_Location_Notes"/>
-          
         </task>
         <task id="Input_Cast_List_5189">
           <name>Input Cast List</name>
@@ -4176,4 +4175,4 @@
       <labelFontSize>11</labelFontSize>
     </specification>
   </layout>
-</specificationSet>
+ </specificationSet>

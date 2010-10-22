@@ -72,7 +72,20 @@ Released   : 20081103
 	
 	
 	
-	
+		/******************************************************
+	*  Show/Hide Hint (animation)
+	*******************************************************/
+	function hideShowHint(option) {
+		if (option == 'hide') {
+			dojo.fx.wipeOut({node: "animHintPost",duration: 1000}).play();
+			dojo.byId('instructions').style.display = 'inline';
+		}
+		else if (option == 'show') {
+			dojo.byId('instructions').style.display = 'none';
+			dojo.fx.wipeIn({node: "animHintPost",duration: 1000}).play();
+		} 
+		//document.getElementById("hintShortText").style.display = "block";
+	}
 	
 	/******************************************************
 	*  Expand/Collapse Feature Model Parts
@@ -150,7 +163,7 @@ Released   : 20081103
 	  		dojo.parser.parse();  // this is required for dojo to recognize dialog buttons
 	  		dijit.byId('conflictingDecisionsDialog').show();
 	  	}
-	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&fm_file="+featureModelFileName);  		
+	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName);  		
 	}
     
 	/******************************************************
@@ -158,7 +171,7 @@ Released   : 20081103
 	*******************************************************/
 	function resetConfiguration() {
 	
-	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&fm_file="+featureModelFileName;
+	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName;
 	}
 	
 	/******************************************************
@@ -343,7 +356,7 @@ Released   : 20081103
 		</#if>
 		
 		
-		featureModelFileName="${fm_file}";
+		featureModelFileName="${selectedModels}";
 	} 
 	
 	
@@ -380,7 +393,7 @@ Released   : 20081103
 	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
-	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&fm_file="+featureModelFileName;
+	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName;
 	
 	}     
 	
@@ -389,7 +402,6 @@ Released   : 20081103
 	*  Update configuration elements on page
 	*******************************************************/
 	function updateConfigurationElements(operation, parameter, value) {
-
 		parameters = '';
 		if (typeof parameter != 'undefined' && typeof value != 'undefined' ) {
 			parameters = '&' + parameter + '=' + value; 
@@ -399,7 +411,7 @@ Released   : 20081103
 	
 
 	    var xhrArgs = {
-	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&fm_file="+featureModelFileName,
+	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName,
            sync : false,
             handleAs: "xml",
             load: function(response, ioArgs) {
@@ -586,22 +598,55 @@ Released   : 20081103
 				</div>						
 			<#else>				
 				
-				<table>
-					<tr><td>
-				<div id="animHintPost" class="hintBox">
-					<h1 class="title"><a title="Click to hide this Hint" onClick="javascript:hideHint()" href="#">Hint</a></h1>
-					<div  class="entry">
-						<p>In order to simplify the configuration process you can focus on <i>selecting</i> the features that you want and use the
-						<i>auto-completion</i> function (<b><i>Less Features</i></b> option) to <i>deselect</i> remaining features 
-						automatically. Alternatively, you can use the opposite strategy, i.e., focus on deselecting features and use auto-completion 
-						to select remaining features by choosing the <b><i>More Features</i></b> option.<p>
-						<p><a onClick="javascript:hideHint()" href="#">Hide this hint</a></p> 					
-						<p class="meta"></p>
-					</div>
-				</div>	
+
+		
+			<div id="instructions" class="hintBox" style="display:none;">
+				<a onClick="hideShowHint('show')" href="javascript:void(0)">Show Instructions and Hints</a>
+			</div>
+
+			<div id="animHintPost" class="hintBox">
+				<h1 class="title"><a title="Click to hide this Hint" onClick="hideShowHint('hide')" href="#">Instructions and Hints</a></h1>
+				<ul>
 				
-				</td></tr>
-				</table>
+					<li>
+						<p>
+							To load features of a view, first select the view form <b>View List</b>, then choose the <b>Visualization</b> type according to the description below, and <b>Load View</b>:
+							<ul>
+								<li>
+									<b>none</b>: all features of the original feature diagram are loaded.
+								</li>
+								<li>
+									<b>greyed</b>: all features of the original feature diagram are loaded, but the features that do not belong to the view are <i>greyed out</i>. 
+								</li>
+								<li>
+									<b>pruned</b>: features that belong to the view are loaded, features that are not in the view are <i>pruned</i>, but 
+												   features that appear on a path between a feature in the view and the root are <i>greyed out</i>. 
+												  
+								</li>
+								
+								<li>
+									<b>collapsed</b>: all the features that do not belong to the view are <i>pruned</i>. A feature in the view whose parent or ancestors are pruned is connected to the closest ancestor that is still in the view.  
+												  
+								</li>
+								
+							</ul>
+						</p>
+					</li>
+					<li>
+						<p>
+							In order to simplify the configuration process you can focus on <i>selecting</i> the features that you want and use the
+							<i>auto-completion</i> function (<b><i>Less Features</i></b> option) to <i>deselect</i> remaining features 
+							automatically. Alternatively, you can use the opposite strategy, i.e., focus on deselecting features and use auto-completion 
+							to select remaining features by choosing the <b><i>More Features</i></b> option.
+						</p>
+					</li>
+					
+					
+					
+				</ul>
+				<p><a onClick="hideShowHint('hide')" href="javascript:void(0)">Hide instructions and Hints</a></p>
+			</div>
+
 				
 				<div id="view">
 						<table width=50% border=0 cellpadding=5 cellspacing=1>
@@ -610,8 +655,11 @@ Released   : 20081103
 								<table border=0 id="view_option" class="feature_model_edition_table1">
 								
 							    <tr>
-							      <td align="left" ><label for="view_list">View List: </label></td>
-							      <td align="left" >
+							    
+							    <td align="left" ><label for="view_list">View List: </label></td>
+							    
+								<#if workflowExistence=="false"> 
+								<td align="left" >
 							      	<select name="view_list" id="view_list" autocomplete="true"> 
 							      	
 							      		<#if viewName=="none">
@@ -637,6 +685,17 @@ Released   : 20081103
 
 							      	
 							      </td>
+								<#else>
+							      <td align="left" >
+							      	<select name="view_list" id="view_list" autocomplete="true"> 
+							      			<option selected="selected">${viewName}</option>
+									</select>
+							      </td>
+								</#if>
+																    
+							    
+							    
+							    
 							      
 							    
 							      <td align="left" ><label for="visualization_list">Visualization: </label></td>
@@ -673,7 +732,27 @@ Released   : 20081103
 							      	</select>
 							      </td>
 							    </tr>
+							    
+							    <#if workflowExistence=="true">
+							    	<tr>
+							    			<td align="left" >
+							    				Workflow Name:<b>${workflow}</b> 
+							    					
+							    			</td>
 							    			
+							    			<td align="left" >
+							    				Task Name:<b>${task}</b>
+							    					
+							    			</td>
+							    			
+							    			<td align="left" >
+							    				User Name:<b>${user}</b>
+							    					
+							    			</td>
+							    		
+							    	</tr>
+							    </#if>
+ 							    			
 							    <tr>
 							     
 							      <td align="left">
@@ -746,12 +825,21 @@ Released   : 20081103
 												(Export configuration: 
 												<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
 												<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml">XML</a>)
+												<br>
+												 <#if workflowExistence=="true">
+													<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file">Save to file</a>
+												 </#if>
 											</span>
 											<span style="display:<#if done>none<#else>block</#if>;" id="auto-completion-element">
 												<img title="Automatically completes configuration" src="/SPLOT/images/auto-completion.gif"/>
 												Auto-completion: 
 												<a title="Attempts to DESELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','false')">Less Features</a> | 
 												<a title="Attempts to SELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','true')">More Features</a> 
+												<br>
+												 <#if workflowExistence=="true">
+													<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file">Save to file</a>
+												</#if>
+												
 											</span>
 										</span>
 									</td></tr>

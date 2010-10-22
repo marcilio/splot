@@ -2,10 +2,14 @@ package splot.services.extensions.fundp.utilities;
 
 import java.io.File;
 import java.io.StringReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,7 +25,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import fm.SolitaireFeature;
+
 
 import splar.core.fm.FeatureGroup;
 import splar.core.fm.FeatureTreeNode;
@@ -409,5 +413,157 @@ public class Methods {
 		}
 		
 	}
+	
+	public static String getCurrentDate(){
+		String retValue="";
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		java.util.Date date = new java.util.Date();
+		return (dateFormat.format(date));
+	}
+	
+	
+	public static String createConfiguredModelFileName(String modelFileName){
+		DateFormat format = new SimpleDateFormat("yyyyMMdd");
+		return("configured_"+format.format(new Date()) + "_" + Math.abs(new Random().nextInt()))+"_"+modelFileName;
+
+	}
+	
+	public static String getfeatureModelFileName(String ModelsPath, String modelName){
+		String retVal="false";
+		try {
+			
+			File  dir=new File(ModelsPath);
+			String[]  childeren=dir.list();
+				start:
+					for (int i=0;i<childeren.length;i++){
+						if (childeren!=null){
+							if (childeren[i].endsWith(".xml") !=false){
+		 						String  fileName=childeren[i];
+		       					File modelFile = new File(ModelsPath+fileName);
+		       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		       					Document doc = builder.parse(modelFile);
+		       					NodeList featureModelNodes = doc.getElementsByTagName("feature_model");  // this tag includes workflow's information
+		       					Element  featureModelElement = (Element) featureModelNodes.item(0);
+		       					String   FMName=featureModelElement.getAttribute("name");
+		       					
+		       					if (FMName.compareToIgnoreCase(modelName)==0){
+		       						retVal=fileName;
+		       						break start;
+		       					}
+		       					
+
+							}
+
+						}
+
+					}
+
+		} catch (Exception e) {
+			retVal="false";
+			return retVal;
+		}
+		
+		return retVal;
+	}
+	
+	
+	public static String getFeatureModelViewFileName(String viewDir , String featureModelName){
+		String retValue="";
+		try {
+			
+			File  dir=new File(viewDir);
+			String[]  childeren=dir.list();
+				start:
+				for (int i=0;i<childeren.length;i++){
+					if (childeren!=null){
+						if (childeren[i].endsWith(".xml") !=false){
+	 						String  fileName=childeren[i];
+	       					File viewFile = new File(viewDir+fileName);
+	       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	       					Document doc = builder.parse(viewFile);
+	       				
+	       					NodeList featureModelNodes = doc.getElementsByTagName("feature_model");  // this tag includes workflow's information
+	       					Element  featureModelElement = (Element) featureModelNodes.item(0);
+	       					String   FMName=featureModelElement.getAttribute("name");
+	       					if (featureModelName.compareToIgnoreCase(FMName)==0){
+	       						retValue=fileName;
+	       						break start;
+	       					}
+
+						}
+					}
+					
+				}
+			
+			
+		} catch (Exception e) {
+			retValue="false";
+		}
+		
+		if ((retValue=="") || (retValue.isEmpty()) || (retValue==null)){
+			retValue="false";
+		}
+	
+		return retValue;
+	}
+	
+	public static String getTaskViewName(String viewDir, String workflowName, String featureModelName, String taskName){
+		String retVal="false";
+		
+		try {
+			
+			String featureModelViewFileName=getFeatureModelViewFileName(viewDir, featureModelName);
+			if (featureModelViewFileName.compareTo("false")==0){
+				retVal="false";
+				return retVal; 
+			}
+					
+			File viewFile = new File(viewDir+featureModelViewFileName);
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			Document doc = builder.parse(viewFile);
+
+			NodeList  viewNodes=doc.getElementsByTagName("view");
+			start:
+			for(int i=0;i<viewNodes.getLength();i++){
+					Element viewElement = (Element) viewNodes.item(i);
+					
+					NodeList  taskNodes=viewElement.getElementsByTagName("task");
+					Element   taskElement=(Element)taskNodes.item(0);
+					
+					NodeList  workflowNodes=taskElement.getElementsByTagName("workflow");
+					for (int j=0;j<workflowNodes.getLength();j++){
+						Element workflowElement=(Element)workflowNodes.item(j);
+						if (workflowName.compareToIgnoreCase(workflowElement.getAttribute("name"))==0){
+							
+							NodeList workflowTaskNodes=workflowElement.getElementsByTagName("task_name");
+							for (int k=0;k<workflowTaskNodes.getLength();k++){
+								Element workflowTaskElement=(Element)workflowTaskNodes.item(k);
+								if (taskName.compareToIgnoreCase(getCharacterDataFromElement(workflowTaskElement))==0){
+									retVal=viewElement.getAttribute("name");
+									break start;
+								}
+							}
+						}
+					}
+					
+
+			}
+				
+			
+			
+			
+		} catch (Exception e) {
+			retVal="false";
+			return retVal; 
+		}
+		
+		if ((retVal=="") || (retVal.isEmpty()) || (retVal==null)){
+			retVal="false";
+		}
+
+		
+		return retVal;
+	}
+	
 	
 }

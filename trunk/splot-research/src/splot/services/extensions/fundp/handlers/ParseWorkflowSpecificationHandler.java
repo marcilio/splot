@@ -70,7 +70,7 @@ public class ParseWorkflowSpecificationHandler  extends FreeMarkerHandler{
        		String[]  childeren=dir.list();
        		if (childeren!=null){
        			for (int i=0;i<childeren.length;i++){
-       				if (childeren[i].endsWith(".xml") !=false){
+       				if ((childeren[i].endsWith(".xml") !=false) ||  (childeren[i].endsWith(".yawl") !=false)){
        					String  fileName=childeren[i];
        					File importfile = new File(importedDir+"/"+fileName);
        					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

@@ -107,7 +107,7 @@ public class ViewSpecificationEditorHandler extends FreeMarkerHandler {
         		        		        		
         		String featureModelPath = url;        		
         		if ( url == null ) {
-        			featureModelPath = getServlet().getInitParameter("modelsPath") + filename;
+        			featureModelPath = getServlet().getServletContext().getRealPath("/")+ "models/" + filename;
         		}
         		
         		FeatureModel featureModel = new XMLFeatureModel(featureModelPath, XMLFeatureModel.SET_ID_AUTOMATICALLY);

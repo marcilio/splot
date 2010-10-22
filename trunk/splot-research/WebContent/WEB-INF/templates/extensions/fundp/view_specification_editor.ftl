@@ -2730,7 +2730,13 @@ Released   : 20081103
 				<h1 class="title"><a title="Click to hide this Hint" onClick="hideShowHint('hide')" href="#">Instructions</a></h1>
 				<ul>
 					<li>Select <b>New View</b> option form <b>View List</b> to specify a new view.</li>
-					<li>Select a view from <b>View List</b> to update its information.</li>
+					<li>Specify a view by using <b>XPath Expression</b>, and validate it by clicking on the <b>Evaluate XPath Expression</b> button before saving the view.</li>
+					<li>To save a view in the repository, use the <b>Save View</b> button.</li>
+					<li>Select a view from <b>View List</b> to load its information.</li>
+					<li>To delete a view from the repository, select it from <b>View List</b> and then use the <b>Delete View</b> button.</li>
+					
+					
+					
 				</ul>
 				<p><a onClick="hideShowHint('hide')" href="javascript:void(0)">Hide instructions</a></p>
 			</div>
@@ -2858,12 +2864,12 @@ Released   : 20081103
 							 
 							    
 						  	</table>
-							  	<a href="javascript:void(0)"><b>(*)</b> Mandatory fields if you wish to add your view specification to SPLOT's view specification repository</a>								
+							  	<a href="javascript:void(0)"><b>(*)</b> Mandatory fields if you wish to add your view specification to the SPLOT's view repository</a>								
 					 		</td></tr>
 					 		 <tr>
 								    <td colspan="3" align="center">
-								    	<button  class="standardHighlight1"  onClick="checkXPathValidation();return false;" type="button">Evaluate XPath expression</button>
-								    	<button  class="standardHighlight1"  onClick="saveViewToRepository();return false;" type="button">Save view</button>
+								    	<button  class="standardHighlight1"  onClick="checkXPathValidation();return false;" type="button">Evaluate XPath Expression</button>
+								    	<button  class="standardHighlight1"  onClick="saveViewToRepository();return false;" type="button">Save View</button>
 								    	<button  class="standardHighlight1" onClick="deleteView();return false;" type="button">Delete View</button>
 								    	
 								    	  
