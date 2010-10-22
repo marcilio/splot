@@ -27,7 +27,14 @@ import splot.services.extensions.fundp.handlers.conf.FCWSATInteractiveConfigurat
 import splot.services.extensions.fundp.handlers.conf.FCWSelectFeatureModelHandler;
 import splot.services.extensions.fundp.workflow.handlers.SelectWorkflowHandler;
 import splot.services.extensions.fundp.workflow.handlers.ShowWorkflowInfoHandler;
-import splot.services.handlers.conf.SATInteractiveConfigurationDetectConflictsHandler;
+import splot.services.extensions.fundp.handlers.conf.FCWInteractiveConfigurationExportConfigurationToFileHandler;
+import splot.services.extensions.fundp.handlers.conf.ConfigurationResultHandler;
+import splot.services.extensions.fundp.workflow.handlers.ShowImportedWorkflowListHandler;
+import splot.services.extensions.fundp.handlers.ParseSelectedWorkflowSpecificationHandler;
+import splot.services.extensions.fundp.handlers.SaveWorkflowImageHandler;
+
+
+
 
 
 
@@ -65,7 +72,7 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
         cfg.setServletContextForTemplateLoading(getServletContext(), "WEB-INF/templates/extensions/fundp");
         try {
         	addHandler(new CreateFeatureModelViewsHandler ("multiple_conf_views", this, cfg, cfg.getTemplate("multiple_conf_views.ftl")));
-        	addHandler(new ImportWorkflowSpecificationHandler ("import_workflow_specification",this));
+        	addHandler(new ImportWorkflowSpecificationHandler ("import_workflow_specification",this,cfg, cfg.getTemplate("fcw_message.ftl")));
            	addHandler(new ShowWorkflowListHandler("show_workflow_list", this, cfg, cfg.getTemplate("workflow_list.ftl")));
         	addHandler(new ViewSpecificationEditorHandler("view_specification_editor", this, cfg, cfg.getTemplate("view_specification_editor.ftl")));
         	addHandler(new ParseWorkflowSpecificationHandler("parse_workflow_specification",this,cfg,cfg.getTemplate("parsed_workflow_list.ftl")));
@@ -87,7 +94,13 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
            	addHandler(new ShowWorkflowInfoHandler("show_workflow_info", this, cfg, cfg.getTemplate("show_workflow_info.ftl")));
         	addHandler(new DeleteViewSpecificationFromRepository ("delete_view_specification",this));
         	addHandler(new FCWSATInteractiveConfigurationDetectConflictsHandler("detect_conflicts", this, cfg, cfg.getTemplate("fcw_detect_conflicts.ftl")));
+        	addHandler(new FCWInteractiveConfigurationExportConfigurationToFileHandler("export_configuratiom_xml_file", this, cfg, cfg.getTemplate("fcw_export_configuration_xml_file.ftl")));
+        	addHandler(new ConfigurationResultHandler("configuration_result",this));
+           	addHandler(new ShowImportedWorkflowListHandler("show_imported_workflow", this, cfg, cfg.getTemplate("fcw_imported_workflow.ftl")));
+        	addHandler(new ParseSelectedWorkflowSpecificationHandler("parse_selected_workflow",this));
+        	addHandler(new SaveWorkflowImageHandler("save_workflow_image",this,cfg, cfg.getTemplate("fcw_message.ftl")));
 
+           	
 
         	
         	

@@ -42,78 +42,536 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 				
 				
-        try {	   
-        	String featureModelFileName="";
-        	String requestQueryString=request.getQueryString();
-        	String viewType="";
-        	String viewName="";
-        	if (requestQueryString.indexOf("viewType")==-1){
-        		viewType="none";
-        		viewName="none";
-        	}else{
-           		 viewType=(String)request.getParameter("viewType");
-        		 viewName=(String)request.getParameter("viewName");
-        		 
-        		 if (viewType.compareToIgnoreCase("none")==0){
-        			 viewName="none";
-        		 }
-
-        	}	
-
+        try {	
         	
-         		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
-        		String modelDir=getServlet().getInitParameter("modelsPath");
+            HttpSession session=null;
+        	String  newSession="false";
+        	String workflowExistence="false";
+        	String requestQueryString=request.getQueryString();
+        	String  workflow="false";
+        	String viewType="none";
+        	String viewName="none";
+        	String  task="false";
+        	String  featureModelName="false";
+        	String featureModelFileName="false";
+        	String  userKey="false";
+        	String  serverKey="";
+        	String newConfiguration="false";
+        	String  user="guest";
+        	
+    		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
+    		String modelDir=getServlet().getInitParameter("modelsPath");
 
+
+    		/*********************************************************************
+    		 * Check if the configuration is workflow based or not
+    		 *********************************************************************/
+
+        	if (!(requestQueryString.indexOf("workflowExistence")==-1)){
+            	workflowExistence=(String)request.getParameter("workflowExistence");
+            	if ((workflowExistence==null)|| (workflowExistence=="") || (workflowExistence.compareToIgnoreCase("true")!=0)){
+            		workflowExistence="false";
+            	}
+        	}else{
+        		workflowExistence="false";
+        	}
+        	
+
+       		/*********************************************************************
+    		 * Check if the user starts a new session
+    		 *********************************************************************/
+            	if (!(requestQueryString.indexOf("newSession")==-1)){
+            		newSession=(String)request.getParameter("newSession");
+            		if (!((newSession==null)) && (!(newSession=="")) && (newSession.compareToIgnoreCase("true")==0)){
+            			newSession="true";
+            		}else{
+            			newSession="false";
+
+            		}
+            		
+            	}else{
+            		newSession="false";
+            	}
+        	
+            	if (newSession.compareToIgnoreCase("true")==0){
+            		session=request.getSession();
+            	}else{
+            		session=request.getSession(true);
+            	}
+        	
+        	
+            	
+           		/*********************************************************************
+        		 * workflow name
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+            			if (requestQueryString.indexOf("workflow")==-1){
+            				workflow="false";
+        					throw new HandlerExecutionException("Problem finding the workflow name");
+            			}else{
+            				workflow=(String)request.getParameter("workflow");
+            				if ((workflow=="") || (workflow==null) || (workflow.compareToIgnoreCase("false")==0)){
+                				workflow="false";
+            					throw new HandlerExecutionException("Problem finding the workflow name");
+
+            				}
+            			}
+            		}else{
+            			
+            			if (requestQueryString.indexOf("workflow")==-1){
+                			workflow=(String)session.getAttribute("workflow");
+            				if ((workflow=="") || (workflow==null) ||(workflow.compareToIgnoreCase("false")==0)){
+                				workflow="false";
+            					throw new HandlerExecutionException("Problem finding the workflow name");
+
+            				}
+            				
+            			}else{
+            				workflow=(String)request.getParameter("workflow");
+            				if ( (workflow=="") || (workflow==null)||(workflow.compareToIgnoreCase("false")==0)){
+                				workflow="false";
+            					throw new HandlerExecutionException("Problem finding the workflow name");
+
+            				}
+            			}
+             		}
+            	}else{
+    				workflow="false";
+            	}
+            	
+            	session.setAttribute("workflow", workflow);
+            	
+           		/*********************************************************************
+        		 * task name
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+            			if (requestQueryString.indexOf("task")==-1){
+            				task="false";
+        	            	throw new HandlerExecutionException("Problem finding the task name");
+            			}else{
+                			task=(String)request.getParameter("task");
+                			if ((task=="") || (task==null)||(task.compareToIgnoreCase("false")==0)){
+                				task="false";
+            	            	throw new HandlerExecutionException("Problem finding the task name");
+                			}
+            			}
+
+            		}else{
+            			
+            			if (requestQueryString.indexOf("task")==-1){
+                			
+                			task=(String)session.getAttribute("task");
+               				if ((task=="") || (task==null) ||(task.compareToIgnoreCase("false")==0)){
+                				task="false";
+            					throw new HandlerExecutionException("Problem finding the task name");
+
+            				}
+               				
+            			}else{
+                			task=(String)request.getParameter("task");
+                			if ((task=="") || (task==null)||(task.compareToIgnoreCase("false")==0)){
+                				task="false";
+            	            	throw new HandlerExecutionException("Problem finding the task name");
+                			}
+            			}
+             		}
+            	}else{
+            		task="false";
+            	}
+            	session.setAttribute("task", task);
+
+           		/*********************************************************************
+        		 * feature model name
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+            			if (requestQueryString.indexOf("featureModelName")==-1){
+            				featureModelName="false";
+        	            	throw new HandlerExecutionException("Problem finding the feature model name");
+            			}else{
+                			featureModelName=(String)request.getParameter("featureModelName");
+                			if ( (featureModelName=="") || (featureModelName==null) ||(featureModelName.compareToIgnoreCase("false")==0)){
+                   				featureModelName="false";
+            	            	throw new HandlerExecutionException("Problem finding the feature model name");
+                			}
+            			}
+
+           
+            		}else{
+            			if (requestQueryString.indexOf("featureModelName")==-1){
+            				featureModelName=(String)session.getAttribute("featureModelName");
+              				if ((featureModelName=="") || (featureModelName==null)||(featureModelName.compareToIgnoreCase("false")==0)){
+              					featureModelName="false";
+            					throw new HandlerExecutionException("Problem finding the feature model name");
+
+            				}
+
+            			}else{
+                			featureModelName=(String)request.getParameter("featureModelName");
+                			if ((featureModelName=="") || (featureModelName==null)||(featureModelName.compareToIgnoreCase("false")==0)){
+                   				featureModelName="false";
+            	            	throw new HandlerExecutionException("Problem finding the feature model name");
+                			}
+            			}
+            		}
+            	}else{
+        			if (requestQueryString.indexOf("featureModelName")==-1){
+                		featureModelName=(String)session.getAttribute("featureModelName");
+                   
+                		if ((featureModelName=="") || (featureModelName==null)||(featureModelName.compareToIgnoreCase("false")==0)){
+                        	featureModelName="false";
+                		}
+        			}else{
+            			featureModelName=(String)request.getParameter("featureModelName");
+                		if ((featureModelName=="") || (featureModelName==null)|| (featureModelName.compareToIgnoreCase("false")==0)){
+                			featureModelName="false";
+                		}
+        				
+        			}
+            	}
+
+            	session.setAttribute("featureModelName", featureModelName);
+
+	        	
+	    		/*********************************************************************
+	    		 * Feature model file name
+	    		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+            			if (featureModelName.compareToIgnoreCase("false")==0){
+    	        			featureModelFileName="false";
+        	            	throw new HandlerExecutionException("Problem finding the feature model name");
+            			}else{
+            				featureModelFileName=Methods.getfeatureModelFileName(modelDir, featureModelName);
+        	        		if ((featureModelFileName==null) ||(featureModelFileName=="")  || (featureModelFileName.compareToIgnoreCase("false")==0)){
+        	        			featureModelFileName="false";
+            	            	throw new HandlerExecutionException("Problem finding the feature model file name");
+        	        		}
+            				
+            			}
+            			
+            		}else{
+    	        		featureModelFileName=(String)session.getAttribute("selectedModels");
+    	        		if ((featureModelFileName==null) ||(featureModelFileName=="")  || (featureModelFileName.compareToIgnoreCase("false")==0)){
+       	        			featureModelFileName="false";
+        	            	throw new HandlerExecutionException("Problem finding the feature model file name");
+    	        		}
+            		}
+
+            	}else{
+    	        	if (requestQueryString.indexOf("selectedModels")!=-1){
+    	        		featureModelFileName=(String)request.getParameter("selectedModels");
+    	        		if ((featureModelFileName==null) ||(featureModelFileName=="") || (featureModelFileName.compareToIgnoreCase("false")==0)){
+    	        			featureModelFileName="false";
+        	            	throw new HandlerExecutionException("Problem finding the feature model file name");
+
+    	        		}
+    	        	}else{
+    	        		featureModelFileName=(String)session.getAttribute("selectedModels");
+    	        		if ((featureModelFileName==null) ||(featureModelFileName=="") || (featureModelFileName.compareToIgnoreCase("false")==0)){
+    	        			featureModelFileName="false";
+        	            	throw new HandlerExecutionException("Problem finding the feature model file name");
+
+    	        			
+    	        		}
+    	        	}
+
+            	}
+
+            	session.setAttribute("selectedModels", featureModelFileName);
+            	
+	        	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
+
+	        	
+	    		/*********************************************************************
+	    		 * RESET configuration
+	    		 *********************************************************************/
+	        	
+	        	if(confEngine == null || featureModelFileName != null ){
+		        	confEngine = createConfigurationEngine(getResourcePath()+featureModelFileName);
+		        	confEngine.reset();
+		    		session.setAttribute("conf_engine", confEngine);
+
+	        	}
+	    		else {
+	    			
+	    			confEngine.reset();
+	    		}
+	        	
+				FeatureModel featureModel = null;
+				featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
+				featureModel.loadModel();
+
+        		if ((featureModelName==null) ||(featureModelName=="") || (featureModelName.compareToIgnoreCase("false")==0)){
+        			featureModelName=confEngine.getModel().getName();
+        		}
+	        	
+        		
+           		/*********************************************************************
+        		 * view name
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+            			
+            			
+                		if (requestQueryString.indexOf("viewName")==-1){
+                			if ((workflow.compareToIgnoreCase("false")==0) || (featureModelName.compareToIgnoreCase("false")==0) || (task.compareToIgnoreCase("false")==0)){
+                				viewName="none";
+            	            	throw new HandlerExecutionException("Problem finding the view name");
+
+                			}else{
+                				String tmpViewName=	Methods.getTaskViewName(viewDir, workflow, featureModelName, task);
+                				if ((tmpViewName.compareToIgnoreCase("false")==0) ||(tmpViewName==null) || (tmpViewName=="") ){
+                    				viewName="none";
+                	            	throw new HandlerExecutionException("Problem finding the view name");
+                				}else{
+                					viewName=tmpViewName;
+                				}
+                			}
+                			
+                		}else{
+                			viewName=(String)request.getParameter("viewName");
+                			if ((viewName==null) ||(viewName=="") ){
+                				viewName="none";
+                			}
+
+                		}
+            		}else{
+                		if (requestQueryString.indexOf("viewName")==-1){
+                			viewName=(String)session.getAttribute("viewName");
+                			if ((viewName==null) ||(viewName=="") ){
+                				viewName="none";
+                			}
+                		}else{
+                			viewName=(String)request.getParameter("viewName");
+                			if ((viewName==null) ||(viewName=="") ){
+                				viewName="none";
+                			}
+                		}
+            		}
+            	}else{
+            		if (requestQueryString.indexOf("viewName")==-1){
+            			viewName=(String)session.getAttribute("viewName");
+            			if ((viewName==null) ||(viewName=="") ){
+            				viewName="none";
+            			}
+            		}else{
+            			viewName=(String)request.getParameter("viewName");
+            			if ((viewName==null) ||(viewName=="") ){
+            				viewName="none";
+            			}
+
+            		}
+            	}
+
+            	session.setAttribute("viewName", viewName);
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+           		/*********************************************************************
+        		 * view type
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+                		if (requestQueryString.indexOf("viewType")==-1){
+                			viewType="none";
+                		}else{
+                			viewType=(String)request.getParameter("viewType");
+                			if ((viewType==null) ||(viewType=="") ){
+                    			viewType="none";
+                			}
+
+                		}
+             		}else{
+                 		if (requestQueryString.indexOf("viewType")==-1){
+                			viewType=(String)session.getAttribute("viewType");
+                			if ((viewType==null) ||(viewType=="") ){
+                    			viewType="none";
+                			}
+                		}else{
+                			viewType=(String)request.getParameter("viewType");
+                			if ((viewType==null) ||(viewType=="") ){
+                    			viewType="none";
+                			}
+
+                		}
+            			
+            		}
+
+            	}else{
+             		if (requestQueryString.indexOf("viewType")==-1){
+            			viewType=(String)session.getAttribute("viewType");
+            			if ((viewType==null) ||(viewType=="") ){
+                			viewType="none";
+            			}
+            		}else{
+            			viewType=(String)request.getParameter("viewType");
+            			if ((viewType==null) ||(viewType=="") ){
+                			viewType="none";
+            			}
+
+            		}
+            	}
+
+            	if (viewName.compareToIgnoreCase("none")==0){
+        			viewType="none";
+            	}
+            	
+            	session.setAttribute("viewType", viewType);
+
+
+            	
+            	
+            	
+            	
+            	
+           		/*********************************************************************
+        		 * user key
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+                 		if (requestQueryString.indexOf("userKey")==-1){
+                 			userKey="false";
+        	            	throw new HandlerExecutionException("Problem finding the user key");
+
+                 		}else{
+                 			userKey=(String)request.getParameter("userKey");
+                			if ((userKey==null) ||(userKey=="")  || (userKey.compareToIgnoreCase("false")==0)){
+                     			userKey="false";
+            	            	throw new HandlerExecutionException("Problem finding the user key");
+                			}
+
+                 		}
+
+            		}else{
+                 		if (requestQueryString.indexOf("userKey")==-1){
+                 			userKey=(String)session.getAttribute("userKey");
+                			if ((userKey==null) ||(userKey=="")  || (userKey.compareToIgnoreCase("false")==0)){
+                     			userKey="false";
+            	            	throw new HandlerExecutionException("Problem finding the user key");
+                			}
+        	            	
+
+                 		}else{
+                 			userKey=(String)request.getParameter("userKey");
+                 			if ((userKey==null) ||(userKey=="")  || (userKey.compareToIgnoreCase("false")==0)){
+                     			userKey="false";
+            	            	throw new HandlerExecutionException("Problem finding the user key");
+                			}
+
+                 		}
+            		}
+
+            	}else{
+            		userKey="false";
+            	}
+            	session.setAttribute("userKey", userKey);
+
+            	
+            	
+            	
+           		/*********************************************************************
+        		 * server key
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+                 		if (requestQueryString.indexOf("serverKey")==-1){
+                 			newConfiguration="true";
+                 			serverKey="";
+                 		}else{
+                			serverKey=(String)request.getParameter("serverKey");
+                			if ( (!(serverKey!=null)) && (serverKey!="")){
+                    			newConfiguration="false";
+                    		}else{
+                    			newConfiguration="true";
+                    			serverKey="";
+                    		}
+                 			
+                 		}
+            		}else{
+            			
+            			if (requestQueryString.indexOf("serverKey")==-1){
+            				serverKey=(String)session.getAttribute("serverKey");
+                			if ( (!(serverKey!=null)) && (serverKey!="")){
+                    			newConfiguration="false";
+                    		}else{
+                    			newConfiguration="true";
+                    			serverKey="";
+                    		}
+            			}else{
+            				serverKey=(String)request.getParameter("serverKey");
+                			if ( (!(serverKey!=null)) && (serverKey!="")){
+                    			newConfiguration="false";
+                    		}else{
+                    			newConfiguration="true";
+                    			serverKey="";
+                    		}
+            			}
+            			
+             			
+            		}
+
+            	}else{
+            		serverKey="";
+            	}
+            	session.setAttribute("serverKey", serverKey);
+
+            	
+           		/*********************************************************************
+        		 * user
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+            			if (requestQueryString.indexOf("user")==-1){
+            				user="guest";
+            			}else{
+            				user=(String)request.getParameter("user");
+                			if ((user==null) ||(user=="") ){
+                				user="guest";
+                			}
+            			}
+            			
+            		}else{
+            			
+            			if (requestQueryString.indexOf("user")==-1){
+            				user=(String)session.getAttribute("user");
+                			if ((user==null) ||(user=="") ){
+                				user="guest";
+                			}
+            			}else{
+            				user=(String)request.getParameter("user");
+                			if ((user==null) ||(user=="") ){
+                				user="guest";
+                			}
+            			}
+            		}
+
+            	}else{
+            		user="guest";
+            	}
+            		 
+            	session.setAttribute("user", user);
+
+            	
   	        
 	            String op = (String)request.getParameter("op");        
 	            if ( op == null || op.compareToIgnoreCase("reset") != 0) {
 	            	throw new HandlerExecutionException("Paremeter 'op' must be specified to 'reset'");
 	            }
 	
-	            HttpSession session = request.getSession(true);
-	        	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
-	        	
-	    		/*********************************************************************
-	    		 * RESET configuration
-	    		 *********************************************************************/
-	            String modelFileName = (String)request.getParameter("userModels");
-	            if ( modelFileName != null && modelFileName.trim().length() != 0) {
-	            	if ( !modelFileName.startsWith("http://")) {
-	            		throw new HandlerExecutionException("User model's URL must start with \"http://\"");
-	            	}
-	            }
-	            else {
-	        		modelFileName = (String)request.getParameter("selectedModels");
-	        		featureModelFileName=(String)request.getParameter("selectedModels");
-	        		if ((featureModelFileName==null) ||(featureModelFileName=="") ){
-	        			featureModelFileName=(String)request.getParameter("fm_file");
-	        		}
-	//	            if ( modelFileName == null || modelFileName.trim().length() == 0 ) {
-	//	            	throw new HandlerExecutionException("A model must be indicated/selected");
-	//	            }
-	            }
-	            		            
-	            String tmpModelPath = (String)request.getParameter("tmpModelPath");
 	            
-	    		// If model is not in the session, load and add it
-	    		if ( confEngine == null || modelFileName != null ) {
-	    			
-		    		String modelLocatorString = modelFileName.trim();
-		        	if ( !modelFileName.startsWith("http://") ) {
-		        		modelLocatorString = getResourcePath() + (tmpModelPath == null ? "" : tmpModelPath.trim() + System.getProperty("file.separator")) + modelLocatorString;
-		        	}
-	
-		        	// Creates configuration engine and adds to session
-		        	confEngine = createConfigurationEngine(modelLocatorString);
-		        	confEngine.reset();
-		    		session.setAttribute("conf_engine", confEngine);
-	    		}
-	    		// Otherwise, reset configuration engine
-	    		else {
-	    			
-	    			confEngine.reset();
-	    		}
-	
+	            
+	            
+	            
+
 	    		
 				// Producer of parts of the template
 	        	if ( confElementProducer == null ) {
@@ -132,13 +590,9 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	        
 	    		// Traverses features and identify several related parameters
 	        	
-				FeatureModel featureModel = null;
-				featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
-				featureModel.loadModel();
 				LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
 				getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
 
-	        	
 	        	
 	    		List<Map> featuresList = new LinkedList<Map>();	
 	    		Boolean viewLoadStatus=true;
@@ -153,7 +607,9 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	    			featureData.put("configurationFeatureElement", featureElementData);
 	    			featuresList.add(featureData);
 	    			
-	    		}	    			    		 
+	    		}
+	    		
+
 	    		templateModel.put("features", featuresList);
 	    		templateModel.put("modelName", confEngine.getModel().getName());
 	        	templateModel.put("countFeatures", confEngine.getModel().countFeatures());
@@ -162,9 +618,13 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				templateModel.put("fm_views", Methods.getFeatureModelViews(viewDir));
 				templateModel.put("viewType", viewType.toLowerCase());
 				templateModel.put("viewName", viewName);
-				templateModel.put("fm_file", featureModelFileName);
-				
-				
+				templateModel.put("selectedModels", featureModelFileName);
+				templateModel.put("workflow", workflow);
+				templateModel.put("task", task);
+				templateModel.put("user", user);
+				templateModel.put("workflowExistence", workflowExistence);
+	        
+
 				
  			
 		} catch (HandlerExecutionException e1) {

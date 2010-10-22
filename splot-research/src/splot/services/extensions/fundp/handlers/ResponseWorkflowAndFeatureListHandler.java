@@ -2,6 +2,8 @@ package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,6 +51,8 @@ public class ResponseWorkflowAndFeatureListHandler extends Handler{
 		
 		try {
 			String resuStringInString="";
+			String resuStringInString2="";
+
 			int arrayIndex=-1;
 			String selectedType=request.getParameter("selectedType");
 			String selectedValue=request.getParameter("selectedValue");
@@ -130,8 +134,60 @@ public class ResponseWorkflowAndFeatureListHandler extends Handler{
 				}
 				
 				
+			}else if (selectedType.compareToIgnoreCase("both")==0){
+				String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
+				File  dir=new File(viewDir);
+				String[]  childeren=dir.list();
+       			for (int i=0;i<childeren.length;i++){
+       				if (childeren!=null){
+       					if (childeren[i].endsWith(".xml") !=false){
+           					String  fileName=childeren[i];
+           					File viewFile = new File(viewDir+"/"+fileName);
+           					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+           					Document doc = builder.parse(viewFile);
+           					
+           					NodeList featureModelNodes = doc.getElementsByTagName("feature_model");  // this tag includes workflow's information
+           					Element  featureModelElement = (Element) featureModelNodes.item(0);
+           					String   featureModelName=featureModelElement.getAttribute("name");
+							if (resuStringInString==""){
+									resuStringInString=featureModelName;
+							}else{
+									if (resuStringInString.indexOf(featureModelName)==-1){
+										resuStringInString=resuStringInString+","+featureModelName;
+									}
+									
+							}
+           				}
+       				}	
+       			}
+       			
+       			String xmlDir=getServlet().getServletContext().getRealPath("/")+ "extensions/parsed_workflows"; //getServlet().getInitParameter("parsedWorkflowPath");  // directory of parsed workflow's xml files: SPLOT/WebContent/extensions/parsed_workflows
+    			dir=new File(xmlDir);
+        		childeren=dir.list();
+        		if (childeren!=null){
+        			for (int i=0;i<childeren.length;i++){
+        				 if ((childeren[i].indexOf(".xml") !=-1) || (childeren[i].indexOf(".yawl") !=-1)){
+        					 String  fileName=childeren[i];
+        					 File file = new File(xmlDir+"/"+fileName);
+        					  DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        					  Document doc = builder.parse(file);
+        					  NodeList specificationNodes = doc.getElementsByTagName("specification");  // this tag includes workflow's information
+        					  Element specificationElement = (Element) specificationNodes.item(0);
+        					  
+        					  if (resuStringInString2==""){
+								resuStringInString2=specificationElement.getAttribute("uri");
+  							}else{
+								if (resuStringInString2.indexOf(specificationElement.getAttribute("uri"))==-1){
+									resuStringInString2=resuStringInString2+","+specificationElement.getAttribute("uri");
+								}
+								
+  							}
+        				 }
+        			}
+        		}
+       			resuStringInString=resuStringInString+"/"+resuStringInString2;
+
 			}
-			
 			response.getWriter().write(resuStringInString);
 		} catch (Exception e) {
 			e.printStackTrace();

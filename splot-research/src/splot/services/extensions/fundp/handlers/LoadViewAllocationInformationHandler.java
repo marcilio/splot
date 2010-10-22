@@ -60,11 +60,26 @@ public class LoadViewAllocationInformationHandler extends Handler {
 		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
 		
 		String parsedWorkflowDir=getServlet().getServletContext().getRealPath("/")+ "extensions/parsed_workflows"; //getServlet().getInitParameter("parsedWorkflowPath");
+		String imageDir=getServlet().getServletContext().getRealPath("/")+ "extensions/workflow_images";
+
 		String taskList="";
 		String viewList="";
+		String conditionList="";
 		File  dir=new File(viewDir);
 		String[]  childeren=dir.list();
 		taskList=getWorkflowTasks(workflow,parsedWorkflowDir);
+		conditionList=getWorkflowConditions(workflow, parsedWorkflowDir);
+		String workflowFileName=getWorkflowFileName(workflow, parsedWorkflowDir);
+		
+		String imagefileName=workflowFileName.split("\\.")[0]+".png";
+		
+		File imagefile = new File(imageDir+"/"+imagefileName);
+		if (!(imagefile.exists())){
+			imagefileName="";
+		}
+
+
+
 		
 		try {
 				List<Map> jsonObj=new LinkedList<Map>();
@@ -153,7 +168,7 @@ public class LoadViewAllocationInformationHandler extends Handler {
 					
 				}
 			String jsonText = JSONValue.toJSONString(jsonObj);
-			response.getWriter().write(viewCount+"/"+jsonText+"/"+viewList+"/"+taskList);	
+			response.getWriter().write(viewCount+"/"+jsonText+"/"+viewList+"/"+taskList+"/"+conditionList+"/"+imagefileName);	
 			
 		} catch (Exception e) {
 			response.getWriter().write(e.getMessage());	
@@ -175,7 +190,7 @@ public class LoadViewAllocationInformationHandler extends Handler {
 		try {
    			for (int i=0;i<childeren.length;i++){
    				if (childeren!=null){
-   					if (childeren[i].endsWith(".xml") !=false){
+   					if ((childeren[i].endsWith(".xml") !=false)  || (childeren[i].endsWith(".yawl") !=false)  ){
    						String  fileName=childeren[i];
        					File workflowFile = new File(workflowDir+"/"+fileName);
        					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -213,6 +228,129 @@ public class LoadViewAllocationInformationHandler extends Handler {
 		
 
 		retValue=taskList;
+		return retValue; 
+	}
+	
+	
+	public static String getWorkflowFileName(String workflowName, String workflowDir){
+		String retValue="";
+		String workflowFileName="";
+		File  dir=new File(workflowDir);
+		String[]  childeren=dir.list();
+		try {
+   			for (int i=0;i<childeren.length;i++){
+   				if (childeren!=null){
+   					if ((childeren[i].endsWith(".xml") !=false)  || (childeren[i].endsWith(".yawl") !=false)  ){
+   						String  fileName=childeren[i];
+       					File workflowFile = new File(workflowDir+"/"+fileName);
+       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+       					Document doc = builder.parse(workflowFile);
+       					
+       					NodeList specificationNodes = doc.getElementsByTagName("specification");  // this tag includes workflow's information
+       					Element specificationElement = (Element) specificationNodes.item(0);
+       					if (specificationElement.getAttribute("uri").trim().compareToIgnoreCase(workflowName)==0){
+       						workflowFileName=fileName;
+					  }
+   					}
+   					
+   				}
+   			}
+
+			
+			
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+			
+		
+
+		retValue=workflowFileName;
+		return retValue; 
+	}
+	
+	public static String getWorkflowConditions(String workflowName, String workflowDir){
+		String retValue="";
+		String conditionList="";
+		File  dir=new File(workflowDir);
+		String[]  childeren=dir.list();
+		try {
+   			for (int i=0;i<childeren.length;i++){
+   				if (childeren!=null){
+   					if ((childeren[i].endsWith(".xml") !=false)  || (childeren[i].endsWith(".yawl") !=false)  ){
+   						String  fileName=childeren[i];
+       					File workflowFile = new File(workflowDir+"/"+fileName);
+       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+       					Document doc = builder.parse(workflowFile);
+       					
+       					NodeList specificationNodes = doc.getElementsByTagName("specification");  // this tag includes workflow's information
+       					Element specificationElement = (Element) specificationNodes.item(0);
+
+       					if (specificationElement.getAttribute("uri").trim().compareToIgnoreCase(workflowName)==0){
+       						NodeList conditionNodes = specificationElement.getElementsByTagName("condition");  
+           					if (conditionNodes.getLength()>0){
+           						for (int j = 0; j < conditionNodes.getLength(); j++) {
+           							Element conditionElement = (Element) conditionNodes.item(j);
+           							
+           							NodeList conditionNameNodes=conditionElement.getElementsByTagName("name");
+           							if(conditionNameNodes.getLength()>0){
+           								Element conditionNameElement=(Element) conditionNameNodes.item(0);
+           								if (conditionList==""){
+           									conditionList=Methods.getCharacterDataFromElement(conditionNameElement);
+           								}else{
+           									conditionList=conditionList+","+Methods.getCharacterDataFromElement(conditionNameElement);
+           								}
+           							}
+           							
+           							
+           						}
+           					}else{
+           						conditionList="";
+           					}
+           					
+           					NodeList outputConditionNodes = specificationElement.getElementsByTagName("outputCondition");  
+           					if (outputConditionNodes.getLength()>0){
+           						for (int j = 0; j < outputConditionNodes.getLength(); j++) {
+           							Element conditionElement = (Element) outputConditionNodes.item(j);
+           							
+           							NodeList conditionNameNodes=conditionElement.getElementsByTagName("name");
+           							if(conditionNameNodes.getLength()>0){
+           								Element conditionNameElement=(Element) conditionNameNodes.item(0);
+           								if (conditionList==""){
+           									conditionList=Methods.getCharacterDataFromElement(conditionNameElement);
+           								}else{
+           									conditionList=conditionList+","+Methods.getCharacterDataFromElement(conditionNameElement);
+           								}
+           							}else{
+          								if (conditionList==""){
+           									conditionList=conditionElement.getAttribute("id");
+           								}else{
+           									conditionList=conditionList+","+conditionElement.getAttribute("id");
+           								}
+
+           							}
+           							
+           							
+           						}
+           					}else{
+           						conditionList="";
+           					}
+           					
+           					
+       					}
+       					
+       				
+       				
+   					}
+   					
+   				}
+   			}
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+			
+		
+
+		retValue=conditionList;
 		return retValue; 
 	}
 

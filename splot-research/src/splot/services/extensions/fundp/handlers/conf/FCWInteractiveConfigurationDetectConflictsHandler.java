@@ -50,7 +50,7 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
         	String toggleFeature = (String)request.getParameter("toggleFeature"); 
         	String viewType=(String)request.getParameter("viewType");
         	String viewName=(String)request.getParameter("viewName");
-			String featureModelFileName=(String)request.getParameter("fm_file");
+			String featureModelFileName=(String)request.getParameter("selectedModels");
 
         	
     		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");

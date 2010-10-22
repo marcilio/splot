@@ -59,6 +59,7 @@ public class ViewAllocationEditorHandler  extends FreeMarkerHandler {
 	public void buildModel(HttpServletRequest request,HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 		List<Map> featureModelList =new LinkedList<Map>();
 		try {
+			
 			String showType=(String)request.getParameter("show_type");
 			String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
 			File  dir=new File(viewDir);
@@ -101,7 +102,7 @@ public class ViewAllocationEditorHandler  extends FreeMarkerHandler {
         		String[]  childeren=dir.list();
         		if (childeren!=null){
         			for (int i=0;i<childeren.length;i++){
-        				 if (childeren[i].indexOf(".xml") !=-1){
+        				 if ((childeren[i].indexOf(".xml") !=-1) || (childeren[i].indexOf(".yawl") !=-1)){
         					 String  fileName=childeren[i];
         					 File file = new File(xmlDir+"/"+fileName);
         					  DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

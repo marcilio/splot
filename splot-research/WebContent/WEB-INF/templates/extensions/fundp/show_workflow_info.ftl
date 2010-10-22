@@ -52,18 +52,33 @@
 <!-- end #menu --> 
 
 
+
+	
+
 <div id="wrapper"> 
 <div class="btm"> 
 	<div id="page"> 
 		<div id="content"> 
 			<div class="post"> 
+				
 				<h1 class="title"><a href="#">Workflow Specification</a></h1> 
-				<h1 class="orangeFont"><a href="#">${name}</a></h1>
+				<#if error!="">
+					${error}
+				<#else>	
+					<h1 class="orangeFont"><a href="#">${name}</a></h1>
+				
+				
+					<#if imageFileName !="false">
+						<div><img src="extensions/workflow_images/${imageFileName}"> </div>
+						<div><img src="extensions/workflow_images/legend.png"> </div>
+					</#if>
+				</#if>
 				<div class="entry"> 
 					 <div>
 					 	<table border="0" width="100%" cellpadding="1">
 						 	<tr><td align="left" width="100%">
 								 <div>
+								 <#if error=="">
 								 <ul dojoType="dojox.widget.SortList" id="workflows"  title="Workflow Specification" sortable="false" style="width:300px; height=300px;">
 								   		<#list specification_list as specification>
 								   			<li>
@@ -104,7 +119,7 @@
 								   
 								  </ul>
 								  
-								 	
+								</#if>
 								</div>	 
 	 						</td>
 	 						
@@ -121,6 +136,8 @@
 	<!-- end #page --> 
 </div> 
 </div>
+
+
  
 <div id="footer"> 
 	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009.</p> 
