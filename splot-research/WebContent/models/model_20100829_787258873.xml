@@ -2,7 +2,7 @@
 <feature_model name="Plone Meeting">
 <meta>
 <data name="description">Feature model of the Plone Meeting</data>
-<data name="creator">Ebrahim Khalil Abbasi et. al</data>
+<data name="creator">Ebrahim Khalil Abbasi and Arnaud Hubaux</data>
 <data name="address"></data>
 <data name="email">ebrahim.abbasi@fundp.ac.be</data>
 <data name="phone"></data>
