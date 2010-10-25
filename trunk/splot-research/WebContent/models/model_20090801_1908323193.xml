@@ -1,7 +1,7 @@
 <!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Aug 01, 2009 - 1:20 PM  -->
 <feature_model name="CFDP Library">
 <meta>
-<data name="description">Feature model of the CFDP library</data>
+<data name="description">Feature Model of the CFDP library</data>
 <data name="creator">Arnaud Hubaux et. al</data>
 <data name="email"></data>
 <data name="date">Aug 2009</data>
