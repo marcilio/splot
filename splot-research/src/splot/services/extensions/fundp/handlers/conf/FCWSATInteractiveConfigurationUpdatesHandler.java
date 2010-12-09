@@ -47,11 +47,11 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 		try {
 			
 			
-	      
+			
            		 String viewType=(String)request.getParameter("viewType");
         		 String viewName=(String)request.getParameter("viewName");
         		 String featureModelFileName=(String)request.getParameter("selectedModels");
-        		
+        		 String serverKey=request.getParameter("serverKey");
         		 if (viewType.compareToIgnoreCase("none")==0){
         			 viewName="none"; 
         		 }
@@ -71,6 +71,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 	        if ( op == null) {
 	        	throw new HandlerExecutionException("Paremeter 'op' is missing");
 	        }
+	        
 			
 			templateModel.put("op", op);
         	
@@ -88,6 +89,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
     		 * UNDO configuration step
     		 *********************************************************************/
         	if ( op.compareToIgnoreCase("undo") == 0 ) {
+        		
         		
         		stepsToUpdateList = confEngine.undo(Integer.valueOf(request.getParameter("step")));
         		templateModel.put("countUndoSteps", stepsToUpdateList.size());
@@ -148,8 +150,8 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
         		}
         		
         		// toggle decision and grabs new steps
-        		stepsToUpdateList = confEngine.toggleDecision(toggleFeature);
         		
+        		stepsToUpdateList = confEngine.toggleDecision(toggleFeature);
         		templateModel.put("countUndoSteps", countUndoSteps);
         		
         	}
@@ -192,7 +194,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 	    			}
 	    			Map featureData = new HashMap();
 	    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds);
+	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,serverKey);
 	    			featureData.put("configurationFeatureElement", featureElementData);
 	    			featuresList.add(featureData);
 	    		}
@@ -203,7 +205,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 	    			Map featureData = new HashMap();
 	    			
 	    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds);
+	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,serverKey);
 	    		    featureData.put("configurationFeatureElement", featureElementData);
 	    			featuresList.add(featureData);
 	    		}

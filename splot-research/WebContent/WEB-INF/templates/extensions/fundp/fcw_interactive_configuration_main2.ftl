@@ -25,6 +25,11 @@ Released   : 20081103
 </script>
 <script type="text/javascript" src="js/ajax.js"></script> 
 
+<script type="text/javascript" src="js/ajax-dynamic-content.js"></script>
+<script type="text/javascript" src="js/json_utils.js"></script> 
+<script type="text/javascript" src="js/utils.js"></script> 
+<script type="text/javascript" src="js/json_sans_eval.js"></script> 
+
 <#if !hasError>
 
 <style type="text/css">
@@ -141,6 +146,159 @@ Released   : 20081103
 		toggleFeatureId = featureId;
 	}
 	
+	
+	/******************************************************
+	*  Save Configuration to repository  
+	*******************************************************/
+	function saveConfigurationToRepository() {
+		
+		if (window.ActiveXObject){
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else{
+			oXMLRequest = new XMLHttpRequest();
+		}
+		
+	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save&sessionKey="+sessionKey;
+	    
+		oXMLRequest.open("GET",strValidationServiceUrl,true);
+		oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
+		oXMLRequest.send(null);
+	}
+	
+	
+	
+	/******************************************************
+	*  Result:Save Configuration to repository  
+	*******************************************************/	
+	function OnSaveConfigurationToRepository() {
+	      	if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+			 	  strStatus = oXMLRequest.responseText;
+			 	  	var resultInJson = strStatus;
+					var resultJsonObj = jsonParse(resultInJson);
+
+				    resultStatus=resultJsonObj.result;
+				    resultValue=resultJsonObj.value;
+				    resultServerKey=resultJsonObj.server_key;
+				    
+				    if(resultStatus=="true"){
+				    	serverKey=resultServerKey
+				    }
+				    
+				    
+				    alert(resultValue);
+				    
+				    
+			 	  
+			 }
+			}
+			 	  
+	
+	}
+	
+	
+	
+	/******************************************************
+	*  Go next task  
+	*******************************************************/
+	function goNextTask() {
+		
+		if (window.ActiveXObject){
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else{
+			oXMLRequest = new XMLHttpRequest();
+		}
+		
+	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=next&sessionKey="+sessionKey;
+	    
+		oXMLRequest.open("GET",strValidationServiceUrl,true);
+		oXMLRequest.onreadystatechange = OnGoNextTask;
+		oXMLRequest.send(null);
+	}
+	
+	
+	
+	/******************************************************
+	*  Result:Go next task  
+	*******************************************************/	
+	function OnGoNextTask() {
+	      	if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+			 	  strStatus = oXMLRequest.responseText;
+			 	  	var resultInJson = strStatus;
+					var resultJsonObj = jsonParse(resultInJson);
+
+				    resultStatus=resultJsonObj.result;
+				    resultValue=resultJsonObj.value;
+				    
+				    
+				    if(resultStatus=="true"){
+				    	window.close();
+				    }else{
+				    	alert(resultValue);
+				    }
+				    
+				    
+				    
+			 	  
+			 }
+			}
+			 	  
+	
+	}	
+	
+	/******************************************************
+	*  Exit configuration 
+	*******************************************************/
+	function exitConfiguration() {
+		
+		if (window.ActiveXObject){
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else{
+			oXMLRequest = new XMLHttpRequest();
+		}
+		
+	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=exit&sessionKey="+sessionKey;
+	    
+		oXMLRequest.open("GET",strValidationServiceUrl,true);
+		oXMLRequest.onreadystatechange = OnExitConfiguration;
+		oXMLRequest.send(null);
+	}
+	
+	
+
+	/******************************************************
+	*  Result:Exit configuration 
+	*******************************************************/	
+	function OnExitConfiguration() {
+	      	if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+			 	  strStatus = oXMLRequest.responseText;
+			 	  	var resultInJson = strStatus;
+					var resultJsonObj = jsonParse(resultInJson);
+
+				    resultStatus=resultJsonObj.result;
+				    resultValue=resultJsonObj.value;
+				    
+				    if(resultStatus=="true"){
+				    	window.close();
+				    }else{
+				    	alert(resultValue);
+				    }
+				    
+				    
+				    
+			 	  
+			 }
+			}
+			 	  
+	
+	}	
+	
+	
 </script>
 
 <script type="text/javascript"> 
@@ -163,7 +321,7 @@ Released   : 20081103
 	  		dojo.parser.parse();  // this is required for dojo to recognize dialog buttons
 	  		dijit.byId('conflictingDecisionsDialog').show();
 	  	}
-	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName);  		
+	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey);  		
 	}
     
 	/******************************************************
@@ -171,7 +329,7 @@ Released   : 20081103
 	*******************************************************/
 	function resetConfiguration() {
 	
-	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName;
+	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey;
 	}
 	
 	/******************************************************
@@ -202,7 +360,6 @@ Released   : 20081103
 	*******************************************************/
 	function buildFeatureModel() 
 	{   
-	
 	
 	
 	
@@ -357,6 +514,13 @@ Released   : 20081103
 		
 		
 		featureModelFileName="${selectedModels}";
+		workflowExistence="${workflowExistence}";
+		serverKey="${serverKey}";
+		sessionKey="${sessionKey}";
+		
+		<#if uncoveredFeatures!="">
+			alert("There are uncovered features in the views, and the configuration would not be saved:"+"${uncoveredFeatures}");
+		</#if>
 	} 
 	
 	
@@ -393,7 +557,7 @@ Released   : 20081103
 	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
-	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName;
+	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey;
 	
 	}     
 	
@@ -411,7 +575,7 @@ Released   : 20081103
 	
 
 	    var xhrArgs = {
-	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName,
+	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey,
            sync : false,
             handleAs: "xml",
             load: function(response, ioArgs) {
@@ -599,7 +763,7 @@ Released   : 20081103
 			<#else>				
 				
 
-		
+			
 			<div id="instructions" class="hintBox" style="display:none;">
 				<a onClick="hideShowHint('show')" href="javascript:void(0)">Show Instructions and Hints</a>
 			</div>
@@ -735,22 +899,33 @@ Released   : 20081103
 							    
 							    <#if workflowExistence=="true">
 							    	<tr>
-							    			<td align="left" >
-							    				Workflow Name:<b>${workflow}</b> 
-							    					
-							    			</td>
+							    		<td align="left" ><label for="workflow_name">Workflow Name: </label></td>
+							    		<td align="left" >
+							    				<b>${workflowName}</b> 
+							    		</td>
 							    			
-							    			<td align="left" >
-							    				Task Name:<b>${task}</b>
-							    					
-							    			</td>
-							    			
-							    			<td align="left" >
-							    				User Name:<b>${user}</b>
-							    					
-							    			</td>
-							    		
 							    	</tr>
+							    	
+							    	
+								    <tr>
+							    		<td align="left" ><label for="task_name">Task Name: </label></td>
+							    		<td align="left" >
+							    				<b>${taskName}</b> 
+							    		</td>
+							    			
+							    	</tr>
+							    
+							    
+								    <tr>
+							    		<td align="left" ><label for="user_name">User Name: </label></td>
+							    		<td align="left" >
+							    				<b>${userName}</b> 
+							    		</td>
+							    			
+							    	</tr>
+							    
+							    
+							    
 							    </#if>
  							    			
 							    <tr>
@@ -826,9 +1001,7 @@ Released   : 20081103
 												<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
 												<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml">XML</a>)
 												<br>
-												 <#if workflowExistence=="true">
-													<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file">Save to file</a>
-												 </#if>
+												 
 											</span>
 											<span style="display:<#if done>none<#else>block</#if>;" id="auto-completion-element">
 												<img title="Automatically completes configuration" src="/SPLOT/images/auto-completion.gif"/>
@@ -836,9 +1009,6 @@ Released   : 20081103
 												<a title="Attempts to DESELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','false')">Less Features</a> | 
 												<a title="Attempts to SELECT all remaining features" href="javascript:updateConfigurationElements('completion','precedence','true')">More Features</a> 
 												<br>
-												 <#if workflowExistence=="true">
-													<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file">Save to file</a>
-												</#if>
 												
 											</span>
 										</span>
@@ -846,9 +1016,33 @@ Released   : 20081103
 								</table>	
 							</td>
 							</tr>
+							 <#if workflowExistence=="true">
+							 <tr></tr>
+							<tr>
+							
+								<td>
+										<button  class="standardHighlight1"  onClick="saveConfigurationToRepository();return false;" type="button">Save Configuration</button>
+										<button  class="standardHighlight1"  onClick="rebuildFeatureModel();return false;" type="button">Reload Configuration</button>
+										<button  class="standardHighlight1"  onClick="goNextTask();return false;" type="button">Next Task</button>
+										<button  class="standardHighlight1"  onClick="exitConfiguration();return false;" type="button">Exit Configuration</button>
+										
+								</td>
+								
+							</tr>
+							<tr>
+								<td>
+										
+									
+								</td>
+							
+							</tr>
+							
+							</#if>
 						</table></p>
 					</div> <!-- entry -->
 				</div> <!-- post -->
+				
+				
 			</#if> <!-- error check --> 
 		</div> <!-- content --> 
 		<div style="clear: both;">&nbsp;</div> 

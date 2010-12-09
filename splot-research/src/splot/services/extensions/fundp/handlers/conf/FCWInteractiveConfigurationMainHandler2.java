@@ -3,9 +3,12 @@ package splot.services.extensions.fundp.handlers.conf;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,31 +55,25 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
         	String viewType="none";
         	String viewName="none";
         	String  task="false";
+        //	String  placeType="false";
+        	//String stopAllocatedViewsResult="";
+
         	String  featureModelName="false";
         	String featureModelFileName="false";
         	String  userKey="false";
         	String  serverKey="";
         	String newConfiguration="false";
         	String  user="guest";
+        	String  sessionKey="";
         	
     		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
     		String modelDir=getServlet().getInitParameter("modelsPath");
+    		String configuredModelPath=modelDir+"/configured_models";
 
+ 
+    		
 
-    		/*********************************************************************
-    		 * Check if the configuration is workflow based or not
-    		 *********************************************************************/
-
-        	if (!(requestQueryString.indexOf("workflowExistence")==-1)){
-            	workflowExistence=(String)request.getParameter("workflowExistence");
-            	if ((workflowExistence==null)|| (workflowExistence=="") || (workflowExistence.compareToIgnoreCase("true")!=0)){
-            		workflowExistence="false";
-            	}
-        	}else{
-        		workflowExistence="false";
-        	}
         	
-
        		/*********************************************************************
     		 * Check if the user starts a new session
     		 *********************************************************************/
@@ -95,22 +92,47 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
         	
             	if (newSession.compareToIgnoreCase("true")==0){
             		session=request.getSession();
+            		
+
             	}else{
             		session=request.getSession(true);
             	}
         	
-        	
+            	session.setAttribute("newSession", newSession);
+            	
+
+            	/*********************************************************************
+        		 * Check if the configuration is workflow based or not
+        		 *********************************************************************/
+
+            	if (!(requestQueryString.indexOf("workflowExistence")==-1)){
+                	workflowExistence=(String)request.getParameter("workflowExistence");
+                	if ((workflowExistence==null)|| (workflowExistence=="") || (workflowExistence.compareToIgnoreCase("true")!=0)){
+                		workflowExistence="false";
+                	}
+            	}else{
+            		workflowExistence="false";
+            	}
+
+            	session.setAttribute("workflowExistence", workflowExistence);
+            	
+            	
+
             	
            		/*********************************************************************
         		 * workflow name
         		 *********************************************************************/
+            	
+
+            	
             	if (workflowExistence.compareToIgnoreCase("true")==0){
             		if (newSession.compareToIgnoreCase("true")==0){
-            			if (requestQueryString.indexOf("workflow")==-1){
+            			if (requestQueryString.indexOf("workflowName")==-1){
             				workflow="false";
+
         					throw new HandlerExecutionException("Problem finding the workflow name");
             			}else{
-            				workflow=(String)request.getParameter("workflow");
+            				workflow=(String)request.getParameter("workflowName");
             				if ((workflow=="") || (workflow==null) || (workflow.compareToIgnoreCase("false")==0)){
                 				workflow="false";
             					throw new HandlerExecutionException("Problem finding the workflow name");
@@ -119,16 +141,19 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             			}
             		}else{
             			
-            			if (requestQueryString.indexOf("workflow")==-1){
-                			workflow=(String)session.getAttribute("workflow");
+            			if (requestQueryString.indexOf("workflowName")==-1){
+                			workflow=(String)session.getAttribute("workflowName");
             				if ((workflow=="") || (workflow==null) ||(workflow.compareToIgnoreCase("false")==0)){
                 				workflow="false";
             					throw new HandlerExecutionException("Problem finding the workflow name");
 
+            				}else{
+            					
             				}
             				
             			}else{
-            				workflow=(String)request.getParameter("workflow");
+
+            				workflow=(String)request.getParameter("workflowName");
             				if ( (workflow=="") || (workflow==null)||(workflow.compareToIgnoreCase("false")==0)){
                 				workflow="false";
             					throw new HandlerExecutionException("Problem finding the workflow name");
@@ -140,18 +165,18 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
     				workflow="false";
             	}
             	
-            	session.setAttribute("workflow", workflow);
+            	session.setAttribute("workflowName", workflow);
             	
            		/*********************************************************************
         		 * task name
         		 *********************************************************************/
             	if (workflowExistence.compareToIgnoreCase("true")==0){
             		if (newSession.compareToIgnoreCase("true")==0){
-            			if (requestQueryString.indexOf("task")==-1){
+            			if (requestQueryString.indexOf("taskName")==-1){
             				task="false";
         	            	throw new HandlerExecutionException("Problem finding the task name");
             			}else{
-                			task=(String)request.getParameter("task");
+                			task=(String)request.getParameter("taskName");
                 			if ((task=="") || (task==null)||(task.compareToIgnoreCase("false")==0)){
                 				task="false";
             	            	throw new HandlerExecutionException("Problem finding the task name");
@@ -160,9 +185,9 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 
             		}else{
             			
-            			if (requestQueryString.indexOf("task")==-1){
+            			if (requestQueryString.indexOf("taskName")==-1){
                 			
-                			task=(String)session.getAttribute("task");
+                			task=(String)session.getAttribute("taskName");
                				if ((task=="") || (task==null) ||(task.compareToIgnoreCase("false")==0)){
                 				task="false";
             					throw new HandlerExecutionException("Problem finding the task name");
@@ -170,7 +195,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             				}
                				
             			}else{
-                			task=(String)request.getParameter("task");
+                			task=(String)request.getParameter("taskName");
                 			if ((task=="") || (task==null)||(task.compareToIgnoreCase("false")==0)){
                 				task="false";
             	            	throw new HandlerExecutionException("Problem finding the task name");
@@ -180,7 +205,59 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             	}else{
             		task="false";
             	}
-            	session.setAttribute("task", task);
+            	session.setAttribute("taskName", task);
+            
+            	
+            	
+           		/*********************************************************************
+        		 * session key
+        		 *********************************************************************/
+
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		sessionKey=request.getParameter("sessionKey");
+            		
+            	}
+            	
+
+           		/*********************************************************************
+        		 * place name
+//        		 *********************************************************************/
+//            	if (workflowExistence.compareToIgnoreCase("true")==0){
+//            		if (newSession.compareToIgnoreCase("true")==0){
+//            			if (requestQueryString.indexOf("placeType")==-1){
+//            				placeType="false";
+//        	            	throw new HandlerExecutionException("Problem finding the place type");
+//            			}else{
+//                			placeType=(String)request.getParameter("placeType");
+//                			if ((placeType=="") || (placeType==null)||(placeType.compareToIgnoreCase("false")==0)){
+//                				placeType="false";
+//            	            	throw new HandlerExecutionException("Problem finding the place type");
+//                			}
+//            			}
+//
+//            		}else{
+//            			
+//            			if (requestQueryString.indexOf("placeType")==-1){
+//                			
+//                			placeType=(String)session.getAttribute("placeType");
+//               				if ((placeType=="") || (placeType==null) ||(placeType.compareToIgnoreCase("false")==0)){
+//                				placeType="false";
+//            					throw new HandlerExecutionException("Problem finding the place type");
+//
+//            				}
+//               				
+//            			}else{
+//                			placeType=(String)request.getParameter("placeType");
+//                			if ((placeType=="") || (placeType==null)||(placeType.compareToIgnoreCase("false")==0)){
+//                				placeType="false";
+//            	            	throw new HandlerExecutionException("Problem finding the place type");
+//                			}
+//            			}
+//             		}
+//            	}else{
+//            		placeType="false";
+//            	}
+//            	session.setAttribute("placeType", placeType);
 
            		/*********************************************************************
         		 * feature model name
@@ -192,6 +269,8 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
         	            	throw new HandlerExecutionException("Problem finding the feature model name");
             			}else{
                 			featureModelName=(String)request.getParameter("featureModelName");
+                			featureModelName=featureModelName.replace("?", " ");
+
                 			if ( (featureModelName=="") || (featureModelName==null) ||(featureModelName.compareToIgnoreCase("false")==0)){
                    				featureModelName="false";
             	            	throw new HandlerExecutionException("Problem finding the feature model name");
@@ -210,6 +289,8 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 
             			}else{
                 			featureModelName=(String)request.getParameter("featureModelName");
+                			featureModelName=featureModelName.replace("?", " ");
+
                 			if ((featureModelName=="") || (featureModelName==null)||(featureModelName.compareToIgnoreCase("false")==0)){
                    				featureModelName="false";
             	            	throw new HandlerExecutionException("Problem finding the feature model name");
@@ -225,6 +306,8 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
                 		}
         			}else{
             			featureModelName=(String)request.getParameter("featureModelName");
+            			featureModelName=featureModelName.replace("?", " ");
+
                 		if ((featureModelName=="") || (featureModelName==null)|| (featureModelName.compareToIgnoreCase("false")==0)){
                 			featureModelName="false";
                 		}
@@ -293,7 +376,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 		        	confEngine = createConfigurationEngine(getResourcePath()+featureModelFileName);
 		        	confEngine.reset();
 		    		session.setAttribute("conf_engine", confEngine);
-
+		    		
 	        	}
 	    		else {
 	    			
@@ -312,17 +395,20 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
            		/*********************************************************************
         		 * view name
         		 *********************************************************************/
-            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            	if ((workflowExistence.compareToIgnoreCase("true")==0 )   ){
             		if (newSession.compareToIgnoreCase("true")==0){
             			
             			
                 		if (requestQueryString.indexOf("viewName")==-1){
+
                 			if ((workflow.compareToIgnoreCase("false")==0) || (featureModelName.compareToIgnoreCase("false")==0) || (task.compareToIgnoreCase("false")==0)){
                 				viewName="none";
             	            	throw new HandlerExecutionException("Problem finding the view name");
 
                 			}else{
                 				String tmpViewName=	Methods.getTaskViewName(viewDir, workflow, featureModelName, task);
+                				
+
                 				if ((tmpViewName.compareToIgnoreCase("false")==0) ||(tmpViewName==null) || (tmpViewName=="") ){
                     				viewName="none";
                 	            	throw new HandlerExecutionException("Problem finding the view name");
@@ -488,7 +574,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
                  			serverKey="";
                  		}else{
                 			serverKey=(String)request.getParameter("serverKey");
-                			if ( (!(serverKey!=null)) && (serverKey!="")){
+                			if ( (serverKey!=null) && (serverKey!="")){
                     			newConfiguration="false";
                     		}else{
                     			newConfiguration="true";
@@ -508,7 +594,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
                     		}
             			}else{
             				serverKey=(String)request.getParameter("serverKey");
-                			if ( (!(serverKey!=null)) && (serverKey!="")){
+                			if ( (serverKey!=null) && (serverKey!="")){
                     			newConfiguration="false";
                     		}else{
                     			newConfiguration="true";
@@ -523,17 +609,17 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             		serverKey="";
             	}
             	session.setAttribute("serverKey", serverKey);
-
+            	
             	
            		/*********************************************************************
         		 * user
         		 *********************************************************************/
             	if (workflowExistence.compareToIgnoreCase("true")==0){
             		if (newSession.compareToIgnoreCase("true")==0){
-            			if (requestQueryString.indexOf("user")==-1){
+            			if (requestQueryString.indexOf("userName")==-1){
             				user="guest";
             			}else{
-            				user=(String)request.getParameter("user");
+            				user=(String)request.getParameter("userName");
                 			if ((user==null) ||(user=="") ){
                 				user="guest";
                 			}
@@ -542,12 +628,12 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             		}else{
             			
             			if (requestQueryString.indexOf("user")==-1){
-            				user=(String)session.getAttribute("user");
+            				user=(String)session.getAttribute("userName");
                 			if ((user==null) ||(user=="") ){
                 				user="guest";
                 			}
             			}else{
-            				user=(String)request.getParameter("user");
+            				user=(String)request.getParameter("userName");
                 			if ((user==null) ||(user=="") ){
                 				user="guest";
                 			}
@@ -558,9 +644,21 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             		user="guest";
             	}
             		 
-            	session.setAttribute("user", user);
+            	session.setAttribute("userName", user);
 
             	
+            	
+           		/*********************************************************************
+        		 * Process Status
+        		 *********************************************************************/
+            	if (workflowExistence.compareToIgnoreCase("true")==0){
+            		if (newSession.compareToIgnoreCase("true")==0){
+                    	session.setAttribute("processStatus", "progress");
+
+            		}
+            	}
+
+            
   	        
 	            String op = (String)request.getParameter("op");        
 	            if ( op == null || op.compareToIgnoreCase("reset") != 0) {
@@ -568,10 +666,37 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	            }
 	
 	            
+	        	
+           		/*********************************************************************
+        		 * stops
+        		 *********************************************************************/
+//            	if (workflowExistence.compareToIgnoreCase("true")==0){
+//            		if ((placeType.compareToIgnoreCase("stop")==0)&& (newConfiguration.compareToIgnoreCase("false")==0) ){
+//            			String configuredFileName=Methods.getConfiguredFileName(configuredModelPath, serverKey);
+//            			
+//            			 stopAllocatedViewsResult=Methods.checkConfigurationCompletionInStopPlace(featureModelName, viewDir, modelDir, task, placeType, workflow, configuredFileName);
+//            		}
+//            	}
+//	            
 	            
 	            
+           		/*********************************************************************
+        		 * uncovered features
+        		 *********************************************************************/
+
+	            String uncoveredFeatures="";
+	            if ((newSession.compareToIgnoreCase("true")==0) && (workflowExistence.compareToIgnoreCase("true")==0)){
+	            	
+	            	uncoveredFeatures=Methods.getFeatureModelUncoveredFeaturesInAllocatedViews(featureModelName, viewDir, modelDir);
+	            }
+	        
+	            
+	            session.setAttribute("uncoveredFeatures", uncoveredFeatures);
 	            
 
+	            
+	            
+	            
 	    		
 				// Producer of parts of the template
 	        	if ( confElementProducer == null ) {
@@ -579,35 +704,98 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	        	}
 				
 				// Traverses steps and identify several related parameters
-	        	List<Map> stepsList = new LinkedList<Map>();
-	        	for( ConfigurationStep step : confEngine.getSteps() ) {
-	        		Map stepData = new HashMap();
-	    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
-	        		stepData.put("configurationStepElement", stepElementData);
-	        		stepsList.add(stepData);
-	        	}
-	        	templateModel.put("steps", stepsList);
 	        
-	    		// Traverses features and identify several related parameters
 	        	
-				LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
-				getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
+	    		List<ConfigurationStep> stepsToUpdateList = new LinkedList<ConfigurationStep>();
+	        	List<Map> featuresList = new LinkedList<Map>();	
+	    		
+	        	
+	    		if ((workflowExistence.compareToIgnoreCase("true")==0) && (newConfiguration.compareToIgnoreCase("false")==0)){
+	    			
+	    			FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
+	    			
+    				for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
+    					decisionResult=Methods.getFeatureDecisionInfo(modelDir, serverKey, feature.getID());
+    					if (decisionResult.found){
+    						stepsToUpdateList.add( confEngine.configure(feature.getID(), decisionResult.value.equals("1") ? 1 : 0) );
+    					}
+    				}
+	    			
+    	        	
+    				
+    				List<Map> stepsList = new LinkedList<Map>();
+    	        	for( ConfigurationStep step : stepsToUpdateList ) {
+    	        		Map stepData = new HashMap();
+    	    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
+    	        		stepData.put("configurationStepElement", stepElementData);
+    	        		stepsList.add(stepData);
+    	        	}
+    	        	templateModel.put("steps", stepsList);
+    	        	
+    	        	
+    				
+    	        	LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
+					getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
 
-	        	
-	    		List<Map> featuresList = new LinkedList<Map>();	
-	    		Boolean viewLoadStatus=true;
-	    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
-	    			Map featureData = new HashMap();
-	    			
+		        	
+		    		
+		    		Boolean viewLoadStatus=true;
+		    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
+		    			Map featureData = new HashMap();
+		    			
+		    		
+		    		
+		    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
+		    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+		    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
+		    			featureData.put("configurationFeatureElement", featureElementData);
+		    			featuresList.add(featureData);
+		    			
+		    		}
+		    		
+		    		
+	    		
+	            	
+	            }else{
+
+	            	List<Map> stepsList = new LinkedList<Map>();
+		        	for( ConfigurationStep step : confEngine.getSteps() ) {
+		        		Map stepData = new HashMap();
+		    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
+		        		stepData.put("configurationStepElement", stepElementData);
+		        		stepsList.add(stepData);
+		        	}
+		        	templateModel.put("steps", stepsList);
+		        
+		    		// Traverses features and identify several related parameters
+		        	
+					LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
+					getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
+
+		        	
+		    		
+		    		Boolean viewLoadStatus=true;
+		    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
+		    			Map featureData = new HashMap();
+		    			
+		    		
+		    		
+		    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
+		    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+		    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
+		    			featureData.put("configurationFeatureElement", featureElementData);
+		    			featuresList.add(featureData);
+		    			
+		    		}
+	            }
+	            
 	    		
 	    		
-	    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds);
-	    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
-	    			featureData.put("configurationFeatureElement", featureElementData);
-	    			featuresList.add(featureData);
-	    			
-	    		}
+	    		
+	    		
+			
+	    	
+	    		
 	    		
 
 	    		templateModel.put("features", featuresList);
@@ -619,12 +807,17 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				templateModel.put("viewType", viewType.toLowerCase());
 				templateModel.put("viewName", viewName);
 				templateModel.put("selectedModels", featureModelFileName);
-				templateModel.put("workflow", workflow);
-				templateModel.put("task", task);
-				templateModel.put("user", user);
+				templateModel.put("workflowName", workflow);
+				templateModel.put("taskName", task);
+//				placeType="stop";
+//				templateModel.put("placeType", placeType);
+				//templateModel.put("uncompletedViews",stopAllocatedViewsResult); 
+				templateModel.put("userName", user);
 				templateModel.put("workflowExistence", workflowExistence);
+				templateModel.put("serverKey", serverKey);
+				templateModel.put("uncoveredFeatures", uncoveredFeatures);
+				templateModel.put("sessionKey", sessionKey);
 	        
-
 				
  			
 		} catch (HandlerExecutionException e1) {

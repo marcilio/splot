@@ -100,24 +100,44 @@ public class ValidateXPathHandler extends Handler {
 	    	    	 jsonText = JSONValue.toJSONString(jsonObj);
 	    			response.getWriter().write(jsonText);
 	    		}else{
-	    			Methods.evaluateXPathExpression(featureModelInXML, xpathExpression, result);
-		 			if ((result.nodesList==null) || (result.nodesList.compareToIgnoreCase("null")==0) || (result.nodesList=="")){
-		 			   jsonObj.put("node_list","");
-		 			}else{
-		 				jsonObj.put("node_list",result.nodesList);	
-		 			}
-		 			
-		 			if ((result.error==null) || (result.error.compareToIgnoreCase("null")==0) || (result.error=="")){
-		 				   jsonObj.put("error_list","");
-		 				}else{
-		 					jsonObj.put("error_list",result.error);	
-		 				}
-
-		 			  jsonText = JSONValue.toJSONString(jsonObj);
-			 		  response.getWriter().write(jsonText);
-
 	    			
-	    		}
+			   		FeatureModel featureModel = null;
+					featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
+					featureModel.loadModel();
+
+					FeatureTreeNode rooFeature=featureModel.getRoot();
+					
+					String rootCheckresult=Methods.FeatureInXPathExpression(rooFeature.getName(), modelDir, featureModelFileName, xpathExpression);
+					
+					if (!(rootCheckresult.compareToIgnoreCase("true")==0)){
+						 jsonObj.put("node_list","");
+						 jsonObj.put("error_list","The root feature must be part of each view.");	
+
+			 			  jsonText = JSONValue.toJSONString(jsonObj);
+				 		  response.getWriter().write(jsonText);
+
+					}else{
+						
+		    			Methods.evaluateXPathExpression(featureModelInXML, xpathExpression, result);
+			 			if ((result.nodesList==null) || (result.nodesList.compareToIgnoreCase("null")==0) || (result.nodesList=="")){
+			 			   jsonObj.put("node_list","");
+			 			}else{
+			 				jsonObj.put("node_list",result.nodesList);	
+			 			}
+			 			
+			 			if ((result.error==null) || (result.error.compareToIgnoreCase("null")==0) || (result.error=="")){
+			 				   jsonObj.put("error_list","");
+			 				}else{
+			 					jsonObj.put("error_list",result.error);	
+			 				}
+
+			 			  jsonText = JSONValue.toJSONString(jsonObj);
+				 		  response.getWriter().write(jsonText);
+		    			}
+					}
+					
+	    			
+	    		
 	    		
 	    		
 	    	}catch (Exception e) {

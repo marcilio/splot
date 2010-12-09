@@ -1,5 +1,6 @@
 package splot.services.extensions.fundp.handlers.conf;
 
+import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.tree.TreeNode;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 
 
@@ -20,6 +29,7 @@ import splar.core.fm.SolitaireFeature;
 import splar.core.fm.XMLFeatureModel;
 import splar.core.fm.configuration.ConfigurationStep;
 import splot.services.extensions.fundp.utilities.FeatureCardinality;
+import splot.services.extensions.fundp.utilities.FeatureDecisionInfo;
 import splot.services.extensions.fundp.utilities.FeatureInViewCheckingResult;
 import splot.services.extensions.fundp.utilities.Methods;
 import freemarker.template.Configuration;
@@ -94,13 +104,14 @@ public class FCWInteractiveConfigurationElementsProducer {
 	
 	
 	public String produceFeatureElement(FeatureTreeNode feature, Map featureData, String templateFileName, String viewDir, String modelDir,String featureModelFileName, String featureModelName, String viewName,
-			 FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds) {
-		String output= "";		
+			 FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String serverKey) {
+		String output= "";	
+		
 		try {
 			if ( featureElementTemplate == null ) {
 				featureElementTemplate = cfg.getTemplate(templateFileName);
 			}			
-			featureData.putAll(produceBasicFeatureData( feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds ));
+			featureData.putAll(produceBasicFeatureData( feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,serverKey ));
 			FeatureTreeNode parentNode = (FeatureTreeNode)((feature instanceof FeatureGroup) ? feature.getParent() : feature);
 			List children = new ArrayList(parentNode.getChildCount());
 			
@@ -111,11 +122,11 @@ public class FCWInteractiveConfigurationElementsProducer {
 				if ( childNode instanceof FeatureGroup ) {
 					for( int j = 0 ; j < childNode.getChildCount() ; j++ ) {
 						FeatureTreeNode groupedNode = (FeatureTreeNode)childNode.getChildAt(j);
-						children.add(produceBasicFeatureData( groupedNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds ));
+						children.add(produceBasicFeatureData( groupedNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,serverKey ));
 					}
 				}
 				else {
-					children.add(produceBasicFeatureData( childNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds ));
+					children.add(produceBasicFeatureData( childNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,serverKey ));
 				}
 			}
 			
@@ -137,8 +148,27 @@ public class FCWInteractiveConfigurationElementsProducer {
  
 	
 	public Map produceBasicFeatureData(FeatureTreeNode feature, String viewDir,String modelDir,String featureModelFileName, String featureModelName, String viewName,
-			  FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds) throws FeatureModelException  {
+			  FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String serverKey) throws FeatureModelException  {
 		Map basicDataMap = new HashMap();
+		
+		FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
+		if ((serverKey!=null) && (serverKey!="")){
+			decisionResult=Methods.getFeatureDecisionInfo(modelDir, serverKey, feature.getID());
+			
+			
+		
+			
+		
+		}
+		
+//		System.out.println("1:"+decisionResult.found);
+//		System.out.println("2:"+feature.getID());
+//		System.out.println("3:"+decisionResult.step);
+//		System.out.println("4:"+decisionResult.type);
+//		System.out.println("5:"+decisionResult.value);
+//	
+
+	
 		
 		if (visualizationType.compareToIgnoreCase("none")==0){
 			basicDataMap.put("feature_id", feature.getID());
@@ -147,10 +177,26 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_level", getfeatureLevel(  feature , viewDir, modelDir, featureModelFileName,  featureModelName,  viewName, visualizationType) );
 			basicDataMap.put("feature_parentid", getFeatureParent(feature));
 			basicDataMap.put("feature_connectedid", getConnectedFeature( feature,  viewDir, modelDir, featureModelFileName,  featureModelName,  viewName,	visualizationType));
-			basicDataMap.put("feature_decision", ""+feature.getValue());
-			basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
-			basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
-			basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+		
+			
+			if (decisionResult.found){
+				basicDataMap.put("feature_decision", ""+decisionResult.value );
+				basicDataMap.put("feature_decisionType", decisionResult.type );   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", decisionResult.step);   
+				basicDataMap.put("feature_previousDecisionStep", (Integer.valueOf((String)decisionResult.step)-1));
+
+				
+				
+			}else{
+				basicDataMap.put("feature_decision", ""+feature.getValue());
+				basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
+				basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+			}
+			
+		
+			
+			
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
 			basicDataMap.put("feature_group_min", -1);
 			basicDataMap.put("feature_group_max", -1 );
@@ -197,10 +243,23 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_level", getfeatureLevel(  feature , viewDir, modelDir, featureModelFileName,  featureModelName,  viewName, visualizationType) );
 			basicDataMap.put("feature_parentid", getFeatureParent(feature));
 			basicDataMap.put("feature_connectedid", getConnectedFeature( feature,  viewDir, modelDir, featureModelFileName,  featureModelName,  viewName,	visualizationType));
-			basicDataMap.put("feature_decision", ""+feature.getValue());
-			basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
-			basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
-			basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+		
+			if (decisionResult.found){
+				basicDataMap.put("feature_decision", ""+decisionResult.value );
+				basicDataMap.put("feature_decisionType", decisionResult.type );   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", decisionResult.step);   
+				basicDataMap.put("feature_previousDecisionStep", (Integer.valueOf((String)decisionResult.step)-1));
+
+				
+			}else{
+				basicDataMap.put("feature_decision", ""+feature.getValue());
+				basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
+				basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+			}
+						
+			
+			
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
 			basicDataMap.put("feature_group_min", -1);
 			basicDataMap.put("feature_group_max", -1 );
@@ -243,10 +302,24 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_level", getfeatureLevel(  feature , viewDir, modelDir, featureModelFileName,  featureModelName,  viewName, visualizationType) );
 			basicDataMap.put("feature_parentid", getFeatureParent(feature));
 			basicDataMap.put("feature_connectedid", getConnectedFeature( feature,  viewDir, modelDir, featureModelFileName,  featureModelName,  viewName,	visualizationType));
-			basicDataMap.put("feature_decision", ""+feature.getValue());
-			basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
-			basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
-			basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+			
+			
+			if (decisionResult.found){
+				basicDataMap.put("feature_decision", ""+decisionResult.value );
+				basicDataMap.put("feature_decisionType", decisionResult.type );   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", decisionResult.step);   
+				basicDataMap.put("feature_previousDecisionStep", (Integer.valueOf((String)decisionResult.step)-1));
+
+				
+			}else{
+				basicDataMap.put("feature_decision", ""+feature.getValue());
+				basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
+				basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+			}
+			
+			
+			
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
 
 			Methods.checkFeatureInViewStatus(feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType);  
@@ -298,10 +371,28 @@ public class FCWInteractiveConfigurationElementsProducer {
 			basicDataMap.put("feature_level", getfeatureLevel(  feature , viewDir, modelDir, featureModelFileName,  featureModelName,  viewName, visualizationType) );
 			basicDataMap.put("feature_parentid", getFeatureParent(feature));
 			basicDataMap.put("feature_connectedid", getConnectedFeature( feature,  viewDir, modelDir, featureModelFileName,  featureModelName,  viewName,	visualizationType));
-			basicDataMap.put("feature_decision", ""+feature.getValue());
-			basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
-			basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
-			basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+		
+			
+			if (decisionResult.found){
+				basicDataMap.put("feature_decision", ""+decisionResult.value );
+				basicDataMap.put("feature_decisionType", decisionResult.type );   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", decisionResult.step);   
+				basicDataMap.put("feature_previousDecisionStep", (Integer.valueOf((String)decisionResult.step)-1));
+
+				
+			}else{
+				basicDataMap.put("feature_decision", ""+feature.getValue());
+				basicDataMap.put("feature_decisionType", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionType"));   // manual, propagated, auto-completion
+				basicDataMap.put("feature_decisionStep", feature.getValue() == -1 ? "" : (String)feature.getProperty("decisionStep"));   
+				basicDataMap.put("feature_previousDecisionStep", feature.getValue() == -1 ? "" : ""+(Integer.valueOf((String)feature.getProperty("decisionStep"))-1));
+			}
+						
+			
+			
+			
+			
+			
+			
 			basicDataMap.put("feature_has_children", feature.getChildCount()>0);
 			
 			
@@ -889,13 +980,10 @@ public class FCWInteractiveConfigurationElementsProducer {
 			
 		}
 		
-		
-		
-		
+	
 	}
 	
 	
-
 
 	
 		

@@ -23,8 +23,11 @@ import org.json.simple.parser.ParseException;
 
 import java.util.LinkedHashMap;
 
+import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureModelException;
+import splar.core.fm.XMLFeatureModel;
 import splot.core.Handler;
+import splot.services.extensions.fundp.utilities.Methods;
 
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
@@ -34,6 +37,8 @@ import javax.xml.transform.stream.*;
 import org.w3c.dom.*;
 
 import org.xml.sax.SAXException;
+
+import fm.FeatureTreeNode;
 
 /** SaveViewSpecificationToRepositoryHandler is used to create a file for a view and save it in the views folder.  
 * 
@@ -59,7 +64,7 @@ public class SaveViewSpecificationToRepositoryHandler extends Handler {
 	 */	
 	public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
         try{
-        	
+
         		String modelDir=getServlet().getServletContext().getRealPath("/")+ "models";
         		String requestValidation=requestValidation(request, modelDir);
 
@@ -75,6 +80,9 @@ public class SaveViewSpecificationToRepositoryHandler extends Handler {
 				        	File file = new File(viewDir+"/"+viewFileName);
 				        	String filePath=viewDir+"/"+viewFileName;
 				        //	String JSONValidationResult=JSONStringValidation(viewJSONString);
+				        	
+					   		
+				        	
 				        	
 				        	
 				        	if (file.exists()){

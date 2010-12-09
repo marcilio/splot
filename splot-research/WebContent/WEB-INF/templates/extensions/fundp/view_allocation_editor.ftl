@@ -977,6 +977,62 @@ Released   : 20081103
 	}
 		
 		
+	/******************************************************
+	*  checks views coverage 
+	*******************************************************/
+	function checkViewsCoverage(){
+		featureValue=getListSelectedValue(document.getElementById("feature_list")); 
+		if ((featureValue=="Select") || (featureValue=="")){
+			alert("Please select a feature model");
+			return;
+		}
+	
+	
+		if (window.ActiveXObject){
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else{
+			oXMLRequest = new XMLHttpRequest();
+		}
+	    
+	    try{ 
+		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+featureValue;
+			oXMLRequest.open("GET",strValidationServiceUrl,true);
+			oXMLRequest.onreadystatechange = onCheckViewsCoverageResult;
+			oXMLRequest.send(null);
+		}catch(Error){
+			alert(Error);
+		}	
+	}
+
+
+
+	/******************************************************
+	*  view coverage result
+	*******************************************************/
+	function onCheckViewsCoverageResult(){
+		       	if (oXMLRequest.readyState == 4){
+				 if (oXMLRequest.status == 200){
+					try{
+					 	  strStatus = oXMLRequest.responseText;
+						  if (strStatus==""){
+						  	alert("All the FD's features are covered with existing allocated views.")
+						  }else{
+						  	alert("Uncovered features are:   "+strStatus);
+						  }
+						  
+						  
+						
+					 	
+					  }catch(error){
+					  	alert(error);
+					  }
+					  
+           		 }
+     		}    
+	}
+
+		
 			
 </script>
 
@@ -1197,7 +1253,7 @@ Released   : 20081103
 								</tr>
 								
 								<tr>
-								  <td align="left" ><label for="condition_list">Condition List: </label>
+								  <td align="left" ><label for="condition_list">Stop List: </label>
 							      
 							      	<select  name="condition_list" id="condition_list"> 
 								    </select>
@@ -1220,6 +1276,8 @@ Released   : 20081103
 										<input class="standardHighlight1" type="button"  onclick="saveViewAllocationToRepository()" value="Save">
 										<input class="standardHighlight1" type="button"  onclick="deleteSelectedRows()" value="Delete">
 										<input class="standardHighlight1" type="button"  onclick="loadViewAllocationInfo()" value="Refresh">
+										<button  class="standardHighlight1"  onClick="checkViewsCoverage();return false;" type="button">Evaluate Views Coverage</button>
+										
 										
 									</td>	
 									
@@ -1236,9 +1294,9 @@ Released   : 20081103
 								
 					 		<tr><td class="stylishTitle"><span title="Click to expand/collapse" onclick="expandCollapseElement('workflow_image');">Overview of the workflow </span></td></tr>
 					 		<tr><td>
-					 					<table border=0 id="workflow_image" class="feature_model_edition_table1">
+					 					<table border=0  id="workflow_image" class="feature_model_edition_table1">
 					 					<tr><td width="100%">
-					 						<div><img id="workflow_image_src"> </div>
+					 						<div><img  id="workflow_image_src"> </div>
 					 						
 					 						<div><img id="legend_image_src"></div>
 					 						

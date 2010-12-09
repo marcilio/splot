@@ -2064,6 +2064,53 @@ Released   : 20081103
 
 
 
+
+	/******************************************************
+	*  checks views coverage 
+	*******************************************************/
+	function checkViewsCoverage(){
+		if (window.ActiveXObject){
+			oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else{
+			oXMLRequest = new XMLHttpRequest();
+		}
+	    
+	    try{ 
+		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+relatedFeatureModel;
+			oXMLRequest.open("GET",strValidationServiceUrl,true);
+			oXMLRequest.onreadystatechange = onCheckViewsCoverageResult;
+			oXMLRequest.send(null);
+		}catch(Error){
+			alert(Error);
+		}	
+	}
+
+
+
+	/******************************************************
+	*  view coverage result
+	*******************************************************/
+	function onCheckViewsCoverageResult(){
+		       	if (oXMLRequest.readyState == 4){
+				 if (oXMLRequest.status == 200){
+					try{
+					 	  strStatus = oXMLRequest.responseText;
+						  document.getElementById("uncovered_features").value=strStatus;
+						  
+						  
+						
+					 	
+					  }catch(error){
+					  	alert(error);
+					  }
+					  
+           		 }
+     		}    
+	}
+
+
+
 	/******************************************************
 	*  checks XPath expression's correctness 
 	*******************************************************/
@@ -2869,6 +2916,7 @@ Released   : 20081103
 					 		 <tr>
 								    <td colspan="3" align="center">
 								    	<button  class="standardHighlight1"  onClick="checkXPathValidation();return false;" type="button">Evaluate XPath Expression</button>
+								  		<button  class="standardHighlight1"  onClick="checkViewsCoverage();return false;" type="button">Evaluate Views Coverage</button>
 								    	<button  class="standardHighlight1"  onClick="saveViewToRepository();return false;" type="button">Save View</button>
 								    	<button  class="standardHighlight1" onClick="deleteView();return false;" type="button">Delete View</button>
 								    	
@@ -2910,6 +2958,13 @@ Released   : 20081103
 						      <td align="left" title="Errors raised in view definition">Errors</td>
 
 						      <td align="left" ><input dojoType="dijit.form.SimpleTextarea"    rows=3  type="text" name="view_errors" id="view_errors"  value=""/> (*)</td>
+						    </tr>
+								
+							<tr>
+						      <td align="left"><span id="UncoveredFeaturesMark"></span></td>
+						      <td align="left" title="Uncovered features in the allocated views">Uncovered Features</td>
+
+						      <td align="left" ><input dojoType="dijit.form.SimpleTextarea"    rows=3  type="text" name="uncovered_features" id="uncovered_features"  value=""/> (*)</td>
 						    </tr>
 											   
 						  	</table>

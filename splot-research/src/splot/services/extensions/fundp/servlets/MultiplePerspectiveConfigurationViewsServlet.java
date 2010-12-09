@@ -32,6 +32,10 @@ import splot.services.extensions.fundp.handlers.conf.ConfigurationResultHandler;
 import splot.services.extensions.fundp.workflow.handlers.ShowImportedWorkflowListHandler;
 import splot.services.extensions.fundp.handlers.ParseSelectedWorkflowSpecificationHandler;
 import splot.services.extensions.fundp.handlers.SaveWorkflowImageHandler;
+import splot.services.extensions.fundp.handlers.ResponseUncoveredFeaturesHandler;
+import splot.services.extensions.fundp.handlers.conf.ViewsConfigurattionStatusHandler;
+import splot.services.extensions.fundp.handlers.conf.CheckTaskViewListHandler;
+
 
 
 
@@ -94,11 +98,14 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
            	addHandler(new ShowWorkflowInfoHandler("show_workflow_info", this, cfg, cfg.getTemplate("show_workflow_info.ftl")));
         	addHandler(new DeleteViewSpecificationFromRepository ("delete_view_specification",this));
         	addHandler(new FCWSATInteractiveConfigurationDetectConflictsHandler("detect_conflicts", this, cfg, cfg.getTemplate("fcw_detect_conflicts.ftl")));
-        	addHandler(new FCWInteractiveConfigurationExportConfigurationToFileHandler("export_configuratiom_xml_file", this, cfg, cfg.getTemplate("fcw_export_configuration_xml_file.ftl")));
+        	addHandler(new FCWInteractiveConfigurationExportConfigurationToFileHandler("export_configuratiom_xml_file", this));
         	addHandler(new ConfigurationResultHandler("configuration_result",this));
            	addHandler(new ShowImportedWorkflowListHandler("show_imported_workflow", this, cfg, cfg.getTemplate("fcw_imported_workflow.ftl")));
         	addHandler(new ParseSelectedWorkflowSpecificationHandler("parse_selected_workflow",this));
         	addHandler(new SaveWorkflowImageHandler("save_workflow_image",this,cfg, cfg.getTemplate("fcw_message.ftl")));
+        	addHandler(new ResponseUncoveredFeaturesHandler("response_uncovered_features",this));
+        	addHandler(new ViewsConfigurattionStatusHandler("view_configuration_status", this));
+        	addHandler(new CheckTaskViewListHandler("check_task_view", this));
 
            	
 

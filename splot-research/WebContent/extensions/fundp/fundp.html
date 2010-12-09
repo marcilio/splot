@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Compromise
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20081103
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Welcome to the Software Product Lines Online Tools Homepage</title>
+
+<link type="text/css" rel="stylesheet" href="/SPLOT/splot.css"/>
+<style type="text/css">
+.caption{font-style:italic;}
+.toc1{font-size:12pt;}
+.toc2{font-size:10pt;}
+.head{font-size:20pt;}
+
+#left {
+float:left;
+width:65px;
+}
+#right {
+float:left;
+padding:5px;
+}
+#row {
+}
+</style>
+
+</head>
+<!--<body style="line-height:16px;">-->
+<div id="header"><div id="logo"><img src="/SPLOT/images/splot.jpg"/></div></div> 
+
+<!-- end #header --> 
+<div id="menu"> 
+	<ul> 
+		<li class="first"><a href="/SPLOT/index.html">Home</a></li> 
+		<li><a href="/SPLOT/feature_model_edition.html">Feature Model Editor</a></li> 
+		<li><a href="/SPLOT/automated_analyses.html">Automated Analysis</a></li> 
+		<li><a href="/SPLOT/product_configuration.html">Product Configuration</a></li> 
+		<li><a href="/SPLOT/feature_model_repository.html">Feature Model Repository</a></li> 
+		<li><a href="/SPLOT/contact_us.html">Contact Us</a></li> 
+	</ul> 
+</div> 
+<!-- end #menu --> 
+	
+
+<div id="wrapper"> 
+	<div class="btm"> 
+		<div id="page"> 
+		
+			<div id="content"> 
+				<div class="post"> 
+                
+					<div class="entry"> 
+						
+						<div id="fundp_logo"> <a href="http://www.fundp.ac.be/en/inf"> <img src="/SPLOT/images/fundp_logo.jpg" style="float:right; margin-right:5px; margin-top:15px; padding:5px;"/> </a></div>
+						<div id="fundp_logo"> <a href="http://www.fundp.ac.be/en/inf"> <img src="/SPLOT/images/precise_logo_whiteline.png" style="float:right; margin-right:25px; margin-top:15px; padding:5px;"/> </a></div>
+
+<div class="head">A Toolset for Feature Configuration Workflows</div>						
+							
+<p>
+<!--Variability models, feature diagrams (FDs) ahead, are commonly used to document product line (PL) requirements. They are also often used during product derivation where they are fed to configuration tools which support semi-automated feature selection. Configuration tools facilitate this task by automatically propagating the decisions made and by ensuring their overall consistency. However, most feature-based configuration (FBC) tools assume that there exists a single monolithic FD and do not account for configuration processes that are distributed among various stakeholders who have specific concerns and who intervene at different moments. Our collaborations with industry have confirmed the need for techniques and tools that support such complex configuration processes and better chunking of the FD into coherent views. The basics of <a href="#sec-MVFD">multi-view feature diagrams</a> and <a href="#sec-FCW">feature configuration workflows</a> are recalled below. Then, we explain how our <a href="#sec-tool-suite">toolset</a> builds upon YAWL and SPLOT to implement these techniques, and how it can be <a href="#sec-install">installed</a>.-->
+Variability models, feature diagrams (FDs) ahead, are commonly used to document product line (PL) requirements. They are also often used during product derivation where they are fed to configuration tools which support semi-automated feature selection. Configuration tools facilitate this task by automatically propagating the decisions made and by ensuring their overall consistency. However, most feature-based configuration (FBC) tools assume that there exists a single monolithic FD and do not account for configuration processes that are distributed among various stakeholders who have specific concerns and who intervene at different moments. Our collaborations with industry have confirmed the need for techniques and tools that support such complex configuration processes and better chunking of the FD into coherent views. We recall the basics of multi-view FDs and feature configuration workflows before delving into the details of our extensions to SPLOT and YAWL.
+</p>
+
+<h1 class="title">Table of Contents</h1> 
+<ul>
+	<li> <div class="toc1"> <a href="#sec-MVFD">Multi-view Feature Model</a></div>
+		<ul>
+			<li> <div class="toc2"> <a href="#subsec-ViewSPLOT">How to use views in SPLOT?</a></div>
+		</ul>		
+	<li> <div class="toc1"> <a href="#sec-FCW">Feature Configuration Workflow (FCW)</a></div>
+		<ul>
+			<li> <div class="toc2"> <a href="#subsec-FCWSPLOT">How to use FCWs in SPLOT?</a></div>
+		</ul>
+		<li> <div class="toc1"> <a href="#sec-tool-suite">FCW Toolset</a></div>
+		<li> <div class="toc1"> <a href="#sec-install">Installation Instructions</a></div>
+			<ul>
+				<li> <div class="toc2"> <a href="#subsec-install-1">Step 1 - Installing YAWL</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-2">Step 2 - Installing the FCW Engine</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-3a">Step 3.a - Installing SPLOT locally</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-3b">Step 3.b - Connecting to a running instance of SPLOT</a></div>
+			</ul>
+		<li> <div class="toc1"> <a href="#sec-started">Getting Started</a></div>
+		<li> <div class="toc1"> <a href="#sec-related">Related Publications</a></div>
+<!--		<li> <div class="toc1"> <a href="#sec-members">Project Members</a></div> -->
+		<li> <div class="toc1"> <a href="#sec-contact">Contact Us</a></div>		
+</ul>
+
+
+<a name="sec-MVFD"></a>							
+<h1 class="title"><a href="http://www.fundp.ac.be/recherche/publications/page_view/70054/">Multi-view Feature Model</a></h1> 
+
+<p>						
+Two challenges that FBC techniques fail to address in a satisfactory way are (1) tailoring the configuration environment according to the stakeholder's profile (knowledge, role, preferences...) and (2) managing the complexity resulting from the size of the FD. We address these challenges by extending FDs with multiple views that can be used to automatically build FD visualisations. A view is a streamlined representation of an FD that has been tailored for a specific stakeholder, task, or, to generalize, a combination of such elements--which we call a concern. Views facilitate configuration in that they only focus on those parts of the FD that are relevant for a given concern. Using multiple views is thus a way to achieve separation of concerns (SoC) in FDs. SoC helps making FD-related tasks less complex by letting stakeholders concentrate on the parts that are relevant to them while hiding the others. Further tailoring of the visualisations can be achieved  through the selection of three alternative visualisations: (1) "greyed out", (2) "pruned" and (3) "collapsed".
+</p>
+<p>
+Let us illustrate the concept of multi-view FD on the <a href="http://www.spacebel.be/">Spacebel</a> case. Spacebel is a Belgian software company developing software for the aerospace industry. We collaborate with Spacebel on the development of a SPL for flight-grade libraries implementing the CSSDS File Delivery Protocol (CFDP) [<a href="http://www.fundp.ac.be/recherche/publications/page_view/66780/">Hubaux2009</a>]. CFDP is a file transfer protocol designed for space requirements, such as long transmission delays and specific hardware characterised by stringent resource limitations. Spacebel built a SPL of CFDP libraries, where each library can be tailored to the needs of a specific space mission. A simplified excerpt of this FD appears in the upper part of <a href="#Spacebelfig">Figure 1</a>. The principal features provide the capability to send (Send) and receive (Receive) files. The Extended feature allows a device to send and receive packets via other devices. The Reboot feature allows the protocol to resume transfers safely after a sudden system reboot. PUS stands for Packet Utilisation Standard, part of the ESA standard for transport of telemetry and telecommand data (TMTC). The PUS feature implements the CFDP related services of this standard.
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="Spacebelfig"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/multi-view-FD-spacebel.png" width="70%"/></div>
+	<div class="caption">Figure 1 - FD of the CFDP with three alternative visualisations for the view of the TMTC integrator.</div>
+</div>
+
+
+
+<p>
+CFDP typically handles five different stakeholder profiles. Spacebel decides which features are mature enough for the mission, while leaving as much variability as possible. The Reseller can, depending on the contract, or for other commercial reasons, further configure the product. The system engineer makes initial high-level choices and passes the task of refining these choices on to the network integrator and the TMTC integrator who handle the technical aspects of the CFDP. The configuration options of interest for each of these profiles are thus different and limited in scope.
+</p>
+
+<p>
+A major problem is that access rights to these configuration options are currently informally defined and FDs offer no way to do so. In the absence of clear access specifications, a simplistic policy has been implemented: all profiles have access to all configuration options. A reported consequence is that sometimes the system engineer does not have sufficient knowledge to fully understand low-level options and make decisions. The results were incorrect settings, e.g., inappropriate CPU consumption or excessive use of memory for a given hardware. Similarly, the integrators were not aware of general decisions and could make inconsistent choices wrt. the missions' goals. The changing context also demands flexible definitions of access policies. For in- stance, there can be variations in the access rights (e.g., the integrators are granted access to more features) or stakeholder profiles (e.g. a dedicated File System integrator might be needed in some projects).
+</p>
+
+<p>
+Solving that problem requires being able to specify which parts of the FD are configurable by whom. This can be achieved easily by augmenting the FD with a set views, each of which consists of a set of features. But this makes views abstract entities. To be effectively used during FBC, they need to be made concrete, i.e. visual. We call a visual representation of a view a visualisation. The goal of a visualisation is to strike a balance between (1) showing only features that belong to a concern and (2) including features that are not in the the concern but that allow the user to make informed decisions. For instance, the PUS copy feature is in the view of the TMTC integrator, but its parent feature PUS is not: How will that influence the decision making process? To tackle this problem, we see three visualisation alternatives with different levels of details. <a href="#Spacebelfig">Figure 1</a> shows the views of the System Engineer, TMTC Integrator and Network integrator. Let us zoom in on the three possible visualizations and illustrate that on the view of the TMTC Integrator. 
+</p>
+
+<p>
+The greyed visualisation is a mere copy of the original FD in which the features that do not belong to the view are greyed out (e.g. P, S, SF and SA). Greyed out features are only displayed but cannot be manually selected/deselected. In the pruned visualisation, features that are not in the view are pruned (e.g. S, SF and SA) unless they appear on a path between a feature in the view and the root, in which case they are greyed out (e.g. P ). Pruning can have an impact on cardinalities. As shown in <a href="#Spacebelfig">Figure 1</a>, the cardinality of CFDP is <0..1> whereas it is <1..5> (or-decomposition) in the FD. It has to be recomputed to ensure the consistency of the FD. In the collapsed visualisation, all the features that do not belong to the view are pruned. A feature in the view whose parent or ancestors are pruned is connected to the closest ancestor that is still in the view. If no ancestor is in the view, the feature is directly connected to the root (e.g. P C and P R). Similarly, cardinalities have to be recomputed for consistency reasons.
+</p>
+
+<a name="subsec-ViewSPLOT"></a>							
+<h3>How to use views in SPLOT?</h3>
+<p>
+There are essentially two ways of specifying views. The most obvious is to enumerate, for each view, the features that appear in it, or equivalently, to tag each feature of the FD with the names of the views it belongs too. These are extensional definitions, which might be very time-consuming and error-prone if the FD is too big. A natural alternative is thus to provide a language for intensional definitions of views that takes advantage of the FD's tree structure to avoid lengthy enumerations. A simple query language like XPath is a good candidate to define views and retrieve the corresponding features. SPLOT supports that latter alternative, which is available in <a href="fcw_view_edition.html">View Specification</a>. Visualizations can be selected to configure views in the <a href="fcw_interactive_configuration.html">Interactive Configuration</a> menu.
+</p>		
+
+<a name="sec-FCW"></a>
+<h1 class="title"><a href="http://www.fundp.ac.be/recherche/publications/page_view/66780/FeatureConfigurationService.war">Feature Configuration Workflow</a></h1>
+
+<p>
+Views are only one side of a two-sided story. The second side addresses the scheduling of the configuration process. In essence, the idea is to specify the configuration process with a workflow, aka. business process. The combined formalism of the workflow with a set of views is called a feature configuration workflow (<a href="http://www.fundp.ac.be/recherche/publications/page_view/67583/">FCW</a>). An FCW is thus composed of three basic elements: several views, a workflow and a mapping between them.
+</p>
+
+<p>
+Among the variety of workflow languages, we picked YAWL as it is formal, has extensive tool support and is known to cover a large variety of real-world modelling patterns. YAWL is inspired by Petri nets. Its principal constructs are conditions and tasks, which roughly correspond to places and transitions in Petri nets. There are two special conditions, start and end. In <a href="#FCWfig">Figure 2</a>, each task, except for (loop) and Product release, denotes a configuration activity, and is annotated with the name of the stakeholder performing the configuration. Spacebel is split in two with a XOR split, meaning that only one of the outgoing transitions is executed, which captures well the optional nature of Reseller. System Engineer joins both paths and then splits again, but this time with an AND split, meaning that the TMTC and Network Integrator run in parallel. From there, the configuration process is either finished (Product release) or continues with System Engineer.
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="FCWfig"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/featureconfigurationworkflow.png" width="70%"/></div>
+	<div class="caption">Figure 2 - Example of FCW applied to the Spacebel scenario.</div>
+</div>
+
+<p>
+The views reported here are all derived from <a href="#Spacebelfig">Figure 1</a> to which we added two actors, namely Spacebel and the Reseller. The mapping between the workflow and the views is defined separately for each view. The task denotes the starting point of the configuration whilst the condition represents the point at which configuration has to be finished. The task and condition are respectively called the <i>start</i> and <i>stop</i> of a view. In <a href="#FCWfig">Figure 2</a>, the Final Satellite stop, to which three views (System Engineer, Network Integrator and TMTC Integrator) point, indicates the group formed by these modules: as long as the stop is not satisfied, the loop has to continue.  The two other views, including the optional Reseller view, map onto the output condition since their configuration time does not matter. 
+</p>
+ 
+ 
+<a name="subsec-FCWSPLOT"></a>							
+<h3>How to use FCWs in SPLOT?</h3>
+<p>
+SPLOT does not support workflow edition, analysis and execution. That part of the job is handed over to YAWL. The coming sections describe sections how it can be achieved in YAWL. Once a valid YAWL workflow is available, SPLOT can import it via the <a href="fcw_workflow_management.html">Workflow Management</a> menu. Once imported, the workflow can be linked to the views of a given FD in the <a href="fcw_view_edition.html">View Specification</a> menu. The configuration can then be driven by YAWL.
+</p>
+
+<a name="sec-tool-suite"></a>						
+<h1 class="title">FCW Toolset</h1> 
+
+<p>
+The toolset we propose provides full-fledged support for workflow-driven FBC. <a href="#Archfig">Figure 3</a> captures the core components of the toolset. Before going through a typical use case scenario, let us first describe the role of the <em>FCW Engine</em>. The FCW Engine is a Java-based system that drives the configuration process. The duty of the engine is to manage the communication between YAWL and SPLOT. The FCW engine controls and records the progress of the FCW instances, the status of the tasks and conditions, the state of the configuration, and the log of the configuration activity. It also provides a control panel that allows to monitor all the FCW instances and to resume sessions that were closed.
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="Archfig"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/fcw_architecture.png" width="70%"/></div>
+	<div class="caption">Figure 3 - Illustration of the main components of the toolset with a typical use case scenario.</div>
+</div>
+
+<p>
+The scenario depicted in <a href="#Archfig">Figure 3</a> highlights the essential steps of the specification of a complete FCW (1-3), followed by the initialisation of the configuration session by an extension of YAWL (4) and the complete execution of the workflow resulting in the complete configuration of the product (5-10).
+</p>
+
+<a name="sec-install"></a>
+<h1 class="title">Installation Instructions</h1> 
+
+<p>
+The installation of the toolset requires the installation of YAWL and the FCW Engine. The FCW Engine can either be connected to a local instance of SPLOT or an instance available online, like <tt>http://www.splot-research.org/</tt>. Both installations are explained here.
+</p>
+
+<a name="subsec-install-1"></a>
+<h3>Step 1 - Installing YAWL</h3>
+<ol>
+	<li> Download <a href="http://sourceforge.net/projects/yawl/">YAWL</a> and follow the instructions for your operating system <a href="http://www.yawlfoundation.org/software/documentation/usermanual/chapter-2-installation">here</a>. All the extensions have been tested with YAWL 2.1 only. There is no guarantee that they are supported by other versions. 
+	<li> Download the latest version of the  <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/FeatureConfigurationService.war">Feature Configuration Service</a>. The <em>Feature Configuration Service</em> is a YAWL Custom Service that maintains a bi-directional communication bridge between YAWL and the FCW Engine.
+<!--	<li> Go to the installation directory of YAWL. In the remainder, we will assume that the installation directory is <tt>YAWL4Study-2.1</tt>. It is subject to change according to the version and flavour of -->
+	<li> Move <tt>FeatureConfigurationService.war</tt> into <tt>./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL).
+	<li> Go to <tt>./YAWL4Study-2.1/bin</tt>, start the YAWL engine (<tt>StartEngine</tt>) and start the control centre (<tt>ControlCentre</tt>). This will start <em>Tomcat</em> and load all the necessary dependencies
+	<li> Log in YAWL. By default, the login is <tt>admin</tt> and the password is <tt>YAWL</tt>.
+	<li> Go to the <b>Services</b> tab.
+	<li> Register the  <em>Feature Configuration Service</em> to communicate with the YAWL Engin. <a href="#ServReg">Figure 4</a> shows the YAWL's Services web form for registering a YAWL Custom Service.  To register the  <em>FeatureConfigurationService</em> service, enter the name <tt>Feature Service</tt>, the password <tt>YAWL</tt>, the value of the URI <tt>http://localhost:8080/FeatureConfigurationService/ib</tt>, and the description field <tt>Feature Configuration Service</tt>. The description field is required and will be used in the YAWL editor. Then, click on the <b>Add</b> button. More details about the implementation of YAWL Custom Services can be found <a href="http://www.yawlfoundation.org/yawldocs/YAWLTechnicalManual2.1.pdf ">here</a>.  
+</ol>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="ServReg"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/service_registration.png" width="80%"/></div>
+	<div class="caption">Figure 4 - Registering a custom YAWL service.</div>
+</div>
+
+<p>
+At design time, in the YAWL editor, every atomic task in a workflow specification has to be associated with a <em>Feature Configuration Service</em>. <a href="#ServUse">Figure 5</a> shows how a <em>Feature Configuration Service</em> is assigned to a task of a workflow.
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="ServUse"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/service_use.png" width="100%"/></div>
+	<div class="caption">Figure 5 - <em>Feature Configuration Service</em> assignment in the YAWL editor.</div>
+</div>
+
+<a name="subsec-install-2"></a>
+<h3>Step 2 - Installing the FCW Engine</h3>
+
+<ol>
+	<li> Download the latest version of the <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/Coordinator.war">FCW Engine</a>.
+	<li> Move <tt>Coordinator.war</tt> into <tt>./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt>.YAWL and FCW Engine must be hosted in the same servlet container.  
+</ol>
+
+<p>
+The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href="#control_panel">Figure 6</a> and can be accessed at <tt>http://localhost:8080/Coordinator/index.html</tt>. It allows to monitor the configuration status of the different tasks and stops.
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="control_panel"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/control_panel.png" width="100%"/></div>
+	<div class="caption">Figure 6 - Control panel of the FCW Engine.</div>
+</div>
+
+<a name="subsec-install-3a"></a>
+<h3>Step 3.a - Installing SPLOT locally</h3>
+<ol>
+	<li> Download the latest version of <a href="http://code.google.com/p/splot-research/">SPLOT</a>.
+	<li> Move <tt>SPLOT.war</tt> into <tt>./apache-tomcat/webapps</tt>. Note that SPLOT must run on a <b>different instance</b> of tomcat than the FCW Engine. 
+	<li> Go to <tt>./apache-tomcat/webapps/SPLOT/WEB-INF</tt>.
+	<li> Open <tt>web.xml</tt>.
+	<li> Change the paths to models and logs according to your environment.  
+</ol>
+
+<a name="subsec-install-3b"></a>
+<h3>Step 3.b - Connecting to a running instance of SPLOT</h3>
+<ol>
+	<li> Go to the FCW Engine's registration page at <tt>http://localhost:8080/Coordinator/registartion.html</tt>.
+	<li> Fill out the <tt>SPLOT Instance URL</tt> field. The value of this field should be <tt>http://localhost:pppp/SPLOT</tt> for local host and <tt>http://gsd.uwaterloo.ca:8088/SPLOT</tt> for online SPLOT instance. <tt>pppp</tt> is to be replaced with the actual port number.
+	<li> Click on <b>Save URL</b>. 
+</ol>
+
+<p>
+Active instances identify which FDs are involved in the configuration process. An example of SPLOT instance registered in the FCW Engine is shown in the upper right part of <a href="#registration">Figure 7</a>. The figure also shows the current configuration sessions.   
+
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="registration"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/registration.png" width="100%"/></div>
+	<div class="caption">Figure 7 - Registration page of the FCW Engine.</div>
+</div>
+
+<a name="sec-started"></a>
+<h1 class="title">Getting Started</h1>
+
+<p>
+The video below showcases a typical use case of the toolset. It starts with the creation of a workflow in YAWL, it registration in SPLOT, the creation of the views and their mapping to the workflow. Then, the configuration process starts until the completion of the configuration of the final product. Finally, the monitoring controls provided by the Control Panel of the FCW Engine are quickly explored. 
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="vid:getting-started"></a>
+	<div id="getting-started"><a href="http://www.info.fundp.ac.be/~ahu/Video/demo-short-final-v0.mov">http://www.info.fundp.ac.be/~ahu/Video/demo-short-final-v0</a></div>
+	<div class="caption">Video 1 - Getting Started.</div>
+</div>
+
+
+<a name="sec-related"></a>						
+<h1 class="title">Related Publications</h1> 
+
+<p>
+<ul>
+		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/70054/">Towards Multi-View Feature-based Configuration</a>, <em>Arnaud Hubaux, Patrick Heymans, Pierre-Yves Schobbens, Dirk Deridder</em>, in Proceedings of 16th International Working Conference on Requirements Engineering: Foundation for Software Quality (REFSQ'10), Essen, Germany, collection LNCS.
+		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/70344/">Workflow-driven Product Derivation</a> (invited talk), <em>Arnaud Hubaux, Ebrahim Khalil Abbasi, Andreas Classen, Patrick Heymans</em>,in First International Workshop on Product Line Requirements Engineering and Quality (PLREQ'10), June 30, 2010 , Essen, Germany.
+		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/67734/"> Analysis of Feature Configuration Workflows</a> (poster), <em>Andreas Classen, Arnaud Hubaux, Patrick Heymans</em>, in Proceedings of the 17th IEEE International Requirements Engineering Conference (RE'09), Atlanta, Georgia, USA, pp. 381-382.
+		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/67583/">Formal Modelling of Feature Configuration Workflows</a>, <em>Arnaud Hubaux, Andreas Classen, Patrick Heymans</em>, in Proceedings of the 13th International Software Product Lines Conference (SPLC'09), San Francisco, CA, USA, pp. 221-230.
+		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/66780/">A Formal Semantics for Multi-level Staged Configuration</a>, <em>Andreas Classen, Arnaud Hubaux, Patrick Heymans</em>, in Proceedings of the Third Workshop on Variability Modelling of Software-intensive Systems (VaMoS'09), pp. 51-60.
+</ul>			
+</p>
+
+<a name="sec-contact"></a>						
+<h1 class="title">Contact Us</h1>
+
+<br />
+
+<table class="standardTableStyle">
+	<tr>
+		<td>Institution</td>
+		<td><a href="http://www.fundp.ac.be/en/inf">Faculty of Computer Science, University of Namur</a></td>
+	</tr><tr>
+		<tr>
+		<td>Location</td>
+		<td>
+			<iframe width="500" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?hl=en&amp;q=21+rue+grandgagnage+5000+Namur+Belgium&amp;ie=UTF8&amp;hq=&amp;hnear=Rue+Grandgagnage+21,+Namur+5000+Namur,+R%C3%A9gion+Wallonne,+Belgium&amp;gl=ca&amp;ei=ICzrTIfFC9K5ngfTj_jJAQ&amp;oi=geocode_result&amp;ved=0CBYQ8gEwAA&amp;ll=50.46598,4.857612&amp;spn=0.008605,0.018132&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.ca/maps?hl=en&amp;q=21+rue+grandgagnage+5000+Namur+Belgium&amp;ie=UTF8&amp;hq=&amp;hnear=Rue+Grandgagnage+21,+Namur+5000+Namur,+R%C3%A9gion+Wallonne,+Belgium&amp;gl=ca&amp;ei=ICzrTIfFC9K5ngfTj_jJAQ&amp;oi=geocode_result&amp;ved=0CBYQ8gEwAA&amp;ll=50.46598,4.857612&amp;spn=0.008605,0.018132&amp;t=h&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		</td>
+	</tr>
+	<tr>
+		<td>Department</td>
+		<td><a href="http://www.fundp.ac.be/info/enseignement/systemes/page_view/presentationlongue.html">Software Engineering Department</a></td>
+	</tr><tr>
+		<td>Research Group</td>
+		<td><a href="http://www.fundp.ac.be/en/precise/">PReCISE Research Center</a></td>
+
+	</tr>
+</table>
+
+<br />
+
+<div id="row">	
+	<div id="left">
+		<img src="/SPLOT/images/eab.png" width="100%"/>
+	</div>
+	<div id="right">
+		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01007819/">Ebrahim Abbasi</a> <br> <br>
+		<b>PhD Student @ University of Namur</b> <br>
+		Main Developer
+		</div>
+</div>
+<div id="row">	
+	<div id="left">
+		<img src="/SPLOT/images/ahu.png" width="100%"/>
+	</div>
+	<div id="right">
+		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01006851/">Arnaud Hubaux</a> <br> <br>
+		<b>PhD Student @ University of Namur</b> <br>
+		Project Coordinator
+	</div>
+</div>
+
+
+<div id="row">	
+	<div id="left">
+		<img src="/SPLOT/images/phe.jpg" width="100%"/>
+	</div>
+	<div id="right">
+		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01003511/">Patrick Heymans</a> <br> <br>
+		<b>Professor @ University of Namur</b> <br>
+		Supervisor
+	</div>
+</div>
+
+					</div> 
+				</div> 
+			</div> 
+			<!-- end #content --> 
+			<div style="clear: both;">&nbsp;</div> 
+		</div> 
+		<!-- end #page --> 
+	</div> 
+</div> 
+
+<div id="footer"> 
+	<p><a href="http://gsd.uwaterloo.ca/">Generative Software Development Lab</a> / <a href="http://csg.uwaterloo.ca">Computer Systems Group</a>, University of Waterloo, Canada, 2009-2010.</p> 
+</div> 
+<!-- end #footer --> 
+	
+</body>
+</html>
