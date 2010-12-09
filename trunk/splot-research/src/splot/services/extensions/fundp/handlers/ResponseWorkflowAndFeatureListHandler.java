@@ -56,7 +56,6 @@ public class ResponseWorkflowAndFeatureListHandler extends Handler{
 			int arrayIndex=-1;
 			String selectedType=request.getParameter("selectedType");
 			String selectedValue=request.getParameter("selectedValue");
-			
 			if (selectedType.compareToIgnoreCase("feature")==0){
 				String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; //getServlet().getInitParameter("viewFilesPath");
 				File  dir=new File(viewDir);

@@ -44,17 +44,19 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {
-        	
+			
         	HttpSession session = request.getSession(true);        	
         	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
         	String toggleFeature = (String)request.getParameter("toggleFeature"); 
         	String viewType=(String)request.getParameter("viewType");
         	String viewName=(String)request.getParameter("viewName");
 			String featureModelFileName=(String)request.getParameter("selectedModels");
-
+			String serverKey=request.getParameter("serverKey");
         	
     		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
     		String modelDir=getServlet().getInitParameter("modelsPath");
+
+    		
 
     		
     		if (confEngine == null) {
@@ -90,7 +92,7 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
     		List templateFeatureList = new LinkedList();
     		for( FeatureTreeNode feature : conflictingFeatures ) {    			
     			Map featureData = new HashMap();
-    			confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(),viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds);
+    			confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(),viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,serverKey);
 
     			
     			templateFeatureList.add(featureData);

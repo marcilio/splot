@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specificationSet xmlns="http://www.yawlfoundation.org/yawlschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://www.yawlfoundation.org/yawlschema http://www.yawlfoundation.org/yawlschema/YAWL_Schema2.1.xsd">
+  <specification uri="CFDP">
+    <metaData>
+      <creator>ebrahimkhalilabbasi</creator>
+      <description>No description has been given.</description>
+      <version>0.8</version>
+      <persistent>false</persistent>
+      <identifier>UID_3128d8f2-cb12-4be9-9de5-bb40dbeda08b</identifier>
+    </metaData>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" />
+    <decomposition id="Main_Net" isRootNet="true" xsi:type="NetFactsType">
+      <processControlElements>
+        <inputCondition id="InputCondition_1">
+          <flowsInto>
+            <nextElementRef id="Spacebel_3" />
+          </flowsInto>
+        </inputCondition>
+        <task id="Spacebel_3">
+          <name>Spacebel</name>
+          <flowsInto>
+            <nextElementRef id="System_Engineer_5" />
+            <isDefaultFlow />
+          </flowsInto>
+          <flowsInto>
+            <nextElementRef id="Reseller_4" />
+            <predicate ordering="0">true()</predicate>
+          </flowsInto>
+          <join code="xor" />
+          <split code="xor" />
+          <decomposesTo id="Spacebel" />
+        </task>
+        <task id="System_Engineer_5">
+          <name>System_Engineer</name>
+          <flowsInto>
+            <nextElementRef id="Network_Integrator_6" />
+          </flowsInto>
+          <flowsInto>
+            <nextElementRef id="TMTC_Integrator_7" />
+          </flowsInto>
+          <join code="xor" />
+          <split code="and" />
+          <decomposesTo id="System_Engineer" />
+        </task>
+        <task id="Reseller_4">
+          <name>Reseller</name>
+          <flowsInto>
+            <nextElementRef id="System_Engineer_5" />
+          </flowsInto>
+          <join code="xor" />
+          <split code="and" />
+          <decomposesTo id="Reseller" />
+        </task>
+        <task id="Network_Integrator_6">
+          <name>Network_Integrator</name>
+          <flowsInto>
+            <nextElementRef id="Loop_11" />
+          </flowsInto>
+          <join code="xor" />
+          <split code="and" />
+          <decomposesTo id="Network_Integrator" />
+        </task>
+        <task id="TMTC_Integrator_7">
+          <name>TMTC_Integrator</name>
+          <flowsInto>
+            <nextElementRef id="Loop_11" />
+          </flowsInto>
+          <join code="xor" />
+          <split code="and" />
+          <decomposesTo id="TMTC_Integrator" />
+        </task>
+        <task id="Loop_11">
+          <name>Loop</name>
+          <flowsInto>
+            <nextElementRef id="System_Engineer_5" />
+            <isDefaultFlow />
+          </flowsInto>
+          <flowsInto>
+            <nextElementRef id="Final_Satellite_16" />
+            <predicate ordering="0">true()</predicate>
+          </flowsInto>
+          <join code="and" />
+          <split code="xor" />
+          <decomposesTo id="Loop" />
+        </task>
+        <task id="Final_Satellite_16">
+          <name>Final_Satellite</name>
+          <flowsInto>
+            <nextElementRef id="Final_Satellite_13" />
+          </flowsInto>
+          <join code="xor" />
+          <split code="and" />
+          <decomposesTo id="Final_Satellite" />
+        </task>
+        <condition id="Final_Satellite_13">
+          <name>Final_Satellite</name>
+          <flowsInto>
+            <nextElementRef id="Product_Release_14" />
+          </flowsInto>
+        </condition>
+        <task id="Product_Release_14">
+          <name>Product_Release</name>
+          <flowsInto>
+            <nextElementRef id="Final_Condition_2" />
+          </flowsInto>
+          <join code="xor" />
+          <split code="and" />
+          <decomposesTo id="Product_Release" />
+        </task>
+        <outputCondition id="Final_Condition_2" />
+      </processControlElements>
+    </decomposition>
+    <decomposition id="Reseller" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="System_Engineer" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="Product_Release" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="TMTC_Integrator" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="Spacebel" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="Final_Satellite" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="Loop" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+    <decomposition id="Network_Integrator" xsi:type="WebServiceGatewayFactsType">
+      <yawlService id="http://localhost:8080/FeatureConfigurationService/ib" />
+      <externalInteraction>manual</externalInteraction>
+    </decomposition>
+  </specification>
+  <layout>
+    <locale language="en" country="US" />
+    <specification id="CFDP.yawl">
+      <size w="129" h="46" />
+      <net id="Main_Net">
+        <bounds x="0" y="0" w="1168" h="594" />
+        <frame x="11" y="33" w="1172" h="598" />
+        <viewport x="0" y="0" w="1172" h="598" />
+        <vertex id="InputCondition_1">
+          <attributes>
+            <bounds x="68.0" y="292.0" w="32.0" h="32.0" />
+          </attributes>
+        </vertex>
+        <container id="TMTC_Integrator_7">
+          <vertex>
+            <attributes>
+              <bounds x="454.0" y="368.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="410.0" y="400.0" w="120.0" h="19.0" />
+            </attributes>
+          </label>
+        </container>
+        <container id="Product_Release_14">
+          <vertex>
+            <attributes>
+              <bounds x="876.0" y="284.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="836.0" y="316.0" w="117.0" h="21.0" />
+            </attributes>
+          </label>
+        </container>
+        <container id="Loop_11">
+          <vertex>
+            <attributes>
+              <bounds x="580.0" y="284.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="548.0" y="316.0" w="97.0" h="21.0" />
+            </attributes>
+          </label>
+          <decorator type="AND_join">
+            <position>12</position>
+            <attributes>
+              <bounds x="570.0" y="284.0" w="11.0" h="32.0" />
+              <size w="11" h="32" />
+            </attributes>
+          </decorator>
+          <decorator type="XOR_split">
+            <position>13</position>
+            <attributes>
+              <bounds x="611.0" y="284.0" w="11.0" h="32.0" />
+              <size w="11" h="32" />
+            </attributes>
+          </decorator>
+        </container>
+        <container id="Final_Satellite_16">
+          <vertex>
+            <attributes>
+              <bounds x="660.0" y="284.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="628.0" y="316.0" w="97.0" h="21.0" />
+            </attributes>
+          </label>
+        </container>
+        <container id="System_Engineer_5">
+          <vertex>
+            <attributes>
+              <bounds x="328.0" y="292.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="284.0" y="324.0" w="121.0" h="19.0" />
+            </attributes>
+          </label>
+          <decorator type="XOR_join">
+            <position>12</position>
+            <attributes>
+              <bounds x="318.0" y="292.0" w="11.0" h="32.0" />
+              <size w="11" h="32" />
+            </attributes>
+          </decorator>
+          <decorator type="AND_split">
+            <position>13</position>
+            <attributes>
+              <bounds x="359.0" y="292.0" w="11.0" h="32.0" />
+              <size w="11" h="32" />
+            </attributes>
+          </decorator>
+        </container>
+        <container id="Reseller_4">
+          <vertex>
+            <attributes>
+              <bounds x="224.0" y="208.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="192.0" y="240.0" w="96.0" h="19.0" />
+            </attributes>
+          </label>
+        </container>
+        <container id="Spacebel_3">
+          <vertex>
+            <attributes>
+              <bounds x="124.0" y="292.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="96.0" y="324.0" w="96.0" h="19.0" />
+            </attributes>
+          </label>
+          <decorator type="XOR_split">
+            <position>13</position>
+            <attributes>
+              <bounds x="155.0" y="292.0" w="11.0" h="32.0" />
+              <size w="11" h="32" />
+            </attributes>
+          </decorator>
+        </container>
+        <container id="Network_Integrator_6">
+          <vertex>
+            <attributes>
+              <bounds x="452.0" y="208.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="400.0" y="240.0" w="140.0" h="19.0" />
+            </attributes>
+          </label>
+        </container>
+        <container id="Final_Satellite_13">
+          <vertex>
+            <attributes>
+              <bounds x="764.0" y="284.0" w="32.0" h="32.0" />
+            </attributes>
+          </vertex>
+          <label>
+            <attributes>
+              <bounds x="732.0" y="316.0" w="97.0" h="21.0" />
+            </attributes>
+          </label>
+        </container>
+        <flow source="Final_Satellite_13" target="Product_Release_14">
+          <ports in="13" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+          </attributes>
+        </flow>
+        <flow source="InputCondition_1" target="Spacebel_3">
+          <ports in="13" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+          </attributes>
+        </flow>
+        <flow source="Product_Release_14" target="Final_Condition_2">
+          <ports in="13" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+          </attributes>
+        </flow>
+        <flow source="Final_Satellite_16" target="Final_Satellite_13">
+          <ports in="13" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+          </attributes>
+        </flow>
+        <flow source="System_Engineer_5" target="TMTC_Integrator_7">
+          <ports in="2" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="369.0" y="307.5" />
+              <value x="396.0" y="384.0" />
+              <value x="454.0" y="383.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="Network_Integrator_6" target="Loop_11">
+          <ports in="13" out="2" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="483.0" y="223.5" />
+              <value x="528.0" y="224.0" />
+              <value x="554.0" y="299.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="Loop_11" target="Final_Satellite_16">
+          <ports in="2" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+          </attributes>
+        </flow>
+        <flow source="Loop_11" target="System_Engineer_5">
+          <ports in="2" out="2" />
+          <attributes>
+            <lineStyle>12</lineStyle>
+            <points>
+              <value x="621.0" y="299.5" />
+              <value x="648.0" y="228.0" />
+              <value x="300.0" y="224.0" />
+              <value x="318.0" y="307.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="System_Engineer_5" target="Network_Integrator_6">
+          <ports in="2" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="369.0" y="307.5" />
+              <value x="389.0" y="224.0" />
+              <value x="452.0" y="223.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="Reseller_4" target="System_Engineer_5">
+          <ports in="13" out="2" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="255.0" y="223.5" />
+              <value x="284.0" y="224.0" />
+              <value x="318.0" y="307.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="TMTC_Integrator_7" target="Loop_11">
+          <ports in="13" out="2" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="485.0" y="383.5" />
+              <value x="527.0" y="382.0" />
+              <value x="570.0" y="299.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="Spacebel_3" target="Reseller_4">
+          <ports in="2" out="12" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="165.0" y="307.5" />
+              <value x="184.0" y="224.0" />
+              <value x="224.0" y="223.5" />
+            </points>
+          </attributes>
+        </flow>
+        <flow source="Spacebel_3" target="System_Engineer_5">
+          <ports in="2" out="2" />
+          <attributes>
+            <lineStyle>11</lineStyle>
+            <points>
+              <value x="165.0" y="307.5" />
+              <value x="270.0" y="307.5" />
+            </points>
+          </attributes>
+        </flow>
+        <vertex id="Final_Condition_2">
+          <attributes>
+            <bounds x="928.0" y="284.0" w="32.0" h="32.0" />
+          </attributes>
+        </vertex>
+      </net>
+    </specification>
+  </layout>
+</specificationSet>
+
+

@@ -24,7 +24,7 @@
 		: PUS(_r_1_8)
 			:o PUS Rename(_r_1_8_9)
 			:o PUS Copy(_r_1_8_10)
-		: Reboot(_r_1_11)
+		: Reboot_(_r_1_11)
 			:o Reboot Entity(_r_1_11_12)
 			:o Reboot PUS(_r_1_11_14)
 </feature_tree>
