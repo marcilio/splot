@@ -2,7 +2,7 @@
 <specificationSet xmlns="http://www.yawlfoundation.org/yawlschema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://www.yawlfoundation.org/yawlschema http://www.yawlfoundation.org/yawlschema/YAWL_Schema2.1.xsd">
   <specification uri="CFDP">
     <metaData>
-      <creator>ebrahimkhalilabbasi</creator>
+      <creator>Arnaud Hubaux</creator>
       <description>No description has been given.</description>
       <version>0.8</version>
       <persistent>false</persistent>
