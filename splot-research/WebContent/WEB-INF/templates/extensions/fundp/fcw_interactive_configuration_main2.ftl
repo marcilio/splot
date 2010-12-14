@@ -328,7 +328,12 @@ Released   : 20081103
 	*  Reset configuration
 	*******************************************************/
 	function resetConfiguration() {
+		viewName=getListSelectedValue(document.getElementById('view_list'));
+		viewType=getListSelectedValue(document.getElementById('visualization_list'));
+		
+		
 	
+		
 	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey;
 	}
 	
@@ -557,7 +562,7 @@ Released   : 20081103
 	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
-	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey;
+	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey+"&reload=true";
 	
 	}     
 	
