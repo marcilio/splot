@@ -54,6 +54,7 @@ public class FCWInteractiveConfigurationExportConfigurationHandler extends FreeM
         	
         	List features = new LinkedList();
         	for( FeatureTreeNode featureNode : model.getNodes() ) {
+        		
         		if ( featureNode.isInstantiated() ) {
 	        		Map featureData = new HashMap();
 	    			featureData.put("id", featureNode.getID());

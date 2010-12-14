@@ -517,6 +517,7 @@ public class FCWInteractiveConfigurationElementsProducer {
 				stepElementTemplate = cfg.getTemplate("fcw_interactive_configuration_element_step.ftl");
 			}			
 			stepData.put("step_id", step.getId());
+			System.out.println("step:"+step.getId());
 			List stepManualDecisionsList = new LinkedList();
 			if ( step.getDecisions().isEmpty() ) {
 				Map tempMap = new HashMap();
@@ -548,6 +549,46 @@ public class FCWInteractiveConfigurationElementsProducer {
 		}
 		return output;
 	}
+	
+	public String produceStepElement(String stepID,ConfigurationStep step, Map stepData) {
+		String output= "";		
+		try {
+			if ( stepElementTemplate == null ) {
+				stepElementTemplate = cfg.getTemplate("fcw_interactive_configuration_element_step.ftl");
+			}			
+			stepData.put("step_id", stepID);
+			List stepManualDecisionsList = new LinkedList();
+			if ( step.getDecisions().isEmpty() ) {
+				Map tempMap = new HashMap();
+				tempMap.put("featureName", "auto-completion");
+				tempMap.put("featureId", "auto-completion");
+				tempMap.put("featureValue", "");
+				stepManualDecisionsList.add(tempMap);
+			}
+			else {
+				for ( FeatureTreeNode manualDecisionFeature : step.getDecisions() ) {
+					Map tempMap = new HashMap();
+					tempMap.put("featureName", manualDecisionFeature.getName());
+					tempMap.put("featureId", manualDecisionFeature.getID());
+					tempMap.put("featureValue", manualDecisionFeature.getValue());
+					stepManualDecisionsList.add(tempMap);
+				}
+			}
+			stepData.put("step_manualDecisions", stepManualDecisionsList);
+			stepData.put("step_countDecisions", step.countDecisions());
+			stepData.put("step_countPropagations", step.countPropagations());
+			// Step attributes
+			stepData.putAll(step.getAttributesMap());
+			StringWriter outputWriter = new StringWriter();
+			stepElementTemplate.process(stepData, outputWriter);
+			output = outputWriter.toString();
+		}
+		catch( Exception e ) {
+			output = e.getMessage();
+		}
+		return output;
+	}
+	
 	
 	protected String getFeatureParent(FeatureTreeNode feature) {
 		FeatureTreeNode parent = (FeatureTreeNode)feature.getParent();
