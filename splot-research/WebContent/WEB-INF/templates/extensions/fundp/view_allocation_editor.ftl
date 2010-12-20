@@ -996,7 +996,7 @@ Released   : 20081103
 		}
 	    
 	    try{ 
-		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+featureValue;
+		    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=response_uncovered_features&fm_name="+featureValue+"&type=allocated";
 			oXMLRequest.open("GET",strValidationServiceUrl,true);
 			oXMLRequest.onreadystatechange = onCheckViewsCoverageResult;
 			oXMLRequest.send(null);

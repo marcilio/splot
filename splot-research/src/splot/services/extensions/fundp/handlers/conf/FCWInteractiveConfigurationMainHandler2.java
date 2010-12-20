@@ -55,16 +55,14 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
         	String viewType="none";
         	String viewName="none";
         	String  task="false";
-        //	String  placeType="false";
-        	//String stopAllocatedViewsResult="";
-
+     
         	String  featureModelName="false";
         	String featureModelFileName="false";
         	String  userKey="false";
-        	String  serverKey="";
         	String newConfiguration="false";
-        	String  user="guest";
-        	String  sessionKey="";
+        	String  userName="guest";
+        	String  userID="guest";
+        	String  configurationFileName="";
         	
     		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
     		String modelDir=getServlet().getInitParameter("modelsPath");
@@ -209,18 +207,6 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             	}
             	session.setAttribute("taskName", task);
             
-            	
-            	
-           		/*********************************************************************
-        		 * session key
-        		 *********************************************************************/
-
-            	if (workflowExistence.compareToIgnoreCase("true")==0){
-            		sessionKey=request.getParameter("sessionKey");
-            		
-            	}
-            	
-
  
 
            		/*********************************************************************
@@ -336,10 +322,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	    		 * RESET configuration
 	    		 *********************************************************************/
 	            String op = (String)request.getParameter("op");        
-//	            if ( op == null || op.compareToIgnoreCase("reset") != 0) {
-//	            	throw new HandlerExecutionException("Paremeter 'op' must be specified to 'reset'");
-//	            }
-//	            
+            
 	            if ( op == null) {
 	            	op="reset";
 	            }
@@ -543,109 +526,83 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 
             	
             	
+
             	
            		/*********************************************************************
-        		 * server key
-        		 *********************************************************************/
-            	if (workflowExistence.compareToIgnoreCase("true")==0){
-            		if (newSession.compareToIgnoreCase("true")==0){
-                 		if (requestQueryString.indexOf("serverKey")==-1){
-                 			newConfiguration="true";
-                 			serverKey="";
-                 		}else{
-                			serverKey=(String)request.getParameter("serverKey");
-                			if ( (serverKey!=null) && (serverKey!="")){
-                    			newConfiguration="false";
-                    		}else{
-                    			newConfiguration="true";
-                    			serverKey="";
-                    		}
-                 			
-                 		}
-            		}else{
-            			
-            			if (requestQueryString.indexOf("serverKey")==-1){
-            				serverKey=(String)session.getAttribute("serverKey");
-                			if ( (!(serverKey!=null)) && (serverKey!="")){
-                    			newConfiguration="false";
-                    		}else{
-                    			newConfiguration="true";
-                    			serverKey="";
-                    		}
-            			}else{
-            				serverKey=(String)request.getParameter("serverKey");
-                			if ( (serverKey!=null) && (serverKey!="")){
-                    			newConfiguration="false";
-                    		}else{
-                    			newConfiguration="true";
-                    			serverKey="";
-                    		}
-            			}
-            			
-             			
-            		}
-
-            	}else{
-            		serverKey="";
-            		if (newSession.compareToIgnoreCase("true")==0){
-            			newConfiguration="true";
-            		}else{
-            			newConfiguration="false";
-
-            		}
-
-            	}
-            	session.setAttribute("serverKey", serverKey);
-            	
-            	
-           		/*********************************************************************
-        		 * user
+        		 * user Name
         		 *********************************************************************/
             	if (workflowExistence.compareToIgnoreCase("true")==0){
             		if (newSession.compareToIgnoreCase("true")==0){
             			if (requestQueryString.indexOf("userName")==-1){
-            				user="guest";
+            				userName="guest";
             			}else{
-            				user=(String)request.getParameter("userName");
-                			if ((user==null) ||(user=="") ){
-                				user="guest";
+            				userName=(String)request.getParameter("userName");
+                			if ((userName==null) ||(userName=="") ){
+                				userName="guest";
                 			}
             			}
             			
             		}else{
             			
-            			if (requestQueryString.indexOf("user")==-1){
-            				user=(String)session.getAttribute("userName");
-                			if ((user==null) ||(user=="") ){
-                				user="guest";
+            			if (requestQueryString.indexOf("userName")==-1){
+            				userName=(String)session.getAttribute("userName");
+                			if ((userName==null) ||(userName=="") ){
+                				userName="guest";
                 			}
             			}else{
-            				user=(String)request.getParameter("userName");
-                			if ((user==null) ||(user=="") ){
-                				user="guest";
+            				userName=(String)request.getParameter("userName");
+                			if ((userName==null) ||(userName=="") ){
+                				userName="guest";
                 			}
             			}
             		}
 
             	}else{
-            		user="guest";
+            		userName="guest";
             	}
             		 
-            	session.setAttribute("userName", user);
+            	session.setAttribute("userName", userName);
 
             	
             	
            		/*********************************************************************
-        		 * Process Status
+        		 * user ID
         		 *********************************************************************/
             	if (workflowExistence.compareToIgnoreCase("true")==0){
             		if (newSession.compareToIgnoreCase("true")==0){
-                    	session.setAttribute("processStatus", "progress");
-
+            			if (requestQueryString.indexOf("userID")==-1){
+            				userID="guest";
+            			}else{
+            				userID=(String)request.getParameter("userID");
+                			if ((userID==null) ||(userID=="") ){
+                				userID="guest";
+                			}
+            			}
+            			
+            		}else{
+            			
+            			if (requestQueryString.indexOf("userID")==-1){
+            				userID=(String)session.getAttribute("userID");
+                			if ((userID==null) ||(userID=="") ){
+                				userID="guest";
+                			}
+            			}else{
+            				userID=(String)request.getParameter("userID");
+                			if ((userID==null) ||(userID=="") ){
+                				userID="guest";
+                			}
+            			}
             		}
-            	}
 
-	            
+            	}else{
+            		userID="guest";
+            	}
+            		 
+            	session.setAttribute("userID", userID);
+
+            	
+            	
+ 	            
            		/*********************************************************************
         		 * uncovered features
         		 *********************************************************************/
@@ -659,9 +616,23 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	            
 	            session.setAttribute("uncoveredFeatures", uncoveredFeatures);
 	            
+	            
+	            
+	            
+	            
+	            
+	            
+           		/*********************************************************************
+        		 * configuration file name
+        		 *********************************************************************/
 
-	            
-	            
+	            configurationFileName=Methods.getConfiguredFileName(configuredModelPath, userKey);
+
+	            if (configurationFileName.compareToIgnoreCase("false")==0){
+	            	newConfiguration="true";
+	            }else{
+	            	newConfiguration="false";
+	            }
 	            
 	    		
 				// Producer of parts of the template
@@ -702,7 +673,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				    		
 				    		
 				    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-				    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+				    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
 				    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 				    			featureData.put("configurationFeatureElement", featureElementData);
 				    			featuresList.add(featureData);
@@ -710,17 +681,27 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				    		}
 	        			}else{//newConfiguration==false
 	        				
+	        				
 	        				List<ConfigurationStep> stepsToUpdateList1 = new LinkedList<ConfigurationStep>();
+					    	confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
+			    			FeatureModel model = confEngine.getModel();
+
+					    	confEngine.getSteps().remove(confEngine.getLastStep());
+
 	        				FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
-	    	    			
+	        				
 	        				for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
-	        					decisionResult=Methods.getFeatureDecisionInfo(modelDir, serverKey, feature.getID());
+	        					decisionResult=Methods.getFeatureDecisionInfo(modelDir, userKey, feature.getID());
+
 	        					if (decisionResult.found){
 	        						stepsToUpdateList1.add( confEngine.configure(feature.getID(), decisionResult.value.equals("1") ? 1 : 0) );
 	        					}
 	        				}
 	    	    			
-	        	        	
+		    	    	
+			    		
+	        				
+	        				
 	        				
 	        				List<Map> stepsList = new LinkedList<Map>();
 	        	        	for( ConfigurationStep step : stepsToUpdateList1 ) {
@@ -740,7 +721,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	    		    		
 	    		    		
 	    		    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-	    		    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+	    		    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
 	    		    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 	    		    			featureData.put("configurationFeatureElement", featureElementData);
 	    		    			featuresList.add(featureData);
@@ -768,21 +749,35 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
 				    			Map featureData = new HashMap();
 				    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-				    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+				    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
 				    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 				    			featureData.put("configurationFeatureElement", featureElementData);
 				    			featuresList.add(featureData);
 				    			
 				    		}
 	        			}else{//newConfiguration==false
+					    	
 					    	confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
+		    	    		ConfigurationEngine tmpConfEngine=createConfigurationEngine(getResourcePath()+featureModelFileName);
+		    	    		
+		    	    		tmpConfEngine.reset();
+		    	    		tmpConfEngine.getSteps().remove(tmpConfEngine.getLastStep());
+		    	    		
 			    			FeatureModel model = confEngine.getModel();
 			    			List<ConfigurationStep> stepsToUpdateList2 = new LinkedList<ConfigurationStep>();
+		    	    		stepsToUpdateList2.clear();
+
 			    			for( FeatureTreeNode featureNode : model.getNodes() ) {
 				        		if ( featureNode.isInstantiated() ) {
-				    				stepsToUpdateList2.add( confEngine.configure(featureNode.getID(), featureNode.getValue()) );
+				    				stepsToUpdateList2.add( tmpConfEngine.configure(featureNode.getID(), featureNode.getValue()) );
 				        		}
 				        	}
+			    			
+			    			
+			    			confEngine = createConfigurationEngine(getResourcePath()+featureModelFileName);
+			    			confEngine.reset();
+			    			confEngine.getSteps().remove(confEngine.getLastStep());
+			    			confEngine=tmpConfEngine;
 			    			
 			    			List<Map> stepsList = new LinkedList<Map>();
 			    			if(stepsToUpdateList2==null){
@@ -811,7 +806,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				    			Map featureData = new HashMap();
 				    			
 				    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-				    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+				    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
 				    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 				    			featureData.put("configurationFeatureElement", featureElementData);
 				    			featuresList.add(featureData);
@@ -847,7 +842,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 			    		
 			    		
 			    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
 			    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 			    			featureData.put("configurationFeatureElement", featureElementData);
 			    			featuresList.add(featureData);
@@ -857,24 +852,27 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	        		}else if (op.compareToIgnoreCase("rebuild")==0){
 
 	    	    		List<ConfigurationStep> stepsToUpdateList3 = new LinkedList<ConfigurationStep>();
-
 				    	confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
+	    	    		ConfigurationEngine tmpConfEngine=createConfigurationEngine(getResourcePath()+featureModelFileName);
+	    	    		tmpConfEngine.reset();
+	    	    		tmpConfEngine.getSteps().remove(tmpConfEngine.getLastStep());
+
+	    	    		stepsToUpdateList3.clear();
 		    			FeatureModel model = confEngine.getModel();
 		    			for( FeatureTreeNode featureNode : model.getNodes() ) {
 			        		if ( featureNode.isInstantiated() ) {
-			    				stepsToUpdateList3.add( confEngine.configure(featureNode.getID(), featureNode.getValue()) );
+			    				stepsToUpdateList3.add( tmpConfEngine.configure(featureNode.getID(), featureNode.getValue()) );
 			        		}
 			        	}
-		    			
-		    			 
+		    			confEngine = createConfigurationEngine(getResourcePath()+featureModelFileName);
+		    			confEngine.reset();
+		    			confEngine.getSteps().remove(confEngine.getLastStep());
+		    			confEngine=tmpConfEngine;
 		    			
 		    			List<Map> stepsList = new LinkedList<Map>();
-		    			int i=0;
-		    			
 		    			if(stepsToUpdateList3==null){
 		    				
 		    				for( ConfigurationStep step : confEngine.getSteps() ) {
-		    					i++;
 				        		Map stepData = new HashMap();
 				    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
 				        		stepData.put("configurationStepElement", stepElementData);
@@ -882,14 +880,13 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				        	}
 		    			}else{
 		    				
-		    				for( ConfigurationStep step : stepsToUpdateList3 ) {
-		    	        		Map stepData = new HashMap();
-		    					i++;
-
-		    	    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
-		    	        		stepData.put("configurationStepElement", stepElementData);
-		    	        		stepsList.add(stepData);
-		    	        	}
+		    				for( ConfigurationStep step : tmpConfEngine.getSteps() ) {
+				        		Map stepData = new HashMap();
+				    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
+				        		stepData.put("configurationStepElement", stepElementData);
+				        		stepsList.add(stepData);
+				        	}
+		    				
 		    			}
 	    	        	templateModel.put("steps", stepsList);
 	    	        	
@@ -902,7 +899,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 			    			Map featureData = new HashMap();
 			    			
 			    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
+			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
 			    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 			    			featureData.put("configurationFeatureElement", featureElementData);
 			    			featuresList.add(featureData);
@@ -913,163 +910,9 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	        		
 	        	}
 	        	
-
+	        	session.setAttribute("conf_engine", confEngine);
 	        	
-//	        	if ((workflowExistence.compareToIgnoreCase("true")==0) && (newConfiguration.compareToIgnoreCase("false")==0)){
-//	    			
-//	    			FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
-//	    			
-//    				for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
-//    					decisionResult=Methods.getFeatureDecisionInfo(modelDir, serverKey, feature.getID());
-//    					if (decisionResult.found){
-//    						stepsToUpdateList.add( confEngine.configure(feature.getID(), decisionResult.value.equals("1") ? 1 : 0) );
-//    					}
-//    				}
-//	    			
-//    	        	
-//    				
-//    				List<Map> stepsList = new LinkedList<Map>();
-//    	        	for( ConfigurationStep step : stepsToUpdateList ) {
-//    	        		Map stepData = new HashMap();
-//    	    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
-//    	        		stepData.put("configurationStepElement", stepElementData);
-//    	        		stepsList.add(stepData);
-//    	        	}
-//    	        	templateModel.put("steps", stepsList);
-//    	        	
-//    	        	
-//    				
-//    	        	LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
-//					getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
-//
-//		        	
-//		    		
-//		    		Boolean viewLoadStatus=true;
-//		    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
-//		    			Map featureData = new HashMap();
-//		    			
-//		    		
-//		    		
-//		    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-//		    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
-//		    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
-//		    			featureData.put("configurationFeatureElement", featureElementData);
-//		    			featuresList.add(featureData);
-//		    			
-//		    		}
-//		    		
-//		    		
-//	    		
-//	            	
-//	            }else{
-//
-//	            	if (requestQueryString.indexOf("reload")==-1){
-//	            		List<Map> stepsList = new LinkedList<Map>();
-//			        	for( ConfigurationStep step : confEngine.getSteps() ) {
-//			        		Map stepData = new HashMap();
-//			    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
-//			        		stepData.put("configurationStepElement", stepElementData);
-//			        		stepsList.add(stepData);
-//
-//			        		
-//			        	}
-//			        	templateModel.put("steps", stepsList);
-//			        
-//			    		// Traverses features and identify several related parameters
-//			        	
-//						LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
-//						getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
-//
-//			        	
-//			    		
-//			    		Boolean viewLoadStatus=true;
-//			    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
-//			    			Map featureData = new HashMap();
-//			    			
-//			    		
-//			    		
-//			    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-//			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
-//			    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
-//			    			featureData.put("configurationFeatureElement", featureElementData);
-//			    			featuresList.add(featureData);
-//			    			
-//			    		}
-//		    		}else{
-//		    			
-//		    			
-//				    	confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
-//		    			FeatureModel model = confEngine.getModel();
-//		    			
-//
-//		    			for( FeatureTreeNode featureNode : model.getNodes() ) {
-//			    		
-//
-//			        		if ( featureNode.isInstantiated() ) {
-//				    			
-//				        		String decisionType=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionType");
-//			    				stepsToUpdateList.add( confEngine.configure(featureNode.getID(), featureNode.getValue()) );
-//				    		
-//
-//				        		
-//			        		}
-//			        	}
-//		    			
-//		    		
-//		    			
-//
-//		    			
-//		    			List<Map> stepsList = new LinkedList<Map>();
-//		    			if(stepsToUpdateList==null){
-//		    				for( ConfigurationStep step : confEngine.getSteps() ) {
-//				        		Map stepData = new HashMap();
-//				    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
-//				        		stepData.put("configurationStepElement", stepElementData);
-//				        		stepsList.add(stepData);
-//
-//				        		
-//				        	}
-//		    			}else{
-//		    				for( ConfigurationStep step : stepsToUpdateList ) {
-//		    	        		Map stepData = new HashMap();
-//		    	    			String stepElementData = confElementProducer.produceStepElement(step, stepData);
-//		    	        		stepData.put("configurationStepElement", stepElementData);
-//		    	        		stepsList.add(stepData);
-//		    	        	}
-//		    			}
-//		    			
-//		    			
-//	    	        	
-//	    	        	templateModel.put("steps", stepsList);
-//	    	        	
-//	    	        	LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
-//						getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
-//
-//						
-//	    	        	Boolean viewLoadStatus=true;
-//			    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
-//			    			Map featureData = new HashMap();
-//			    			
-//			    		
-//			    		
-//			    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-//			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, serverKey);
-//			    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
-//			    			featureData.put("configurationFeatureElement", featureElementData);
-//			    			featuresList.add(featureData);
-//			    			
-//			    		}
-//	    	        	
-//		    			
-//		    		}
-//	    		
-//	            	
-//	            }
-//	            
-//	    		
-//	    		
-	    		
-			
+
 	    	
 	    		
 	    		
@@ -1085,14 +928,11 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				templateModel.put("selectedModels", featureModelFileName);
 				templateModel.put("workflowName", workflow);
 				templateModel.put("taskName", task);
-//				placeType="stop";
-//				templateModel.put("placeType", placeType);
-				//templateModel.put("uncompletedViews",stopAllocatedViewsResult); 
-				templateModel.put("userName", user);
+				templateModel.put("userName", userName);
+				templateModel.put("userID", userID);
 				templateModel.put("workflowExistence", workflowExistence);
-				templateModel.put("serverKey", serverKey);
+				templateModel.put("userKey", userKey);
 				templateModel.put("uncoveredFeatures", uncoveredFeatures);
-				templateModel.put("sessionKey", sessionKey);
 	        
 				
  			

@@ -159,7 +159,7 @@ Released   : 20081103
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save&sessionKey="+sessionKey;
+	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save";
 	    
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
@@ -180,10 +180,10 @@ Released   : 20081103
 
 				    resultStatus=resultJsonObj.result;
 				    resultValue=resultJsonObj.value;
-				    resultServerKey=resultJsonObj.server_key;
+				    resultUserKey=resultJsonObj.user_key;
 				    
 				    if(resultStatus=="true"){
-				    	serverKey=resultServerKey
+				    	userKey=resultUserKey
 				    }
 				    
 				    
@@ -211,7 +211,7 @@ Released   : 20081103
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=next&sessionKey="+sessionKey;
+	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=next";
 	    
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = OnGoNextTask;
@@ -249,6 +249,17 @@ Released   : 20081103
 	
 	}	
 	
+	
+	
+	/******************************************************
+	*  Exit window 
+	*******************************************************/
+	function exitWindow() {
+		window.close();
+	}
+	
+	
+	
 	/******************************************************
 	*  Exit configuration 
 	*******************************************************/
@@ -261,7 +272,7 @@ Released   : 20081103
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=exit&sessionKey="+sessionKey;
+	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=exit";
 	    
 		oXMLRequest.open("GET",strValidationServiceUrl,true);
 		oXMLRequest.onreadystatechange = OnExitConfiguration;
@@ -321,7 +332,7 @@ Released   : 20081103
 	  		dojo.parser.parse();  // this is required for dojo to recognize dialog buttons
 	  		dijit.byId('conflictingDecisionsDialog').show();
 	  	}
-	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey);  		
+	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey);  		
 	}
     
 	/******************************************************
@@ -334,7 +345,7 @@ Released   : 20081103
 		
 	
 		
-	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey;
+	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	}
 	
 	/******************************************************
@@ -520,8 +531,7 @@ Released   : 20081103
 		
 		featureModelFileName="${selectedModels}";
 		workflowExistence="${workflowExistence}";
-		serverKey="${serverKey}";
-		sessionKey="${sessionKey}";
+		userKey="${userKey}";
 		
 		<#if uncoveredFeatures!="">
 			alert("There are uncovered features in the views, and the configuration would not be saved:"+"${uncoveredFeatures}");
@@ -562,9 +572,28 @@ Released   : 20081103
 	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
-	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey+"&reload=true";
+	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	
 	}     
+	
+	
+	
+	/******************************************************
+	*  Reload feature model
+	*******************************************************/
+
+	function reloadFeatureModel(){
+	viewName=getListSelectedValue(document.getElementById('view_list'));
+	viewType=getListSelectedValue(document.getElementById('visualization_list'));
+	
+	
+	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	
+	}     
+	
+	
+	
+	
 	
 
 	/******************************************************
@@ -580,7 +609,7 @@ Released   : 20081103
 	
 
 	    var xhrArgs = {
-	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&serverKey="+serverKey+"&sessionKey="+sessionKey,
+	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey,
            sync : false,
             handleAs: "xml",
             load: function(response, ioArgs) {
@@ -1027,9 +1056,9 @@ Released   : 20081103
 							
 								<td>
 										<button  class="standardHighlight1"  onClick="saveConfigurationToRepository();return false;" type="button">Save Configuration</button>
-										<button  class="standardHighlight1"  onClick="rebuildFeatureModel();return false;" type="button">Reload Configuration</button>
-										<button  class="standardHighlight1"  onClick="goNextTask();return false;" type="button">Next Task</button>
-										<button  class="standardHighlight1"  onClick="exitConfiguration();return false;" type="button">Exit Configuration</button>
+										<button  class="standardHighlight1"  onClick="reloadFeatureModel();return false;" type="button">Reload Configuration</button>
+										<button  class="standardHighlight1"  onClick="exitWindow();return false;" type="button">Exit Configuration</button>
+										
 										
 								</td>
 								

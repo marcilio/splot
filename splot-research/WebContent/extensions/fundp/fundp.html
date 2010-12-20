@@ -84,9 +84,11 @@ Variability models, feature diagrams (FDs) ahead, are commonly used to document 
 		<li> <div class="toc1"> <a href="#sec-install">Installation Instructions</a></div>
 			<ul>
 				<li> <div class="toc2"> <a href="#subsec-install-1">Step 1 - Installing YAWL</a></div>
-				<li> <div class="toc2"> <a href="#subsec-install-2">Step 2 - Installing the FCW Engine</a></div>
-				<li> <div class="toc2"> <a href="#subsec-install-3a">Step 3.a - Installing SPLOT locally</a></div>
-				<li> <div class="toc2"> <a href="#subsec-install-3b">Step 3.b - Connecting to a running instance of SPLOT</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-2">Step 2 - Installing FeatureConfigurationWorkflowService</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-3">Step 3 - Installing the FCW Engine</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-4">Step 4 - Connecting to running instances of the FCW Engine and YAWL from FeatureConfigurationWorkflowService</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-5a">Step 5.a - Installing SPLOT locally</a></div>
+				<li> <div class="toc2"> <a href="#subsec-install-5b">Step 5.b - Connecting to a running instance of SPLOT</a></div>
 			</ul>
 		<li> <div class="toc1"> <a href="#sec-started">Getting Started</a></div>
 		<li> <div class="toc1"> <a href="#sec-related">Related Publications</a></div>
@@ -184,48 +186,83 @@ The scenario depicted in <a href="#Archfig">Figure 3</a> highlights the essentia
 <h1 class="title">Installation Instructions</h1> 
 
 <p>
-The installation of the toolset requires the installation of YAWL and the FCW Engine. The FCW Engine can either be connected to a local instance of SPLOT or an instance available online, like <tt>http://www.splot-research.org/</tt>. Both installations are explained here.
+The installation of the toolset requires the installation of YAWL and the FCW Engine. The FCW Engine can either be connected to a local instance of SPLOT or an instance available online, like <tt>http://www.splot-research.org/</tt>. FeatureConfigurationWorkflowService is used to establish connection between YAWL and the FCW engine. These installations are explained here.
 </p>
 
 <a name="subsec-install-1"></a>
 <h3>Step 1 - Installing YAWL</h3>
 <ol>
 	<li> Download <a href="http://sourceforge.net/projects/yawl/">YAWL</a> and follow the instructions for your operating system <a href="http://www.yawlfoundation.org/software/documentation/usermanual/chapter-2-installation">here</a>. All the extensions have been tested with YAWL 2.1 only. There is no guarantee that they are supported by other versions. 
-	<li> Download the latest version of the  <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/FeatureConfigurationService.war">Feature Configuration Service</a>. The <em>Feature Configuration Service</em> is a YAWL Custom Service that maintains a bi-directional communication bridge between YAWL and the FCW Engine.
-<!--	<li> Go to the installation directory of YAWL. In the remainder, we will assume that the installation directory is <tt>YAWL4Study-2.1</tt>. It is subject to change according to the version and flavour of -->
-	<li> Move <tt>FeatureConfigurationService.war</tt> into <tt>./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL).
-	<li> Go to <tt>./YAWL4Study-2.1/bin</tt>, start the YAWL engine (<tt>StartEngine</tt>) and start the control centre (<tt>ControlCentre</tt>). This will start <em>Tomcat</em> and load all the necessary dependencies
+	<li> Go to <tt>./YAWL4Study-2.1/bin</tt>, start the YAWL engine (<tt>StartEngine</tt>) and start the control centre (<tt>ControlCentre</tt>). This will start <em>Tomcat</em> and load all the necessary dependencies.
 	<li> Log in YAWL. By default, the login is <tt>admin</tt> and the password is <tt>YAWL</tt>.
-	<li> Go to the <b>Services</b> tab.
-	<li> Register the  <em>Feature Configuration Service</em> to communicate with the YAWL Engin. <a href="#ServReg">Figure 4</a> shows the YAWL's Services web form for registering a YAWL Custom Service.  To register the  <em>FeatureConfigurationService</em> service, enter the name <tt>Feature Service</tt>, the password <tt>YAWL</tt>, the value of the URI <tt>http://localhost:8080/FeatureConfigurationService/ib</tt>, and the description field <tt>Feature Configuration Service</tt>. The description field is required and will be used in the YAWL editor. Then, click on the <b>Add</b> button. More details about the implementation of YAWL Custom Services can be found <a href="http://www.yawlfoundation.org/yawldocs/YAWLTechnicalManual2.1.pdf ">here</a>.  
 </ol>
 
-<div class="entry" style="text-align:center;"> 
-	<a name="ServReg"></a>
-	<div id="multi-view-fd"><img src="/SPLOT/images/service_registration.png" width="80%"/></div>
-	<div class="caption">Figure 4 - Registering a custom YAWL service.</div>
-</div>
+
+
+<a name="subsec-install-2"></a>
+<h3>Step 2 - Installing FeatureConfigurationWorkflowService</h3>
+<ol>
+	<li> Download the latest version of the  <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/FeatureConfigurationWorkflowService.war">Feature Configuration Workflow Service</a>. The <em>Feature Configuration Workflow Service</em> is a service that maintains a bi-directional communication bridge between YAWL and the FCW Engine.
+	<li> Move <tt>FeatureConfigurationWorkflowService.war</tt> into: 
+	<br>
+	<tt>(I)./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL) if you would like to run YAWL and Feature Configuration Workflow Service on a <b>same instance</b> of tomcat, or 
+	
+
+	 <br><br>
+	<tt>(II)./apache-tomcat/webapps</tt> if you would like to run YAWL and Feature Configuration Workflow Service on <b>different instances</b> of tomcat.
+	     
+</ol>
+
+
 
 <p>
-At design time, in the YAWL editor, every atomic task in a workflow specification has to be associated with a <em>Feature Configuration Service</em>. <a href="#ServUse">Figure 5</a> shows how a <em>Feature Configuration Service</em> is assigned to a task of a workflow.
+At design time, in the YAWL editor, every atomic task in a workflow specification has to be associated with a <em>Default Engine Worklist</em> service. <a href="#ServUse">Figure 4</a> shows how a <em>Default Engine Worklist</em> is assigned to a task of a workflow.
 </p>
 
 <div class="entry" style="text-align:center;"> 
 	<a name="ServUse"></a>
 	<div id="multi-view-fd"><img src="/SPLOT/images/service_use.png" width="100%"/></div>
-	<div class="caption">Figure 5 - <em>Feature Configuration Service</em> assignment in the YAWL editor.</div>
+	<div class="caption">Figure 4 - <em>Default Engine Worklist</em> assignment in the YAWL editor.</div>
 </div>
 
-<a name="subsec-install-2"></a>
-<h3>Step 2 - Installing the FCW Engine</h3>
+
+<p>
+At design time, also, in the YAWL editor, for each task in a workflow, the URI of the FeatureConfigurationWorkflowService's responsible servlet to handle the communication, has to be assigned. 
+<a href="#URIUse">Figure 5</a> shows how <em>FeatureConfigurationWorkflowServlet</em> of FeatureConfigurationWorkflowService as a custom form, is assigned to a task of a workflow. 
+<br>
+The URI must be: <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowService/FeatureConfigurationWorkflowServlet?action=prepare_configuration_process</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts FeatureConfigurationWorkflowService.
+
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="URIUse"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/uri_use.png" width="100%"/></div>
+	<div class="caption">Figure 5 - <em>Custom Form URI</em> assignment in the YAWL editor.</div>
+</div>
+
+
+
+
+
+
+<a name="subsec-install-3"></a>
+<h3>Step 3 - Installing the FCW Engine</h3>
 
 <ol>
 	<li> Download the latest version of the <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/Coordinator.war">FCW Engine</a>.
-	<li> Move <tt>Coordinator.war</tt> into <tt>./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt>.YAWL and FCW Engine must be hosted in the same servlet container.  
+	<li> Move <tt>Coordinator.war</tt> into:
+
+	<br>
+	<tt>(I)./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL) if you would like to run YAWL and the FCW Engine on a <b>same instance</b> of tomcat, or 
+	
+
+	 <br><br>
+	<tt>(II)./apache-tomcat/webapps</tt> if you would like to run YAWL and the FCW Engine on <b>different instances</b> of tomcat.
+	
 </ol>
 
 <p>
-The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href="#control_panel">Figure 6</a> and can be accessed at <tt>http://localhost:8080/Coordinator/index.html</tt>. It allows to monitor the configuration status of the different tasks and stops.
+The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href="#control_panel">Figure 6</a> and can be accessed at <tt>http://localhost:pppp/Coordinator/index.html</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts the FCW Engine. It allows to monitor the configuration status of the different tasks and stops.
 </p>
 
 <div class="entry" style="text-align:center;"> 
@@ -234,33 +271,59 @@ The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href
 	<div class="caption">Figure 6 - Control panel of the FCW Engine.</div>
 </div>
 
-<a name="subsec-install-3a"></a>
-<h3>Step 3.a - Installing SPLOT locally</h3>
+
+
+<a name="subsec-install-4"></a>
+<h3>Step 4 - Connecting to running instances of the FCW Engine and YAWL</h3>
+
+<ol>
+	<li> Go to the FeatureConfigurationWorkflowService's registration page at <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowService/registartion.html</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts FeatureConfigurationWorkflowService.
+	<li> Fill out the <tt>FCW Engine URI</tt> field as the URI of the FCW Engine instance. The value of this field should be in the form of <tt>http://localhost:pppp</tt>. <tt>pppp</tt> is to be replaced with the actual port number.
+	<li> Fill out the <tt>YAWL URI</tt> field as the URI of the YAWL instance. The value of this field should be in the form of <tt>http://localhost:pppp</tt>. <tt>pppp</tt> is to be replaced with the actual port number.
+
+	<li> Click on <b>Save URI</b>. 
+
+</ol>
+
+<p>
+<a href="#fcws_registration">Figure 7</a> shows the registration page of FeatureConfigurationWorkflowService to fill out the YAWL and FCW Engine's URI.
+</p>
+
+<div class="entry" style="text-align:center;"> 
+	<a name="fcws_registration"></a>
+	<div id="multi-view-fd"><img src="/SPLOT/images/fcws_registration.png" width="100%"/></div>
+	<div class="caption">Figure 7 - Registration page of FeatureConfigurationWorkflowService.</div>
+</div>
+
+
+
+<a name="subsec-install-5a"></a>
+<h3>Step 5.a - Installing SPLOT locally</h3>
 <ol>
 	<li> Download the latest version of <a href="http://code.google.com/p/splot-research/">SPLOT</a>.
-	<li> Move <tt>SPLOT.war</tt> into <tt>./apache-tomcat/webapps</tt>. Note that SPLOT must run on a <b>different instance</b> of tomcat than the FCW Engine. 
+	<li> Move <tt>SPLOT.war</tt> into<tt>./apache-tomcat/webapps</tt>. Note that SPLOT must run on a <b> different instance</b> of tomcat than the other components.  
 	<li> Go to <tt>./apache-tomcat/webapps/SPLOT/WEB-INF</tt>.
 	<li> Open <tt>web.xml</tt>.
 	<li> Change the paths to models and logs according to your environment.  
 </ol>
 
-<a name="subsec-install-3b"></a>
-<h3>Step 3.b - Connecting to a running instance of SPLOT</h3>
+<a name="subsec-install-5b"></a>
+<h3>Step 5.b - Connecting to a running instance of SPLOT</h3>
 <ol>
-	<li> Go to the FCW Engine's registration page at <tt>http://localhost:8080/Coordinator/registartion.html</tt>.
-	<li> Fill out the <tt>SPLOT Instance URL</tt> field. The value of this field should be <tt>http://localhost:pppp/SPLOT</tt> for local host and <tt>http://gsd.uwaterloo.ca:8088/SPLOT</tt> for online SPLOT instance. <tt>pppp</tt> is to be replaced with the actual port number.
-	<li> Click on <b>Save URL</b>. 
+	<li> Go to the FCW Engine's registration page at <tt>http://localhost:pppp/Coordinator/registartion.html</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts the FCW Engine.
+	<li> Fill out the <tt>SPLOT Instance URI</tt> field. The value of this field should be <tt>http://localhost:pppp/SPLOT</tt> for local host and <tt>http://gsd.uwaterloo.ca:8088/SPLOT</tt> for online SPLOT instance. <tt>pppp</tt> is to be replaced with the actual port number.
+	<li> Click on <b>Save URI</b>. 
 </ol>
 
 <p>
-Active instances identify which FDs are involved in the configuration process. An example of SPLOT instance registered in the FCW Engine is shown in the upper right part of <a href="#registration">Figure 7</a>. The figure also shows the current configuration sessions.   
+Active instances identify which FDs are involved in the configuration process. An example of SPLOT instance registered in the FCW Engine is shown in the upper right part of <a href="#registration">Figure 8</a>. The figure also shows the current configuration sessions.   
 
 </p>
 
 <div class="entry" style="text-align:center;"> 
 	<a name="registration"></a>
 	<div id="multi-view-fd"><img src="/SPLOT/images/registration.png" width="100%"/></div>
-	<div class="caption">Figure 7 - Registration page of the FCW Engine.</div>
+	<div class="caption">Figure 8 - Registration page of the FCW Engine.</div>
 </div>
 
 <a name="sec-started"></a>

@@ -35,6 +35,7 @@ import splot.services.extensions.fundp.handlers.SaveWorkflowImageHandler;
 import splot.services.extensions.fundp.handlers.ResponseUncoveredFeaturesHandler;
 import splot.services.extensions.fundp.handlers.conf.ViewsConfigurattionStatusHandler;
 import splot.services.extensions.fundp.handlers.conf.CheckTaskViewListHandler;
+import splot.services.extensions.fundp.handlers.conf.GetTasksConfigurationStatusHandler;
 
 
 
@@ -104,8 +105,9 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
         	addHandler(new ParseSelectedWorkflowSpecificationHandler("parse_selected_workflow",this));
         	addHandler(new SaveWorkflowImageHandler("save_workflow_image",this,cfg, cfg.getTemplate("fcw_message.ftl")));
         	addHandler(new ResponseUncoveredFeaturesHandler("response_uncovered_features",this));
-        	addHandler(new ViewsConfigurattionStatusHandler("view_configuration_status", this));
+        	addHandler(new ViewsConfigurattionStatusHandler("view_configuration_status", this,cfg, cfg.getTemplate("fcw_message.ftl")));
         	addHandler(new CheckTaskViewListHandler("check_task_view", this));
+        	addHandler(new GetTasksConfigurationStatusHandler("get_configuration_status", this));
 
            	
 

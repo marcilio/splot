@@ -24,12 +24,26 @@ public class ResponseUncoveredFeaturesHandler extends  Handler{
 		
 		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views"; 
 		String modelDir=getServlet().getInitParameter("modelsPath");
+		 
 
 		String featureModelName=request.getParameter("fm_name");
-		String result;
+		String type=request.getParameter("type");
+		
+		String result = null;
 		
 		try {
-			 result=Methods.getFeatureModelUncoveredFeaturesInAllocatedViews(featureModelName, viewDir, modelDir);
+			
+			if (type.compareToIgnoreCase("allocated")==0){
+				result=Methods.getFeatureModelUncoveredFeaturesInAllocatedViews(featureModelName, viewDir, modelDir);
+
+			}else if (type.compareToIgnoreCase("defined")==0){
+				result=Methods.getFeatureModelUncoveredFeaturesInAllViews(featureModelName, viewDir, modelDir);
+			}else{
+				result=Methods.getFeatureModelUncoveredFeaturesInAllocatedViews(featureModelName, viewDir, modelDir);
+
+			}
+			
+			 
 			 response.getWriter().write(result);
 			 
 		} catch (HandlerExecutionException e) {

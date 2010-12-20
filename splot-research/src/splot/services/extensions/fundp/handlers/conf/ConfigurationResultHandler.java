@@ -75,8 +75,8 @@ public class ConfigurationResultHandler extends Handler{
 			if ((result.compareToIgnoreCase("fasle")==0) || (result=="")){
 				retVal=taskName+"*"+"false"+"*"+"false"+"*"+"The requested information not found."+"*"+sessionKey;
 			}else{
-    			String serverKey=Methods.getConfiguredFileServerKey(configuredModelPath, userKey, featureModelName, workflowName);
-    			retVal=taskName+"*"+serverKey+"*"+"true"+"*"+result+"*"+sessionKey;
+    			//String serverKey=Methods.getConfiguredFileServerKey(configuredModelPath, userKey, featureModelName, workflowName);
+    			//retVal=taskName+"*"+serverKey+"*"+"true"+"*"+result+"*"+sessionKey;
 			}
 		}	
 

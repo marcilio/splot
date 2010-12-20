@@ -13,6 +13,11 @@ import java.util.Random;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -25,7 +30,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import com.sun.tools.javac.resources.compiler;
 
 
 
@@ -62,8 +66,11 @@ public class Methods {
 			 
 			 for (int i=0;i<nodes.getLength();i++){
 					Node node=(Node) nodes.item(i);
-					nodeExist=true;
-					tempResult=tempResult+node+"\n";
+					if(node.getLocalName().compareToIgnoreCase("feature.group")!=0){
+						nodeExist=true;
+						tempResult=tempResult+node+"\n";
+					}
+					
 			 }
 			 
 			 
@@ -91,6 +98,7 @@ public class Methods {
 		  result.nodesList=result.nodesList.replace(']',' ');
 		  result.nodesList=result.nodesList.replace(':',' ');
 		  result.nodesList=result.nodesList.replaceAll("null"," ");
+		  result.nodesList=result.nodesList.replaceAll("feature group"," ");
 
 
 
@@ -327,7 +335,49 @@ public class Methods {
 		return   retValue;
 	}
 
-	
+	public static  String getFeatureModelAllViews(String viewDir, String featureModelName) throws HandlerExecutionException {
+		String retValue="";
+		
+		try {
+			File  dir=new File(viewDir);
+			String[]  childeren=dir.list();
+				for (int i=0;i<childeren.length;i++){
+					if (childeren!=null){
+						if (childeren[i].endsWith(".xml") !=false){
+	     					String  fileName=childeren[i];
+	       					File viewFile = new File(viewDir+"/"+fileName);
+	       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	       					Document doc = builder.parse(viewFile);
+          					NodeList featureModelNodes = doc.getElementsByTagName("feature_model");  // this tag includes workflow's information
+           					Element  featureModelElement = (Element) featureModelNodes.item(0);
+           					String   featureModelElementName=featureModelElement.getAttribute("name");
+           					
+           					if (featureModelElementName.compareToIgnoreCase(featureModelName)==0){
+           						NodeList viewNodes = doc.getElementsByTagName("view");
+               					for (int j = 0; j < viewNodes.getLength(); j++){
+                					Element viewElement = (Element) viewNodes.item(j);
+                					
+                					String viewElementName=(String)viewElement.getAttribute("name").trim();
+                					
+                					if (retValue==""){
+                						retValue=viewElementName;
+                					}else{
+                						retValue=retValue+","+viewElementName;
+                					}	                					
+                   				}
+           						
+           					}
+
+						}
+					}
+				}
+		} catch (Exception e) {
+			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing the view repository path":e.getMessage());
+		}
+			
+
+		return   retValue;
+	}
 	
 	public static  String getPlaceAllocatedViews(String viewDir, String featureModelName, String workflow, String placeName,String placeType) throws HandlerExecutionException {
 		String retValue="";
@@ -477,11 +527,96 @@ public class Methods {
 		return retValue;
 	}
 	
+	protected static String appendConfigurationFile(String configuredFeatureModelFileName,String configuredModelsPath, String userName,String userID, String task,String taskType, String session, String action) throws ParserConfigurationException{
+		String retValue="false";
+		
+    	try {
+    		
+    		
+    		
+    			File fileName = new File(configuredModelsPath+"/"+configuredFeatureModelFileName);	
+		       	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		    	DocumentBuilder docBuilder = factory.newDocumentBuilder();
+		    	Document document = docBuilder.parse(fileName);
+		    	
+		    	Element featureModelElement=(Element) document.getFirstChild();
+		    	
+	    		int maxRow=0;
+		    	NodeList  configurationInfoNodes = document.getElementsByTagName("configuration_info");		    	
+		    		
+		    	for(int i=0;i<configurationInfoNodes.getLength();i++){
+			    	Element  configurationInfoElement=(Element)configurationInfoNodes.item(i);
+			    	
+		    		if (Integer.parseInt(configurationInfoElement.getAttribute("row"))>maxRow){
+		    			maxRow=Integer.parseInt(configurationInfoElement.getAttribute("row"));
+		    		}
+		    	}
+		    	
+	        	
+	        	//configuration_info
+	        	Element configurationInfoElement=document.createElement("configuration_info");
+	        	configurationInfoElement.setAttribute("row", Integer.toString(maxRow+1));
+	        	featureModelElement.appendChild(configurationInfoElement);
+	        	
+	        	Element dateElement=document.createElement("date");
+	        	dateElement.appendChild(document.createTextNode(Methods.getCurrentDate()));
+	        	configurationInfoElement.appendChild(dateElement);
+	        	
+	        	
+	        	
+	        	
+	        	Element userNameElement=document.createElement("user_name");
+	        	userNameElement.appendChild(document.createTextNode(userName));
+	        	configurationInfoElement.appendChild(userNameElement);
+	        	
+	        	Element userIDElement=document.createElement("user_id");
+	        	userIDElement.appendChild(document.createTextNode(userID));
+	        	configurationInfoElement.appendChild(userIDElement);
+	        	
+	        	Element actionElement=document.createElement("action");
+	        	actionElement.appendChild(document.createTextNode(action));
+	        	configurationInfoElement.appendChild(actionElement);
+        	
+	        
+	        	
+	        	
+	        	Element taskElement=document.createElement("task");
+	        	taskElement.appendChild(document.createTextNode(task));
+	        	configurationInfoElement.appendChild(taskElement);
+	        	
+	        	Element taskTypeElement=document.createElement("type");
+	        	taskTypeElement.appendChild(document.createTextNode(taskType));
+	        	configurationInfoElement.appendChild(taskTypeElement);
+
+	        	
+	        	Element sessionElement=document.createElement("session");
+	        	sessionElement.appendChild(document.createTextNode(session));
+	        	configurationInfoElement.appendChild(sessionElement);
+	        	
+	        	
+		    	TransformerFactory transformerFactory=TransformerFactory.newInstance();
+			    Transformer transformer=transformerFactory.newTransformer();
+			    DOMSource source=new DOMSource(document);
+			    StreamResult result=new StreamResult(fileName);
+			    transformer.transform(source, result);
+			    retValue="true";
+
+	        	
+	        	
+		} catch (Exception e) {
+			retValue=e.getMessage();
+		}
+
+		return retValue;
+	}
 	
-	public static String checkConfigurationCompletionInStopPlace(String featureModelName , String viewDir,String modelDir, String placeName ,String placeType , String workflow, String configuredFileName) throws HandlerExecutionException {
-		String retVal="";
+	
+	
+	public static String checkConfigurationCompletionInStopPlace(String featureModelName , String viewDir,String modelDir,String configuredModelsPath, String placeName ,String placeType , String workflow, String configuredFileName, String userName, String userID) throws HandlerExecutionException {
+		String retVal="true";
 		
 		try {
+			
 			
 			String stopViews=getPlaceAllocatedViews(viewDir, featureModelName, workflow, placeName, placeType);
 			if (stopViews==""){
@@ -494,23 +629,21 @@ public class Methods {
 					
 					String taskName=Methods.getViewTaskName(viewDir, workflow, featureModelName, viewList[i]);
 					
-					if (retVal==""){
-						retVal=taskName+":"+status;
-					}else{
-						retVal=retVal+","+taskName+":"+status;
-
+					if (status.compareToIgnoreCase("true")==0){
+						String result=appendConfigurationFile(configuredFileName, configuredModelsPath, userName, userID,  taskName,"task", getCurrentDate(),"completed");
 					}
-
-					
+		    		
 				
 				}
 
 
 			}
 			
+			String result=appendConfigurationFile(configuredFileName, configuredModelsPath, userName, userID,  placeName,placeType, getCurrentDate(),"completed");
+
 			
 		} catch (Exception e) {
-			retVal="";
+			retVal="false";
 			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing the model/view repository path":e.getMessage());
 		}
 		
@@ -646,6 +779,40 @@ public class Methods {
 		
 	}
 	
+	public static String getFeatureModelUncoveredFeaturesInAllViews(String featureModelName,String viewDir,String modelDir ) throws HandlerExecutionException{
+		
+		String retValue="";
+		try {
+			String featureModelFileName=getfeatureModelFileName(modelDir, featureModelName);
+			
+			FeatureModel featureModel = null;
+			featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
+			featureModel.loadModel();
+			
+				for( FeatureTreeNode feature : featureModel.getNodes()) {
+					String featureCoveredStatus=featureCoveredInAllViews(feature, viewDir, modelDir, featureModelFileName, featureModelName);
+
+					if (featureCoveredStatus.compareToIgnoreCase("true")!=0){
+						if (retValue==""){
+							retValue=feature.getName();
+						}else{
+							retValue=retValue+","+feature.getName();
+						}
+					}
+				}
+
+			
+
+			
+		} catch (Exception e) {
+			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing the view/model repository path":e.getMessage());
+		}
+		
+		
+		return retValue;
+		
+	}
+	
 	
 	public static  String featureCoveredInViews(FeatureTreeNode feature , String viewDir,String modelDir,String featureModelFileName, String featureModelName) throws HandlerExecutionException{
 		String retVal="unknown";
@@ -716,6 +883,70 @@ public class Methods {
 		
 		try {
 			String viewString=getFeatureModelAllocatedViews(viewDir, featureModelName);
+			String[] viewList=viewString.split("\\,");
+
+			for (int i=0;i<viewList.length && !foundInView;i++){
+				String viewName=viewList[i];
+				String result=FeatureInView(feature, viewDir, modelDir, featureModelFileName, featureModelName, viewName);
+				if (result.compareToIgnoreCase("true")==0){
+					
+					retVal="true";
+					foundInView=true;
+				}
+				
+			}
+			
+			if (!foundInView){
+				
+		   		FeatureModel featureModel = null;
+				featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
+				featureModel.loadModel();
+
+				for (FeatureTreeNode tmpfeature: featureModel.getNodes()){
+					if (!(feature.equals(tmpfeature))){
+						
+						List<FeatureTreeNode> featurePropagatedList =new LinkedList<FeatureTreeNode>();
+						
+						featurePropagatedList=tmpfeature.getPropagatedNodes();
+						
+						if (featurePropagatedList.contains(feature)){
+							foundInPropagationList=true;
+							retVal="true";
+							return retVal;
+							
+						}
+						
+					}
+					
+					
+				}
+				
+				
+				if (!foundInPropagationList){
+					retVal="false";
+					return retVal;
+				}
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+			
+		
+		
+		return retVal;
+		
+	}
+
+	public static  String featureCoveredInAllViews(FeatureTreeNode feature , String viewDir,String modelDir,String featureModelFileName, String featureModelName) throws HandlerExecutionException{
+		String retVal="unknown";
+		Boolean foundInView=false;
+		Boolean foundInPropagationList=false;
+		
+		try {
+			String viewString=getFeatureModelAllViews(viewDir, featureModelName);
 			String[] viewList=viewString.split("\\,");
 
 			for (int i=0;i<viewList.length && !foundInView;i++){
@@ -1468,7 +1699,7 @@ public class Methods {
 	}
 
 	
-	  public static String  getConfiguredFileName(String configuredModelsPath,String serverKey){
+	  public static String  getConfiguredFileName(String configuredModelsPath,String userKey){
 		   String retVal="false";
 		   	try {
 				File  dir=new File(configuredModelsPath);
@@ -1484,7 +1715,7 @@ public class Methods {
 			       					NodeList featureModelNodes = doc.getElementsByTagName("feature_model");  
 			       					Element  featureModelElement = (Element) featureModelNodes.item(0);
 			       					String   FMName=featureModelElement.getAttribute("name");
-			       					if (serverKey.compareToIgnoreCase(featureModelElement.getAttribute("server_key"))==0){
+			       					if (userKey.compareToIgnoreCase(featureModelElement.getAttribute("user_key"))==0){
 			       						retVal=fileName;
 			       						return retVal;
 			       					}
@@ -1552,50 +1783,7 @@ public class Methods {
 		   return retVal;
 	   }
 		
-	  public static String  getConfiguredFileServerKey(String configuredModelsPath,String userKey, String featureModel, String workflow){
-		   String retVal="false";
-		   	try {
-				File  dir=new File(configuredModelsPath);
-				String[]  childeren=dir.list();
-						for (int i=0;i<childeren.length;i++){
-							if (childeren!=null){
-								if (childeren[i].endsWith(".xml") !=false){
-			 						String  fileName=childeren[i];
-			       					File confFile = new File(configuredModelsPath+"/"+fileName);
-			       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			       					Document doc = builder.parse(confFile);
-			       					
-			       					NodeList featureModelNodes = doc.getElementsByTagName("feature_model");  
-			       					Element  featureModelElement = (Element) featureModelNodes.item(0);
-			       					String   FMName=featureModelElement.getAttribute("name");
-			       					String   userKeyValue=featureModelElement.getAttribute("user_key");
-			       					String   workflowValue= featureModelElement.getAttribute("workflow");
-			       					String   ServerKey= featureModelElement.getAttribute("server_key");
 
-			       					
-			       					if ((featureModel.compareToIgnoreCase(FMName)==0)&&(workflow.compareToIgnoreCase(workflowValue)==0)&&(userKey.compareToIgnoreCase(userKeyValue)==0)){
-			       						retVal=ServerKey;
-			       						return retVal;
-			       					}
-			       					
-
-
-
-								}
-
-							}
-
-						}
-
-
-			} catch (Exception e) {
-				retVal="false";
-			}
-		   	
-		   	
-		   
-		   return retVal;
-	   }
 		
 	  
 	 
@@ -1746,13 +1934,147 @@ public class Methods {
 		  
 	  }
 	  
-		public static FeatureDecisionInfo getFeatureDecisionInfo(String modelDir, String serverKey, String featureID){
+
+	  
+		public static String getWorkflowTasks(String workflowName, String workflowDir){
+			String retValue="false";
+			String taskList="";
+			File  dir=new File(workflowDir);
+			String[]  childeren=dir.list();
+			try {
+	   			for (int i=0;i<childeren.length;i++){
+	   				if (childeren!=null){
+	   					if ((childeren[i].endsWith(".xml") !=false)  || (childeren[i].endsWith(".yawl") !=false)  ){
+	   						String  fileName=childeren[i];
+	       					File workflowFile = new File(workflowDir+"/"+fileName);
+	       					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	       					Document doc = builder.parse(workflowFile);
+	       					
+	       					NodeList specificationNodes = doc.getElementsByTagName("specification");  // this tag includes workflow's information
+	       					Element specificationElement = (Element) specificationNodes.item(0);
+	       					if (specificationElement.getAttribute("uri").trim().compareToIgnoreCase(workflowName)==0){
+	       						NodeList taskNodes = doc.getElementsByTagName("task");
+	       						for (int j = 0; j < taskNodes.getLength(); j++) {
+	       								Element element = (Element) taskNodes.item(j);
+	       								NodeList title = element.getElementsByTagName("name");
+	       								if (title.getLength()>=1){
+	       									Element line = (Element) title.item(0);
+	           								String taskName=Methods.getCharacterDataFromElement(line);
+	           								if (taskList==""){
+	           									taskList=taskName;
+	           								}else{
+	           									taskList=taskList+","+taskName;
+	           								}
+	       								}
+	       						}
+						  }
+	   					}
+	   					
+	   				}
+	   			}
+
+				
+				
+			} catch (Exception e) {
+				retValue="false";
+			}
+				
+			
+
+			retValue=taskList;
+			return retValue; 
+		}
+	  
+	  public static String getTaskLastConfigurationResult(String configuredModelsDir, String configuredFileName, String taskName){
+		  String retVal="";
+		  
+		  try {
+			
+			  File   Modelfile = new File(configuredModelsDir+"/"+configuredFileName);
+			  
+			  if (!Modelfile.exists()){
+					retVal="false";
+					return retVal;
+			  }
+				
+			  DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			  Document doc = builder.parse(Modelfile);
+			  
+			  NodeList  configurationInfoNodes = doc.getElementsByTagName("configuration_info");
+			  if (configurationInfoNodes.getLength()>0){
+				  
+			
+				  int maxRow=0;
+				  for (int i=0; i<configurationInfoNodes.getLength(); i++){
+					  Element configurationInfoElement=(Element)configurationInfoNodes.item(i);
+					  NodeList taskNodes= configurationInfoElement.getElementsByTagName("task");
+					  Element  taskElement=(Element)taskNodes.item(0);
+					  
+					
+					  
+					  
+					  String taskNameValue=getCharacterDataFromElement(taskElement);
+				
+					  
+					  if ((taskNameValue.compareToIgnoreCase(taskName)==0)){
+						  if (Integer.parseInt(configurationInfoElement.getAttribute("row"))>maxRow){
+
+							  maxRow=Integer.parseInt(configurationInfoElement.getAttribute("row"));
+							  retVal="";
+							  NodeList dateNodes= configurationInfoElement.getElementsByTagName("date");
+							  Element  dateElement=(Element)dateNodes.item(0);
+							  
+							  
+							  NodeList actionNodes= configurationInfoElement.getElementsByTagName("action");
+							  Element  actionElement=(Element)actionNodes.item(0);
+							  
+							  NodeList userNameNodes= configurationInfoElement.getElementsByTagName("user_name");
+							  Element  userNameElement=(Element)userNameNodes.item(0);
+							  
+							  NodeList taskTypeNodes= configurationInfoElement.getElementsByTagName("type");
+							  Element  taskTypeElement=(Element)taskTypeNodes.item(0);
+							  
+							  retVal=taskName+","+getCharacterDataFromElement(taskTypeElement)+","+getCharacterDataFromElement(dateElement)+","+getCharacterDataFromElement(userNameElement)+","+getCharacterDataFromElement(actionElement);
+
+							  
+						  } 
+					  }
+				  }
+				  
+				  
+				  
+				  
+				
+				  
+				  
+			  }else{
+				  retVal="false";
+				  return retVal;
+			  }
+			  
+			  
+		} catch (Exception e) {
+			retVal="false";
+		}
+		  
+		  if (retVal==""){
+			  retVal="false";
+		  }
+		
+		  return retVal;
+		  
+	  }
+	  
+	  
+	  
+	  
+	  
+		public static FeatureDecisionInfo getFeatureDecisionInfo(String modelDir, String userKey, String featureID){
 			
 			FeatureDecisionInfo result=new FeatureDecisionInfo();
 
 			try {
-				String configurationFileName=Methods.getConfiguredFileName(modelDir+"/configured_models", serverKey);
-				
+				String configurationFileName=Methods.getConfiguredFileName(modelDir+"/configured_models", userKey);
 				if (configurationFileName.compareToIgnoreCase("false")==0){
 					result.found=false;
 				}
@@ -1801,8 +2123,15 @@ public class Methods {
 								NodeList taskList=featureDecisionElement.getElementsByTagName("task");
 								Element  taskElement=(Element)taskList.item(0);
 								
-								NodeList userList=featureDecisionElement.getElementsByTagName("user");
-								Element  userElement=(Element)userList.item(0);
+								NodeList userNameList=featureDecisionElement.getElementsByTagName("user_name");
+								Element  userNameElement=(Element)userNameList.item(0);
+								
+								NodeList userIDList=featureDecisionElement.getElementsByTagName("user_id");
+								Element  userIDElement=(Element)userIDList.item(0);
+								
+								
+								NodeList userList=featureDecisionElement.getElementsByTagName("user_id");
+								Element  userElement=(Element)userIDList.item(0);
 								
 								NodeList valueList=featureDecisionElement.getElementsByTagName("value");
 								Element  valueElement=(Element)valueList.item(0);
@@ -1827,7 +2156,9 @@ public class Methods {
 								result.step=Methods.getCharacterDataFromElement(stepElement);
 								result.task=Methods.getCharacterDataFromElement(taskElement);
 								result.type=Methods.getCharacterDataFromElement(typeElement);
-								result.user=Methods.getCharacterDataFromElement(userElement);
+								result.userName=Methods.getCharacterDataFromElement(userNameElement);
+								result.userID=Methods.getCharacterDataFromElement(userIDElement);
+
 								result.value=Methods.getCharacterDataFromElement(valueElement);
 								result.view=Methods.getCharacterDataFromElement(viewElement);
 								

@@ -104,14 +104,14 @@ public class FCWInteractiveConfigurationElementsProducer {
 	
 	
 	public String produceFeatureElement(FeatureTreeNode feature, Map featureData, String templateFileName, String viewDir, String modelDir,String featureModelFileName, String featureModelName, String viewName,
-			 FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String serverKey) {
+			 FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String userKey) {
 		String output= "";	
 		
 		try {
 			if ( featureElementTemplate == null ) {
 				featureElementTemplate = cfg.getTemplate(templateFileName);
 			}			
-			featureData.putAll(produceBasicFeatureData( feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,serverKey ));
+			featureData.putAll(produceBasicFeatureData( feature,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,userKey ));
 			FeatureTreeNode parentNode = (FeatureTreeNode)((feature instanceof FeatureGroup) ? feature.getParent() : feature);
 			List children = new ArrayList(parentNode.getChildCount());
 			
@@ -122,11 +122,11 @@ public class FCWInteractiveConfigurationElementsProducer {
 				if ( childNode instanceof FeatureGroup ) {
 					for( int j = 0 ; j < childNode.getChildCount() ; j++ ) {
 						FeatureTreeNode groupedNode = (FeatureTreeNode)childNode.getChildAt(j);
-						children.add(produceBasicFeatureData( groupedNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,serverKey ));
+						children.add(produceBasicFeatureData( groupedNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,userKey ));
 					}
 				}
 				else {
-					children.add(produceBasicFeatureData( childNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,serverKey ));
+					children.add(produceBasicFeatureData( childNode,viewDir,modelDir,featureModelFileName,featureModelName,viewName,result,visualizationType,fmChilds,userKey ));
 				}
 			}
 			
@@ -148,12 +148,12 @@ public class FCWInteractiveConfigurationElementsProducer {
  
 	
 	public Map produceBasicFeatureData(FeatureTreeNode feature, String viewDir,String modelDir,String featureModelFileName, String featureModelName, String viewName,
-			  FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String serverKey) throws FeatureModelException  {
+			  FeatureInViewCheckingResult result,String visualizationType,LinkedList<FeatureTreeNode> fmChilds, String userKey) throws FeatureModelException  {
 		Map basicDataMap = new HashMap();
 		
 		FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
-		if ((serverKey!=null) && (serverKey!="")){
-			decisionResult=Methods.getFeatureDecisionInfo(modelDir, serverKey, feature.getID());
+		if ((userKey!=null) && (userKey!="")){
+			decisionResult=Methods.getFeatureDecisionInfo(modelDir, userKey, feature.getID());
 			
 			
 		
@@ -517,7 +517,6 @@ public class FCWInteractiveConfigurationElementsProducer {
 				stepElementTemplate = cfg.getTemplate("fcw_interactive_configuration_element_step.ftl");
 			}			
 			stepData.put("step_id", step.getId());
-			System.out.println("step:"+step.getId());
 			List stepManualDecisionsList = new LinkedList();
 			if ( step.getDecisions().isEmpty() ) {
 				Map tempMap = new HashMap();

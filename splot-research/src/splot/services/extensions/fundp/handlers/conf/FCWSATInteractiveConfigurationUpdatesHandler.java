@@ -51,7 +51,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
            		 String viewType=(String)request.getParameter("viewType");
         		 String viewName=(String)request.getParameter("viewName");
         		 String featureModelFileName=(String)request.getParameter("selectedModels");
-        		 String serverKey=request.getParameter("serverKey");
+        		 String userKey=request.getParameter("userKey");
         		 if (viewType.compareToIgnoreCase("none")==0){
         			 viewName="none"; 
         		 }
@@ -194,7 +194,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 	    			}
 	    			Map featureData = new HashMap();
 	    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,serverKey);
+	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,userKey);
 	    			featureData.put("configurationFeatureElement", featureElementData);
 	    			featuresList.add(featureData);
 	    		}
@@ -205,7 +205,7 @@ public class FCWSATInteractiveConfigurationUpdatesHandler extends FreeMarkerHand
 	    			Map featureData = new HashMap();
 	    			
 	    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
-	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,serverKey);
+	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds,userKey);
 	    		    featureData.put("configurationFeatureElement", featureElementData);
 	    			featuresList.add(featureData);
 	    		}
