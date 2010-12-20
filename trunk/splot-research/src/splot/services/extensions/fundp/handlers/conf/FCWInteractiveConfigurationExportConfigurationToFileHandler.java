@@ -62,71 +62,55 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 			  
 			  
 				String configuredModelsPath=getServlet().getServletContext().getRealPath("/")+ "models/configured_models"; 
-		 		String newServerKey="";
 		    	
 		    	HttpSession session = request.getSession(true);	        	
 		    	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
-		    	String user=(String)session.getAttribute("userName");
+		    	String userName=(String)session.getAttribute("userName");
+		    	String userID=(String)session.getAttribute("userID");
+
 		    	String viewName=(String)session.getAttribute("viewName");
 		    	String viewType=(String)session.getAttribute("viewType");
 		    	String task=(String)session.getAttribute("taskName");
 		    	String workflow=(String)session.getAttribute("workflowName");
 		    	String featureModelFileName=(String)session.getAttribute("selectedModels");
 		    	String featureModelName=(String)session.getAttribute("featureModelName");
-		    	String processStatus=(String)session.getAttribute("processStatus");
 		    	String workflowExistence=(String)session.getAttribute("workflowExistence");
 		    	String uncoveredFeatures=(String)session.getAttribute("uncoveredFeatures");
 		    	String userKey=(String)session.getAttribute("userKey");
-		    	String serverKey=(String)session.getAttribute("serverKey");
 
 		    	
 		    	String action=(String)request.getParameter("actionType");
-		    	String sessionKey=(String)request.getParameter("sessionKey");
 		    
 		    	
-		    	
-//		    	
-//		    	System.out.println("user:"+user);
-//		    	System.out.println("viewName:"+viewName);
-//		    	System.out.println("viewType:"+viewType);
-//		    	System.out.println("task:"+task);
-//		    	System.out.println("workflow:"+workflow);
-//		    	System.out.println("featureModelFileName:"+featureModelFileName);
-//		    	System.out.println("featureModelName:"+featureModelName);
-//		    	System.out.println("processStatus:"+processStatus);
-//		    	System.out.println("workflowExistence:"+workflowExistence);
-//		    	System.out.println("userKey:"+userKey);
-//		    	System.out.println("serverKey:"+serverKey);
-//		    	System.out.println("action:"+action);
 
-		    	
 		    	
 		    	
 		    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 				java.util.Date date = new Date(session.getCreationTime());
 				String strDate=  (dateFormat.format(date));
 				
-				
+        		String configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, userKey);
+
 			      
 				if(action.compareToIgnoreCase("save")==0){
 		        	if ((uncoveredFeatures!="") && (uncoveredFeatures!=null)){
 		        		jsonObj.put("result", "error");
 		        		jsonObj.put("value", "There are uncovered features in the views, so the configuration cannot be saved");
-		        		jsonObj.put("server_key", "");
+		        		jsonObj.put("user_key", userKey);
 		        		
 		        		retValue = JSONValue.toJSONString(jsonObj);
 		        	}
 		        	
 		        	
-		        	String configuredFileName = null;
+		        
 		        	String result=null;
-		        	if ((serverKey=="") || (serverKey==null)){
+		        	if (configuredFileName.compareToIgnoreCase("false")==0){
 		        		
 		        		FeatureModel model = confEngine.getModel();
 			    		if (confEngine == null) {
 			    			jsonObj.put("result", "error");
 			        		jsonObj.put("value", "Configuration engine must be created first");
-			        		jsonObj.put("server_key", "");
+			        		jsonObj.put("user_key", userKey);
 
 			        		
 			        		retValue = JSONValue.toJSONString(jsonObj);
@@ -141,7 +125,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 						 }catch (Exception e) {
 							 	jsonObj.put("result", "error");
 				        		jsonObj.put("value", "Problem in creating configuration file name");
-				        		jsonObj.put("server_key", "");
+				        		jsonObj.put("user_key", userKey);
 
 				        		retValue = JSONValue.toJSONString(jsonObj);
 				    			response.getWriter().write(retValue);
@@ -150,13 +134,11 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 						 }
 						
 						 
-			            result=createConfigurationFile(featureModelName, configuredFileName,featureModelFileName,configuredModelsPath, user, workflow, task, strDate,userKey,"configuring",sessionKey);
-			            newServerKey=getConfigurationFileServerKeyValue(configuredFileName, configuredModelsPath);
-			            serverKey=newServerKey;
+			            result=createConfigurationFile(featureModelName, configuredFileName,featureModelFileName,configuredModelsPath, userName,userID, workflow, task,"task", strDate,userKey,"configured");
 						if (result.compareToIgnoreCase("false")==0){
 							jsonObj.put("result", "error");
 			        		jsonObj.put("value", "Problem in creating configuration file");
-			        		jsonObj.put("server_key", "");
+			        		jsonObj.put("user_key", userKey);
 
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
@@ -171,17 +153,16 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 					        		String decisionType=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionType");
 					        		String decisionStep=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionStep");
 					        		
-					        		result=appendConfigurationFileFeatureInfo(configuredFileName, configuredModelsPath, user,Integer.toString(featureNode.getValue()), decisionType, decisionStep, task, strDate, viewName, featureNode.getID(), "true",sessionKey);
+					        		result=appendConfigurationFileFeatureInfo(configuredFileName, configuredModelsPath, userName, userID,Integer.toString(featureNode.getValue()), decisionType, decisionStep, task, strDate, viewName, featureNode.getID(), "true");
 					    			
 					        		
 				        		}
 				        	}
-				        	session.setAttribute("processStatus", "configuring");
-				    		session.setAttribute("serverKey", newServerKey);
+				    		session.setAttribute("userKey", userKey);
 				    		
 				    		jsonObj.put("result", "true");
 			        		jsonObj.put("value", "The configuration has been saved successfully in the repository");
-			        		jsonObj.put("server_key", newServerKey);
+			        		jsonObj.put("user_key", userKey);
 
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
@@ -190,11 +171,11 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 
 		        	}else{
 		        		
-		        		configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, serverKey);
+		        		configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, userKey);
 		        		if (configuredFileName.compareToIgnoreCase("false")==0){
 		        			jsonObj.put("result", "error");
 			        		jsonObj.put("value", "Problem in finding configuration file");
-			        		jsonObj.put("server_key", "");
+			        		jsonObj.put("user_key", userKey);
 
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
@@ -207,29 +188,28 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 				    		if (confEngine == null) {
 				    			jsonObj.put("result", "error");
 				        		jsonObj.put("value", "Configuration engine must be created first");
-				        		jsonObj.put("server_key", "");
+				        		jsonObj.put("user_key", userKey);
 
 				        		retValue = JSONValue.toJSONString(jsonObj);
 				    			response.getWriter().write(retValue);
 
 				    		}
 				        	
-				    		result=appendConfigurationFile(configuredFileName, configuredModelsPath, user,  task, strDate,"configuring",sessionKey);
+				    		result=appendConfigurationFile(configuredFileName, configuredModelsPath, userName, userID,  task,"task", strDate,"configured");
 				        	
 
 				        	for( FeatureTreeNode featureNode : model.getNodes() ) {
 				        		if ( featureNode.isInstantiated() ) {
 					        		String decisionType=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionType");
 					        		String decisionStep=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionStep");
-					        		result=appendConfigurationFileFeatureInfo(configuredFileName, configuredModelsPath, user,Integer.toString(featureNode.getValue()), decisionType, decisionStep, task, strDate, viewName, featureNode.getID(), "true",sessionKey);
+					        		result=appendConfigurationFileFeatureInfo(configuredFileName, configuredModelsPath, userName,userID,Integer.toString(featureNode.getValue()), decisionType, decisionStep, task, strDate, viewName, featureNode.getID(), "true");
 				        		}
 				        	}
 
-				        	session.setAttribute("processStatus", "configuring");
 				        	
 				    		jsonObj.put("result", "true");
 			        		jsonObj.put("value", "The configuration has been saved successfully in the repository");
-			        		jsonObj.put("server_key", serverKey);
+			        		jsonObj.put("user_key", userKey);
 
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
@@ -237,138 +217,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 		        		}
 		        		
 		        	}
-				}else if (action.compareToIgnoreCase("next")==0){
-		        	String configuredFileName = null;
-		        	String result=null;
-
-		        	if ((serverKey=="") || (serverKey==null)){
-						 try{
-							
-			    			 configuredFileName=Methods.createConfiguredModelFileName(featureModelFileName);
-						 }catch (Exception e) {
-							 	jsonObj.put("result", "error");
-				        		jsonObj.put("value", "Problem in creating configuration file name");
-				        		retValue = JSONValue.toJSONString(jsonObj);
-				    			response.getWriter().write(retValue);
-
-
-						 }
-						
-						 
-			            result=createConfigurationFile(featureModelName, configuredFileName,featureModelFileName,configuredModelsPath, user, workflow, task, strDate,userKey,"moved",sessionKey);
-			            newServerKey=getConfigurationFileServerKeyValue(configuredFileName, configuredModelsPath);
-			            serverKey=newServerKey;
-						if (result.compareToIgnoreCase("false")==0){
-							jsonObj.put("result", "error");
-			        		jsonObj.put("value", "Problem in creating configuration file");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-						}else{
-				        	session.setAttribute("processStatus", "moved");
-				    		session.setAttribute("serverKey", newServerKey);
-				    		
-				    		jsonObj.put("result", "true");
-			        		jsonObj.put("value", "The configuration has been saved successfully in the repository");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-
-						}
-
-		        	}else{
-		        		
-		        		configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, serverKey);
-		        		if (configuredFileName.compareToIgnoreCase("false")==0){
-		        			jsonObj.put("result", "error");
-			        		jsonObj.put("value", "Problem in finding configuration file");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-			    			
-
-		        		}else{
-		        			
-		        			String taskIsConfiguring=Methods.taskIsConfiguring(configuredModelsPath, configuredFileName, task, user, sessionKey);
-		        			if(taskIsConfiguring.compareToIgnoreCase("true")==0){
-		        				result=appendConfigurationFile(configuredFileName, configuredModelsPath, user,  task, strDate,"configured",sessionKey);
-		        			}else{
-					    		result=appendConfigurationFile(configuredFileName, configuredModelsPath, user,  task, strDate,"moved",sessionKey);
-
-		        			}
-		        			
-				        	session.setAttribute("processStatus", "moved");
-				    		jsonObj.put("result", "true");
-			        		jsonObj.put("value", "Information has been saved successfully in the repository");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-		        		}
-		        		
-		        	}
-				}else if (action.compareToIgnoreCase("exit")==0){
-					
-		        	String configuredFileName = null;
-		        	String result=null;
-
-		        	if ((serverKey=="") || (serverKey==null)){
-						 try{
-							
-			    			 configuredFileName=Methods.createConfiguredModelFileName(featureModelFileName);
-						 }catch (Exception e) {
-							 	jsonObj.put("result", "error");
-				        		jsonObj.put("value", "Problem in creating configuration file name");
-				        		retValue = JSONValue.toJSONString(jsonObj);
-				    			response.getWriter().write(retValue);
-
-
-						 }
-						
-						 
-			            result=createConfigurationFile(featureModelName, configuredFileName,featureModelFileName,configuredModelsPath, user, workflow, task, strDate,userKey,"exited",sessionKey);
-			            newServerKey=getConfigurationFileServerKeyValue(configuredFileName, configuredModelsPath);
-			            serverKey=newServerKey;
-						if (result.compareToIgnoreCase("false")==0){
-							jsonObj.put("result", "error");
-			        		jsonObj.put("value", "Problem in creating configuration file");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-						}else{
-				        	session.setAttribute("processStatus", "exited");
-				    		session.setAttribute("serverKey", newServerKey);
-				    		
-				    		jsonObj.put("result", "true");
-			        		jsonObj.put("value", "The configuration has been saved successfully in the repository");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-
-						}
-
-		        	}else{
-		        		
-		        		configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, serverKey);
-		        		if (configuredFileName.compareToIgnoreCase("false")==0){
-		        			jsonObj.put("result", "error");
-			        		jsonObj.put("value", "Problem in finding configuration file");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-			    			
-
-		        		}else{
-		        			
-				    		result=appendConfigurationFile(configuredFileName, configuredModelsPath, user,  task, strDate,"exited",sessionKey);
-				        	session.setAttribute("processStatus", "exited");
-				    		jsonObj.put("result", "true");
-			        		jsonObj.put("value", "Information has been saved successfully in the repository");
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-		        		}
-		        		
-		        	}
+				
 					
 				}
 	        	
@@ -396,7 +245,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	
 	
 	
-	protected static String createConfigurationFile(String featureModelName,String configuredFileName,String featureModelFileName ,String configuredModelsPath, String user, String workflow, String task, String session , String userKey, String action, String sessionKey) throws ParserConfigurationException{
+	protected static String createConfigurationFile(String featureModelName,String configuredFileName,String featureModelFileName ,String configuredModelsPath, String userName,String userID, String workflow, String task,String taskType, String session , String userKey, String action) throws ParserConfigurationException{
 		String retValue="false";
 		
     	try {
@@ -411,7 +260,6 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	        	Element rootElement=document.createElement(root);
 	        	rootElement.setAttribute("name", featureModelName);
 	        	rootElement.setAttribute("id", featureModelFileName);
-	        	rootElement.setAttribute("server_key", configuredFileName);
 	        	rootElement.setAttribute("user_key", userKey);
 	        	rootElement.setAttribute("workflow", workflow);
 
@@ -433,22 +281,28 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	        	
 	        	
 	        	
-	        	Element userElement=document.createElement("user");
-	        	userElement.appendChild(document.createTextNode(user));
-	        	configurationInfoElement.appendChild(userElement);
+	        	Element userNameElement=document.createElement("user_name");
+	        	userNameElement.appendChild(document.createTextNode(userName));
+	        	configurationInfoElement.appendChild(userNameElement);
+	        	
+	        	Element userIDElement=document.createElement("user_id");
+	        	userIDElement.appendChild(document.createTextNode(userID));
+	        	configurationInfoElement.appendChild(userIDElement);
 	        	
 	        	Element actionElement=document.createElement("action");
 	        	actionElement.appendChild(document.createTextNode(action));
 	        	configurationInfoElement.appendChild(actionElement);
         	
-	        	Element sessionKeyElement=document.createElement("session_key");
-	        	sessionKeyElement.appendChild(document.createTextNode(sessionKey));
-	        	configurationInfoElement.appendChild(sessionKeyElement);
        	
 	        	
 	        	Element taskElement=document.createElement("task");
 	        	taskElement.appendChild(document.createTextNode(task));
 	        	configurationInfoElement.appendChild(taskElement);
+
+	        	Element taskTypeElement=document.createElement("type");
+	        	taskTypeElement.appendChild(document.createTextNode(taskType));
+	        	configurationInfoElement.appendChild(taskTypeElement);
+
 	        	
 	        	Element sessionElement=document.createElement("session");
 	        	sessionElement.appendChild(document.createTextNode(session));
@@ -518,40 +372,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	
 	
 	
-	protected static String getConfigurationFileServerKeyValue(String configuredFeatureModelFileName,String configuredModelsPath){
-		String retValue="false";
-			
-	    	try {
-	    		
-				File file = new File(configuredModelsPath+"/"+configuredFeatureModelFileName);	
-				
-				if (!(file.exists())){
-					retValue="false";
-					return retValue;
-				}
 
-		       	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		    	DocumentBuilder docBuilder = factory.newDocumentBuilder();
-		    	Document document = docBuilder.parse(file);
-		    	
-		    	Element featureModelElement=(Element) document.getFirstChild();
-		    	
-		    	
-		    	try {
-		    		retValue=(String)featureModelElement.getAttribute("server_key");
-				} catch (Exception e) {
-					retValue="false";
-				}
-		    	
-		    	
-		    	
-			} catch (Exception e) {
-				retValue="false";
-			}
-			
-			return retValue;
-		}
-		
 	
 	
 	protected static String setConfigurationFileEditableValue(String configuredFeatureModelFileName,String configuredModelsPath,String editable){
@@ -592,7 +413,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	
 	
 	
-	protected static String appendConfigurationFile(String configuredFeatureModelFileName,String configuredModelsPath, String user, String task, String session, String action, String sessionKey) throws ParserConfigurationException{
+	protected static String appendConfigurationFile(String configuredFeatureModelFileName,String configuredModelsPath, String userName,String userID, String task,String taskType, String session, String action) throws ParserConfigurationException{
 		String retValue="false";
 		
     	try {
@@ -630,23 +451,29 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	        	
 	        	
 	        	
-	        	Element userElement=document.createElement("user");
-	        	userElement.appendChild(document.createTextNode(user));
-	        	configurationInfoElement.appendChild(userElement);
+	        	Element userNameElement=document.createElement("user_name");
+	        	userNameElement.appendChild(document.createTextNode(userName));
+	        	configurationInfoElement.appendChild(userNameElement);
+	        	
+	        	Element userIDElement=document.createElement("user_id");
+	        	userIDElement.appendChild(document.createTextNode(userID));
+	        	configurationInfoElement.appendChild(userIDElement);
 	        	
 	        	Element actionElement=document.createElement("action");
 	        	actionElement.appendChild(document.createTextNode(action));
 	        	configurationInfoElement.appendChild(actionElement);
         	
-	        	Element sessionKeyElement=document.createElement("session_key");
-	        	sessionKeyElement.appendChild(document.createTextNode(sessionKey));
-	        	configurationInfoElement.appendChild(sessionKeyElement);
-	        	
+	        
 	        	
 	        	
 	        	Element taskElement=document.createElement("task");
 	        	taskElement.appendChild(document.createTextNode(task));
 	        	configurationInfoElement.appendChild(taskElement);
+	        	
+	        	Element taskTypeElement=document.createElement("type");
+	        	taskTypeElement.appendChild(document.createTextNode(taskType));
+	        	configurationInfoElement.appendChild(taskTypeElement);
+
 	        	
 	        	Element sessionElement=document.createElement("session");
 	        	sessionElement.appendChild(document.createTextNode(session));
@@ -672,7 +499,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 	
 	
 	
-	protected static String appendConfigurationFileFeatureInfo(String configuredFeatureModelFileName,String configuredModelsPath, String user, String decisionValue, String decisionType,String decisionStep, String task, String session, String viewName , String featureID , String editable, String sessionKey) throws ParserConfigurationException{
+	protected static String appendConfigurationFileFeatureInfo(String configuredFeatureModelFileName,String configuredModelsPath, String userName, String userID, String decisionValue, String decisionType,String decisionStep, String task, String session, String viewName , String featureID , String editable) throws ParserConfigurationException{
 		
 		String retValue="false";
 		Boolean featureFound=false;
@@ -725,14 +552,16 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
    					        	dateElement.appendChild(document.createTextNode(Methods.getCurrentDate()));
    					        	decisionElement.appendChild(dateElement);
    					        	
-   					        	Element userElement=document.createElement("user");
-   					        	userElement.appendChild(document.createTextNode(user));
-   					        	decisionElement.appendChild(userElement);
+   					        	Element userNameElement=document.createElement("user_name");
+   					        	userNameElement.appendChild(document.createTextNode(userName));
+   					        	decisionElement.appendChild(userNameElement);
    					        	
-
-   					        	Element sessionKeyElement=document.createElement("session_key");
-   					        	sessionKeyElement.appendChild(document.createTextNode(sessionKey));
-   					        	decisionElement.appendChild(sessionKeyElement);
+   					        	Element userIDElement=document.createElement("user_id");
+					        	userIDElement.appendChild(document.createTextNode(userID));
+					        	decisionElement.appendChild(userIDElement);
+					        	
+					        	
+   					        
    					        	
    					        	
    					        	Element taskElement=document.createElement("task");
@@ -777,14 +606,16 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 			        	dateElement.appendChild(document.createTextNode(Methods.getCurrentDate()));
 			        	decisionElement.appendChild(dateElement);
 			        	
-			        	Element userElement=document.createElement("user");
-			        	userElement.appendChild(document.createTextNode(user));
-			        	decisionElement.appendChild(userElement);
+			        	Element userNameElement=document.createElement("user_name");
+			        	userNameElement.appendChild(document.createTextNode(userName));
+			        	decisionElement.appendChild(userNameElement);
+			        	
+			        	Element userIDElement=document.createElement("user_id");
+			        	userIDElement.appendChild(document.createTextNode(userID));
+			        	decisionElement.appendChild(userIDElement);
 			        	
 
-				        Element sessionKeyElement=document.createElement("session_key");
-				        sessionKeyElement.appendChild(document.createTextNode(sessionKey));
-				        decisionElement.appendChild(sessionKeyElement);
+				     
 				        	
 			        	Element taskElement=document.createElement("task");
 			        	taskElement.appendChild(document.createTextNode(task));
@@ -825,14 +656,15 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 		        	dateElement.appendChild(document.createTextNode(Methods.getCurrentDate()));
 		        	decisionElement.appendChild(dateElement);
 		        	
-		        	Element userElement=document.createElement("user");
-		        	userElement.appendChild(document.createTextNode(user));
-		        	decisionElement.appendChild(userElement);
+		        	Element userNameElement=document.createElement("user_name");
+		        	userNameElement.appendChild(document.createTextNode(userName));
+		        	decisionElement.appendChild(userNameElement);
 		        	
-
-			        Element sessionKeyElement=document.createElement("session_key");
-			        sessionKeyElement.appendChild(document.createTextNode(sessionKey));
-			        decisionElement.appendChild(sessionKeyElement);   	
+		        	Element userIDElement=document.createElement("user_id");
+		        	userIDElement.appendChild(document.createTextNode(userID));
+		        	decisionElement.appendChild(userIDElement);
+		        	
+			     
 		        	
 		        	Element taskElement=document.createElement("task");
 		        	taskElement.appendChild(document.createTextNode(task));
