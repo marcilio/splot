@@ -20,6 +20,13 @@ import splot.services.extensions.fundp.handlers.LoadViewAllocationInformationHan
 import splot.services.extensions.fundp.handlers.ResponseWorkflowAndFeatureListHandler;
 import splot.services.extensions.fundp.handlers.DeleteViewAllocationHandler;
 import splot.services.extensions.fundp.handlers.SaveViewAllocationToRepository;
+import splot.services.extensions.fundp.handlers.conf.FCWInstanceSATInitializationResetHandler;
+
+import splot.services.extensions.fundp.handlers.conf.FCWInstanceSATInteractiveConfigurationUpdatesHandler;
+
+import splot.services.extensions.fundp.handlers.conf.FCWInstanceInteractiveConfigurationExportConfigurationHandler;
+import splot.services.extensions.fundp.handlers.conf.FCWInteractiveConfigurationExportConfigurationToFileHandler;
+import splot.services.extensions.fundp.handlers.conf.FCWInstanceSATInteractiveConfigurationDetectConflictsHandler;
 import splot.services.extensions.fundp.handlers.conf.FCWInteractiveConfigurationExportConfigurationHandler;
 import splot.services.extensions.fundp.handlers.conf.FCWSATInteractiveConfigurationDetectConflictsHandler;
 import splot.services.extensions.fundp.handlers.conf.FCWSATInteractiveConfigurationMainHandler;
@@ -27,7 +34,7 @@ import splot.services.extensions.fundp.handlers.conf.FCWSATInteractiveConfigurat
 import splot.services.extensions.fundp.handlers.conf.FCWSelectFeatureModelHandler;
 import splot.services.extensions.fundp.workflow.handlers.SelectWorkflowHandler;
 import splot.services.extensions.fundp.workflow.handlers.ShowWorkflowInfoHandler;
-import splot.services.extensions.fundp.handlers.conf.FCWInteractiveConfigurationExportConfigurationToFileHandler;
+import splot.services.extensions.fundp.handlers.conf.FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler;
 import splot.services.extensions.fundp.handlers.conf.ConfigurationResultHandler;
 import splot.services.extensions.fundp.workflow.handlers.ShowImportedWorkflowListHandler;
 import splot.services.extensions.fundp.handlers.ParseSelectedWorkflowSpecificationHandler;
@@ -36,6 +43,9 @@ import splot.services.extensions.fundp.handlers.ResponseUncoveredFeaturesHandler
 import splot.services.extensions.fundp.handlers.conf.ViewsConfigurattionStatusHandler;
 import splot.services.extensions.fundp.handlers.conf.CheckTaskViewListHandler;
 import splot.services.extensions.fundp.handlers.conf.GetTasksConfigurationStatusHandler;
+import splot.services.extensions.fundp.handlers.conf.FCWInstanceManagerHandler;
+import splot.services.extensions.fundp.handlers.ShowMessagesHandler;
+
 
 
 
@@ -108,9 +118,17 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
         	addHandler(new ViewsConfigurattionStatusHandler("view_configuration_status", this,cfg, cfg.getTemplate("fcw_message.ftl")));
         	addHandler(new CheckTaskViewListHandler("check_task_view", this));
         	addHandler(new GetTasksConfigurationStatusHandler("get_configuration_status", this));
+        	addHandler(new FCWInstanceManagerHandler("fcw_instance_manager", this));
+        	addHandler(new FCWInstanceSATInitializationResetHandler("interactive_instance_initialization_reset", this, cfg, cfg.getTemplate("fcw_interactive_configuration_main2.ftl")));
+        	addHandler(new ShowMessagesHandler ("show_messages",this,cfg, cfg.getTemplate("fcw_message.ftl")));
+        	addHandler(new FCWInstanceSATInteractiveConfigurationUpdatesHandler("instance_interactive_configuration_updates", this, cfg, cfg.getTemplate("fcw_interactive_configuration_updates2.ftl")));
+        	addHandler(new FCWInstanceSATInteractiveConfigurationDetectConflictsHandler("detect_instance_conflicts", this, cfg, cfg.getTemplate("fcw_detect_conflicts.ftl")));
+        	addHandler(new FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler("export_instance_configuratiom_xml_file", this));
 
-           	
+          	addHandler(new FCWInstanceInteractiveConfigurationExportConfigurationHandler("export_instance_configuration_csv", this, cfg, cfg.getTemplate("fcw_export_configuration_csv.ftl")));
+        	addHandler(new FCWInstanceInteractiveConfigurationExportConfigurationHandler("export_instance_configuration_xml", this, cfg, cfg.getTemplate("fcw_export_configuration_xml.ftl")));
 
+        	
         	
         	
         }

@@ -2,6 +2,10 @@ package splot.services.extensions.fundp.handlers.conf;
 
 
 
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -9,10 +13,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.sun.tools.javac.util.Context;
+
 import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureTreeNode;
 import splar.core.fm.XMLFeatureModel;
@@ -28,7 +40,12 @@ import freemarker.template.Template;
 import splot.services.extensions.fundp.utilities.*;
 
 
-
+import com.streamhub.api.Client;
+import com.streamhub.api.JsonPayload;
+import com.streamhub.api.PushServer;
+import com.streamhub.api.SubscriptionListener;
+import com.streamhub.api.SubscriptionManager;
+import com.streamhub.util.Random;
 
 public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarkerHandler {
 
@@ -46,6 +63,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				
 				
         try {	
+        	
         	
             HttpSession session=null;
         	String  newSession="false";
@@ -67,9 +85,6 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
     		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
     		String modelDir=getServlet().getInitParameter("modelsPath");
     		String configuredModelPath=modelDir+"/configured_models";
-
- 
-    		
 
         	
        		/*********************************************************************
@@ -118,7 +133,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             	
             	
 
-            	
+             	
            		/*********************************************************************
         		 * workflow name
         		 *********************************************************************/
@@ -314,6 +329,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
             	}
 
             	session.setAttribute("selectedModels", featureModelFileName);
+            	
             	
 	        	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
 
@@ -621,13 +637,12 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	            
 	            
 	            
-	            
            		/*********************************************************************
         		 * configuration file name
         		 *********************************************************************/
 
-	            configurationFileName=Methods.getConfiguredFileName(configuredModelPath, userKey);
 
+	            configurationFileName=Methods.getConfiguredFileName(configuredModelPath, userKey);
 	            if (configurationFileName.compareToIgnoreCase("false")==0){
 	            	newConfiguration="true";
 	            }else{
@@ -642,14 +657,14 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				
 				// Traverses steps and identify several related parameters
 	        
-	        	
+
 	    	
 	        	List<Map> featuresList = new LinkedList<Map>();	
 	    		
 	        	
 	    	
 	        	if (workflowExistence.compareToIgnoreCase("true")==0){
-	        		
+
 	        		if(op.compareToIgnoreCase("reset")==0){
 	        			if (newConfiguration.compareToIgnoreCase("true")==0){
 	        				List<Map> stepsList = new LinkedList<Map>();
@@ -756,7 +771,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 				    			
 				    		}
 	        			}else{//newConfiguration==false
-					    	
+
 					    	confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
 		    	    		ConfigurationEngine tmpConfEngine=createConfigurationEngine(getResourcePath()+featureModelFileName);
 		    	    		
@@ -819,6 +834,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 	        		}
 	        		
 	        	}else{//workflowExistence==false
+
 	        		if (op.compareToIgnoreCase("reset")==0){
 	        			
         				List<Map> stepsList = new LinkedList<Map>();
@@ -834,6 +850,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 			        
 			        	
 						LinkedList<FeatureTreeNode> fmChilds=new LinkedList<FeatureTreeNode>();
+
 						getFeatureModelChilds(featureModel.getRoot(), fmChilds,viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,viewType);
 
 			    		for( FeatureTreeNode feature : confEngine.getModel().getNodes(confEngine.getModel().getRoot())) {
@@ -843,6 +860,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
 			    		
 			    			FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
 			    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, getFeatureTemplateFile(), viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
+
 			    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
 			    			featureData.put("configurationFeatureElement", featureElementData);
 			    			featuresList.add(featureData);

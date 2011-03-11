@@ -65,6 +65,10 @@ Released   : 20081103
 	dojo.require("dojo.fx"); // for animate showing/hiding the Hint
 	dojo.require("dojo.parser");
 	
+	
+	setInterval("updateConfigurationElements('reload','precedence','true')",3000);
+	
+	
 	/******************************************************
 	*  On Load
 	*******************************************************/
@@ -159,11 +163,26 @@ Released   : 20081103
 			oXMLRequest = new XMLHttpRequest();
 		}
 		
-	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save";
-	    
-		oXMLRequest.open("GET",strValidationServiceUrl,true);
-		oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
-		oXMLRequest.send(null);
+		
+		
+		 if(workflowExistence=="true"){
+		
+		 
+		 	    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=repository&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&newSession=false";
+				oXMLRequest.open("GET",strValidationServiceUrl,true);
+				oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
+				oXMLRequest.send(null);
+		 
+	  	 }else{
+			    var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuratiom_xml_file&actionType=save";
+			    
+				oXMLRequest.open("GET",strValidationServiceUrl,true);
+				oXMLRequest.onreadystatechange = OnSaveConfigurationToRepository;
+				oXMLRequest.send(null);	  
+		
+	   }
+		
+
 	}
 	
 	
@@ -332,7 +351,13 @@ Released   : 20081103
 	  		dojo.parser.parse();  // this is required for dojo to recognize dialog buttons
 	  		dijit.byId('conflictingDecisionsDialog').show();
 	  	}
-	  	ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey);  		
+	  	
+	  	 if(workflowExistence=="true"){
+	  	 	 ajaxObj.runAJAX("action=fcw_instance_manager&requestType=conflicts&operation=detect" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&newSession=false");  		
+	  	 }else{
+	  	 	  ajaxObj.runAJAX("action=detect_conflicts" + "&toggleFeature=" + toggleFeatureId+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey);  		
+	  	 }
+	  	
 	}
     
 	/******************************************************
@@ -343,9 +368,30 @@ Released   : 20081103
 		viewType=getListSelectedValue(document.getElementById('visualization_list'));
 		
 		
-	
+	  if(workflowExistence=="true"){
+	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
+	  
+	  }else{
+	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	  }			
 		
-	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	}
+	
+	
+	
+   /******************************************************
+	*  export:csv format
+	*******************************************************/
+	function exportToCSVFile() {
+	  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=csv&userKey="+trimAll(userKey);
+	}
+	
+	
+	 /******************************************************
+	*  export:xml format
+	*******************************************************/
+	function exportToXMLFile() {
+	  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=xml&userKey="+trimAll(userKey);
 	}
 	
 	/******************************************************
@@ -532,6 +578,21 @@ Released   : 20081103
 		featureModelFileName="${selectedModels}";
 		workflowExistence="${workflowExistence}";
 		userKey="${userKey}";
+		workflowName="${workflowName}";
+		newSession="${newSession}";
+		taskName="${taskName}";
+		featureModelName="${modelName}";
+		viewName="${viewName}";
+		viewType="${viewType}";
+		userName="${userName}";
+		userID="${userID}";
+		
+		
+		
+		
+		
+		
+		
 		
 		<#if uncoveredFeatures!="">
 			alert("There are uncovered features in the views, and the configuration would not be saved:"+"${uncoveredFeatures}");
@@ -572,7 +633,14 @@ Released   : 20081103
 	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
 	
-	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	if(workflowExistence=="true"){
+	  
+	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
+	  
+	  }else{
+		   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=rebuild&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	  }	
+	
 	
 	}     
 	
@@ -586,8 +654,15 @@ Released   : 20081103
 	viewName=getListSelectedValue(document.getElementById('view_list'));
 	viewType=getListSelectedValue(document.getElementById('visualization_list'));
 	
-	
-	 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	  if(workflowExistence=="true"){
+	  
+	  	   window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=initialization&operation=reset&selectedModels="+trimAll(featureModelFileName)+"&workflowName="+trimAll(workflowName)+"&taskName="+trimAll(taskName)+"&modelName="+trimAll(featureModelName)+"&userKey="+trimAll(userKey)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID)+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&newSession=false";
+	  
+	  }else{
+			 window.location = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_main&op=reset&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	  }	
+	  
+	  
 	
 	}     
 	
@@ -606,15 +681,116 @@ Released   : 20081103
 		}
 		viewName=getListSelectedValue(document.getElementById('view_list'));
 	    viewType=getListSelectedValue(document.getElementById('visualization_list'));
-	
+	    tmpURL="";
+	    
+	    if(workflowExistence=="true"){
+	      	     tmpURL="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=configuration&operation=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&userKey="+userKey+"&modelName="+featureModelName+"&workflowName="+workflowName+"&newSession=false"+"&taskName="+taskName+"&userName="+userName+"&userID="+userID;
+	    }else{
+	      	     tmpURL="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
+	    }
 
-	    var xhrArgs = {
-	     url: "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey,
+
+		if(operation=="reload"){
+			    var xhrArgs = {
+	       url:tmpURL, 
            sync : false,
             handleAs: "xml",
             load: function(response, ioArgs) {
             	
+            	
             	closeNotificationDialog();
+				
+				
+				xmlDoc = response.documentElement;
+				
+				// Update Feature Model and list of features included in the current configuration
+				features = xmlDoc.getElementsByTagName("feature");
+				for( i = 0 ; i < features.length ; i++ ) {
+					featureDivElement = features[i].getAttribute("id") + "_main";
+					featureDivContent = features[i].childNodes[0].nodeValue;
+					featureDivContent = featureDivContent.replace(/(\r\n|[\r\n])/g,'');
+					document.getElementById(featureDivElement).innerHTML = featureDivContent;
+				}
+				
+				/***********************************************************************************************     
+				 * Identify operation: conf, completion, undo, toggle
+				 *    conf: new features instantiated, a single new step to add 
+				 *    completion: new features instantiated, a single new step to add
+				 *    undo: new features to update, number of steps to eliminate from steps table
+				 *    toggle: new features to update, number of steps to eliminate, steps to add
+				***********************************************************************************************/     
+				
+				op = xmlDoc.getElementsByTagName("op")[0].getAttribute("value");
+			
+				countFeatures = xmlDoc.getElementsByTagName("countFeatures")[0].getAttribute("value");
+				countInstantiatedFeatures = xmlDoc.getElementsByTagName("countInstantiatedFeatures")[0].getAttribute("value");
+				
+				if( (typeof countFeatures != 'undefined') && (typeof countInstantiatedFeatures != 'undefined') ) {
+					//progressBarValue = Math.floor(countInstantiatedFeatures/countFeatures);
+					dijit.byId("confProgressBar").update({progress: countInstantiatedFeatures, maximum: countFeatures });				
+				}
+			
+					        
+		        if(op == "reload"){
+		        	confStepsTableObj = document.getElementById('confStepsTable');
+		        		for(i=confStepsTableObj.rows.length-1;i>3;i--  ) {
+			  			confStepsTableObj.deleteRow(i-1);
+			  		}
+		        
+		        
+		        }
+				confSteps = xmlDoc.getElementsByTagName("step");
+				
+				for( i = 0 ; i < confSteps.length ; i++ ) {
+					// expand configuration steps table 
+		        	confStepDivContent = confSteps[i].childNodes[0].nodeValue;
+		        	confStepDivContent = confStepDivContent.replace(/(\r\n|[\r\n])/g,'');
+		     		
+					confStepsTableObj = document.getElementById('confStepsTable');     		
+		     		confStepsTableRow = confStepsTableObj.insertRow(confStepsTableObj.rows.length-1);
+		     		 
+		     		startIndex = confStepDivContent.indexOf("<td>");
+		     		endIndex = confStepDivContent.indexOf("</td>", startIndex);
+		     		cellIndex = 0;
+		     		while( startIndex != -1 && endIndex != -1 ) {
+		     			cellContent = confStepDivContent.substring(startIndex+4,endIndex);
+					 	cellObj = confStepsTableRow.insertCell(cellIndex++);
+					 	cellObj.innerHTML = cellContent;
+		     			startIndex = confStepDivContent.indexOf("<td>", startIndex+1);
+		     			endIndex = confStepDivContent.indexOf("</td>", endIndex+1)
+					}
+					
+					// check if configuration is done
+					done = xmlDoc.getElementsByTagName("done")[0].getAttribute("value");
+					if ( done == 'true' ) {
+						document.getElementById('auto-completion-element').style.display = 'none';
+						document.getElementById('configuration-done-element').style.display ='';				
+					}
+		     	}
+            },
+            error: function(error) {
+                closeNotificationDialog();                
+                alert('Oops, SPLOT behaved like a bad boy :) If the error persists contact the SPLOT team.');
+     
+            }
+        }
+        
+      	
+      
+      		triggerNotificationDialog('reload', 'SPLOT Product Configurator', 'Processing ...');
+ 	        dojo.xhrGet(xhrArgs);   
+		
+		}else{
+		var xhrArgs = {
+	       url:tmpURL, 
+           sync : false,
+            handleAs: "xml",
+            load: function(response, ioArgs) {
+            	
+            	
+            	closeNotificationDialog();
+				
+				
 				xmlDoc = response.documentElement;
 				
 				// Update Feature Model and list of features included in the current configuration
@@ -656,6 +832,7 @@ Released   : 20081103
 					document.getElementById('configuration-done-element').style.display ='none';						  		
 		     	}
 		        
+		        
 				confSteps = xmlDoc.getElementsByTagName("step");
 				
 				for( i = 0 ; i < confSteps.length ; i++ ) {
@@ -691,8 +868,14 @@ Released   : 20081103
      
             }
         }
-		triggerNotificationDialog('wait', 'SPLOT Product Configurator', 'Processing ...');
-        dojo.xhrGet(xhrArgs);   
+        
+      	
+      
+      		triggerNotificationDialog('wait', 'SPLOT Product Configurator', 'Processing ...');
+ 	        dojo.xhrGet(xhrArgs);   
+		
+		}
+
 	}		
 -->
 
@@ -725,9 +908,12 @@ Released   : 20081103
 			dojo.byId('errorImage').style.display = 'block';
 			dojo.byId('notificationDialogContentLoadingImage').style.display = 'none';
 			dojo.byId('NotificationDialogOkButton').style.display = 'block';
-		} 
+		}
+		
+		if (opType!="reload"){
 		dijit.byId('notificationDialog').attr('title', title);
 		dijit.byId('notificationDialog').show();
+		}
 	}
 --> 
 </script>
@@ -1027,13 +1213,23 @@ Released   : 20081103
 									<#list steps as step>
 										${step.configurationStepElement}
 									</#list>
+									
+								
+									
 									<tr><td colspan=${numColumns}>
 										<span id="last_step_row">
 											<span style="display:<#if done>block<#else>none</#if>;" id="configuration-done-element">
 												<span class="standardHighlight1">Done!</span>
 												(Export configuration: 
-												<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
-												<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml">XML</a>)
+												
+													<#if workflowExistence=="true">
+														<a target="_new" href="javascript:exportToCSVFile()">CSV file</a> |  
+														<a target="_new" href="javascript:exportToXMLFile()">XML</a>)
+													<#else>
+														<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
+														<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml">XML</a>)
+												 </#if>
+												
 												<br>
 												 
 											</span>
