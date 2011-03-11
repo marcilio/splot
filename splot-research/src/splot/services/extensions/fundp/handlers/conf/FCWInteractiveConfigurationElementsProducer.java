@@ -152,7 +152,7 @@ public class FCWInteractiveConfigurationElementsProducer {
 		Map basicDataMap = new HashMap();
 		
 		FeatureDecisionInfo decisionResult=new FeatureDecisionInfo();
-		if ((userKey!=null) && (userKey!="")){
+		if ((userKey!="") && (userKey.compareToIgnoreCase("false")!=0)){
 			decisionResult=Methods.getFeatureDecisionInfo(modelDir, userKey, feature.getID());
 			
 			

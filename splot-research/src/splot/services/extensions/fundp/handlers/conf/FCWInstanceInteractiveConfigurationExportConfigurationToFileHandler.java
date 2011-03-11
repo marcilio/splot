@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,8 +43,8 @@ import splot.core.Handler;
 import splot.core.HandlerExecutionException;
 import splot.services.extensions.fundp.utilities.Methods;
 
-public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends Handler{
-	public FCWInteractiveConfigurationExportConfigurationToFileHandler(String handlerName, HttpServlet servlet) {
+public class FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler extends Handler{
+	public FCWInstanceInteractiveConfigurationExportConfigurationToFileHandler(String handlerName, HttpServlet servlet) {
 		super(handlerName, servlet);
 	}
 	
@@ -52,128 +54,169 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 			throws ServletException, IOException {
 
 		
-				
+			
 		
  				String retValue="";
+ 				String result="";
  				Map jsonObj=new LinkedHashMap();
+		     	ServletConfig config = getServlet().getServletConfig();
+		 	    ServletContext sc = config.getServletContext();
+
+		 	    String userKey=request.getParameter("userKey");
+		 	   
+
  				
 		  try {	
 			  
-			 
-			  
-			  
+	    		String viewDir=getServlet().getServletContext().getRealPath("/")+ "extensions/views/"; //getServlet().getInitParameter("viewFilesPath");
+	    		String modelDir=getServlet().getInitParameter("modelsPath");
 				String configuredModelsPath=getServlet().getServletContext().getRealPath("/")+ "models/configured_models"; 
 		    	
-		    	HttpSession session = request.getSession(true);	        	
-		    	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
-		    	String userName=(String)session.getAttribute("userName");
-		    	String userID=(String)session.getAttribute("userID");
+		 	    
+		 	    
+		 	    
+		 	    String userName=request.getParameter("userName");
+		 	    if(userName==null){
+		 	    	sc.setAttribute(userKey+"_lock", "free");
+		        	throw new HandlerExecutionException("Paremeter 'user name' is missing");
 
-		    	String viewName=(String)session.getAttribute("viewName");
-		    	String viewType=(String)session.getAttribute("viewType");
-		    	String task=(String)session.getAttribute("taskName");
-		    	String workflow=(String)session.getAttribute("workflowName");
-		    	String featureModelFileName=(String)session.getAttribute("selectedModels");
-		    	String featureModelName=(String)session.getAttribute("featureModelName");
-		    	String workflowExistence=(String)session.getAttribute("workflowExistence");
-		    	String uncoveredFeatures=(String)session.getAttribute("uncoveredFeatures");
-		    	String userKey=(String)session.getAttribute("userKey");
-
-		    	
-		    	String action=(String)request.getParameter("actionType");
-		    
-		    	
-
-		    	
-		    	
-		    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-				java.util.Date date = new Date(session.getCreationTime());
-				String strDate=  (dateFormat.format(date));
+		 	    }
+		 	    
+		 	    
+		 	    
+			     String workflow=request.getParameter("workflowName");
+			 	 if(workflow==null){
+			 	    	sc.setAttribute(userKey+"_lock", "free");
+			        	throw new HandlerExecutionException("Paremeter 'workflow name' is missing");
+			 	  }
+			 	    
+			 	 String featureModelName=request.getParameter("modelName");
+			 	 if(featureModelName==null){
+			 	    	sc.setAttribute(userKey+"_lock", "free");
+			        	throw new HandlerExecutionException("Paremeter 'feature model  name' is missing");
+			 	  }   
 				
-        		String configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, userKey);
+				 String task=request.getParameter("taskName");
+			 	 if(task==null){
+			 	    	sc.setAttribute(userKey+"_lock", "free");
+			        	throw new HandlerExecutionException("Paremeter 'taskName' is missing");
+			 	  }  
+    				
+	      		 String viewType=(String)request.getParameter("viewType");
+	       		 if(viewType==null){
+	       			sc.setAttribute(userKey+"_lock", "free");
+	 	        	throw new HandlerExecutionException("Paremeter 'view type' is missing");
+	       		 }
+	       		 
+	    		 String viewName=(String)request.getParameter("viewName");
+	    		 if(viewName==null){
+	    			 sc.setAttribute(userKey+"_lock", "free");
+	 	        	throw new HandlerExecutionException("Paremeter 'view name' is missing");
 
-			      
-				if(action.compareToIgnoreCase("save")==0){
-		        	if ((uncoveredFeatures!="") && (uncoveredFeatures!=null)){
+	    		 }
+	    		 
+	    		 String userID=(String)request.getParameter("userID");
+	    		 if(userID==null){
+	    			 sc.setAttribute(userKey+"_lock", "free");
+	 	        	throw new HandlerExecutionException("Paremeter 'user ID' is missing");
+
+	    		 }
+	    		 
+	    		 String featureModelFileName=(String)request.getParameter("selectedModels");
+	    		 if(featureModelFileName==null){
+	    			 sc.setAttribute(userKey+"_lock", "free");
+	 	        	throw new HandlerExecutionException("Paremeter 'feature model file name' is missing");
+
+	    		 }
+
+    			
+        			
+	    		ConfigurationEngine confEngine=null;
+	  	        if ((ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine")==null){
+	  	        	sc.setAttribute(userKey+"_lock", "free");
+	  	        	throw new HandlerExecutionException("Problem loading configuration engine");
+	  	        }else{
+	 	 			confEngine=(ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine");
+	 	 			
+			    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			    	HttpSession session = request.getSession(true);	 
+					java.util.Date date = new Date(session.getCreationTime());
+					String strDate=  (dateFormat.format(date));
+					
+	        		String configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, userKey);
+	        		
+	        		String uncoveredFeatures=Methods.getFeatureModelUncoveredFeaturesInAllocatedViews(featureModelName, viewDir, modelDir);
+	        		if ((uncoveredFeatures!="") && (uncoveredFeatures!=null)){
+	        			sc.setAttribute(userKey+"_lock", "free");
+	        			
 		        		jsonObj.put("result", "error");
 		        		jsonObj.put("value", "There are uncovered features in the views, so the configuration cannot be saved");
 		        		jsonObj.put("user_key", userKey);
 		        		
 		        		retValue = JSONValue.toJSONString(jsonObj);
 		        	}
-		        	
-		        	
-		        
-		        	String result=null;
-		        	if (configuredFileName.compareToIgnoreCase("false")==0){
-		        		
+
+	 	 			
+	        		
+	        		if (configuredFileName.compareToIgnoreCase("false")==0){
 		        		FeatureModel model = confEngine.getModel();
 			    		if (confEngine == null) {
+			    			sc.setAttribute(userKey+"_lock", "free");
 			    			jsonObj.put("result", "error");
 			        		jsonObj.put("value", "Configuration engine must be created first");
 			        		jsonObj.put("user_key", userKey);
-
-			        		
 			        		retValue = JSONValue.toJSONString(jsonObj);
 			    			response.getWriter().write(retValue);
-
-			    			
 			    		}
 			    		
 						 try{
 							
 			    			 configuredFileName=Methods.createConfiguredModelFileName(featureModelFileName);
 						 }catch (Exception e) {
+							    sc.setAttribute(userKey+"_lock", "free");
 							 	jsonObj.put("result", "error");
 				        		jsonObj.put("value", "Problem in creating configuration file name");
+				        		jsonObj.put("user_key", userKey);
+				        		retValue = JSONValue.toJSONString(jsonObj);
+				    			response.getWriter().write(retValue);
+						 }
+	        		
+
+						   result=createConfigurationFile(featureModelName, configuredFileName,featureModelFileName,configuredModelsPath, userName,userID, workflow, task,"task", strDate,userKey,"configured");
+							if (result.compareToIgnoreCase("false")==0){
+							    sc.setAttribute(userKey+"_lock", "free");
+
+								jsonObj.put("result", "error");
+				        		jsonObj.put("value", "Problem in creating configuration file");
 				        		jsonObj.put("user_key", userKey);
 
 				        		retValue = JSONValue.toJSONString(jsonObj);
 				    			response.getWriter().write(retValue);
+							}else{
+					        	for( FeatureTreeNode featureNode : model.getNodes() ) {
+					        		if ( featureNode.isInstantiated() ) {
+						        		String decisionType=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionType");
+						        		String decisionStep=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionStep");
+						        		result=appendConfigurationFileFeatureInfo(configuredFileName, configuredModelsPath, userName, userID,Integer.toString(featureNode.getValue()), decisionType, decisionStep, task, strDate, viewName, featureNode.getID(), "true");
+					        		}
+					        	}
+					    		jsonObj.put("result", "true");
+				        		jsonObj.put("value", "The configuration has been saved successfully in the repository");
+				        		jsonObj.put("user_key", userKey);
+							  
 
+				        		retValue = JSONValue.toJSONString(jsonObj);
+				        		sc.setAttribute(userKey+"_lock", "free");
+				    			response.getWriter().write(retValue);
 
-						 }
-						
-						 
-			            result=createConfigurationFile(featureModelName, configuredFileName,featureModelFileName,configuredModelsPath, userName,userID, workflow, task,"task", strDate,userKey,"configured");
-						if (result.compareToIgnoreCase("false")==0){
-							jsonObj.put("result", "error");
-			        		jsonObj.put("value", "Problem in creating configuration file");
-			        		jsonObj.put("user_key", userKey);
-
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-
-						}else{
+							}
 							
-				        	
-				        	for( FeatureTreeNode featureNode : model.getNodes() ) {
-				        		if ( featureNode.isInstantiated() ) {
-					        		
-					        		String decisionType=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionType");
-					        		String decisionStep=featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionStep");
-					        		
-					        		result=appendConfigurationFileFeatureInfo(configuredFileName, configuredModelsPath, userName, userID,Integer.toString(featureNode.getValue()), decisionType, decisionStep, task, strDate, viewName, featureNode.getID(), "true");
-					    			
-					        		
-				        		}
-				        	}
-				    		session.setAttribute("userKey", userKey);
-				    		
-				    		jsonObj.put("result", "true");
-			        		jsonObj.put("value", "The configuration has been saved successfully in the repository");
-			        		jsonObj.put("user_key", userKey);
-
-			        		retValue = JSONValue.toJSONString(jsonObj);
-			    			response.getWriter().write(retValue);
-
-						}
 
 		        	}else{
 		        		
 		        		configuredFileName=Methods.getConfiguredFileName(configuredModelsPath, userKey);
 		        		if (configuredFileName.compareToIgnoreCase("false")==0){
+		        			sc.setAttribute(userKey+"_lock", "free");
 		        			jsonObj.put("result", "error");
 			        		jsonObj.put("value", "Problem in finding configuration file");
 			        		jsonObj.put("user_key", userKey);
@@ -187,6 +230,7 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 		        			
 							FeatureModel model = confEngine.getModel();
 				    		if (confEngine == null) {
+				    			sc.setAttribute(userKey+"_lock", "free");
 				    			jsonObj.put("result", "error");
 				        		jsonObj.put("value", "Configuration engine must be created first");
 				        		jsonObj.put("user_key", userKey);
@@ -213,19 +257,17 @@ public class FCWInteractiveConfigurationExportConfigurationToFileHandler extends
 			        		jsonObj.put("user_key", userKey);
 
 			        		retValue = JSONValue.toJSONString(jsonObj);
+			        		sc.setAttribute(userKey+"_lock", "free");
 			    			response.getWriter().write(retValue);
 
 		        		}
 		        		
 		        	}
-				
-					
-				}
-	        	
-
-	        	
-		        	
-			} catch (Exception e) {
+						 
+	        	} 
+		  
+     		} catch (Exception e) {
+     			sc.setAttribute(userKey+"_lock", "free");
 				e.printStackTrace();
 				jsonObj.put("result", "error");
         		jsonObj.put("value", e);

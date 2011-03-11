@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,6 +46,9 @@ public abstract class FCWInteractiveConfigurationDetectConflictsHandler extends 
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
 		try {
+			
+			
+			
 			
         	HttpSession session = request.getSession(true);        	
         	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
