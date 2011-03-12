@@ -65,9 +65,7 @@ Released   : 20081103
 	dojo.require("dojo.fx"); // for animate showing/hiding the Hint
 	dojo.require("dojo.parser");
 	
-	
-	setInterval("updateConfigurationElements('reload','precedence','true')",3000);
-	
+ 
 	
 	/******************************************************
 	*  On Load
@@ -579,7 +577,6 @@ Released   : 20081103
 		workflowExistence="${workflowExistence}";
 		userKey="${userKey}";
 		workflowName="${workflowName}";
-		newSession="${newSession}";
 		taskName="${taskName}";
 		featureModelName="${modelName}";
 		viewName="${viewName}";
@@ -589,7 +586,9 @@ Released   : 20081103
 		
 		
 		
-		
+	if(workflowExistence=="true"){
+ 		setInterval("updateConfigurationElements('reload','precedence','true')",3000);
+	}
 		
 		
 		
