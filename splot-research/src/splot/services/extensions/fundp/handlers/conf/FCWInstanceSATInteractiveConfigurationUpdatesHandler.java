@@ -106,13 +106,16 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
  	    String lock="";
  	    
          if ((ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine")==null){
+
          	throw new HandlerExecutionException("Problem loading configuration engine");
+
 
          }else{        	 
 	 			confEngine=(ConfigurationEngine)sc.getAttribute(userKey+"_conf_engine");
     	        performChanges(templateModel, confEngine, request, response, viewType, viewName, featureModelFileName, userKey, op,viewDir,modelDir);
    	 			sc.setAttribute(userKey+"_conf_engine", confEngine);
    	 			sc.setAttribute(userKey+"_lock", "free");
+   	 			
          	}
          
 		} catch (Exception e) {
@@ -128,7 +131,7 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
 		try {
      		templateModel.put("op", op);
 		
-        	
+        	System.out.println(op);
      		
     		List<ConfigurationStep> stepsToUpdateList = null;
     		Set<FeatureTreeNode> additionalFeatures = null;
@@ -247,7 +250,7 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
         	
     		
         	if(op.compareToIgnoreCase("reload")==0){
-        		 List<Map> featuresList = new LinkedList<Map>();	
+        		List<Map> featuresList = new LinkedList<Map>();	
 				FeatureModel featureModel = null;
 				featureModel = new XMLFeatureModel(modelDir+featureModelFileName, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
 				featureModel.loadModel();
@@ -260,18 +263,24 @@ public class FCWInstanceSATInteractiveConfigurationUpdatesHandler extends FreeMa
 	    			Map featureData = new HashMap();
 		    		FeatureInViewCheckingResult featureInViewCheckingResult=new FeatureInViewCheckingResult();
 	    			String featureElementData = confElementProducer.produceFeatureElement(feature, featureData, FCWSATInteractiveConfigurationMainHandler.featureTemplateFilename, viewDir,modelDir,featureModelFileName,confEngine.getModel().getName(),viewName,featureInViewCheckingResult,viewType,fmChilds, userKey);
+	    		
 	    			featureElementData = featureElementData.replaceAll("[\r][\n]", "");
+	    			
+	    			
 	    			featureData.put("configurationFeatureElement", featureElementData);
 	    			featuresList.add(featureData);
-	    			
+	    		}                                        
 	            	templateModel.put("countFeatures", confEngine.getModel().countFeatures());
+	            	
+	            	
 	            	templateModel.put("countInstantiatedFeatures", confEngine.getModel().getInstantiatedNodes().size());
+	            	
 	            	
 	        		templateModel.put("features", featuresList);
 	    			templateModel.put("done", confEngine.isDone());
 
 	    			
-	    		}
+	    		
         		
         	}else{
             	FeatureModel featureModel = null;

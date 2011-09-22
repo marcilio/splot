@@ -492,6 +492,76 @@ Released   : 20081103
 	return (listObj.options[listObj.selectedIndex].text);
 	}
 		
+		
+		
+		
+	/******************************************************
+	*  Set Dependency Set
+	*******************************************************/
+	function setDependencySet(){
+	
+	
+	try{
+	
+			featureValue=getListSelectedValue(document.getElementById("feature_list"));
+			WorkflowValue=getListSelectedValue(document.getElementById("workflow_list"));	
+			if ((WorkflowValue=="Select") || (WorkflowValue=="")){
+				alert("Workflow must be selected!");
+				return;
+			}
+			
+			
+			
+			if ((featureValue=="Select") && (featureValue=="")){
+				alert("Feature model must be selected!");
+				return;
+			}
+	
+	
+		
+			if (window.ActiveXObject){
+				oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+			}else{
+				oXMLRequest = new XMLHttpRequest();
+			}
+			var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=create_dependency_set&featureModel=" +featureValue+"&workflow="+WorkflowValue;
+			oXMLRequest.open("GET",strValidationServiceUrl,true);
+			oXMLRequest.onreadystatechange =setDependencySetResult;
+			oXMLRequest.send(null);
+	
+	
+	
+	}catch(Error){
+		alert(Error);
+	}
+	
+	}	
+		
+	
+	/******************************************************
+	*  Receive setDependencySet from server
+	*******************************************************/
+	function setDependencySetResult(){
+				if (oXMLRequest.readyState == 4){
+			 		if (oXMLRequest.status == 200){
+						strStatus = oXMLRequest.responseText;
+						
+						if(strStatus=="true"){
+							alert("Dependency sets are calculated successfully!");
+						}else{
+							alert("There is a problem in dependency sets calculation!");
+						}
+						
+						
+					}
+				}
+	}
+						
+		
+		
+		
+		
+		
 	/******************************************************
 	*  Load view allocation information 
 	*******************************************************/
@@ -1277,6 +1347,7 @@ Released   : 20081103
 										<input class="standardHighlight1" type="button"  onclick="deleteSelectedRows()" value="Delete">
 										<input class="standardHighlight1" type="button"  onclick="loadViewAllocationInfo()" value="Refresh">
 										<button  class="standardHighlight1"  onClick="checkViewsCoverage();return false;" type="button">Evaluate Views Coverage</button>
+										<button  class="standardHighlight1"  onClick="setDependencySet();return false;" type="button">Dependency Sets</button>
 										
 										
 									</td>	

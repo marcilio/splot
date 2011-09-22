@@ -73,18 +73,19 @@ public class FCWInstanceManagerHandler extends Handler {
 	    		 * get operation type
 	    		 *********************************************************************/
 				operation=Methods.getOperationFromRequest(request);
+				
+				
 				if(operation.compareToIgnoreCase("false")==0){
    					RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=show_messages&message=invalid configuration operation type");
 		        	rd.forward(request, response);
 
 				}
 				
-    			
 
 	      		/*********************************************************************
 	    		 * get featureModelName
 	    		 *********************************************************************/
-
+				
 				featureModelName=Methods.getFeatureModelNameFromRequest(request);
 				if(featureModelName.compareToIgnoreCase("false")==0){
 					RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=show_messages&message=invalid feature model name");
@@ -170,6 +171,8 @@ public class FCWInstanceManagerHandler extends Handler {
 	    		 * get operation type
 	    		 *********************************************************************/
 				operation=Methods.getOperationFromRequest(request);
+				
+				
 				if(operation.compareToIgnoreCase("false")==0){
    					RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=show_messages&message=invalid configuration operation type");
 		        	rd.forward(request, response);
@@ -178,6 +181,7 @@ public class FCWInstanceManagerHandler extends Handler {
        			ServletConfig config = getServlet().getServletConfig();
     	    	ServletContext sc = config.getServletContext();
     	    	if ((ConfigurationEngine)sc.getAttribute(instanceID+"_conf_engine")==null){
+    	    		System.out.println(instanceID+"_conf_engine");
        				RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=show_messages&message=Configuration engine must be created first");
     		        rd.forward(request, response);
 
@@ -185,10 +189,12 @@ public class FCWInstanceManagerHandler extends Handler {
     				String lock=(String)sc.getAttribute(instanceID+"_lock");
     				if(lock==null){
     					sc.setAttribute(instanceID+"_lock", "locked");
+    					System.out.println("1");
       			        RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=instance_interactive_configuration_updates"+newQueryString);
     			        rd.forward(request, response);
     				}else if(lock.compareToIgnoreCase("free")==0){
        					sc.setAttribute(instanceID+"_lock", "locked");
+       					System.out.println("2");
       			        RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=instance_interactive_configuration_updates"+newQueryString);
     			        rd.forward(request, response);
     				}else if(lock.compareToIgnoreCase("locked")==0){
@@ -197,11 +203,13 @@ public class FCWInstanceManagerHandler extends Handler {
 							
 	    					if(lock==null){
 	    						sc.setAttribute(instanceID+"_lock", "locked");
+	    						System.out.println("3");
 	         			        RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=instance_interactive_configuration_updates"+newQueryString);
 	    			        	rd.forward(request, response);
 
 	    					}else if(lock.compareToIgnoreCase("free")==0){
 	       						sc.setAttribute(instanceID+"_lock", "locked");
+	       						System.out.println("4");
 	         			        RequestDispatcher rd=request.getRequestDispatcher("/MultiplePerspectiveConfigurationViewsServlet?action=instance_interactive_configuration_updates"+newQueryString);
 	    			        	rd.forward(request, response);
 	    					}
@@ -460,6 +468,7 @@ public class FCWInstanceManagerHandler extends Handler {
 			
 			
 		} catch (Exception e) {
+			e.fillInStackTrace();
 			
 		}
 		
@@ -479,6 +488,7 @@ public class FCWInstanceManagerHandler extends Handler {
 	
 	private String initiateConfigurationEngine(String modelLocatorString ,String instanceID,String  configuredModelPath, String modelDir){
 		String retVal="false";
+		
 		
 		try {
 			ConfigurationEngine confEngine=null;

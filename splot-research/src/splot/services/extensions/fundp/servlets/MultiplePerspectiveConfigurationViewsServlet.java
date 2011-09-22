@@ -6,6 +6,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServlet;
 
 import splot.core.HandlerBasedServlet;
+import splot.services.extensions.fundp.handlers.CreateDependencySetHandler;
 import splot.services.extensions.fundp.handlers.CreateFeatureModelViewsHandler;
 import splot.services.extensions.fundp.handlers.DeleteViewSpecificationFromRepository;
 import splot.services.extensions.fundp.handlers.ImportWorkflowSpecificationHandler;
@@ -24,6 +25,7 @@ import splot.services.extensions.fundp.handlers.conf.FCWInstanceSATInitializatio
 
 import splot.services.extensions.fundp.handlers.conf.FCWInstanceSATInteractiveConfigurationUpdatesHandler;
 
+import splot.services.extensions.fundp.handlers.conf.FCWCheckOpenFeaturesHandler;
 import splot.services.extensions.fundp.handlers.conf.FCWInstanceInteractiveConfigurationExportConfigurationHandler;
 import splot.services.extensions.fundp.handlers.conf.FCWInteractiveConfigurationExportConfigurationToFileHandler;
 import splot.services.extensions.fundp.handlers.conf.FCWInstanceSATInteractiveConfigurationDetectConflictsHandler;
@@ -119,6 +121,9 @@ public class MultiplePerspectiveConfigurationViewsServlet extends HandlerBasedSe
         	addHandler(new CheckTaskViewListHandler("check_task_view", this));
         	addHandler(new GetTasksConfigurationStatusHandler("get_configuration_status", this));
         	addHandler(new FCWInstanceManagerHandler("fcw_instance_manager", this));
+        	addHandler(new CreateDependencySetHandler("create_dependency_set", this));
+        	addHandler(new FCWCheckOpenFeaturesHandler("check_open_features", this));
+
         	addHandler(new FCWInstanceSATInitializationResetHandler("interactive_instance_initialization_reset", this, cfg, cfg.getTemplate("fcw_interactive_configuration_main2.ftl")));
         	addHandler(new ShowMessagesHandler ("show_messages",this,cfg, cfg.getTemplate("fcw_message.ftl")));
         	addHandler(new FCWInstanceSATInteractiveConfigurationUpdatesHandler("instance_interactive_configuration_updates", this, cfg, cfg.getTemplate("fcw_interactive_configuration_updates2.ftl")));
