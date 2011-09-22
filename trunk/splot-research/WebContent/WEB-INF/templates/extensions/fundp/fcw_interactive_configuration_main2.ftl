@@ -272,8 +272,68 @@ Released   : 20081103
 	*  Exit window 
 	*******************************************************/
 	function exitWindow() {
+		checkDependencySet();
 		window.close();
 	}
+
+
+
+
+	/******************************************************
+	*  check dependency set 
+	*******************************************************/
+	function checkDependencySet() {
+	
+		  if(workflowExistence=="true"){
+		  
+		  	viewName=getListSelectedValue(document.getElementById('view_list'));
+		  
+		  	if (window.ActiveXObject){
+				oXMLRequest = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else{
+				oXMLRequest = new XMLHttpRequest();
+			}
+			
+			
+			var strValidationServiceUrl = "/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=check_open_features"+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&taskName="+trimAll(taskName)+"&userKey="+userKey+"&workflowName="+trimAll(workflowName)+"&modelName="+trimAll(featureModelName)+"&userName="+trimAll(userName)+"&userID="+trimAll(userID);
+			oXMLRequest.open("GET",strValidationServiceUrl,true);
+			oXMLRequest.onreadystatechange = OnCheckDependencySet;
+			oXMLRequest.send(null);
+		  }
+	
+	}
+
+
+
+	/******************************************************
+	*  Result: check dependency set
+	*******************************************************/	
+	function OnCheckDependencySet() {
+	      	if (oXMLRequest.readyState == 4){
+			 if (oXMLRequest.status == 200){
+			 	  strStatus = oXMLRequest.responseText;
+			 	  
+			 	  if(strStatus==""){
+			 	  	alert("The task can be marked as complete!");
+			 	  }else if(strStatus=="fileNotFound"){
+			 	  	alert("The configuration file has not been created!");
+			 	  }else if (strStatus=="false"){
+			 	  	alert("There is a problem in computing the open features!");
+			 	  }else{
+			 	  	list=strStatus.split(";");
+			 	  	warning=list[0];
+			 	  	mustconfiguring=list[1];
+			 	  	
+			 	  	alert("These features must be decided before marking the configuration of the view as complete:"+mustconfiguring+". -- "+"These features might not be configured later:"+warning); 
+			 	  	
+			 	  }
+			 	  
+			 }
+			}
+			 	  
+	
+	}	
 	
 	
 	
@@ -389,8 +449,21 @@ Released   : 20081103
 	*  export:xml format
 	*******************************************************/
 	function exportToXMLFile() {
+	
 	  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=save&operation=xml&userKey="+trimAll(userKey);
 	}
+	
+	
+	 /******************************************************
+	*  export:xml format with view
+	*******************************************************/
+	function exportToXMLFileWithView() {
+			viewName=getListSelectedValue(document.getElementById('view_list'));
+		  	   window.location ="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml&view="+viewName;
+	}
+	
+	
+	
 	
 	/******************************************************
 	*  Highlight selection button
@@ -587,7 +660,7 @@ Released   : 20081103
 		
 		
 	if(workflowExistence=="true"){
- 		setInterval("updateConfigurationElements('reload','precedence','true')",3000);
+ 		setInterval("updateConfigurationElements('reload','precedence','true')",10000);
 	}
 		
 		
@@ -680,13 +753,18 @@ Released   : 20081103
 		}
 		viewName=getListSelectedValue(document.getElementById('view_list'));
 	    viewType=getListSelectedValue(document.getElementById('visualization_list'));
+	    
+
+	    
 	    tmpURL="";
 	    
 	    if(workflowExistence=="true"){
 	      	     tmpURL="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=fcw_instance_manager&requestType=configuration&operation=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&userKey="+userKey+"&modelName="+featureModelName+"&workflowName="+workflowName+"&newSession=false"+"&taskName="+taskName+"&userName="+userName+"&userID="+userID;
+	  
 	    }else{
 	      	     tmpURL="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=interactive_configuration_updates&op=" + operation + parameters+"&viewType="+trimAll(viewType)+"&viewName="+trimAll(viewName)+"&selectedModels="+featureModelFileName+"&workflowExistence="+workflowExistence+"&userKey="+userKey;
 	    }
+
 
 
 		if(operation=="reload"){
@@ -699,16 +777,26 @@ Released   : 20081103
             	
             	closeNotificationDialog();
 				
-				
 				xmlDoc = response.documentElement;
+				
+				
 				
 				// Update Feature Model and list of features included in the current configuration
 				features = xmlDoc.getElementsByTagName("feature");
 				for( i = 0 ; i < features.length ; i++ ) {
+				
 					featureDivElement = features[i].getAttribute("id") + "_main";
 					featureDivContent = features[i].childNodes[0].nodeValue;
 					featureDivContent = featureDivContent.replace(/(\r\n|[\r\n])/g,'');
+					
+					if(document.getElementById(featureDivElement)==null){
+					
+					
+					}else{
 					document.getElementById(featureDivElement).innerHTML = featureDivContent;
+					}
+					
+					
 				}
 				
 				/***********************************************************************************************     
@@ -768,7 +856,9 @@ Released   : 20081103
 		     	}
             },
             error: function(error) {
-                closeNotificationDialog();                
+            
+            	alert(error);
+                closeNotificationDialog();  
                 alert('Oops, SPLOT behaved like a bad boy :) If the error persists contact the SPLOT team.');
      
             }
@@ -862,7 +952,8 @@ Released   : 20081103
 		     	}
             },
             error: function(error) {
-                closeNotificationDialog();                
+                closeNotificationDialog(); 
+                               
                 alert('Oops, SPLOT behaved like a bad boy :) If the error persists contact the SPLOT team.');
      
             }
@@ -1226,7 +1317,7 @@ Released   : 20081103
 														<a target="_new" href="javascript:exportToXMLFile()">XML</a>)
 													<#else>
 														<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_csv">CSV file</a> |  
-														<a target="_new" href="/SPLOT/MultiplePerspectiveConfigurationViewsServlet?action=export_configuration_xml">XML</a>)
+														<a target="_new" href="javascript:exportToXMLFileWithView()">XML</a>)
 												 </#if>
 												
 												<br>
@@ -1253,7 +1344,11 @@ Released   : 20081103
 										<button  class="standardHighlight1"  onClick="saveConfigurationToRepository();return false;" type="button">Save Configuration</button>
 										<button  class="standardHighlight1"  onClick="reloadFeatureModel();return false;" type="button">Reload Configuration</button>
 										<button  class="standardHighlight1"  onClick="exitWindow();return false;" type="button">Exit Configuration</button>
+										<button  class="standardHighlight1"  onClick="checkDependencySet();return false;" type="button">Check Open Features</button>
 										
+									
+									
+									
 										
 								</td>
 								

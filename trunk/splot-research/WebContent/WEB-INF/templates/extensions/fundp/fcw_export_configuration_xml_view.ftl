@@ -10,7 +10,6 @@
 		<value>${feature.value}</value>
 		<decisionType>${feature.decisionType}</decisionType>
 		<decisionStep>${feature.decisionStep}</decisionStep>
-		<view>${feature.viewName}</view>
 		
 	</feature>
 </#list>

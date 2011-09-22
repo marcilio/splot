@@ -74,6 +74,7 @@ public abstract class FCWInteractiveConfigurationMainHandler2 extends FreeMarker
     		String configuredModelPath=modelDir+"/configured_models";
 
         	
+    		
        		/*********************************************************************
     		 * Check if the user starts a new session
     		 *********************************************************************/

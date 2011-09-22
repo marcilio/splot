@@ -186,13 +186,13 @@ The scenario depicted in <a href="#Archfig">Figure 3</a> highlights the essentia
 <h1 class="title">Installation Instructions</h1> 
 
 <p>
-The installation of the toolset requires the installation of YAWL and the FCW Engine. The FCW Engine can either be connected to a local instance of SPLOT or an instance available online, like <tt>http://www.splot-research.org/</tt>. FeatureConfigurationWorkflowService is used to establish connection between YAWL and the FCW engine. These installations are explained here.
+The installation of the toolset requires the installation of YAWL and the FCW Engine. The FCW Engine can either be connected to a local instance of SPLOT or an instance available online, like <tt>http://www.splot-research.org/</tt>. <!--FeatureConfigurationWorkflowService is used to establish the connection between YAWL and the FCW engine. These installations are explained here.-->
 </p>
 
 <a name="subsec-install-1"></a>
 <h3>Step 1 - Installing YAWL</h3>
 <ol>
-	<li> Download <a href="http://sourceforge.net/projects/yawl/">YAWL</a> and follow the instructions for your operating system <a href="http://www.yawlfoundation.org/software/documentation/usermanual/chapter-2-installation">here</a>. All the extensions have been tested with YAWL 2.1 only. There is no guarantee that they are supported by other versions. 
+	<li> Download <a href="http://sourceforge.net/projects/yawl/">YAWL</a> and follow the instructions for your operating system <a href="http://www.yawlfoundation.org/software/documentation/usermanual/chapter-2-installation">here</a>. All the extensions have been tested with YAWL 2.1 with no guarantee of support for older versions. 
 	<li> Go to <tt>./YAWL4Study-2.1/bin</tt>, start the YAWL engine (<tt>StartEngine</tt>) and start the control centre (<tt>ControlCentre</tt>). This will start <em>Tomcat</em> and load all the necessary dependencies.
 	<li> Log in YAWL. By default, the login is <tt>admin</tt> and the password is <tt>YAWL</tt>.
 </ol>
@@ -202,14 +202,14 @@ The installation of the toolset requires the installation of YAWL and the FCW En
 <a name="subsec-install-2"></a>
 <h3>Step 2 - Installing FeatureConfigurationWorkflowService</h3>
 <ol>
-	<li> Download the latest version of the  <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/FeatureConfigurationWorkflowService.war">Feature Configuration Workflow Service</a>. The <em>Feature Configuration Workflow Service</em> is a service that maintains a bi-directional communication bridge between YAWL and the FCW Engine.
+	<li> Download the latest version of the  <a href="http://tribus.info.fundp.ac.be:8080/SPLOT/extensions/files/FeatureConfigurationWorkflowService.war">Feature Configuration Workflow Service</a>. The <em>Feature Configuration Workflow Service</em> is a service that maintains a communication bridge between YAWL and the FCW Engine.
 	<li> Move <tt>FeatureConfigurationWorkflowService.war</tt> into: 
 	<br>
-	<tt>(I)./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL) if you would like to run YAWL and Feature Configuration Workflow Service on a <b>same instance</b> of tomcat, or 
+	<tt>(I)./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL) if you would like to run YAWL and <em>Feature Configuration Workflow Service</em> on the <b>same instance</b> of tomcat, or 
 	
 
 	 <br><br>
-	<tt>(II)./apache-tomcat/webapps</tt> if you would like to run YAWL and Feature Configuration Workflow Service on <b>different instances</b> of tomcat.
+	<tt>(II)./apache-tomcat/webapps</tt> if you would like to run YAWL and <em>Feature Configuration Workflow Service</em> on <b>different instances</b> of tomcat.
 	     
 </ol>
 
@@ -227,10 +227,10 @@ At design time, in the YAWL editor, every atomic task in a workflow specificatio
 
 
 <p>
-At design time, also, in the YAWL editor, for each task in a workflow, the URI of the FeatureConfigurationWorkflowService's responsible servlet to handle the communication, has to be assigned. 
-<a href="#URIUse">Figure 5</a> shows how <em>FeatureConfigurationWorkflowServlet</em> of FeatureConfigurationWorkflowService as a custom form, is assigned to a task of a workflow. 
+At design time, also, in the YAWL editor, for each task in a workflow, the URI of the <em>Feature Configuration Workflow Service</em>'s responsible servlet to handle the communication, has to be assigned. 
+<a href="#URIUse">Figure 5</a> shows how <em>FeatureConfigurationWorkflowServlet</em> of <em>Feature Configuration Workflow Service</em> as a custom form, is assigned to a task of a workflow. 
 <br>
-The URI must be: <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowService/FeatureConfigurationWorkflowServlet?action=prepare_configuration_process</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts FeatureConfigurationWorkflowService.
+The URI must be: <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowService/FeatureConfigurationWorkflowServlet?action=prepare_configuration_process</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts the <em>Feature Configuration Workflow Service</em>.
 
 </p>
 
@@ -253,7 +253,7 @@ The URI must be: <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowServ
 	<li> Move <tt>Coordinator.war</tt> into:
 
 	<br>
-	<tt>(I)./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL) if you would like to run YAWL and the FCW Engine on a <b>same instance</b> of tomcat, or 
+	<tt>(I)./YAWL4Study-2.1/engine/apache-tomcat/webapps</tt> (the installation path may vary according to your version of YAWL) if you would like to run YAWL and the FCW Engine on the <b>same instance</b> of tomcat, or 
 	
 
 	 <br><br>
@@ -277,7 +277,7 @@ The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href
 <h3>Step 4 - Connecting to running instances of the FCW Engine and YAWL</h3>
 
 <ol>
-	<li> Go to the FeatureConfigurationWorkflowService's registration page at <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowService/registartion.html</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts FeatureConfigurationWorkflowService.
+	<li> Go to the <em>Feature Configuration Workflow Service</em>'s registration page at <br> <tt>http://localhost:pppp/FeatureConfigurationWorkflowService/registartion.html</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts <em>Feature Configuration Workflow Service</em>.
 	<li> Fill out the <tt>FCW Engine URI</tt> field as the URI of the FCW Engine instance. The value of this field should be in the form of <tt>http://localhost:pppp</tt>. <tt>pppp</tt> is to be replaced with the actual port number.
 	<li> Fill out the <tt>YAWL URI</tt> field as the URI of the YAWL instance. The value of this field should be in the form of <tt>http://localhost:pppp</tt>. <tt>pppp</tt> is to be replaced with the actual port number.
 
@@ -286,13 +286,13 @@ The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href
 </ol>
 
 <p>
-<a href="#fcws_registration">Figure 7</a> shows the registration page of FeatureConfigurationWorkflowService to fill out the YAWL and FCW Engine's URI.
+<a href="#fcws_registration">Figure 7</a> shows the registration page of <em>Feature Configuration Workflow Service</em> to fill out the YAWL and FCW Engine's URI.
 </p>
 
 <div class="entry" style="text-align:center;"> 
 	<a name="fcws_registration"></a>
 	<div id="multi-view-fd"><img src="/SPLOT/images/fcws_registration.png" width="100%"/></div>
-	<div class="caption">Figure 7 - Registration page of FeatureConfigurationWorkflowService.</div>
+	<div class="caption">Figure 7 - Registration page of <em>Feature Configuration Workflow Service</em>.</div>
 </div>
 
 
@@ -311,13 +311,12 @@ The <em>Control Panel</em> provided for the FCW Engine is illustrated in <a href
 <h3>Step 5.b - Connecting to a running instance of SPLOT</h3>
 <ol>
 	<li> Go to the FCW Engine's registration page at <tt>http://localhost:pppp/Coordinator/registartion.html</tt>. <tt>pppp</tt> is to be replaced with the actual port number of the container which hosts the FCW Engine.
-	<li> Fill out the <tt>SPLOT Instance URI</tt> field. The value of this field should be <tt>http://localhost:pppp/SPLOT</tt> for local host and <tt>http://gsd.uwaterloo.ca:8088/SPLOT</tt> for online SPLOT instance. <tt>pppp</tt> is to be replaced with the actual port number.
+	<li> Fill out the <tt>SPLOT Instance URI</tt> field. The value of this field should be <tt>http://localhost:pppp/SPLOT</tt> for local host and <tt>http://gsd.uwaterloo.ca:8088/SPLOT</tt> for the online SPLOT instance. <tt>pppp</tt> is to be replaced with the actual port number.
 	<li> Click on <b>Save URI</b>. 
 </ol>
 
 <p>
-Active instances identify which FDs are involved in the configuration process. An example of SPLOT instance registered in the FCW Engine is shown in the upper right part of <a href="#registration">Figure 8</a>. The figure also shows the current configuration sessions.   
-
+Active instances identify which FDs are involved in the configuration process. An example of SPLOT instance registered in the FCW Engine is shown in the upper right part of <a href="#registration">Figure 8</a>. The figure also shows the current configuration sessions.
 </p>
 
 <div class="entry" style="text-align:center;"> 
@@ -353,11 +352,16 @@ The video below showcases a typical use case of the toolset. It starts with the 
 
 <p>
 <ul>
+		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/72412/">An Interactive Multi-perspective Toolset for Non-linear Product Configuration Processes (tool demo)</a>, <em>Ebrahim Khalil Abbasi, Arnaud Hubaux, Patrick Heymans</em>, in Proceedings of the 15th International Software Product Lines Conference (SPLC'11), Munich, Germany.
+	<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/71957/">A Toolset for Feature-based Configuration Workflows</a>, <em>Ebrahim Khalil Abbasi, Arnaud Hubaux, Patrick Heymans</em>, in Proceedings of the 15th International Software Product Lines Conference (SPLC'11), Munich, Germany.
 		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/70054/">Towards Multi-View Feature-based Configuration</a>, <em>Arnaud Hubaux, Patrick Heymans, Pierre-Yves Schobbens, Dirk Deridder</em>, in Proceedings of 16th International Working Conference on Requirements Engineering: Foundation for Software Quality (REFSQ'10), Essen, Germany, collection LNCS.
 		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/70344/">Workflow-driven Product Derivation</a> (invited talk), <em>Arnaud Hubaux, Ebrahim Khalil Abbasi, Andreas Classen, Patrick Heymans</em>,in First International Workshop on Product Line Requirements Engineering and Quality (PLREQ'10), June 30, 2010 , Essen, Germany.
 		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/67734/"> Analysis of Feature Configuration Workflows</a> (poster), <em>Andreas Classen, Arnaud Hubaux, Patrick Heymans</em>, in Proceedings of the 17th IEEE International Requirements Engineering Conference (RE'09), Atlanta, Georgia, USA, pp. 381-382.
 		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/67583/">Formal Modelling of Feature Configuration Workflows</a>, <em>Arnaud Hubaux, Andreas Classen, Patrick Heymans</em>, in Proceedings of the 13th International Software Product Lines Conference (SPLC'09), San Francisco, CA, USA, pp. 221-230.
 		<li> <a href="http://www.fundp.ac.be/recherche/publications/page_view/66780/">A Formal Semantics for Multi-level Staged Configuration</a>, <em>Andreas Classen, Arnaud Hubaux, Patrick Heymans</em>, in Proceedings of the Third Workshop on Variability Modelling of Software-intensive Systems (VaMoS'09), pp. 51-60.
+
+		
+		
 </ul>			
 </p>
 
@@ -406,7 +410,7 @@ The video below showcases a typical use case of the toolset. It starts with the 
 	<div id="right">
 		<a href="http://www.fundp.ac.be/universite/personnes/page_view/01006851/">Arnaud Hubaux</a> <br> <br>
 		<b>PhD Student @ University of Namur</b> <br>
-		Project Coordinator
+		Project Manager
 	</div>
 </div>
 

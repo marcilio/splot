@@ -42,6 +42,10 @@ public class FCWInteractiveConfigurationExportConfigurationHandler extends FreeM
 	public void buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel) throws HandlerExecutionException {
 
         try {	        		        	
+        	
+        	
+        	String viewName=request.getParameter("view");
+        	
         	HttpSession session = request.getSession(true);	        	
 
         	ConfigurationEngine confEngine = (ConfigurationEngine)session.getAttribute("conf_engine");
@@ -62,7 +66,8 @@ public class FCWInteractiveConfigurationExportConfigurationHandler extends FreeM
 	    			featureData.put("type", getFeatureType(featureNode));
 	    			featureData.put("value", ""+featureNode.getValue());
 	    			featureData.put("decisionType", featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionType"));   // manual, propagated, auto-completion
-	    			featureData.put("decisionStep", featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionStep"));   
+	    			featureData.put("decisionStep", featureNode.getValue() == -1 ? "" : (String)featureNode.getProperty("decisionStep"));  
+	    			featureData.put("viewName", viewName);
 	        		features.add(featureData);
         		}
         	}
