@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 15, 2014 - 6:05 PM  -->
+<feature_model name="EMGBS">
+<meta>
+<data name="description">EMGBS</data>
+<data name="creator">mind</data>
+<data name="address"></data>
+<data name="email">vasiljevasm@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r EMG-based speller(_r)
+	:m Physiological signal(_r_2)
+		:m EMG(_r_2_3)
+	:o Preprocessing method(_r_4)
+		:o Smoothing(_r_4_5)
+	:m Classification method(_r_6)
+		:m K-means(_r_6_7)
+	:m Speller control(_r_8)
+		:m Letter selection(_r_8_9)
+		:m Letter cancellation(_r_8_10)
+	:m Options(_r_11)
+		:o Performance(_r_11_12)
+			:o Adaptive stimulus rate(_r_11_12_13)
+				:m Step value(_r_11_12_13_18)
+				:m Upper bound(_r_11_12_13_19)
+				:m Lower bound(_r_11_12_13_20)
+			:o Dictionary selection(_r_11_12_14)
+				:g (_r_11_12_14_15) [1,1] 
+					: Alphabetic(_r_11_12_14_15_16)
+					: Frequency based(_r_11_12_14_15_17)
+		:m Alphabet(_r_11_21)
+			:g (_r_11_21_22) [1,1] 
+				: English(_r_11_21_22_23)
+					:o Number(_r_11_21_22_23_25)
+				: Lithuanian(_r_11_21_22_24)
+					:o Number(_r_11_21_22_24_26)
+</feature_tree>
+<constraints>
+constraint_1:_r_11_12_14 or _r_11_21
+</constraints>
+</feature_model>

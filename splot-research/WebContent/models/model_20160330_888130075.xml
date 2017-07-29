@@ -1,0 +1,104 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 8:58 PM  -->
+<feature_model name="urna_eletronica">
+<meta>
+<data name="description">atividade reutilizacao de software</data>
+<data name="creator">guilherme saulo alves</data>
+<data name="address"></data>
+<data name="email">guisaulo@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ufmg</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r urna_eletronica(_r)
+	:m inicializacao(_r_2)
+		:m pessoa_credenciada(_r_2_13)
+	:m eleitor(_r_48)
+		:o cidadao(_r_48_80)
+			:m titulo_eleitor(_r_48_80_82)
+				:g (_r_48_80_82_88) [1,*] 
+					: votacao1(_r_48_80_82_88_89)
+						:g (_r_48_80_82_88_89_102) [1,*] 
+							: voto(_r_48_80_82_88_89_102_103)
+							: branco(_r_48_80_82_88_89_102_104)
+								:g (_r_48_80_82_88_89_102_104_113) [1,*] 
+									: presidente(_r_48_80_82_88_89_102_104_113_114)
+									: senador1(_r_48_80_82_88_89_102_104_113_115)
+									: senador2(_r_48_80_82_88_89_102_104_113_116)
+							: nulo(_r_48_80_82_88_89_102_105)
+								:g (_r_48_80_82_88_89_102_105_117) [1,*] 
+									: presidente(_r_48_80_82_88_89_102_105_117_118)
+									: senador1(_r_48_80_82_88_89_102_105_117_119)
+									: senador2(_r_48_80_82_88_89_102_105_117_120)
+					: votacao2(_r_48_80_82_88_92)
+						:g (_r_48_80_82_88_92_121) [1,*] 
+							: voto(_r_48_80_82_88_92_121_122)
+								:g (_r_48_80_82_88_92_121_122_127) [1,*] 
+									: prefeito(_r_48_80_82_88_92_121_122_127_128)
+									: vereador(_r_48_80_82_88_92_121_122_127_129)
+							: branco(_r_48_80_82_88_92_121_123)
+								:g (_r_48_80_82_88_92_121_123_130) [1,*] 
+									: prefeito(_r_48_80_82_88_92_121_123_130_131)
+									: vereador(_r_48_80_82_88_92_121_123_130_132)
+							: nulo(_r_48_80_82_88_92_121_124)
+								:g (_r_48_80_82_88_92_121_124_133) [1,*] 
+									: prefeito(_r_48_80_82_88_92_121_124_133_134)
+									: vereador(_r_48_80_82_88_92_121_124_133_135)
+		:o funcionario(_r_48_81)
+			:m RG_CPF(_r_48_81_137)
+				:o votacao3(_r_48_81_137_138)
+					:o tecnico_admin(_r_48_81_137_138_141)
+						:g (_r_48_81_137_138_141_143) [1,*] 
+							: voto(_r_48_81_137_138_141_143_144)
+								:m chefe(_r_48_81_137_138_141_143_144_152)
+									:m professor_ativo(_r_48_81_137_138_141_143_144_152_154)
+							: branco(_r_48_81_137_138_141_143_145)
+								:m chefe(_r_48_81_137_138_141_143_145_155)
+									:m professor_ativo(_r_48_81_137_138_141_143_145_155_156)
+					:o professor(_r_48_81_137_138_142)
+						:g (_r_48_81_137_138_142_146) [1,*] 
+							: voto(_r_48_81_137_138_142_146_147)
+								:m chefe(_r_48_81_137_138_142_146_147_157)
+									:m professor_ativo(_r_48_81_137_138_142_146_147_157_158)
+								:m chefe(_r_48_81_137_138_142_146_147_162)
+									:m professor_ativo(_r_48_81_137_138_142_146_147_162_165)
+							: branco(_r_48_81_137_138_142_146_148)
+								:m chefe(_r_48_81_137_138_142_146_148_159)
+									:m professor_ativo(_r_48_81_137_138_142_146_148_159_160)
+								:m chefe(_r_48_81_137_138_142_146_148_166)
+									:m professor_ativo(_r_48_81_137_138_142_146_148_166_167)
+	:m estatistica(_r_168)
+		:m candidato(_r_168_169)
+			:g (_r_168_169_177) [1,*] 
+				: presidente(_r_168_169_177_178)
+					:m votos(_r_168_169_177_178_195)
+					:o eleito(_r_168_169_177_178_196)
+					:o derrotado(_r_168_169_177_178_197)
+				: senador(_r_168_169_177_179)
+					:m votos(_r_168_169_177_179_198)
+					:o eleito(_r_168_169_177_179_202)
+					:o derrotado(_r_168_169_177_179_203)
+				: prefeito(_r_168_169_177_182)
+					:m votos(_r_168_169_177_182_204)
+					:o eleito(_r_168_169_177_182_206)
+					:o derrotado(_r_168_169_177_182_207)
+				: vereador(_r_168_169_177_183)
+					:m votos(_r_168_169_177_183_208)
+					:o eleito(_r_168_169_177_183_209)
+					:o derrotado(_r_168_169_177_183_210)
+				: chefe(_r_168_169_177_184)
+					:m votos(_r_168_169_177_184_187)
+						:g (_r_168_169_177_184_187_190) [1,*] 
+							: tecnico(_r_168_169_177_184_187_190_191)
+							: professor(_r_168_169_177_184_187_190_192)
+						:o eleito(_r_168_169_177_184_187_193)
+						:o derrotado(_r_168_169_177_184_187_194)
+	:m termino(_r_212)
+		:m pessoa_credenciada(_r_212_213)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

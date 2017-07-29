@@ -1,0 +1,60 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Sep 14, 2014 - 7:10 AM  -->
+<feature_model name="B2B Website">
+<meta>
+<data name="description">product display pages</data>
+<data name="creator">wu</data>
+<data name="address"></data>
+<data name="email">wuxiaoxue00@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">nwpu</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r B2B Website Demo(_r)
+	:m Home Page(_r_1)
+		:m Banner Crousel(_r_1_2)
+		:m Product Carousel(_r_1_3)
+		:o New Arrival(_r_1_4)
+		:o OnSale(_r_1_6)
+	:m Category Page(_r_7)
+		:m Grid view(_r_7_8)
+			:m Product(_r_7_8_12)
+				:m Out of Stock(_r_7_8_12_13)
+				:m Quick Buy(_r_7_8_12_14)
+				:m Snack Image(_r_7_8_12_15)
+				:m Product Title(_r_7_8_12_38)
+				:m Price(_r_7_8_12_39)
+		:m Order Dropdownlist(_r_7_9)
+		:o Pagination(_r_7_10)
+		:m Show count selection(_r_7_25)
+			:g (_r_7_25_33) [1,*] 
+				: 12(_r_7_25_33_34)
+				: 24(_r_7_25_33_35)
+				: 36(_r_7_25_33_36)
+				: all(_r_7_25_33_37)
+		:m Product count(_r_7_26)
+			:g (_r_7_26_27) [1,*] 
+				: 1 to 12(_r_7_26_27_28)
+				: 13 to 24(_r_7_26_27_30)
+				: 25 to 36(_r_7_26_27_31)
+				: more than 36(_r_7_26_27_32)
+	:m Product Detail Page(_r_16)
+		:m Image(_r_16_17)
+		:m Add To Cart(_r_16_18)
+		:m Original Price(_r_16_19)
+		:m Current Price(_r_16_20)
+		:m Title(_r_16_21)
+		:o Cross Sell(_r_16_22)
+		:o On Sale(_r_16_23)
+		:m Color(_r_16_24)
+		:m Size(_r_16_26)
+		:m Out of stock(_r_16_40)
+</feature_tree>
+<constraints>
+constraint_6:~_r_16_18 or _r_16_40
+constraint_5:~_r_7_8_12_13 or _r_7_8_12_14
+</constraints>
+</feature_model>

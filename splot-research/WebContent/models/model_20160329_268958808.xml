@@ -1,0 +1,78 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 8:16 PM  -->
+<feature_model name="URNA_CPR">
+<meta>
+<data name="description">URNA - ReuseSoftware</data>
+<data name="creator">CPR</data>
+<data name="address"></data>
+<data name="email">cloves@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DCC/UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r URNA(_r)
+	:m ModuloCadastro(_r_1)
+		:m Eleitor(_r_1_2)
+			:g (_r_1_2_11) [1,1] 
+				: Funcionario(_r_1_2_11_12)
+					:g (_r_1_2_11_12_19) [1,*] 
+						: CPF(_r_1_2_11_12_19_20)
+						: RG(_r_1_2_11_12_19_21)
+					:g (_r_1_2_11_12_22) [1,*] 
+						: Professor(_r_1_2_11_12_22_23)
+							:m Ativo(_r_1_2_11_12_22_23_44)
+							:o AcaoCandidatar(_r_1_2_11_12_22_23_45)
+						: Tec-Adm(_r_1_2_11_12_22_26)
+					:m PermissaoAbster(_r_1_2_11_12_44)
+				: EleitorPolitico(_r_1_2_11_13)
+					:m Titulo(_r_1_2_11_13_27)
+			:m Nome(_r_1_2_31)
+		:m Candidato(_r_1_3)
+			:m Cargo(_r_1_3_29)
+			:m Nome(_r_1_3_30)
+		:m Eleicao(_r_1_5)
+			:m CadastrarCandidatos(_r_1_5_28)
+			:m Nome(_r_1_5_40)
+		:m CarregarConfiguracao(_r_1_45)
+	:m Operacoes(_r_4)
+		:m Inicializar(_r_4_6)
+		:m Finalizar(_r_4_7)
+			:m ApresentarResultados(_r_4_7_36)
+				:m ApresentarNumeroDeVotos(_r_4_7_36_37)
+					:o DiscriminarPorCategoria(_r_4_7_36_37_39)
+				:o ApresentarPercentual(_r_4_7_36_38)
+				:m ApresentarEleitos(_r_4_7_36_41)
+				:o ApresentarDerrotados(_r_4_7_36_42)
+		:m Votar(_r_4_8)
+			:m VotarCandidato(_r_4_8_32)
+			:o VotarNulo(_r_4_8_34)
+			:o VotarBranco(_r_4_8_35)
+			:o Abster(_r_4_8_54)
+			:m ValidarEleitor(_r_4_8_48)
+				:o ApresentarEleitor(_r_4_8_48_49)
+		:m ValidarSenha(_r_4_47)
+	:m Interface(_r_47)
+		:m Tela(_r_47_49)
+		:m Teclado(_r_47_51)
+			:m BotaoBranco(_r_47_51_64)
+			:m BotaoConfirmar(_r_47_51_50)
+				:m AcaoVotarCandidato(_r_47_51_50_51)
+				:m AcaoVotarBranco(_r_47_51_50_52)
+				:g (_r_47_51_50_53) [1,*] 
+					: AcaoVotarNulo(_r_47_51_50_53_54)
+					: AcaoAbster(_r_47_51_50_53_55)
+</feature_tree>
+<constraints>
+constraint_8:~_r_4_6 or _r_4_47
+constraint_9:~_r_4_7 or _r_4_47
+constraint_6:_r_4_8_32 or ~_r_47_51_50_51
+constraint_7:~_r_4_8_54 or _r_1_2_11_12_44
+constraint_4:_r_4_8_34 or ~_r_47_51_50_53_54
+constraint_5:_r_4_8_35 or ~_r_47_51_50_52
+constraint_2:_r_4_8_54 or ~_r_47_51_50_53_55
+constraint_3:_r_1_2_11_12_22_23_44 or ~_r_1_2_11_12_22_23_45
+</constraints>
+</feature_model>

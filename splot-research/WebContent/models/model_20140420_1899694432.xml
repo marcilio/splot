@@ -1,0 +1,88 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Apr 20, 2014 - 2:59 PM  -->
+<feature_model name="e-banking-IN0980">
+<meta>
+<data name="description">e-banking modeling</data>
+<data name="creator">Vilmar</data>
+<data name="address"></data>
+<data name="email">vnepomuceno@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r e-banking-IN0980(_r)
+	:m Conta(_r_1)
+		:g (_r_1_13) [1,1] 
+			: Conta Corrente(_r_1_13_14)
+			: Conta Especial(_r_1_13_15)
+			: Conta Universitaria(_r_1_13_16)
+	:m Cartoes(_r_2)
+		:g (_r_2_18) [1,*] 
+			: Cartao de Credito(_r_2_18_19)
+				:o Programa de bonificacao de cartao de credito(_r_2_18_19_23)
+			: Cartao de debito(_r_2_18_20)
+				:o Programa de bonificacao cartao de debito(_r_2_18_20_24)
+			: Alimentacao(_r_2_18_21)
+			: Refeicao(_r_2_18_22)
+	:o Credito(_r_3)
+		:g (_r_3_25) [1,*] 
+			: Pessoal(_r_3_25_26)
+			: Imobiliario(_r_3_25_27)
+			: Financiamento(_r_3_25_28)
+			: Antecipacao(_r_3_25_29)
+			: Rural(_r_3_25_30)
+			: Veiculo(_r_3_25_31)
+	:o Investimentos(_r_4)
+		:g (_r_4_32) [1,*] 
+			: Poupanca(_r_4_32_33)
+			: Previdencia(_r_4_32_34)
+			: CDB(_r_4_32_35)
+			: Acoes(_r_4_32_36)
+			: Tesouro Direto(_r_4_32_37)
+	:o Seguro(_r_5)
+		:g (_r_5_40) [1,*] 
+			: Vida(_r_5_40_41)
+			: Domiciliar(_r_5_40_42)
+			: Viagem(_r_5_40_43)
+			: Automovel(_r_5_40_44)
+			: Rural(_r_5_40_45)
+	:o Consorcio(_r_6)
+		:g (_r_6_46) [1,*] 
+			: Imovel(_r_6_46_47)
+			: Veiculo(_r_6_46_48)
+			: Servicos(_r_6_46_49)
+			: Eletroeltronicos(_r_6_46_50)
+	:o Cambio(_r_7)
+		:g (_r_7_52) [1,*] 
+			: Especie(_r_7_52_53)
+			: Traveler Cheque(_r_7_52_54)
+			: Ordem de pagamento(_r_7_52_55)
+			: Travel Card(_r_7_52_56)
+				:g (_r_7_52_56_57) [1,*] 
+					: Cartao de viagem(_r_7_52_56_57_58)
+					: Cartao de Credito atrelado a conta(_r_7_52_56_57_59)
+	:o Acessibilidade(_r_8)
+		:g (_r_8_60) [1,*] 
+			: Deficiente visual(_r_8_60_61)
+			: Deficiente Auditivo(_r_8_60_62)
+	:m Modos de acesso(_r_9)
+		:g (_r_9_66) [1,*] 
+			: Caixa automatico(_r_9_66_67)
+				:g (_r_9_66_67_72) [1,1] 
+					: Cartao com chip(_r_9_66_67_72_73)
+					: Leitura Biometrica(_r_9_66_67_72_74)
+					: Cartao magnetico(_r_9_66_67_72_75)
+			: Mobile(_r_9_66_68)
+			: Telefone(_r_9_66_69)
+			: Internet(_r_9_66_70)
+			: Rede Social(_r_9_66_71)
+</feature_tree>
+<constraints>
+constraint_4:~_r_6 or ~_r_1_13_16
+constraint_5:~_r_1_13_15 or ~_r_9_66_67_72_75
+constraint_3:~_r_3 or ~_r_1_13_16
+</constraints>
+</feature_model>

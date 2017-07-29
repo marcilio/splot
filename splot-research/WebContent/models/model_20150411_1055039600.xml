@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Apr 11, 2015 - 12:25 PM  -->
+<feature_model name="ComputationalThinking">
+<meta>
+<data name="description">CT</data>
+<data name="creator">Eimantas Pelikis</data>
+<data name="address"></data>
+<data name="email">eimantas.pelikis@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">MII</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ComputationalThinking(_r)
+	:m Concept(_r_1)
+		:m DataCollection(_r_1_3)
+		:m DataAnalysis(_r_1_4)
+		:m DataRepresentation(_r_1_5)
+		:m ProblemDecomposition(_r_1_6)
+		:m Abstraction(_r_1_7)
+		:m AlgorithmsAndProcedures(_r_1_8)
+		:m Automation(_r_1_9)
+		:m Parallelization(_r_1_10)
+		:m Simulation(_r_1_11)
+	:m Subject(_r_2)
+		:g (_r_2_12) [1,1] 
+			: CS(_r_2_12_13)
+			: Math(_r_2_12_14)
+			: Science(_r_2_12_15)
+			: SocialStudies(_r_2_12_16)
+			: Language(_r_2_12_17)
+			: Arts(_r_2_12_18)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

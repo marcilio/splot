@@ -1,0 +1,51 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 17, 2015 - 2:08 PM  -->
+<feature_model name="Gophone messaging">
+<meta>
+<data name="description">this is the feature model for the Gophone messaging domain</data>
+<data name="creator">Chakroun Aiman</data>
+<data name="address"></data>
+<data name="email">aimanchakroun@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Mir@cl</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Gophone messaging(_r)
+	:m create new message(_r_1)
+		:m create extended message(_r_1_3)
+			:g (_r_1_3_5) [1,*] 
+				: attach object(_r_1_3_5_6)
+					:g (_r_1_3_5_6_15) [1,*] 
+						: attach business card(_r_1_3_5_6_15_16)
+						: attach calendar entry(_r_1_3_5_6_15_17)
+						: attach file(_r_1_3_5_6_15_18)
+						: attach sound(_r_1_3_5_6_15_19)
+				: insert object(_r_1_3_5_7)
+					:m insert picture(_r_1_3_5_7_8)
+					:o insert drafted text(_r_1_3_5_7_9)
+		:o Create email(_r_1_30)
+	:o Chat(_r_20)
+		:m start chat(_r_20_21)
+		:m stop child(_r_20_22)
+	:o T9 Dictionary(_r_23)
+		:m Activate T9(_r_23_24)
+		:m disactivate T9(_r_23_25)
+	:m Send message(_r_26)
+		:m Send basic message(_r_26_27)
+		:o Send chat message(_r_26_28)
+	:m delete saved message(_r_29)
+	:m modify message(_r_30)
+	:m show message content(_r_31)
+		:m show basic message(_r_31_32)
+		:o show picture(_r_31_33)
+		:o play sound(_r_31_34)
+		:o save attached object(_r_31_35)
+		:o save special message(_r_31_36)
+</feature_tree>
+<constraints>
+constraint_1:_r_20 or _r_26_28
+</constraints>
+</feature_model>

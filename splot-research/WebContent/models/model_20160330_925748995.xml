@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 7:55 PM  -->
+<feature_model name="Urna - Municipal">
+<meta>
+<data name="description">Simulação de uma votação para prefeito e vereador</data>
+<data name="creator">Matheus Azeredo</data>
+<data name="address"></data>
+<data name="email">matheus_azeredo@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DCC - UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Type name for root feature(_r)
+	:m Urna(_r_1)
+		:m Inicializacao(_r_1_2)
+			:m Confirmar dados(_r_1_2_4)
+				:m Votar prefeito(_r_1_2_4_5)
+					:g (_r_1_2_4_5_7) [1,1] 
+						: Branco(_r_1_2_4_5_7_8)
+						: Nulo(_r_1_2_4_5_7_9)
+						: Voto Valido(_r_1_2_4_5_7_10)
+				:m Votar vereador(_r_1_2_4_6)
+					:g (_r_1_2_4_6_13) [1,1] 
+						: Branco(_r_1_2_4_6_13_14)
+						: Nulo(_r_1_2_4_6_13_15)
+						: Voto Valido(_r_1_2_4_6_13_16)
+		:m Termino(_r_1_3)
+			:m Apresentar estatisticas(_r_1_3_17)
+			:m Candidatos eleitos(_r_1_3_18)
+			:m Candidatos derrotados(_r_1_3_19)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

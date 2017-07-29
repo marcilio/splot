@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jun 16, 2015 - 8:21 AM  -->
+<feature_model name="GymManager">
+<meta>
+<data name="description">Modelo de features para linha de produto de gerenciadores de academias</data>
+<data name="creator">Andre Luis</data>
+<data name="address"></data>
+<data name="email">andre.luisfs01@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFC - Quixadá</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r GymManager(_r)
+	:o Notifications(_r_1)
+	:m Payment_Manager(_r_2)
+		:m Costs(_r_2_3)
+		:m Monthly_Payment(_r_2_4)
+	:m Account_Manager(_r_5)
+		:m Password_Recovery(_r_5_6)
+			:g (_r_5_6_7) [1,*] 
+				: DispatchEmail(_r_5_6_7_8)
+				: DispatchSMS(_r_5_6_7_9)
+		:o Account_Type(_r_5_20)
+			:g (_r_5_20_21) [1,1] 
+				: Normal(_r_5_20_21_22)
+				: Premium(_r_5_20_21_23)
+	:o Extra_Service(_r_10)
+		:o Nutriotion(_r_10_11)
+		:o Personal_Trainer(_r_10_12)
+	:o Training(_r_13)
+		:o Body_Condition(_r_13_14)
+		:m Bodybuilding_Guide(_r_13_15)
+	:o Extra_Activitys(_r_16)
+	:m Costumers_Management(_r_17)
+	:m Supplier_Management(_r_18)
+	:m Colaborators_Management(_r_19)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 6, 2015 - 9:30 AM  -->
+<feature_model name="Dynamic Software Product Lines for Service-Based Systems">
+<meta>
+<data name="description">System feature diagram</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Great-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Building(_r)
+	:o Energy Management(_r_1)
+		:o Eletricity(_r_1_2)
+		:o Water(_r_1_5)
+		:o Heating(_r_1_6)
+	:m Lighting(_r_7)
+		:m Control(_r_7_8)
+		:o Brightness Detector(_r_7_10)
+		:m Presence Detector(_r_7_11)
+	:m Agenda(_r_12)
+	:m Security(_r_13)
+		:m Camera(_r_13_14)
+		:m OpenClosed Detector(_r_13_15)
+	:m Alarm(_r_16)
+		:m Phonebook(_r_16_17)
+		:m Internet Adress(_r_16_18)
+	:m Comunication(_r_19)
+		:m Internet(_r_19_20)
+		:m GSM(_r_19_21)
+		:m RTC(_r_19_22)
+</feature_tree>
+<constraints>
+constraint_1:_r_7_8 or _r_12
+constraint_6:_r_16_17 or _r_19_22
+constraint_7:_r_16_18 or _r_19_20
+constraint_5:_r_16_17 or _r_19_21
+constraint_2:_r_13_14 or _r_16
+constraint_3:_r_13_15 or _r_16
+</constraints>
+</feature_model>

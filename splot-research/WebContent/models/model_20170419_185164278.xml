@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 19, 2017 - 12:15 PM  -->
+<feature_model name="Hastane Randevu Sistemi">
+<meta>
+<data name="description">Hastane randevu sisteminin ozelikleri</data>
+<data name="creator">Hastane</data>
+<data name="address"></data>
+<data name="email">aa</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">aa</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Hastane Randevu Sistemi(_r)
+	:m Uye Tipi(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Hasta(_r_1_2_3)
+			: Doktor(_r_1_2_4)
+			: Admin(_r_1_2_5)
+	:m Randevu Turu(_r_6)
+		:g (_r_6_7) [1,*] 
+			: Muayene(_r_6_7_8)
+			: Kontrol(_r_6_7_9)
+	:o Hiz(_r_10)
+	:o Guvenlik(_r_11)
+	:m Ortam(_r_12)
+		:g (_r_12_13) [1,1] 
+			: Web (_r_12_13_14)
+			: Masa ustu(_r_12_13_17)
+	:m Veritabani Turu(_r_18)
+		:g (_r_18_19) [1,1] 
+			: Oracle(_r_18_19_20)
+			: Mysql(_r_18_19_21)
+			: SqlLite(_r_18_19_22)
+</feature_tree>
+<constraints>
+constraint_1:_r or _r_1 or _r_1_2_3 or _r_1_2_4 or _r_1_2_5 or _r_6 or _r_6_7_8 or _r_6_7_9 or _r_10 or _r_11 or _r_12 or _r_12_13_14 or _r_12_13_17 or _r_18 or _r_18_19_20 or _r_18_19_21 or _r_18_19_22
+</constraints>
+</feature_model>

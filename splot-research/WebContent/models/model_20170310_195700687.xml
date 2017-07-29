@@ -1,0 +1,97 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 10, 2017 - 2:38 AM  -->
+<feature_model name="Taller1_Computadores">
+<meta>
+<data name="description">Modelo de venta de computadores</data>
+<data name="creator">david gomez</data>
+<data name="address"></data>
+<data name="email">leo-gome@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m Tipo_Computador(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Computador_mesa(_r_1_2_3)
+			: Portatil(_r_1_2_4)
+			: Servidor(_r_1_2_5)
+	:m Marca(_r_6)
+		:g (_r_6_7) [1,1] 
+			: DELL(_r_6_7_8)
+			: Toshiba(_r_6_7_9)
+			: Lenovo(_r_6_7_10)
+			: Apple(_r_6_7_11)
+			: Clon(_r_6_7_12)
+	:m SO(_r_13)
+		:g (_r_13_14) [1,1] 
+			: SO Server(_r_13_14_15)
+				:g (_r_13_14_15_21) [1,1] 
+					: Windows Server(_r_13_14_15_21_22)
+					: Red Hat(_r_13_14_15_21_23)
+					: OS X Server(_r_13_14_15_21_24)
+			: SO Personal(_r_13_14_16)
+				:g (_r_13_14_16_17) [1,1] 
+					: Windows 10(_r_13_14_16_17_18)
+					: Fedora(_r_13_14_16_17_19)
+					: OS X Yosemite(_r_13_14_16_17_20)
+	:m CPU(_r_25)
+		:g (_r_25_40) [1,1] 
+			: Intel(_r_25_40_41)
+			: AMD(_r_25_40_42)
+	:m RAM(_r_26)
+		:g (_r_26_27) [1,1] 
+			: 4GB(_r_26_27_28)
+			: 8GB(_r_26_27_29)
+			: 16GB(_r_26_27_30)
+			: 64GB(_r_26_27_31)
+			: 32GB(_r_26_27_57)
+	:m Disco Duro(_r_32)
+		:g (_r_32_34) [1,1] 
+			: 500GB(_r_32_34_35)
+			: 1TB(_r_32_34_36)
+			: 2TB(_r_32_34_37)
+			: 5TB(_r_32_34_38)
+			: 10TB(_r_32_34_39)
+	:o Tarjeta Grafica(_r_33)
+		:g (_r_33_43) [1,1] 
+			: NVIDIA(_r_33_43_44)
+			: ATI Radeon(_r_33_43_45)
+	:o Pantalla(_r_46)
+		:m Tecnologia(_r_46_48)
+			:g (_r_46_48_50) [1,*] 
+				: 3D(_r_46_48_50_51)
+				: 4k(_r_46_48_50_52)
+		:m Tamano(_r_46_49)
+			:g (_r_46_49_53) [1,1] 
+				: 14(_r_46_49_53_54)
+				: 17(_r_46_49_53_55)
+				: 24(_r_46_49_53_56)
+	:o Planta de Poder(_r_47)
+</feature_tree>
+<constraints>
+constraint_17:~_r_1_2_5 or _r_13_14_15
+constraint_18:~_r_1_2_5 or ~_r_26_27_28
+constraint_19:~_r_1_2_5 or ~_r_26_27_29
+constraint_22:~_r_1_2_5 or ~_r_32_34_36
+constraint_8:~_r_1_2_3 or ~_r_32_34_39
+constraint_23:~_r_1_2_5 or ~_r_32_34_37
+constraint_9:~_r_1_2_3 or ~_r_26_27_31
+constraint_10:~_r_1_2_4 or ~_r_26_27_31
+constraint_20:~_r_1_2_5 or ~_r_26_27_30
+constraint_11:~_r_1_2_3 or ~_r_26_27_57
+constraint_21:~_r_1_2_5 or ~_r_32_34_35
+constraint_7:~_r_1_2_3 or ~_r_32_34_38
+constraint_12:~_r_1_2_4 or ~_r_26_27_57
+constraint_4:~_r_1_2_4 or _r_46
+constraint_13:~_r_1_2_3 or ~_r_13_14_15
+constraint_14:~_r_1_2_4 or ~_r_13_14_15
+constraint_24:~_r_1_2_4 or _r_46_48_50_51
+constraint_25:~_r_1_2_4 or _r_46_48_50_52
+constraint_3:~_r_1_2_4 or ~_r_6_7_12
+constraint_16:_r_6_7_11 or ~_r_13_14_16_17_20
+</constraints>
+</feature_model>

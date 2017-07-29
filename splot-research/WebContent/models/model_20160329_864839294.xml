@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 11:10 PM  -->
+<feature_model name="urna_2012054743">
+<meta>
+<data name="description">urna_2012054743</data>
+<data name="creator">2012054743</data>
+<data name="address"></data>
+<data name="email">deby.ac@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna Eletronica(_r)
+	:m Seguranca(_r_6)
+		:g (_r_6_7) [1,1] 
+			: Com senha(_r_6_7_8)
+			: Sem senha(_r_6_7_9)
+	:m Eleitor(_r_10)
+		:g (_r_10_11) [1,*] 
+			: Titulo de eleitor(_r_10_11_12)
+			: CPF(_r_10_11_13)
+			: RG(_r_10_11_14)
+	:m Candidato(_r_15)
+		:g (_r_15_16) [1,*] 
+			: Presidente(_r_15_16_17)
+			: Senador(_r_15_16_18)
+			: Prefeito(_r_15_16_19)
+			: Vereador(_r_15_16_20)
+			: Chefe de departamento(_r_15_16_21)
+	:o Anulacao(_r_22)
+		:g (_r_22_23) [1,*] 
+			: Branco(_r_22_23_25)
+			: Nulo(_r_22_23_26)
+	:m Estatisticas(_r_27)
+		:o Categorizar(_r_27_28)
+		:o Ponderar(_r_27_30)
+		:o Numero de votos(_r_27_21)
+		:o Porcentagem de votos(_r_27_22)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

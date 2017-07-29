@@ -1,0 +1,30 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 30, 2014 - 2:02 PM  -->
+<feature_model name="Rotary_Element">
+<meta>
+<data name="description">knob or similar</data>
+<data name="creator">John Doe</data>
+<data name="address"></data>
+<data name="email">prefer.not@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">my_home</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r rotary_element(_r)
+	:o encoder(_r_1)
+		:m signal_evaluation(_r_1_9)
+			:g (_r_1_9_10) [1,1] 
+				: 2_edges(_r_1_9_10_11)
+				: 4_edges(_r_1_9_10_12)
+		:m direction(_r_1_13)
+			:m clock_wise(_r_1_13_14)
+			:m counter_clock_wise(_r_1_13_16)
+	:o potentiometer(_r_5)
+	:o wakeable(_r_8)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

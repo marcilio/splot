@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Feb 7, 2014 - 2:15 PM  -->
+<feature_model name="ID">
+<meta>
+<data name="description">Models instructional design</data>
+<data name="creator">Vikram Bejawada</data>
+<data name="address"></data>
+<data name="email">vikram.bejawada@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">SPL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ID(_r)
+	:m Context(_r_1)
+	:m Process(_r_2)
+		:g (_r_2_4) [1,*] 
+			: Play(_r_2_4_5)
+				:g (_r_2_4_5_6) [1,*] 
+					: Act(_r_2_4_5_6_7)
+						:g (_r_2_4_5_6_7_8) [1,*] 
+							: Scene(_r_2_4_5_6_7_8_9)
+								:g (_r_2_4_5_6_7_8_9_10) [1,*] 
+									: Instruction(_r_2_4_5_6_7_8_9_10_11)
+	:m Content(_r_12)
+	:m Goals(_r_13)
+	:m Evaluation(_r_14)
+	:m Environment(_r_15)
+	:m Roles(_r_16)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

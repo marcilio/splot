@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 10, 2014 - 11:26 AM  -->
+<feature_model name="XOR NEW">
+<meta>
+<data name="description">NEWWWWWWWWWWWW</data>
+<data name="creator">RAFATTTTTTT</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">lirmm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:o F1(_r_1)
+		:o F5(_r_1_2)
+	:o F2(_r_3)
+	:o F3(_r_4)
+	:o F4(_r_5)
+		:o F7(_r_5_6)
+	:o F6(_r_7)
+	:o 1(_r_8)
+	:o 2(_r_9)
+	:o 3(_r_10)
+</feature_tree>
+<constraints>
+constraint_1:_r_3 or ~_r_7
+constraint_8:~_r_3 or ~_r_5
+constraint_10:~_r_5 or ~_r_7
+constraint_9:~_r_1_2 or ~_r_5
+constraint_6:~_r_1 or ~_r_7
+constraint_7:~_r_1 or ~_r_5_6
+constraint_4:~_r_1 or ~_r_4
+constraint_5:~_r_1 or ~_r_5
+constraint_2:_r_4 or ~_r_7
+constraint_3:~_r_1 or ~_r_3
+</constraints>
+</feature_model>

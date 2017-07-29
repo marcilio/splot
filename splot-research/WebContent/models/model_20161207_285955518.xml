@@ -1,0 +1,87 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Dec 9, 2016 - 2:23 PM  -->
+<feature_model name="Thermonator">
+<meta>
+<data name="description">Model for Thermonator product</data>
+<data name="creator">Damjan_Angjela_Asmaa_Maria</data>
+<data name="address"></data>
+<data name="email">neladavitkova12@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">FINKI</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Root(_r)
+	:m Sensor_Data(_r_2)
+		:g (_r_2_18) [1,*] 
+			: Temperature_Humidity_Inside(_r_2_18_19)
+			: Temperature_Outside(_r_2_18_20)
+			: Humidity_Pressure_Outside(_r_2_18_21)
+	:o Advanced_Sensor_Data(_r_3)
+		:g (_r_3_65) [1,*] 
+			: Light_and_UV(_r_3_65_66)
+			: Wind_and_rain(_r_3_65_67)
+	:o Professional_Sensor_Data(_r_17)
+		:g (_r_17_68) [1,*] 
+			: High_Precision_Sensors(_r_17_68_69)
+			: Solar_Radiation_and_Lighting(_r_17_68_70)
+	:o Clock_Date_Alarm(_r_18)
+		:g (_r_18_71) [1,*] 
+			: Clock_Date(_r_18_71_72)
+				:g (_r_18_71_72_74) [1,1] 
+					: Manual(_r_18_71_72_74_75)
+					: Automatic(_r_18_71_72_74_76)
+			: Alarm(_r_18_71_73)
+	:o Weather_Forecast(_r_19)
+		:g (_r_19_77) [1,*] 
+			: Radio(_r_19_77_78)
+			: Calculated_up_to_12_hours(_r_19_77_79)
+			: Calculated_up_to_24_hours(_r_19_77_80)
+			: Internet(_r_19_77_81)
+	:m Power(_r_20)
+		:g (_r_20_30) [1,1] 
+			: AAA_Battery(_r_20_30_31)
+			: Rechargable_Battery(_r_20_30_32)
+			: External_Power_Supply(_r_20_30_33)
+				:o Solar_Charging_Battery(_r_20_30_33_34)
+	:o LCD_Screen(_r_21)
+		:g (_r_21_82) [1,*] 
+			: Backlight(_r_21_82_83)
+			: Screen_Size(_r_21_82_84)
+				:g (_r_21_82_84_91) [1,1] 
+					: 4(_r_21_82_84_91_92)
+					: 5(_r_21_82_84_91_93)
+					: 7(_r_21_82_84_91_94)
+					: 9(_r_21_82_84_91_95)
+			: Screen_Type(_r_21_82_85)
+				:g (_r_21_82_85_87) [1,1] 
+					: Monochrome(_r_21_82_85_87_88)
+					: Color_and_Animation(_r_21_82_85_87_89)
+						:o High_Resolution_Touchscreen(_r_21_82_85_87_89_90)
+	:o User_Interface(_r_22)
+		:g (_r_22_51) [1,1] 
+			: Static(_r_22_51_52)
+			: Adjustable(_r_22_51_53)
+	:o Language_Units_Support(_r_24)
+		:g (_r_24_96) [1,*] 
+			: Eng_Spanish_German_Franch_Portuguese(_r_24_96_97)
+			: Popular_European_Languages(_r_24_96_98)
+			: Popular_Arabic_and_Asian_Languages(_r_24_96_99)
+	:o Connectivity(_r_25)
+		:g (_r_25_100) [1,*] 
+			: Radio(_r_25_100_101)
+			: Bluetooth(_r_25_100_102)
+			: Wi-Fi(_r_25_100_103)
+	:o Smartphone_App(_r_26)
+		:m Logging(_r_26_60)
+			:o Notifications(_r_26_60_61)
+	:o Smart_Home(_r_27)
+		:g (_r_27_104) [1,*] 
+			: Automatic_Control(_r_27_104_105)
+			: Smartphone_Control(_r_27_104_106)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,52 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 6, 2014 - 8:15 AM  -->
+<feature_model name="Smart_Home">
+<meta>
+<data name="description">Smart_Home</data>
+<data name="creator">Lucas Garcia</data>
+<data name="address"></data>
+<data name="email">lucas.sg@globo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Smart_Home(_r)
+	:o Environmental_Control(_r_1)
+		:m Automatic_Windows(_r_1_2)
+	:o Debug(_r_3)
+		:o Dump_Models(_r_3_4)
+		:o Tracing(_r_3_5)
+			:o Window_Status_Printer(_r_3_5_6)
+			:o Thermometer_Status_Printer(_r_3_5_7)
+		:o Viewer(_r_3_8)
+		:o Reflective_Data_Structure(_r_3_9)
+	:o Device_Extras(_r_10)
+		:o Dimmable_Lights(_r_10_11)
+		:o Outdoor_Temperature(_r_10_12)
+	:o Security(_r_13)
+		:o Burglar_Alarm(_r_13_14)
+			:g (_r_13_14_15) [1,*] 
+				: Siren(_r_13_14_15_16)
+				: Bell(_r_13_14_15_17)
+				: Light(_r_13_14_15_18)
+		:o Authentication(_r_13_19)
+		:o Authorization(_r_13_20)
+		:o Light_Simulation(_r_13_21)
+	:o Test(_r_22)
+		:o Deploy_Tests(_r_22_23)
+		:o Execute_Tests(_r_22_24)
+	:m Deployment(_r_25)
+		:g (_r_25_26) [1,1] 
+			: Per_Floor(_r_25_26_27)
+			: Per_Room(_r_25_26_28)
+			: Per_House(_r_25_26_29)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3_8 or _r_3_9
+constraint_2:_r_22_23 or ~_r_22_24
+constraint_3:_r_13_19 or ~_r_13_20
+</constraints>
+</feature_model>

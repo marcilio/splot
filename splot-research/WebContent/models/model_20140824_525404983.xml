@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Aug 24, 2014 - 1:04 PM  -->
+<feature_model name="Market Place">
+<meta>
+<data name="description">linea de producto para generacion de market place personalizados</data>
+<data name="creator">Diana Cardenas</data>
+<data name="address"></data>
+<data name="email">d.cardenas10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MP(_r)
+	:m Catalogo de compras(_r_1)
+		:m seleccionar producto(_r_1_10)
+		:m buscar producto(_r_1_11)
+			:m comprar producto(_r_1_11_12)
+			:o recibir informacion de productos complementarios(_r_1_11_13)
+	:m visualizacion(_r_2)
+		:m visualizar informacion basica(_r_2_17)
+		:o visualizar en moviles(_r_2_18)
+		:o promocionar por medio de videos(_r_2_20)
+		:o visualizar informacion detallada(_r_2_21)
+		:o rastrear pedidos(_r_2_22)
+	:m Satisfaccion de usuario(_r_3)
+		:m calificar la plataforma(_r_3_23)
+		:o Redimir puntos obtenido por la fidelizacion(_r_3_24)
+		:m Publicar recomendaciones del marketplace por twitter y facebook(_r_3_25)
+		:m Registrar peticiones quejas y reclamos(_r_3_26)
+		:m onsultar respuesta  a peticiones quejas yo reclamos(_r_3_27)
+	:m Pagos(_r_4)
+		:m Registrar pago(_r_4_28)
+			:m Validar y confirmar registro de pago(_r_4_28_29)
+		:m Definir medios de pago(_r_4_30)
+		:o seleccionar multimoneda(_r_4_31)
+	:o Estadisticas(_r_5)
+		:m Visualizar en grafica la evaluacion de clientes de un proveedor(_r_5_32)
+		:o Visualizar en grafica los productos mejor vendidos de un proveedor(_r_5_33)
+		:m Generar reporte de clientes que hacen uso del marketplace(_r_5_34)
+		:m Generar reporte de los productos mas vendidos(_r_5_35)
+	:m Facturacion(_r_6)
+		:m Pagar Factura de Servicios Recibidos(_r_6_36)
+			:m Asegurar Transferencias Bancarias(_r_6_36_37)
+		:o Consultar  Reportes de Facturacion y Consumos(_r_6_38)
+	:m Administracion de productos(_r_7)
+		:m Configurar productos nuevos(_r_7_39)
+		:o Crear Oferta - Combos de productos(_r_7_41)
+		:o Rastrear productos vendidos(_r_7_42)
+		:m Ajustar unidades por producto(_r_7_43)
+	:m Configuracion del portal(_r_8)
+		:m Administrar informacion del marketplace(_r_8_44)
+		:m Personalizar portal(_r_8_45)
+		:m Gestionar copias de seguridad(_r_8_46)
+		:o Notificar(_r_8_47)
+	:o mercadeo(_r_9)
+		:m Realizar segmentacion  del cliente(_r_9_48)
+			:m Realizar atencion personalizada(_r_9_48_49)
+			:m Generar interaccion en redes sociales(_r_9_48_50)
+			:o Generar el top 10 de los productos mas vendidos(_r_9_48_51)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

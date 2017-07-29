@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 27, 2017 - 4:08 AM  -->
+<feature_model name="27-5-207 test">
+<meta>
+<data name="description">test</data>
+<data name="creator">javed</data>
+<data name="address"></data>
+<data name="email">M.Javed@uon.edu.au</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Newcastle</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r 27-5-2017 test(_r)
+	:m Feature-1(_r_1)
+	:m Feature-2(_r_2)
+		:g (_r_2_3) [1,1] 
+			: Feature-4(_r_2_3_4)
+			: Feature-5(_r_2_3_5)
+	:g (_r_7) [1,*] 
+		: Feature-8(_r_7_8)
+	:g (_r_9) [1,*] 
+		: Feature-10(_r_9_10)
+			:o Feature-14(_r_9_10_14)
+		: Feature-11(_r_9_11)
+		: Feature-12(_r_9_12)
+	:o Feature-13(_r_13)
+</feature_tree>
+<constraints>
+constraint_4:_r_1 or ~_r_2_3_5
+constraint_5:_r_1 or ~_r_2_3_5
+constraint_2:_r or _r_2_3_4
+constraint_3:_r_1 or ~_r_2_3_5
+</constraints>
+</feature_model>

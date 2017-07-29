@@ -1,0 +1,71 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Nov 22, 2015 - 8:43 PM  -->
+<feature_model name="SSC">
+<meta>
+<data name="description">Smart Sensor Controller</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SSC(_r)
+	:m Technology(_r_1)
+		:g (_r_1_13) [1,*] 
+			: Bluetooth(_r_1_13_14)
+			: ZigBee(_r_1_13_15)
+			: BLE(_r_1_13_16)
+	:m SerialPort(_r_2)
+	:m BitsPerSecond(_r_3)
+		:g (_r_3_21) [1,1] 
+			: 75(_r_3_21_22)
+			: 110(_r_3_21_23)
+			: 134(_r_3_21_24)
+			: 150(_r_3_21_25)
+			: 300(_r_3_21_26)
+			: 600(_r_3_21_27)
+			: 1200(_r_3_21_28)
+			: 1800(_r_3_21_29)
+			: 2400(_r_3_21_30)
+			: 4800(_r_3_21_31)
+			: 7200(_r_3_21_32)
+			: 9600(_r_3_21_33)
+			: 14400(_r_3_21_34)
+			: 19200(_r_3_21_35)
+			: 38400(_r_3_21_36)
+			: 57600(_r_3_21_37)
+			: 115200(_r_3_21_38)
+			: 128000(_r_3_21_39)
+	:m Parity(_r_4)
+		:g (_r_4_40) [1,1] 
+			: None(_r_4_40_41)
+			: Even(_r_4_40_42)
+			: Odd(_r_4_40_43)
+			: Mark(_r_4_40_44)
+			: Space(_r_4_40_45)
+	:m DataBits(_r_5)
+		:g (_r_5_46) [1,1] 
+			: 4(_r_5_46_47)
+			: 5(_r_5_46_48)
+			: 6(_r_5_46_49)
+			: 7(_r_5_46_50)
+			: 8(_r_5_46_51)
+	:m StopBits(_r_6)
+		:g (_r_6_52) [1,1] 
+			: 1(_r_6_52_53)
+			: 1_5(_r_6_52_54)
+			: 2(_r_6_52_55)
+	:m SleepTimeBefore(_r_7)
+	:m ServerPort(_r_8)
+	:m ServerIP(_r_9)
+	:m DataSize(_r_10)
+	:m SentDataSize(_r_11)
+	:m SleepTimeAfter(_r_12)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

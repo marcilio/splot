@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Dec 9, 2016 - 11:33 AM  -->
+<feature_model name="HADAS-security">
+<meta>
+<data name="description">security variability modeling</data>
+<data name="creator">monica</data>
+<data name="address"></data>
+<data name="email">mpintoa@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Málaga</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r security(_r)
+	:m confidentiality(_r_1)
+		:m key(_r_1_2)
+		:m algorithm(_r_1_3)
+			:g (_r_1_3_6) [1,1] 
+				: AES(_r_1_3_6_7)
+				: ARCFOUR(_r_1_3_6_8)
+				: BLOWFISH(_r_1_3_6_9)
+				: DESede(_r_1_3_6_10)
+				: DES(_r_1_3_6_11)
+				: RC4(_r_1_3_6_12)
+				: RSA(_r_1_3_6_13)
+				: PBEwithMD5andDES(_r_1_3_6_14)
+				: PBEwithSHA1andDESede(_r_1_3_6_15)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

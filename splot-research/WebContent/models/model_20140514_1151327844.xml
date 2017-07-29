@@ -1,0 +1,78 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 22, 2016 - 4:00 PM  -->
+<feature_model name="SPLOT Tutorial">
+<meta>
+<data name="description">An attempt to explain how the program works</data>
+<data name="creator">Carlos Rangel</data>
+<data name="address"></data>
+<data name="email">carangelmx@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Casa</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SPLOT(_r)
+	:m Mandatory feature - black dot(_r_1)
+	:o Optional feature - white dot(_r_2)
+	:g (_r_3) [1,*] 
+		: Above is OR Group - 1st option(_r_3_4)
+		: Above is OR Group - 2nd option(_r_3_5)
+		: Above is OR Group - 3rd option(_r_3_6)
+	:g (_r_7) [1,1] 
+		: Above is XOR Group - 1st option(_r_7_8)
+		: Above is XOR Group - 2nd option(_r_7_9)
+		: Above is XOR Group - 3rd option(_r_7_10)
+	:m OR Group let you choose all of them or any one or no one(_r_11)
+	:m XOR Group let you choose one and only one of them(_r_12)
+	:m ---PART 2 - RELATIONS(_r_13)
+	:m Father(_r_14)
+		:o Child1(_r_14_15)
+			:m Age(_r_14_15_16)
+				:g (_r_14_15_16_18) [1,1] 
+					: under 18(_r_14_15_16_18_19)
+					: 18 and above(_r_14_15_16_18_20)
+			:m Gender(_r_14_15_17)
+				:g (_r_14_15_17_21) [1,1] 
+					: Male(_r_14_15_17_21_22)
+					: Girl(_r_14_15_17_21_23)
+		:o Child2 - sibling from Child1(_r_14_25)
+		:m Child3 - sibling from Child2(_r_14_27)
+	:m ---PART 3 - Constrains(_r_28)
+	:m Check Instructions on top of the page and then http-en-wikipedia-org-wiki-Truth_table checking logical implication operator among others(_r_29)
+	:m You probably will need to translate logical statements to CNF Clauses then use http-calculator-tutorvista-com-math-582-boolean-algebra-calculator-html(_r_31)
+	:m Example - 3x3 Matrix(_r_32)
+		:g (_r_32_33) [1,1] 
+			: Row 1(_r_32_33_34)
+			: Row 2(_r_32_33_35)
+			: Row 3(_r_32_33_36)
+		:g (_r_32_38) [1,1] 
+			: Column A(_r_32_38_39)
+			: Column B(_r_32_38_40)
+			: Column C(_r_32_38_41)
+		:o Resulting Element is Row N x Column L(_r_32_42)
+			:g (_r_32_42_45) [1,1] 
+				: 1A(_r_32_42_45_46)
+				: 1B(_r_32_42_45_47)
+				: 1C(_r_32_42_45_48)
+				: 2A(_r_32_42_45_49)
+				: 2B(_r_32_42_45_50)
+				: 2C(_r_32_42_45_51)
+				: 3A(_r_32_42_45_52)
+				: 3B(_r_32_42_45_53)
+				: 3C(_r_32_42_45_54)
+	:m IF ROW_1 AND COLUMN_A THEN 1A is translated to CNF NOT ROW_1 OR NOT ROW_2 OR 1A(_r_55)
+</feature_tree>
+<constraints>
+constraint_1:~_r_32_33_34 or ~_r_32_38_39 or _r_32_42_45_46
+constraint_8:~_r_32_33_36 or ~_r_32_38_39 or _r_32_42_45_52
+constraint_10:~_r_32_33_36 or ~_r_32_38_41 or _r_32_42_45_54
+constraint_9:~_r_32_33_36 or ~_r_32_38_40 or _r_32_42_45_53
+constraint_6:~_r_32_33_35 or ~_r_32_38_40 or _r_32_42_45_50
+constraint_7:~_r_32_33_35 or ~_r_32_38_41 or _r_32_42_45_51
+constraint_4:~_r_32_33_34 or ~_r_32_38_41 or _r_32_42_45_48
+constraint_5:~_r_32_33_35 or ~_r_32_38_39 or _r_32_42_45_49
+constraint_2:~_r_32_33_34 or ~_r_32_38_40 or _r_32_42_45_47
+</constraints>
+</feature_model>

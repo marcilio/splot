@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Dec 12, 2014 - 8:16 AM  -->
+<feature_model name="e-commerce">
+<meta>
+<data name="description">electronic shopping</data>
+<data name="creator">Ahmed</data>
+<data name="address"></data>
+<data name="email">irq1971@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ozyegin university</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-commerce(_r)
+	:m Payment methods(_r_1)
+		:g (_r_1_5) [1,1] 
+			: Credit card(_r_1_5_6)
+			: Debit card(_r_1_5_9)
+			: Net-banking(_r_1_5_10)
+	:m Sevices(_r_2)
+		:g (_r_2_11) [1,*] 
+			: Item search(_r_2_11_12)
+			: Personal information(_r_2_11_13)
+			: Delivary(_r_2_11_14)
+				:o Drop-shippng(_r_2_11_14_16)
+				:o Shipping(_r_2_11_14_17)
+				:o Downloading(_r_2_11_14_18)
+			: Language(_r_2_11_15)
+	:m Buying and Saelling(_r_3)
+	:m Shopping Card (_r_4)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

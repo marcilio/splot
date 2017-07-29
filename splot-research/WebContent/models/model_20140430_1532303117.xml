@@ -1,0 +1,59 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 30, 2014 - 12:11 PM  -->
+<feature_model name="TAM Reservas">
+<meta>
+<data name="description">Site TAM Reservas</data>
+<data name="creator">Fernando Benbassat</data>
+<data name="address"></data>
+<data name="email">fcb@cin.ufpe.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department">CIn</data>
+<data name="date">29-04-2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r TAM Reservas(_r)
+	:g (_r_3) [1,1] 
+		: Ida e Volta(_r_3_4)
+		: Somente Ida(_r_3_5)
+	:m Local Partida(_r_7)
+	:m Local Destino(_r_10)
+	:m Pagamento(_r_11)
+		:g (_r_11_12) [1,1] 
+			: Dinheiro(_r_11_12_13)
+				:g (_r_11_12_13_21) [1,1] 
+					: Especie(_r_11_12_13_21_22)
+					: Cartao(_r_11_12_13_21_23)
+						:g (_r_11_12_13_21_23_25) [1,1] 
+							: 1 parcela - avista(_r_11_12_13_21_23_25_27)
+							: 2 parcelas(_r_11_12_13_21_23_25_28)
+							: 3 parcelas(_r_11_12_13_21_23_25_29)
+							: 4 parcelas(_r_11_12_13_21_23_25_30)
+							: 5 parcelas(_r_11_12_13_21_23_25_31)
+							: 6 parcelas(_r_11_12_13_21_23_25_32)
+					: Boleto(_r_11_12_13_21_24)
+			: Pontos Multiplos(_r_11_12_18)
+	:m Data(_r_33)
+		:m Data Partida(_r_33_34)
+		:o Data Retorno(_r_33_36)
+	:m Passageiros(_r_37)
+		:m Adulto(_r_37_38)
+		:o Crianca(_r_37_39)
+		:o Bebes de colo(_r_37_40)
+	:m Dados do voo Partida(_r_50)
+		:g (_r_50_52) [1,1] 
+			: Promo(_r_50_52_53)
+			: Classico(_r_50_52_54)
+			: Irrestrito(_r_50_52_55)
+	:o Dados do voo Retorno(_r_51)
+		:g (_r_51_56) [1,1] 
+			: Promo(_r_51_56_57)
+			: Classico(_r_51_56_58)
+			: Irrestrito(_r_51_56_59)
+</feature_tree>
+<constraints>
+constraint_6:~_r_3_4 or _r_33_36 or _r_51
+constraint_3:~_r_3_5 or ~_r_33_36 or ~_r_51
+</constraints>
+</feature_model>

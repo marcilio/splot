@@ -1,0 +1,50 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 23, 2015 - 3:17 PM  -->
+<feature_model name="WindFarm">
+<meta>
+<data name="description">A simplified wind farm ecosystem.</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GReat-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r WindFarm(_r)
+	:m Type(_r_2)
+		:g (_r_2_3) [1,1] 
+			: Onshore(_r_2_3_4)
+			: Offshore(_r_2_3_5)
+	:m Substation(_r_6)
+	:m WindTurbine(_r_7)
+		:m ControlSystem(_r_7_9)
+		:m Component(_r_7_10)
+			:m Blade(_r_7_10_23)
+			:m Rotor(_r_7_10_25)
+			:m Pitch(_r_7_10_26)
+				:g (_r_7_10_26_27) [1,1] 
+					: Lust(_r_7_10_26_27_28)
+					: Moog(_r_7_10_26_27_29)
+			:m GearBox(_r_7_10_30)
+			:m Yaw(_r_7_10_31)
+			:m Generator(_r_7_10_33)
+			:m Converter(_r_7_10_34)
+				:g (_r_7_10_34_39) [1,1] 
+					: ABB(_r_7_10_34_39_40)
+					: GE(_r_7_10_34_39_41)
+					: SEG(_r_7_10_34_39_42)
+		:m SCADASystem(_r_7_11)
+	:o MeteoStation(_r_12)
+	:m Provider(_r_13)
+		:m Model(_r_13_14)
+			:g (_r_13_14_18) [1,1] 
+				: Eco80(_r_13_14_18_19)
+				: Eco100(_r_13_14_18_20)
+				: Eco110(_r_13_14_18_21)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

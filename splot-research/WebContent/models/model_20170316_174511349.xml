@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 16, 2017 - 11:34 AM  -->
+<feature_model name="dinner">
+<meta>
+<data name="description">dinner </data>
+<data name="creator">tal maya</data>
+<data name="address"></data>
+<data name="email">talsolomon3@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">TAU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Dinner(_r)
+	:m main course(_r_2)
+		:g (_r_2_8) [1,1] 
+			: spicy tacos(_r_2_8_9)
+			: burger(_r_2_8_13)
+	:o appetizer(_r_3)
+		:m bread(_r_3_12)
+		:o vegetables(_r_3_33)
+			:g (_r_3_33_34) [1,*] 
+				: salad(_r_3_33_34_35)
+				: veg burrito(_r_3_33_34_36)
+	:o dessert(_r_4)
+		:g (_r_4_18) [1,*] 
+			: ice cream(_r_4_18_19)
+			: pancake(_r_4_18_20)
+			: cake(_r_4_18_21)
+	:o drink(_r_25)
+		:g (_r_25_28) [1,1] 
+			: water(_r_25_28_29)
+			: beer(_r_25_28_30)
+</feature_tree>
+<constraints>
+constraint_6:~_r_4 or ~_r_3_33_34_35
+constraint_7:_r_2_8_9 or ~_r_3_33_34_36
+constraint_4:~_r_2_8_9 or _r_25_28_29
+</constraints>
+</feature_model>

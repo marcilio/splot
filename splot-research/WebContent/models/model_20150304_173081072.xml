@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 23, 2015 - 8:56 PM  -->
+<feature_model name="Lampiro">
+<meta>
+<data name="description">Lampiro</data>
+<data name="creator">Luiz</data>
+<data name="address"></data>
+<data name="email">luiz@ic.ufal.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">al</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Project(_r)
+	:o Timing(_r_1)
+	:o Motorola(_r_2)
+	:o Screensaver(_r_3)
+	:o Send_debug1(_r_4)
+	:o UI(_r_5)
+	:m derivatives(_r_6)
+		:o x_notTiming(_r_6_13)
+		:o x_notUI(_r_6_14)
+		:o x_notBXMPP(_r_6_15)
+		:o x_notCompression(_r_6_16)
+		:o x_notTLS(_r_6_17)
+		:o x_notGlider(_r_6_18)
+		:o x_not_Bludeno(_r_6_19)
+	:o TLS(_r_7)
+	:o Compression(_r_8)
+	:o BXMPP(_r_9)
+	:o Glider(_r_10)
+	:o not_plain_socket(_r_11)
+	:o Bludeno(_r_12)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1 or ~_r_6_13
+constraint_8:_r_8 or _r_6_16
+constraint_9:~_r_7 or ~_r_6_17
+constraint_10:_r_7 or _r_6_17
+constraint_6:_r_9 or _r_6_15
+constraint_11:~_r_10 or ~_r_6_18
+constraint_7:~_r_8 or ~_r_6_16
+constraint_12:_r_10 or _r_6_18
+constraint_4:_r_5 or _r_6_14
+constraint_13:~_r_12 or ~_r_6_19
+constraint_14:_r_12 or _r_6_19
+constraint_5:~_r_9 or ~_r_6_15
+constraint_2:_r_1 or _r_6_13
+constraint_3:~_r_5 or ~_r_6_14
+</constraints>
+</feature_model>

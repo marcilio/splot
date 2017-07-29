@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jan 9, 2015 - 2:40 PM  -->
+<feature_model name="bike">
+<meta>
+<data name="description">bike product line</data>
+<data name="creator">ana</data>
+<data name="address"></data>
+<data name="email">ana.allian@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">uem</data>
+<data name="department"></data>
+<data name="date">09/01/2015</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r bike(_r)
+	:m rodas(_r_1)
+		:m aros(_r_1_3)
+			:g (_r_1_3_25) [1,1] 
+				: 20p(_r_1_3_25_26)
+				: 24p(_r_1_3_25_27)
+				: 27p(_r_1_3_25_28)
+		:m cubos(_r_1_4)
+			:g (_r_1_4_40) [1,1] 
+				: rolamentoBlindado(_r_1_4_40_41)
+				: rolamentoCeramica(_r_1_4_40_42)
+		:m raio(_r_1_5)
+			:g (_r_1_5_29) [1,1] 
+				: aco(_r_1_5_29_30)
+				: titanio(_r_1_5_29_31)
+		:m pneus(_r_1_36)
+			:g (_r_1_36_37) [1,1] 
+				: slick(_r_1_36_37_38)
+				: cravo(_r_1_36_37_39)
+	:m cambio(_r_6)
+		:m traseiro(_r_6_15)
+			:g (_r_6_15_43) [1,1] 
+				: aluminio(_r_6_15_43_44)
+				: fibraCarbono(_r_6_15_43_45)
+		:o dianteiro(_r_6_16)
+			:g (_r_6_16_34) [1,1] 
+				: aluminio(_r_6_16_34_35)
+				: fibraCarbono(_r_6_16_34_36)
+	:m freios(_r_7)
+		:g (_r_7_11) [1,1] 
+			: cantilever(_r_7_11_12)
+			: v-brake(_r_7_11_13)
+			: disco(_r_7_11_14)
+	:m pedais(_r_8)
+		:g (_r_8_17) [1,1] 
+			: encaixe(_r_8_17_18)
+			: plataforma(_r_8_17_21)
+	:m quadro(_r_9)
+		:g (_r_9_22) [1,1] 
+			: aluminio(_r_9_22_23)
+			: ferro(_r_9_22_24)
+			: fibraCarbono(_r_9_22_37)
+			: titanio(_r_9_22_38)
+	:o lanterna(_r_32)
+		:g (_r_32_33) [1,1] 
+			: led(_r_32_33_34)
+			: refletor(_r_32_33_35)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

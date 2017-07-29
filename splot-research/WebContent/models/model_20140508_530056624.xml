@@ -1,0 +1,84 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 22, 2016 - 3:59 PM  -->
+<feature_model name="Hamburguesa V2">
+<meta>
+<data name="description">Configurador de hamburguesas</data>
+<data name="creator">Carlos Rangel</data>
+<data name="address"></data>
+<data name="email">carangelmx@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Casa</data>
+<data name="department"></data>
+<data name="date">Mayo 8 2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Hamburguesa V2(_r)
+	:m Pan(_r_1)
+		:g (_r_1_14) [1,1] 
+			: Ajonjoli(_r_1_14_15)
+			: Normal(_r_1_14_16)
+	:m Carne(_r_2)
+		:g (_r_2_11) [1,1] 
+			: Res(_r_2_11_12)
+			: Pollo(_r_2_11_13)
+	:m Aderezos(_r_3)
+		:g (_r_3_17) [1,*] 
+			: Tocino(_r_3_17_18)
+			: Queso(_r_3_17_19)
+			: Tomate(_r_3_17_20)
+			: Cebolla(_r_3_17_21)
+			: Pepinillos(_r_3_17_22)
+			: Lechuga(_r_3_17_23)
+		:o Salsas(_r_3_24)
+			:g (_r_3_24_25) [1,*] 
+				: deTomate(_r_3_24_25_26)
+				: Mayonesa(_r_3_24_25_27)
+				: Bbq(_r_3_24_25_28)
+				: Mostaza(_r_3_24_25_29)
+	:m Empaque(_r_4)
+		:m Carton(_r_4_31)
+		:m Plastico(_r_4_32)
+		:o Bolsa(_r_4_33)
+	:m Tipo(_r_34)
+		:g (_r_34_35) [1,1] 
+			: Fabulosa(_r_34_35_36)
+			: Quesuda(_r_34_35_37)
+			: Grandota(_r_34_35_38)
+			: Chiquita(_r_34_35_39)
+			: Porcina(_r_34_35_40)
+	:m Precio(_r_41)
+		:g (_r_41_42) [1,1] 
+			: 2900(_r_41_42_43)
+			: 3900(_r_41_42_44)
+			: 4900(_r_41_42_45)
+			: 5900(_r_41_42_46)
+			: 6900(_r_41_42_47)
+	:o Para_llevar(_r_48)
+</feature_tree>
+<constraints>
+constraint_17:~_r_3_17_20 or ~_r_34_35_36
+constraint_18:~_r_3_17_21 or ~_r_34_35_36
+constraint_19:~_r_3_17_23 or ~_r_34_35_36
+constraint_22:~_r_3_24_25_27 or ~_r_34_35_36
+constraint_8:_r_1_14_16 or ~_r_34_35_39
+constraint_23:_r_3_24_25_26 or ~_r_34_35_36
+constraint_10:_r_3_17_22 or ~_r_34_35_39
+constraint_9:_r_2_11_12 or ~_r_34_35_39
+constraint_11:_r_3_17_21 or ~_r_34_35_39
+constraint_6:~_r_34_35_38 or _r_41_42_45
+constraint_7:~_r_34_35_36 or _r_41_42_46
+constraint_21:~_r_3_17_18 or ~_r_34_35_36
+constraint_12:_r_3_24_25_29 or ~_r_34_35_39
+constraint_26:_r_3_17_22 or ~_r_34_35_36
+constraint_13:_r_1_14_15 or ~_r_34_35_36
+constraint_4:~_r_34_35_37 or _r_41_42_44
+constraint_14:_r_2_11_12 or ~_r_34_35_36
+constraint_5:~_r_34_35_40 or _r_41_42_47
+constraint_2:_r_4_33 or ~_r_48
+constraint_15:_r_3_17_19 or ~_r_34_35_36
+constraint_24:_r_3_24_25_28 or ~_r_34_35_36
+constraint_3:~_r_34_35_39 or _r_41_42_43
+constraint_25:_r_3_24_25_29 or ~_r_34_35_36
+</constraints>
+</feature_model>

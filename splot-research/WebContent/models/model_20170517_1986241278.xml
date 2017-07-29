@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 17, 2017 - 6:52 PM  -->
+<feature_model name="Manuel">
+<meta>
+<data name="description">Phone</data>
+<data name="creator">Manuel</data>
+<data name="address"></data>
+<data name="email">manuel.robalinho@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UPT</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobolePhone-MR(_r)
+	:m Call(_r_3)
+	:m Screen(_r_4)
+		:g (_r_4_7) [1,1] 
+			: Basic(_r_4_7_8)
+			: Color(_r_4_7_11)
+			: High Resolution(_r_4_7_12)
+	:m Media(_r_5)
+		:g (_r_5_13) [1,*] 
+			: Camera(_r_5_13_14)
+			: MP3(_r_5_13_15)
+	:o GPS(_r_6)
+</feature_tree>
+<constraints>
+constraint_4:_r_4_7_12 or ~_r_5_13_14
+constraint_3:~_r_6 or ~_r_4_7_8
+</constraints>
+</feature_model>

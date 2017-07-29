@@ -1,0 +1,106 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Nov 28, 2016 - 6:10 PM  -->
+<feature_model name="windows7">
+<meta>
+<data name="description">windows7</data>
+<data name="creator">Austin</data>
+<data name="address"></data>
+<data name="email">wkaustin1@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">AustinW</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Accessibility(_r0)
+	:g (_id_0) [1,*] 
+		: ConfigureVoiceRecognition(_r1)
+			:g (_id_1) [1,*] 
+				: RunTheLearningModuleOfYourVoice(_r2)
+				: StartVoiceRecognition(_r3)
+					:g (_id_2) [1,1] 
+						: OfficeMicrophone(_r4)
+						: MicrophoneOnHeadphones(_r5)
+						: Other(_r6)
+				: VoiceRecognitionTutorial(_r7)
+				: ConfigureTheMicrophone(_r8)
+					:g (_id_3) [1,1] 
+						: Other_(_r9)
+						: MicrophoneOnHeadphones_(_r10)
+						: OfficeMicrophone_(_r11)
+		: MakeTheKeyboardEasierToUse(_r12)
+			:g (_id_4) [1,*] 
+				: ControlTheMouseWithTheKeyboard_(_r13)
+					:m ActivateMouseKeys(_r14)
+				: MakeEntryEasier(_r15)
+					:g (_id_5) [1,*] 
+						: ActivateTheToggleButtons(_r16)
+						: ActivateRetentiveKeys(_r17)
+						: ActivateTheFilterKeys(_r18)
+		: Readability(_r19)
+			:g (_id_6) [1,*] 
+				: HearTextAndDescriptionReadAloud(_r20)
+					:g (_id_7) [1,*] 
+						: EnableAudioDescription(_r21)
+						: ActivateTheNarrator(_r22)
+				: EnlargeTheItemDisplayedOnTheScreen(_r23)
+					:g (_id_8) [1,*] 
+						: AdjustTextCLeartype(_r24)
+						: SetCustomTextSize(_r25)
+						: ColorCalibration(_r26)
+						: AdjustTheResolution(_r27)
+							:g (_id_9) [1,*] 
+								: Display(_r28)
+									:m GenericPlugAndPlayMonitorOnStandardVGAGraphicsCard(_r29)
+								: Resolution(_r30)
+									:g (_id_10) [1,1] 
+										: R800x600(_r31)
+										: R1366x768(_r32)
+										: R1024x768(_r33)
+				: EasyOnScreenPlayback(_r34)
+					:g (_id_11) [1,1] 
+						: AverageOneHundredAndTwentyFivePerCent(_r35)
+						: SmallOneHundredPerCent(_r36)
+					:o MagnifyingGlass(_r37)
+						:g (_id_12) [1,1] 
+							: ZoomOutOneHundredPercent(_r38)
+							: ZoomInOneThousandSixHundredPerCent(_r39)
+						:o Display_(_r40)
+							:g (_id_13) [1,1] 
+								: FullScreenPreview(_r41)
+								: FullScreen(_r42)
+								: MagnifyingGlass_(_r43)
+								: Anchor(_r44)
+						:o Parameter(_r45)
+							:g (_id_14) [1,*] 
+								: TheMagnifyingGlassMustFollowTheInsertionPointOfTheText(_r46)
+								: FollowTheMousePointer(_r47)
+								: TrackSelectedItemThroughKeyboard(_r48)
+								: DisplayorFactorWhenZooming(_r49)
+									:g (_id_15) [1,1] 
+										: LessTwentyFivePerCent(_r50)
+										: MoreFourHundredPerCent(_r51)
+								: EnableColorInversion(_r52)
+				: HighContrast(_r53)
+					:g (_id_16) [1,1] 
+						: AeroTheme(_r54)
+							:g (_id_17) [1,1] 
+								: Architecture(_r55)
+								: Characters(_r56)
+								: Nature(_r57)
+								: Landscape(_r58)
+								: Windows7(_r59)
+								: Scene(_r60)
+						: BasicThemeAndContrast(_r61)
+							:g (_id_18) [1,1] 
+								: HighWhiteContrast(_r62)
+								: HighBlackCOntrast(_r63)
+								: HighContrastNumber2(_r64)
+								: HighContrastNumber1(_r65)
+								: ClassicWindows(_r66)
+		: MAkeTheMouseEasyToUse(_r67)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

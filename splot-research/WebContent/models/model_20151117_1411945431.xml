@@ -1,0 +1,54 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 17, 2015 - 6:21 PM  -->
+<feature_model name="IEC">
+<meta>
+<data name="description">Test</data>
+<data name="creator">Alaa</data>
+<data name="address"></data>
+<data name="email">alaakhamis2005@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">MIO</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IEC(_r)
+	:m Contextual Inforamtio(_r_1)
+		:m Bandwidth(_r_1_8)
+			:g (_r_1_8_10) [1,*] 
+				: High(_r_1_8_10_11)
+			:g (_r_1_8_12) [1,*] 
+				: Low(_r_1_8_12_13)
+		:o Latency(_r_1_9)
+			:g (_r_1_9_14) [1,*] 
+				: High(_r_1_9_14_15)
+			:g (_r_1_9_16) [1,*] 
+				: Low(_r_1_9_16_17)
+	:m Message Rank(_r_2)
+		:g (_r_2_18) [1,*] 
+			: High(_r_2_18_19)
+		:g (_r_2_20) [1,*] 
+			: Medium(_r_2_20_21)
+		:g (_r_2_22) [1,*] 
+			: Low(_r_2_22_23)
+	:m Message Composition(_r_3)
+		:m Content(_r_3_24)
+			:g (_r_3_24_27) [1,*] 
+				: Fine-grained(_r_3_24_27_28)
+			:g (_r_3_24_29) [1,*] 
+				: Coarse-grained(_r_3_24_29_30)
+		:m Scope(_r_3_25)
+			:g (_r_3_25_31) [1,*] 
+				: Directed message(_r_3_25_31_32)
+			:g (_r_3_25_33) [1,*] 
+				: Broadcast(_r_3_25_33_34)
+		:m Time(_r_3_26)
+			:g (_r_3_26_35) [1,*] 
+				: Instant(_r_3_26_35_36)
+			:g (_r_3_26_37) [1,*] 
+				: Delayed(_r_3_26_37_38)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

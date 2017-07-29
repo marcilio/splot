@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jul 3, 2017 - 8:08 AM  -->
+<feature_model name="smartAppConcernTest">
+<meta>
+<data name="description">A test for concern in smartApp</data>
+<data name="creator">Clément SIMON</data>
+<data name="address"></data>
+<data name="email">csimon@lirmm.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">LIRMM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r smartApp(_r)
+	:m title(_r_1)
+	:o smallTitle(_r_3)
+	:o themes(_r_4)
+		:g (_r_4_7) [1,*] 
+			: dark(_r_4_7_8)
+			: blue(_r_4_7_9)
+	:m concerns(_r_10)
+		:o concern(_r_10_11)
+			:m id(_r_10_11_12)
+			:o title(_r_10_11_14)
+			:m layout(_r_10_11_15)
+				:m id(_r_10_11_15_16)
+				:o action(_r_10_11_15_18)
+					:o type(_r_10_11_15_18_19)
+						:g (_r_10_11_15_18_19_20) [1,1] 
+							: navigation(_r_10_11_15_18_19_20_23)
+							: method(_r_10_11_15_18_19_20_24)
+							: dataUpdate(_r_10_11_15_18_19_20_25)
+							: dataCreate(_r_10_11_15_18_19_20_26)
+							: login(_r_10_11_15_18_19_20_27)
+							: logout(_r_10_11_15_18_19_20_28)
+</feature_tree>
+<constraints>
+constraint_1:~_r_4_7_8 or _r_10_11_15_18
+</constraints>
+</feature_model>

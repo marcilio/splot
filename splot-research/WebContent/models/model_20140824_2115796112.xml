@@ -1,0 +1,72 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 1, 2014 - 8:53 PM  -->
+<feature_model name="Swap MArketplace">
+<meta>
+<data name="description">Lineas de producto de Marketplace para grandes y medianas empresas</data>
+<data name="creator">Jennyfer Mogollón</data>
+<data name="address"></data>
+<data name="email">mm.jennyfer10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Swap Marketplace(_r)
+	:m Ajustes de cuenta(_r_1)
+		:m CRUD Datos de Consumidor(_r_1_23)
+		:m CRUD Direcciones de Entrega(_r_1_24)
+		:m CRUD Notificaciones y Suscripciones(_r_1_25)
+		:m Recordar Password(_r_1_26)
+		:o CRUD Favoritos(_r_1_27)
+		:m CRUD Datos de Consumidor(_r_1_28)
+		:m CRUD Productos(_r_1_29)
+		:o CRUD Contenido(_r_1_30)
+		:o CRUD Ofertas(_r_1_31)
+	:m Ordenes de Compra(_r_2)
+		:m Ver historial de orden de compra(_r_2_16)
+		:m CRUD Orden de compra(_r_2_17)
+		:m Pagar orden de compra(_r_2_18)
+		:o Calificar orden de compra(_r_2_19)
+			:o Calificar producto(_r_2_19_20)
+			:o Calificar proveedor(_r_2_19_21)
+		:m Consultar seguimiento de la orden de compra(_r_2_22)
+	:m Pagos(_r_3)
+		:m CRUD Formas de Pago(_r_3_32)
+		:m CRUD Datos de Tarjetas(_r_3_33)
+	:m Producto(_r_4)
+		:m Consultar Producto(_r_4_34)
+		:o Agregar a Favoritos(_r_4_35)
+		:o Realizar Pregunta(_r_4_36)
+		:o Consultar Calificaciones(_r_4_37)
+	:m Venta(_r_5)
+		:m Publicar productos(_r_5_9)
+		:m CRUD de formas de pago(_r_5_10)
+		:m Consultar pedidos(_r_5_11)
+		:m CRUD Estado de pedidos(_r_5_12)
+		:o Consultar calificacion de ordenes(_r_5_13)
+		:o Consultar estadisticas(_r_5_14)
+		:o Responder preguntas(_r_5_15)
+	:o Transporte(_r_6)
+		:m CRUD Transportadores(_r_6_38)
+		:m Consultar Entregas Pendientes(_r_6_39)
+		:o Consultar Calificaciones(_r_6_40)
+		:m CRUD Seguimiento de Ordenes(_r_6_41)
+	:o Pre-venta(_r_8)
+		:m CRUD Notificaciones y Suscripciones(_r_8_42)
+		:o CRUD Catalogos Sugeridos(_r_8_43)
+</feature_tree>
+<constraints>
+constraint_8:_r_1_24 or _r_1_25 or _r_1_26
+constraint_10:_r_2_19_20 or _r_2_19_21 or ~_r_5_13
+constraint_9:~_r_1_27 or _r_4_35
+constraint_11:~_r_1_24 or ~_r_1_29 or ~_r_1_30 or ~_r_1 or ~_r_2_16 or ~_r_2_18 or ~_r_2_19_20 or ~_r_2_22
+constraint_6:_r_1_27 or ~_r_4_35
+constraint_12:_r_1_27 or _r_4_35
+constraint_7:_r_4_36 or ~_r_5_15
+constraint_13:~_r_2_19_20 or ~_r_2_19_21 or _r_5_13
+constraint_14:_r_1_27 or _r_4_35
+constraint_5:~_r_2_22 or _r_5_12 or _r_6_41
+</constraints>
+</feature_model>

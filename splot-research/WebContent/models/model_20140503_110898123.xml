@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 3, 2014 - 9:56 AM  -->
+<feature_model name="MobilePhone">
+<meta>
+<data name="description">Describes a sample FM in the Mobile Application domain (educational purposes)</data>
+<data name="creator">Ivan Machado</data>
+<data name="address"></data>
+<data name="email">ivanmachado@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFBA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobilePhone(_r)
+	:m Message(_r_1)
+		:g (_r_1_2) [1,*] 
+			: SMS(_r_1_2_3)
+			: MMS(_r_1_2_4)
+	:o GPS(_r_5)
+	:o WiFI(_r_6)
+	:m Screen(_r_7)
+		:g (_r_7_8) [1,1] 
+			: Basic(_r_7_8_9)
+			: HD(_r_7_8_10)
+			: 3D(_r_7_8_11)
+	:m Calls(_r_13)
+	:o Media(_r_14)
+		:g (_r_14_15) [1,*] 
+			: Camera(_r_14_15_16)
+				:g (_r_14_15_16_18) [1,*] 
+					: Front(_r_14_15_16_18_19)
+					: Rear(_r_14_15_16_18_20)
+			: MP3(_r_14_15_17)
+</feature_tree>
+<constraints>
+constraint_2:~_r_5 or ~_r_7_8_9
+constraint_3:_r_7_8_10 or ~_r_14_15_16_18_19
+</constraints>
+</feature_model>

@@ -1,0 +1,87 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 1, 2016 - 2:36 AM  -->
+<feature_model name="PC">
+<meta>
+<data name="description">Arbol de variabilidad</data>
+<data name="creator">Manuel Mancipe</data>
+<data name="address"></data>
+<data name="email">manuel.mancipe@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r PC(_r)
+	:m Tipo(_r_1)
+		:g (_r_1_5) [1,1] 
+			: Mesa(_r_1_5_6)
+			: Portatil(_r_1_5_7)
+			: Servidor(_r_1_5_8)
+	:m Marca(_r_2)
+		:g (_r_2_9) [1,1] 
+			: Dell(_r_2_9_10)
+			: Toshiba(_r_2_9_11)
+			: Lenovo(_r_2_9_12)
+			: Apple(_r_2_9_13)
+			: Clon(_r_2_9_62)
+	:m Tipo SO(_r_3)
+		:g (_r_3_14) [1,1] 
+			: SO PC(_r_3_14_15)
+				:g (_r_3_14_15_17) [1,1] 
+					: Windows 10(_r_3_14_15_17_18)
+					: Fedora de Linux(_r_3_14_15_17_19)
+					: OS X Yosemite(_r_3_14_15_17_20)
+			: SO Servidor(_r_3_14_16)
+				:g (_r_3_14_16_21) [1,1] 
+					: Windows Server(_r_3_14_16_21_22)
+					: Red Hat(_r_3_14_16_21_23)
+					: OS X Server(_r_3_14_16_21_24)
+	:m CPU(_r_4)
+		:m RAM(_r_4_29)
+			:g (_r_4_29_33) [1,1] 
+				: 4GB(_r_4_29_33_34)
+				: 8GB(_r_4_29_33_35)
+				: 16GB(_r_4_29_33_36)
+				: 32GB(_r_4_29_33_37)
+				: 64GB(_r_4_29_33_38)
+		:m Procesador(_r_4_30)
+			:g (_r_4_30_39) [1,1] 
+				: Intel(_r_4_30_39_40)
+				: AMD(_r_4_30_39_41)
+		:m Disco Duro(_r_4_31)
+			:g (_r_4_31_42) [1,1] 
+				: 500GB(_r_4_31_42_43)
+				: 1TB(_r_4_31_42_44)
+				: 2T(_r_4_31_42_45)
+				: 5T(_r_4_31_42_46)
+				: 10T(_r_4_31_42_47)
+		:o Tarjeta Grafica(_r_4_32)
+			:g (_r_4_32_48) [1,1] 
+				: Nvidia(_r_4_32_48_49)
+				: ATI(_r_4_32_48_50)
+	:o Pantalla(_r_51)
+		:o Tecnologia(_r_51_52)
+			:g (_r_51_52_53) [1,*] 
+				: 3D(_r_51_52_53_54)
+				: 4K(_r_51_52_53_55)
+		:o Dimension(_r_51_56)
+			:g (_r_51_56_57) [1,1] 
+				: 14(_r_51_56_57_58)
+				: 17(_r_51_56_57_59)
+				: 24(_r_51_56_57_60)
+	:m Planta Poder(_r_61)
+</feature_tree>
+<constraints>
+constraint_8:~_r_1_5_8 or _r_3_14_16
+constraint_10:~_r_1_5_8 or ~_r_4_31_42_43 or ~_r_4_31_42_44 or ~_r_4_31_42_45
+constraint_9:~_r_1_5_8 or ~_r_4_29_33_34 or ~_r_4_29_33_35 or ~_r_4_29_33_36
+constraint_6:~_r_1_5_6 or ~_r_1_5_7 or ~_r_3_14_16
+constraint_7:~_r_2_9_13 or _r_3_14_15_17_20 or _r_3_14_16_21_24
+constraint_4:~_r_1_5_7 or ~_r_2_9_62
+constraint_5:~_r_1_5_6 or ~_r_1_5_7 or ~_r_4_29_33_37 or ~_r_4_29_33_38
+constraint_2:~_r_1_5_7 or _r_51
+constraint_3:~_r_1_5_6 or ~_r_1_5_7 or ~_r_4_31_42_46 or ~_r_4_31_42_47
+</constraints>
+</feature_model>

@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jun 20, 2016 - 9:54 AM  -->
+<feature_model name="Connecterra design">
+<meta>
+<data name="description">future model happy cow</data>
+<data name="creator">Luc Oude Veldhuis</data>
+<data name="address"></data>
+<data name="email">luc.oudeveldhuis@wur.nl</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Wageningen University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cow Activity Monitoring(_r)
+	:m Heat Detection(_r_9)
+		:m Movement(_r_9_15)
+			:o Walking Speed(_r_9_15_16)
+			:o Lying Time(_r_9_15_17)
+			:o Standing Time(_r_9_15_18)
+		:m Time cycle(_r_9_19)
+			:o Estrus cycle(_r_9_19_20)
+	:m Health Monitoring(_r_14)
+		:m Movement logging(_r_14_21)
+			:o Walking Speed(_r_14_21_23)
+			:o Lying Time(_r_14_21_24)
+			:o Standing Time(_r_14_21_25)
+			:m Location in stable or field(_r_14_21_26)
+				:o Time spent in feeding area(_r_14_21_26_29)
+				:o Time spent in resting area(_r_14_21_26_30)
+				:o Time spent in milking area(_r_14_21_26_31)
+		:m Input and Output(_r_14_22)
+			:o Eating behaviour(_r_14_22_27)
+			:o Milk production(_r_14_22_28)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

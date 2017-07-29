@@ -1,0 +1,63 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Dec 2, 2014 - 1:07 PM  -->
+<feature_model name="Tankwar">
+<meta>
+<data name="description">game</data>
+<data name="creator">BABAB</data>
+<data name="address"></data>
+<data name="email">BA@email.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFLA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r TankWar(_r)
+	:m Platform(_r_1)
+		:g (_r_1_2) [1,1] 
+			: PC(_r_1_2_3)
+			: Handy(_r_1_2_4)
+	:m Language(_r_5)
+		:g (_r_5_6) [1,1] 
+			: EN(_r_5_6_7)
+			: DE(_r_5_6_8)
+	:m GUI(_r_9)
+		:m Map(_r_9_10)
+			:g (_r_9_10_11) [1,1] 
+				: M_240(_r_9_10_11_12)
+				: M_600(_r_9_10_11_13)
+				: M-780(_r_9_10_11_14)
+		:o Image(_r_9_15)
+			:o fuer_PC(_r_9_15_16)
+			:o fuer_Handy(_r_9_15_17)
+			:o IMG_tool(_r_9_15_18)
+		:m Record(_r_9_19)
+			:g (_r_9_19_20) [1,1] 
+				: Re_fuer_PC(_r_9_19_20_21)
+				: Re_fuer_Handy(_r_9_19_20_22)
+		:o Tools(_r_9_23)
+			:g (_r_9_23_24) [1,*] 
+				: Beschleunigung(_r_9_23_24_25)
+				: Einfrieren(_r_9_23_24_26)
+				: Bombe(_r_9_23_24_27)
+				: Energe(_r_9_23_24_28)
+				: Fuerkraft(_r_9_23_24_29)
+				: Mars(_r_9_23_24_30)
+	:m AI(_r_31)
+		:g (_r_31_32) [1,1] 
+			: Easy(_r_31_32_33)
+	:m Tanks(_r_36)
+		:g (_r_36_42) [1,*] 
+			: Usa_M1Abrams(_r_36_42_43)
+			: Germany_Leopard(_r_36_42_44)
+			: China_Type99(_r_36_42_45)
+	:o Soundeffekt(_r_46)
+		:g (_r_46_47) [1,1] 
+			: Sound_fuer_PC(_r_46_47_48)
+			: Sound_fuer_handy(_r_46_47_49)
+	:o Explodieren(_r_50)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

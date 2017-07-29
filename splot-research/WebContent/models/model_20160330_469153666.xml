@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 1:24 AM  -->
+<feature_model name="2 - Eleição de um prefeito e um Vereador">
+<meta>
+<data name="description">2 - Eleição de um prefeito e um Vereador</data>
+<data name="creator">Diego Aniceto</data>
+<data name="address"></data>
+<data name="email">dhca@dcc.ufmg.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Votacao eletronica 2(_r)
+	:m Senha Credenciada(_r_2)
+		:m Eleitor Fornece titulo(_r_2_4)
+			:m Exibicao e confirmacao dos dados(_r_2_4_5)
+				:g (_r_2_4_5_10) [1,*] 
+					: Vota em um prefeito(_r_2_4_5_10_11)
+					: Vota em branco(_r_2_4_5_10_13)
+					: Vota Nulo(_r_2_4_5_10_14)
+				:g (_r_2_4_5_15) [1,*] 
+					: Vota em um Vereador(_r_2_4_5_15_16)
+					: Vota em Branco(_r_2_4_5_15_17)
+					: Vota Nulo(_r_2_4_5_15_18)
+			:m Senha Credenciada final(_r_2_4_20)
+				:m Exibe estatisca da eleicao(_r_2_4_20_22)
+					:m Exibe resultado da eleicao(_r_2_4_20_22_23)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

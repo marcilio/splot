@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 20, 2015 - 7:17 AM  -->
+<feature_model name="search-engine">
+<meta>
+<data name="description">search-engine</data>
+<data name="creator">gilli</data>
+<data name="address"></data>
+<data name="email">gilli200@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">nono</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r search-engine(_r)
+	:o page-translation(_r_1)
+	:m doc-type(_r_2)
+		:m html(_r_2_3)
+		:o image(_r_2_4)
+			:g (_r_2_4_7) [1,*] 
+				: gif(_r_2_4_7_8)
+				: svg(_r_2_4_7_9)
+		:o video(_r_2_5)
+	:o search-by-lang(_r_10)
+	:g (_r_12) [1,1] 
+		: Spanish(_r_12_13)
+		: English(_r_12_14)
+		: French(_r_12_15)
+	:o page-preview(_r_16)
+</feature_tree>
+<constraints>
+constraint_1:_r_1 or ~_r_10
+constraint_4:~_r_2_4_7_9 or ~_r_16
+</constraints>
+</feature_model>

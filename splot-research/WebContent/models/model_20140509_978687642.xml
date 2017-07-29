@@ -1,0 +1,29 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 9, 2014 - 11:53 AM  -->
+<feature_model name="Computer Selection">
+<meta>
+<data name="description">Tests of computer selection system.</data>
+<data name="creator">herrerahe</data>
+<data name="address"></data>
+<data name="email">hhherrerap@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Tests</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computer Selection(_r)
+	:m Software(_r_1)
+		:m OS(_r_1_3)
+		:o Others(_r_1_4)
+	:m Hardware(_r_2)
+		:m Procesador(_r_2_5)
+		:m RAM(_r_2_6)
+		:m HDD(_r_2_7)
+		:m Monitor(_r_2_8)
+		:m Perifericos(_r_2_9)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

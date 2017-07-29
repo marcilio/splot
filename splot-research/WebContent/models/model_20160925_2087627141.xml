@@ -1,0 +1,92 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Sep 25, 2016 - 8:38 PM  -->
+<feature_model name="VentaPC">
+<meta>
+<data name="description">venta</data>
+<data name="creator">Raul</data>
+<data name="address"></data>
+<data name="email">ra.gomez11@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VentasComputadores(_r)
+	:g (_r_1) [1,*] 
+		: TiposPc(_r_1_2)
+			:g (_r_1_2_4) [1,1] 
+				: Mesa(_r_1_2_4_5)
+				: Portatil(_r_1_2_4_6)
+				: Server(_r_1_2_4_7)
+		: Marcas(_r_1_3)
+			:g (_r_1_3_8) [1,1] 
+				: Dell(_r_1_3_8_9)
+				: Toshiba(_r_1_3_8_10)
+				: Lenovo(_r_1_3_8_11)
+				: Apple(_r_1_3_8_12)
+				: Clon(_r_1_3_8_13)
+		: SistemaOperativo(_r_1_14)
+			:g (_r_1_14_15) [1,1] 
+				: Server(_r_1_14_15_16)
+					:g (_r_1_14_15_16_22) [1,1] 
+						: WindowsServer(_r_1_14_15_16_22_23)
+						: RedHat(_r_1_14_15_16_22_24)
+						: OSXServer(_r_1_14_15_16_22_25)
+				: Personal(_r_1_14_15_17)
+					:g (_r_1_14_15_17_18) [1,1] 
+						: Windows10(_r_1_14_15_17_18_19)
+						: OSX(_r_1_14_15_17_18_20)
+						: Fedora(_r_1_14_15_17_18_21)
+		: Partes(_r_1_27)
+			:g (_r_1_27_28) [1,*] 
+				: Ram(_r_1_27_28_29)
+					:g (_r_1_27_28_29_33) [1,*] 
+						: 4GB(_r_1_27_28_29_33_34)
+						: 8GB(_r_1_27_28_29_33_35)
+						: 16GB(_r_1_27_28_29_33_36)
+						: 32GB(_r_1_27_28_29_33_37)
+						: 64GB(_r_1_27_28_29_33_38)
+				: Procesador(_r_1_27_28_30)
+					:g (_r_1_27_28_30_61) [1,1] 
+						: Intel(_r_1_27_28_30_61_62)
+						: AMD(_r_1_27_28_30_61_63)
+				: DiscoDuro(_r_1_27_28_31)
+					:g (_r_1_27_28_31_39) [1,*] 
+						: 500GB(_r_1_27_28_31_39_40)
+						: 1TB(_r_1_27_28_31_39_41)
+						: 2TB(_r_1_27_28_31_39_42)
+						: 5TB(_r_1_27_28_31_39_43)
+						: 10TB(_r_1_27_28_31_39_44)
+				: TarjetaGrafica(_r_1_27_28_32)
+					:g (_r_1_27_28_32_45) [1,*] 
+						: Nvidia(_r_1_27_28_32_45_46)
+						: Radeon(_r_1_27_28_32_45_47)
+				: Pantalla(_r_1_27_28_48)
+					:g (_r_1_27_28_48_49) [1,*] 
+						: Tamano(_r_1_27_28_48_49_50)
+							:g (_r_1_27_28_48_49_50_57) [1,*] 
+								: 14(_r_1_27_28_48_49_50_57_58)
+								: 17(_r_1_27_28_48_49_50_57_59)
+								: 24(_r_1_27_28_48_49_50_57_60)
+						: Tecnologia(_r_1_27_28_48_49_51)
+							:g (_r_1_27_28_48_49_51_52) [1,*] 
+								: 3D(_r_1_27_28_48_49_51_52_53)
+								: 4K(_r_1_27_28_48_49_51_52_54)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_2_4_6 or ~_r_1_3_8_13
+constraint_8:_r_1_2_4_5 or ~_r_1_27_28_31_39_43 or ~_r_1_27_28_31_39_44
+constraint_9:_r_1_2_4_5 or _r_1_2_4_6 or ~_r_1_27_28_29_33_37 or ~_r_1_27_28_29_33_38
+constraint_10:_r_1_2_4_5 or _r_1_2_4_6 or ~_r_1_14_15_16
+constraint_11:_r_1_3_8_12 or ~_r_1_14_15_17_18_19 or ~_r_1_14_15_17_18_21
+constraint_7:_r_1_2_4_6 or ~_r_1_27_28_31_39_43 or ~_r_1_27_28_31_39_44
+constraint_12:_r_1_2_4_7 or ~_r_1_14_15_17
+constraint_4:_r_1_2_4_6 or ~_r_1_27_28_48_49_51_52_54
+constraint_13:_r_1_2_4_7 or ~_r_1_27_28_29_33_34 or ~_r_1_27_28_29_33_35 or ~_r_1_27_28_29_33_36
+constraint_14:_r_1_2_4_7 or ~_r_1_27_28_31_39_40 or ~_r_1_27_28_31_39_41 or ~_r_1_27_28_31_39_42
+constraint_2:_r_1_2_4_6 or _r_1_27_28_48
+constraint_3:_r_1_2_4_6 or ~_r_1_27_28_48_49_51_52_53
+</constraints>
+</feature_model>

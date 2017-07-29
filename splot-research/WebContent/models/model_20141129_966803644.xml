@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Oct 16, 2016 - 8:22 PM  -->
+<feature_model name="eLearning ways">
+<meta>
+<data name="description">ways for eLearning implementation</data>
+<data name="creator">Daina</data>
+<data name="address">daina.gudoniene@gmail.com</data>
+<data name="email">daina.gudoniene@gmail.com</data>
+<data name="phone">370</data>
+<data name="website">www</data>
+<data name="organization">ktu</data>
+<data name="department">It</data>
+<data name="date">2014-11-29</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r eLearning ways(_r)
+	:o Instructive(_r_1)
+		:o Contructive(_r_1_4)
+		:o Performance Support(_r_1_6)
+	:o distance(_r_2)
+		:o used integrated IS(_r_2_7)
+		:o used VLE(_r_2_8)
+		:o used SN(_r_2_9)
+	:o massive(_r_3)
+		:o based on VLE(_r_3_10)
+		:o based on OER(_r_3_13)
+		:o based on S(_r_3_14)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_4 or _r_1_6 or _r_2_7 or _r_2_8 or _r_2_9 or _r_3_10 or _r_3_13 or _r_3_14
+</constraints>
+</feature_model>

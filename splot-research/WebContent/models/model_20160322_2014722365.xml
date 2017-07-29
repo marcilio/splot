@@ -1,0 +1,80 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 22, 2016 - 5:34 PM  -->
+<feature_model name="foda olshop">
+<meta>
+<data name="description">foda olshop</data>
+<data name="creator">atiyyah</data>
+<data name="address"></data>
+<data name="email">arizza.lia@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UB</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r online shop(_r)
+	:m registrasi(_r_1)
+		:g (_r_1_15) [1,*] 
+			: sign in(_r_1_15_16)
+			: sign up(_r_1_15_19)
+			: lupa password(_r_1_15_20)
+	:m produk(_r_2)
+		:g (_r_2_21) [1,*] 
+			: search(_r_2_21_22)
+			: foto produk(_r_2_21_23)
+			: zoom foto produk(_r_2_21_24)
+			: seller pomotion(_r_2_21_25)
+			: wishlist(_r_2_21_26)
+			: produk testimonial(_r_2_21_27)
+			: produk rating(_r_2_21_28)
+			: detail produk(_r_2_21_29)
+			: spesifikasi produk(_r_2_21_30)
+			: produk terlaris(_r_2_21_31)
+			: list produk berdasarkan kategori(_r_2_21_32)
+			: manufacturer(_r_2_21_33)
+			: viewed product(_r_2_21_34)
+			: product tags(_r_2_21_35)
+			: perbandingan seller lain(_r_2_21_36)
+			: diskon produk(_r_2_21_37)
+			: stok produk(_r_2_21_38)
+	:m sitemap(_r_3)
+	:m pemesanan(_r_5)
+		:g (_r_5_39) [1,*] 
+			: keranjang belanja(_r_5_39_40)
+			: opsi pembayaran(_r_5_39_41)
+			: opsi pemesanan(_r_5_39_42)
+			: konfirmasi pemesanan(_r_5_39_43)
+			: cara pembayaran(_r_5_39_44)
+			: cek ongkir(_r_5_39_45)
+			: cek order(_r_5_39_46)
+	:o pilihan bahasa(_r_7)
+	:m kelola akun(_r_8)
+		:g (_r_8_64) [1,*] 
+			: ganti email(_r_8_64_65)
+			: ganti password(_r_8_64_66)
+			: newsletter(_r_8_64_67)
+			: buku alamat(_r_8_64_68)
+			: informasi akun(_r_8_64_69)
+			: ganti informasi pribadi(_r_8_64_70)
+	:m informasi penjual(_r_9)
+		:g (_r_9_71) [1,*] 
+			: rating penjual(_r_9_71_72)
+			: keterangan pengembalian produk(_r_9_71_73)
+	:m costumer care(_r_10)
+		:g (_r_10_74) [1,*] 
+			: contact us(_r_10_74_75)
+			: module FAQ(_r_10_74_76)
+	:m integrasi media sosial(_r_11)
+		:g (_r_11_77) [1,*] 
+			: login facebook(_r_11_77_78)
+			: login gmail(_r_11_77_79)
+			: login twitter(_r_11_77_80)
+			: like and share produk(_r_11_77_81)
+	:o cicilan(_r_12)
+	:o pilih lokasi(_r_13)
+	:o pesan chat(_r_14)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Mar 1, 2015 - 7:37 AM  -->
+<feature_model name="IMSPL-FeatureModel-V1">
+<meta>
+<data name="description">Características Básicas </data>
+<data name="creator">Dennis Torres</data>
+<data name="address"></data>
+<data name="email">dtowong@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DMT</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IMSPL(_r)
+	:m Inventario(_r_1)
+	:m Venta(_r_2)
+	:m Compra(_r_5)
+	:o Proveedor(_r_11)
+	:o Cliente(_r_14)
+	:m Reporte(_r_15)
+	:o Distribucion(_r_24)
+		:g (_r_24_25) [1,*] 
+			: Web_App(_r_24_25_26)
+			: Android_App(_r_24_25_27)
+			: iOS_App(_r_24_25_28)
+	:o Formato_Exportacion(_r_35)
+		:g (_r_35_37) [1,*] 
+			: CSV(_r_35_37_38)
+			: XLSX(_r_35_37_39)
+			: PDF(_r_35_37_40)
+	:o Integracion(_r_41)
+		:g (_r_41_44) [1,*] 
+			: Tienda_Virtual(_r_41_44_45)
+			: ERP(_r_41_44_46)
+	:o Configuracion(_r_47)
+		:g (_r_47_50) [1,*] 
+			: Impuesto(_r_47_50_51)
+			: Stock_Minimo(_r_47_50_52)
+	:o Carga_Datos(_r_54)
+	:m Usuario(_r_55)
+		:m Login(_r_55_58)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

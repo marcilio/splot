@@ -1,0 +1,73 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 6, 2014 - 8:59 PM  -->
+<feature_model name="juliana">
+<meta>
+<data name="description">webportal</data>
+<data name="creator">juliana</data>
+<data name="address"></data>
+<data name="email">ju@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ufmg</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r webportal(_r)
+	:o Feature-1(_r_1)
+		:o Feature-2(_r_1_2)
+			:o Feature-4(_r_1_2_4)
+			:m Feature-5(_r_1_2_5)
+		:o Feature-3(_r_1_3)
+			:o Feature-6(_r_1_3_6)
+			:o Feature-7(_r_1_3_7)
+				:m Feature-8(_r_1_3_7_8)
+				:o Feature-9(_r_1_3_7_9)
+		:o Feature-11(_r_1_11)
+			:m Feature-12(_r_1_11_12)
+			:o Feature-13(_r_1_11_13)
+			:m Feature-14(_r_1_11_14)
+				:m Feature-16(_r_1_11_14_16)
+				:o Feature-17(_r_1_11_14_17)
+			:o Feature-15(_r_1_11_15)
+	:o Feature-18(_r_18)
+		:g (_r_18_21) [1,*] 
+			: Feature-22(_r_18_21_22)
+			: Feature-23(_r_18_21_23)
+	:m Feature-24(_r_24)
+		:o Feature-25(_r_24_25)
+			:g (_r_24_25_28) [1,*] 
+				: Feature-29(_r_24_25_28_29)
+				: Feature-30(_r_24_25_28_30)
+		:o Feature-26(_r_24_26)
+			:g (_r_24_26_31) [1,*] 
+				: Feature-32(_r_24_26_31_32)
+				: Feature-33(_r_24_26_31_33)
+				: Feature-34(_r_24_26_31_34)
+		:m Feature-27(_r_24_27)
+			:m Feature-35(_r_24_27_35)
+			:o Feature-36(_r_24_27_36)
+				:g (_r_24_27_36_37) [1,*] 
+					: Feature-38(_r_24_27_36_37_38)
+					: Feature-39(_r_24_27_36_37_39)
+					: Feature-40(_r_24_27_36_37_40)
+					: Feature-41(_r_24_27_36_37_41)
+	:o Feature-42(_r_42)
+		:g (_r_42_43) [1,*] 
+			: Feature-44(_r_42_43_44)
+			: Feature-45(_r_42_43_45)
+			: Feature-49(_r_42_43_49)
+	:o Feature-47(_r_47)
+		:o Feature-51(_r_47_51)
+		:o Feature-52(_r_47_52)
+		:o Feature-53(_r_47_53)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_3_7 or ~_r_1_11_15
+constraint_6:~_r_24_26_31_34 or ~_r_47_51
+constraint_4:_r_24_26_31_34 or ~_r_42_43_45
+constraint_5:~_r_24_25_28_30 or _r_24_26_31_33
+constraint_2:_r_18_21_23 or ~_r_24_25_28_29
+constraint_3:~_r_1_3_7_9 or _r_24_27_36
+</constraints>
+</feature_model>

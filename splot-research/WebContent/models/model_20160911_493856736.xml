@@ -1,0 +1,85 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Sep 11, 2016 - 7:06 AM  -->
+<feature_model name="Computadores">
+<meta>
+<data name="description">Modelo para armar computadores</data>
+<data name="creator">Javier Sanchez</data>
+<data name="address"></data>
+<data name="email">jf.sanchez@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computador(_r)
+	:m Tipo(_r_1)
+		:g (_r_1_3) [1,1] 
+			: Desktop(_r_1_3_4)
+			: Portatil(_r_1_3_5)
+			: Servidor(_r_1_3_6)
+	:m Marca(_r_7)
+		:g (_r_7_8) [1,1] 
+			: Dell(_r_7_8_9)
+			: Toshiba(_r_7_8_10)
+			: Lenovo(_r_7_8_11)
+			: Apple(_r_7_8_12)
+			: Clon(_r_7_8_13)
+	:m OS(_r_14)
+		:g (_r_14_15) [1,1] 
+			: Windows10(_r_14_15_16)
+			: Fedora(_r_14_15_17)
+			: OSX(_r_14_15_18)
+			: RedHat(_r_14_15_19)
+			: OSX Server(_r_14_15_20)
+	:m Componentes(_r_21)
+		:m RAM(_r_21_22)
+			:g (_r_21_22_26) [1,1] 
+				: 4GB(_r_21_22_26_27)
+				: 8GB(_r_21_22_26_28)
+				: 16GB(_r_21_22_26_29)
+				: 32GB(_r_21_22_26_30)
+				: 64GB(_r_21_22_26_31)
+		:m Procesador(_r_21_23)
+			:g (_r_21_23_38) [1,1] 
+				: Intel(_r_21_23_38_39)
+				: AMD(_r_21_23_38_40)
+		:m DiscoDuro(_r_21_24)
+			:g (_r_21_24_32) [1,1] 
+				: 500GB(_r_21_24_32_33)
+				: 1TB(_r_21_24_32_34)
+				: 2TB(_r_21_24_32_35)
+				: 5TB(_r_21_24_32_36)
+				: 10TB(_r_21_24_32_37)
+		:o TarjetaGrafica(_r_21_25)
+			:g (_r_21_25_41) [1,1] 
+				: Nvidia(_r_21_25_41_42)
+				: ATI Radeo(_r_21_25_41_43)
+	:o Pantalla(_r_44)
+		:m Size(_r_44_48)
+			:g (_r_44_48_53) [1,1] 
+				: 14(_r_44_48_53_54)
+				: 17(_r_44_48_53_55)
+				: 24(_r_44_48_53_56)
+		:m Tecnologia(_r_44_49)
+			:g (_r_44_49_50) [1,*] 
+				: 3D(_r_44_49_50_51)
+				: 4K(_r_44_49_50_52)
+	:o Planta(_r_45)
+</feature_tree>
+<constraints>
+constraint_8:~_r_1_3_4 or ~_r_21_22_26_30 or ~_r_21_22_26_31
+constraint_10:~_r_1_3_4 or ~_r_14_15_19 or ~_r_14_15_20
+constraint_9:~_r_1_3_5 or ~_r_14_15_19 or ~_r_14_15_20
+constraint_11:~_r_7_8_12 or _r_14_15_18 or _r_14_15_20
+constraint_6:~_r_1_3_4 or ~_r_21_24_32_36 or ~_r_21_24_32_37
+constraint_12:~_r_1_3_6 or _r_14_15_19 or _r_14_15_20
+constraint_7:~_r_1_3_5 or ~_r_21_22_26_30 or ~_r_21_22_26_31
+constraint_13:~_r_1_3_6 or _r_21_22_26_30 or _r_21_22_26_31
+constraint_4:~_r_1_3_5 or ~_r_44
+constraint_14:~_r_1_3_6 or _r_21_24_32_36 or _r_21_24_32_37
+constraint_5:~_r_1_3_5 or ~_r_21_24_32_36 or ~_r_21_24_32_37
+constraint_2:~_r_1_3_5 or ~_r_7_8_13
+</constraints>
+</feature_model>

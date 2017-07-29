@@ -1,0 +1,226 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Oct 23, 2014 - 7:33 AM  -->
+<feature_model name="Claroline">
+<meta>
+<data name="description">Claroline is an online web course platform manager</data>
+<data name="creator">Xavier Devroey</data>
+<data name="address"></data>
+<data name="email">xavier.devroey@unamur.be</data>
+<data name="phone"></data>
+<data name="website">https://staff.info.unamur.be/xde/fts-testing/</data>
+<data name="organization">Faculty of Computer Science, University of Namur</data>
+<data name="department">PReCISE</data>
+<data name="date">Jan. 2014</data>
+<data name="reference">Devroey, X., Perrouin, G., Cordy, M., Schobbens, P., Legay, A., & Heymans, P. (2014). Towards Statistical Prioritization for Software Product Lines Testing. In A. Wasowski & T. Weyer (Eds.), Proceedings of the 8th International Workshop on Variability Modelling of Software-intensive Systems (VaMoS '14). Nice, France: ACM.</data>
+</meta>
+<feature_tree>
+:r Claroline(_r)
+	:m User(_r_1)
+		:g (_r_1_4) [1,1] 
+			: UnregistredUser(_r_1_4_5)
+			: RegistredUser(_r_1_4_6)
+				:g (_r_1_4_6_7) [1,1] 
+					: Admin(_r_1_4_6_7_8)
+					: Teacher(_r_1_4_6_7_9)
+					: Student(_r_1_4_6_7_10)
+	:m Course(_r_2)
+		:m Access(_r_2_11)
+			:g (_r_2_11_12) [1,1] 
+				: FreeAccess(_r_2_11_12_13)
+				: IdentifiedAccess(_r_2_11_12_14)
+				: MemberAccess(_r_2_11_12_15)
+		:m Registration(_r_2_16)
+			:g (_r_2_16_17) [1,1] 
+				: AllowedRegistration(_r_2_16_17_18)
+					:o WithValidationRegistration(_r_2_16_17_18_19)
+					:o WithKeyRegistration(_r_2_16_17_18_20)
+				: RegistrationDenied(_r_2_16_17_21)
+		:m Visibility(_r_2_22)
+			:g (_r_2_22_23) [1,1] 
+				: PublicVisibility(_r_2_22_23_24)
+				: MembersVisibility(_r_2_22_23_25)
+		:m Tools(_r_2_26)
+			:m CourseIndex(_r_2_26_27)
+			:o CourseDescription(_r_2_26_56)
+			:o CourseAgenda(_r_2_26_57)
+			:o CourseAnnoucements(_r_2_26_58)
+			:o CourseDocument(_r_2_26_59)
+			:o CourseExercise(_r_2_26_60)
+			:o CourseLearnPath(_r_2_26_61)
+			:o CourseWork(_r_2_26_62)
+			:o CourseForum(_r_2_26_63)
+			:o CourseGroup(_r_2_26_64)
+			:o CourseUser(_r_2_26_65)
+			:o CourseWiki(_r_2_26_66)
+			:o CourseDiscussion(_r_2_26_67)
+		:m Status(_r_2_43)
+			:g (_r_2_43_44) [1,1] 
+				: Available(_r_2_43_44_45)
+				: AvailableFromTo(_r_2_43_44_46)
+				: Unavailable(_r_2_43_44_47)
+					:g (_r_2_43_44_47_48) [1,1] 
+						: ReactivableByOwner(_r_2_43_44_47_48_49)
+						: ReactivableByAdmin(_r_2_43_44_47_48_50)
+						: Deleted(_r_2_43_44_47_48_51)
+	:m Subscription(_r_3)
+		:o LostPassword(_r_3_54)
+		:o OpenSubscription(_r_3_55)
+</feature_tree>
+<constraints>
+constraint_86:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_87:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_88:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_89:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_109:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_108:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_107:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_106:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_105:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_104:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_103:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_102:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_101:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_17:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_18:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_100:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_19:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_90:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_10:_r_1_4_6_7_8 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_11:_r_1_4_6_7_8 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_92:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_12:_r_1_4_6_7_8 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_91:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_13:_r_1_4_6_7_8 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_94:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_14:_r_1_4_6_7_8 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_93:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_15:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_96:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_16:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_95:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_77:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_78:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_75:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_76:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_30:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_79:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_117:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_116:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_119:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_118:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_113:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_112:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_115:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_114:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_28:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_110:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_29:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_111:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_22:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_81:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_23:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_80:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_20:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_21:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_26:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_85:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_27:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_84:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_24:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_83:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_25:_r_1_4_6_7_8 or _r_1_4_6_7_9 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_82:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_126:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_61 or _r_2_43_44_47_48_49
+constraint_125:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_60 or _r_2_43_44_47_48_49
+constraint_124:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_59 or _r_2_43_44_47_48_49
+constraint_123:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_58 or _r_2_43_44_47_48_49
+constraint_129:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_64 or _r_2_43_44_47_48_49
+constraint_128:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_63 or _r_2_43_44_47_48_49
+constraint_127:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_62 or _r_2_43_44_47_48_49
+constraint_121:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_56 or _r_2_43_44_47_48_49
+constraint_122:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_57 or _r_2_43_44_47_48_49
+constraint_120:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_27 or _r_2_43_44_47_48_49
+constraint_99:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_98:_r_1_4_6_7_8 or _r_2_22_23_24 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_135:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_57
+constraint_134:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_56
+constraint_137:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_59
+constraint_136:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_58
+constraint_139:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_61
+constraint_138:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_60
+constraint_130:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_65 or _r_2_43_44_47_48_49
+constraint_131:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_66 or _r_2_43_44_47_48_49
+constraint_132:_r_1_4_6_7_8 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_67 or _r_2_43_44_47_48_49
+constraint_133:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_27
+constraint_142:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_64
+constraint_141:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_63
+constraint_144:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_66
+constraint_143:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_65
+constraint_140:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_62
+constraint_149:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_58 or _r_2_43_44_47_48_49
+constraint_145:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_24 or _r_2_22_23_25 or ~_r_2_26_67
+constraint_146:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_27 or _r_2_43_44_47_48_49
+constraint_147:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_56 or _r_2_43_44_47_48_49
+constraint_148:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_57 or _r_2_43_44_47_48_49
+constraint_39:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_155:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_64 or _r_2_43_44_47_48_49
+constraint_34:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_154:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_63 or _r_2_43_44_47_48_49
+constraint_33:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_153:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_62 or _r_2_43_44_47_48_49
+constraint_32:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_152:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_61 or _r_2_43_44_47_48_49
+constraint_31:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_151:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_60 or _r_2_43_44_47_48_49
+constraint_38:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_150:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_59 or _r_2_43_44_47_48_49
+constraint_37:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_36:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_35:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_158:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_67 or _r_2_43_44_47_48_49
+constraint_40:_r_1_4_6_7_8 or _r_2_22_23_25 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_159:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_27
+constraint_156:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_65 or _r_2_43_44_47_48_49
+constraint_157:_r_1_4_6_7_8 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_66 or _r_2_43_44_47_48_49
+constraint_1:_r_1_4_6_7_8 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_160:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_56
+constraint_69:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_68:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_162:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_58
+constraint_161:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_57
+constraint_164:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_60
+constraint_65:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_66 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_163:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_59
+constraint_64:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_65 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_166:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_62
+constraint_67:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_165:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_61
+constraint_66:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_167:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_63
+constraint_71:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_168:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_64
+constraint_72:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_169:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_65
+constraint_73:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_74:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_70:_r_1_4_6_7_8 or _r_1_4_6 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_8:_r_1_4_6_7_8 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_9:_r_1_4_6_7_8 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_6:_r_1_4_6_7_8 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_7:_r_1_4_6_7_8 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_4:_r_1_4_6_7_8 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_5:_r_1_4_6_7_8 or ~_r_2_26_67 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_3:_r_1_4_6_7_8 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46 or _r_2_43_44_47_48_49
+constraint_59:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_60 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_171:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_67
+constraint_58:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_59 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_170:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_1_4_6 or _r_2_22_23_24 or ~_r_2_26_66
+constraint_57:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_58 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_56:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_57 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_55:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_56 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_54:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_27 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_62:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_63 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_63:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_64 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_60:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_61 or _r_2_43_44_45 or _r_2_43_44_46
+constraint_61:_r_1_4_6_7_8 or _r_1_4_6_7_9 or _r_2_22_23_25 or ~_r_2_26_62 or _r_2_43_44_45 or _r_2_43_44_46
+</constraints>
+</feature_model>

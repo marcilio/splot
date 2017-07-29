@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 7, 2015 - 12:39 AM  -->
+<feature_model name="MobiHome">
+<meta>
+<data name="description">It enables mobile devices to access dierent services in smarthomes</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GREAT_UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobiHome(_r)
+	:m View(_r_1)
+	:m Controler(_r_3)
+		:o TV Controller(_r_3_4)
+			:g (_r_3_4_15) [1,1] 
+				: Wifi(_r_3_4_15_16)
+				: Bluetooth(_r_3_4_15_17)
+		:o Multimedia(_r_3_5)
+			:m Multimedia mpI(_r_3_5_14)
+		:o Video Provider(_r_3_6)
+			:g (_r_3_6_7) [1,1] 
+				: Local(_r_3_6_7_8)
+					:m Video ImpI(_r_3_6_7_8_13)
+				: Remote(_r_3_6_7_9)
+					:g (_r_3_6_7_9_10) [1,1] 
+						: Low Qualitity(_r_3_6_7_9_10_11)
+						: High Quality(_r_3_6_7_9_10_12)
+</feature_tree>
+<constraints>
+constraint_1:_r_3_5 or _r_3_6
+</constraints>
+</feature_model>

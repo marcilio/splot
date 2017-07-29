@@ -1,0 +1,59 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 9, 2015 - 11:24 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Describe la inmobiliaria del taller 1</data>
+<data name="creator">Andres Decastro/Cesar Forero</data>
+<data name="address"></data>
+<data name="email">af.decastro879@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ForeroDeCastro</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o Gestion de Capital(_r_1)
+		:m Estructuracion del fondo(_r_1_2)
+			:g (_r_1_2_3) [1,*] 
+				: Inversiones alternativas(_r_1_2_3_4)
+					:o Seguros(_r_1_2_3_4_8)
+					:o Vehiculos(_r_1_2_3_4_9)
+					:o Fondos Capital Privado(_r_1_2_3_4_10)
+					:o Cartera Colectiva(_r_1_2_3_4_11)
+					:o Otros(_r_1_2_3_4_12)
+				: Inversiones Tradicionales(_r_1_2_3_5)
+		:o Definicion del gobierno corporativo(_r_1_14)
+		:o Relacion con inversores(_r_1_15)
+		:m Adquisiciones de activos(_r_1_16)
+		:m Venta de activos(_r_1_17)
+	:m Gestion de Activos(_r_18)
+		:m Adquision del inmueble(_r_18_19)
+		:m Gestion de inmuebles(_r_18_20)
+			:o Tasaciones(_r_18_20_21)
+			:o Reservas(_r_18_20_22)
+		:m Alquileres(_r_18_23)
+		:m Reporting(_r_18_24)
+			:g (_r_18_24_25) [1,*] 
+				: Financiero(_r_18_24_25_26)
+				: Operativo(_r_18_24_25_27)
+		:o Valoraciones(_r_18_28)
+		:o Auditorias(_r_18_29)
+		:o Revisiones de mercado(_r_18_30)
+		:o Contabilidad(_r_18_31)
+		:o Refinanciaciones(_r_18_32)
+		:o Ventas(_r_18_33)
+	:m Gestion Inmobiliaria(_r_34)
+		:o Equipos fisicos(_r_34_35)
+		:o Instalaciones(_r_34_36)
+		:o Gestion de equipamento(_r_34_37)
+</feature_tree>
+<constraints>
+constraint_8:~_r_1_14 or ~_r_1_15
+constraint_6:~_r_34_35 or ~_r_34_37
+constraint_7:~_r_34_35 or ~_r_34_36
+constraint_4:~_r_18_31 or _r_18_33
+constraint_5:_r_18_28 or ~_r_18_29
+</constraints>
+</feature_model>

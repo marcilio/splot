@@ -1,0 +1,56 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 5, 2015 - 10:15 PM  -->
+<feature_model name="Inmobiliaria Yerson">
+<meta>
+<data name="description">Trabajo de la u</data>
+<data name="creator">Yerson cacua</data>
+<data name="address"></data>
+<data name="email">yerson.kqa@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Yerson Cacua</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o GestionDeCapital(_r_1)
+		:o Inversiones(_r_1_4)
+			:o Alternativas(_r_1_4_5)
+			:m Tradicionales(_r_1_4_6)
+		:o DefGobiernoCorporativo(_r_1_10)
+		:o RelacionesConInversores(_r_1_11)
+		:o Adquisiciones(_r_1_12)
+		:o VentasDeActivos(_r_1_13)
+	:m GestionDeActivos(_r_2)
+		:m AdquisicionInmueble(_r_2_14)
+		:m GestionInmobiliaria(_r_2_15)
+		:m Alquileres(_r_2_16)
+		:m Reporting(_r_2_17)
+			:m Financiero(_r_2_17_18)
+			:m Operativo(_r_2_17_19)
+		:m PresupuestoOperativo(_r_2_20)
+		:o Valoraciones(_r_2_21)
+		:o Auditorias(_r_2_22)
+		:o RevisionesMercado(_r_2_23)
+		:o Contabilidad(_r_2_24)
+		:o Refinanciaciones(_r_2_25)
+		:o VentaActivos(_r_2_26)
+	:m GestionInmobiliaria(_r_3)
+		:o GestionEquipamiento(_r_3_27)
+		:o Instalaciones(_r_3_28)
+		:o ActivosFisicos(_r_3_29)
+		:o Procesos(_r_3_30)
+			:o Tasaciones(_r_3_30_31)
+			:o Reservas(_r_3_30_32)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_17 or _r_2_20
+constraint_8:_r_3_28 or ~_r_3_29
+constraint_6:_r_2_24 or _r_2_26
+constraint_7:_r_3_27 or ~_r_3_29
+constraint_5:~_r_2_21 or _r_2_23
+constraint_2:_r_1_10 or ~_r_1_11
+constraint_3:_r_2_21 or _r_2_22
+</constraints>
+</feature_model>

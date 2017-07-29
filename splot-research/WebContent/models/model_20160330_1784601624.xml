@@ -1,0 +1,52 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 3:56 PM  -->
+<feature_model name="Urna Eletrônica - Marina - UFMG">
+<meta>
+<data name="description">Urna Eletrônica Exercício Disciplina Reutilização de Software</data>
+<data name="creator">Marina Santos</data>
+<data name="address"></data>
+<data name="email">marina.amaralsantos@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r UrnaEletronica(_r)
+	:g (_r_12) [1,1] 
+		: EstatisticaVotosMaisVotados(_r_12_13)
+		: EstatisticaVotosPorPeso(_r_12_15)
+	:o EleicaoPresidenteSenador(_r_16)
+		:m AutenticacaoInicial(_r_16_19)
+			:m AutenticacaoEleitor(_r_16_19_39)
+		:g (_r_16_20) [1,1] 
+			: EleicaoPresidente(_r_16_20_25)
+			: VotoBrancoOuNulo(_r_16_20_27)
+		:g (_r_16_22) [1,*] 
+			: EleicaoSenador1(_r_16_22_23)
+			: EleicaoSenador2(_r_16_22_26)
+			: VotoBrancoOuNulo(_r_16_22_28)
+		:m AutenticacaoFinal(_r_16_29)
+	:o EleicaoPrefeitoVereador(_r_17)
+		:m AutenticacaoInicial(_r_17_30)
+			:m AutenticacaoEleitor(_r_17_30_40)
+		:g (_r_17_31) [1,1] 
+			: EleicaoPrefeito(_r_17_31_32)
+			: VotoBrancoOuNulo(_r_17_31_36)
+		:g (_r_17_33) [1,*] 
+			: EleicaoVereador(_r_17_33_34)
+			: VotoBrancoOuNulo(_r_17_33_37)
+		:m AutenticacaoFinal(_r_17_35)
+	:o EleicaoChefeDepartamento(_r_18)
+		:m AutenticacaoInicial(_r_18_38)
+			:m AutenticacaoEleitor(_r_18_38_41)
+		:g (_r_18_42) [1,1] 
+			: EleicaoChefeDepartamento(_r_18_42_43)
+		:m AutenticacaoFinal(_r_18_44)
+</feature_tree>
+<constraints>
+constraint_2:_r_12_13 or _r_12_15
+constraint_3:_r_16 or _r_17 or _r_18
+</constraints>
+</feature_model>

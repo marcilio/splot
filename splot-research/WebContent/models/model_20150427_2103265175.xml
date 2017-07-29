@@ -1,0 +1,90 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 29, 2015 - 10:45 PM  -->
+<feature_model name="Feature Model SiBRAM">
+<meta>
+<data name="description">Feature Model utk Sistem Bandara SiBRAM</data>
+<data name="creator">SiKelompokBandaraMIK</data>
+<data name="address"></data>
+<data name="email">admin@sibram.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">SkyBridge Solutions</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Sistem Bandara SiBRAM(_r)
+	:m Autentikasi(_r_1)
+		:o Single Sign On(_r_1_9)
+			:g (_r_1_9_10) [1,*] 
+				: LDAP(_r_1_9_10_11)
+				: Google(_r_1_9_10_12)
+				: Twitter(_r_1_9_10_13)
+				: Facebook(_r_1_9_10_14)
+		:m Centralized Authentication(_r_1_15)
+		:o 2-Step Verification(_r_1_16)
+	:m Notifikasi(_r_2)
+		:g (_r_2_17) [1,*] 
+			: SMS(_r_2_17_18)
+			: App Notifier(_r_2_17_19)
+			: Email(_r_2_17_20)
+	:m Pencarian Jadwal dan Fasilitas(_r_3)
+		:o Riwayat Pencarian(_r_3_54)
+		:m Teknik Pencarian(_r_3_55)
+			:g (_r_3_55_56) [1,1] 
+				: Clustering(_r_3_55_56_57)
+				: Non Clustering(_r_3_55_56_58)
+		:m Mode(_r_3_52)
+			:g (_r_3_52_53) [1,1] 
+				: Basic Search(_r_3_52_53_54)
+				: Advanced Search(_r_3_52_53_55)
+	:o Kuesioner(_r_4)
+		:g (_r_4_21) [1,*] 
+			: Periodik(_r_4_21_22)
+			: Manual(_r_4_21_23)
+	:o Rekomendasi(_r_5)
+		:m Teknik Prediksi Kebutuhan(_r_5_24)
+			:g (_r_5_24_25) [1,1] 
+				: AI Powered Predictor(_r_5_24_25_26)
+				: Simple Predictor(_r_5_24_25_27)
+	:m Pemesanan Tiket(_r_6)
+		:o Riwayat Pemesanan(_r_6_28)
+		:m Pembayaran(_r_6_29)
+			:g (_r_6_29_30) [1,*] 
+				: Credit Card(_r_6_29_30_31)
+				: Debit Card(_r_6_29_30_32)
+				: Bank Transfer(_r_6_29_30_33)
+	:m Platform(_r_7)
+		:m FrontEnd(_r_7_34)
+			:g (_r_7_34_36) [1,*] 
+				: Basic Phone(_r_7_34_36_37)
+					:m USSD(_r_7_34_36_37_40)
+				: Smart Phone(_r_7_34_36_38)
+					:g (_r_7_34_36_38_41) [1,*] 
+						: Android(_r_7_34_36_38_41_42)
+						: iOS(_r_7_34_36_38_41_43)
+						: Windows Phone(_r_7_34_36_38_41_44)
+						: BlackBerry(_r_7_34_36_38_41_45)
+				: Web App(_r_7_34_36_39)
+		:m BackEnd(_r_7_35)
+			:m Database(_r_7_35_46)
+				:g (_r_7_35_46_49) [1,1] 
+					: RDBMS(_r_7_35_46_49_50)
+					: NoSQL(_r_7_35_46_49_51)
+			:o SMS Gateway(_r_7_35_52)
+			:m Hosting(_r_7_35_56)
+				:g (_r_7_35_56_57) [1,1] 
+					: VPS(_r_7_35_56_57_58)
+					: Cloud(_r_7_35_56_57_61)
+	:m Language(_r_48)
+		:g (_r_48_49) [1,*] 
+			: English(_r_48_49_50)
+			: Indonesia(_r_48_49_51)
+			: Chinese(_r_48_49_52)
+</feature_tree>
+<constraints>
+constraint_1:~_r_7_34_36_37 or _r_7_35_52
+constraint_4:_r_2_17_18 or ~_r_7_34_36_37
+constraint_5:_r_2_17_19 or ~_r_7_34_36_38
+</constraints>
+</feature_model>

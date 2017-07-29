@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:24 PM  -->
+<feature_model name="UrnaEletronica">
+<meta>
+<data name="description">UrnaEletronica</data>
+<data name="creator">Larissa Luiza Macedo</data>
+<data name="address"></data>
+<data name="email">macedobhmg@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r UrnaEletronica(_r)
+	:m Digitar Senha(_r_1)
+		:m Usuario cadastrado no TRE(_r_1_2)
+			:m Dados do eleitor sao validos(_r_1_2_3)
+				:m Inicia Votacao(_r_1_2_3_6)
+					:g (_r_1_2_3_6_7) [1,*] 
+						: Votacao para Presidente e dois Senadores(_r_1_2_3_6_7_8)
+							:g (_r_1_2_3_6_7_8_9) [1,*] 
+								: Voto valido(_r_1_2_3_6_7_8_9_10)
+								: Voto branco ou nulo(_r_1_2_3_6_7_8_9_11)
+						: Votacao para um prefeito e um vereador(_r_1_2_3_6_7_12)
+							:g (_r_1_2_3_6_7_12_13) [1,*] 
+								: Voto valido(_r_1_2_3_6_7_12_13_14)
+								: Voto branco ou nulo(_r_1_2_3_6_7_12_13_15)
+					:m Votacao encerrada(_r_1_2_3_6_16)
+						:m Mostra estatiscas de votos dos candidatos ate o momento eleitos e derrotados(_r_1_2_3_6_16_17)
+		:m Usuario cadastrado para iniciar a votacao do chefe de departamento(_r_1_18)
+			:m Dados do eleitor sao validos(_r_1_18_19)
+				:m Inicia Votacao(_r_1_18_19_20)
+					:g (_r_1_18_19_20_17) [1,*] 
+						: Voto valido(_r_1_18_19_20_17_18)
+						: Usuario abstem-se da votacao(_r_1_18_19_20_17_19)
+						: Voto em branco(_r_1_18_19_20_17_20)
+					:m Votacao encerrada(_r_1_18_19_20_21)
+						:m Mostra estatisticas de votos dos candidatos eleitos ate o momento com base no peso dos votos dos eleitores(_r_1_18_19_20_21_22)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

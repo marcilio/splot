@@ -1,0 +1,48 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 12, 2017 - 3:29 AM  -->
+<feature_model name="U-learning System">
+<meta>
+<data name="description">IoT U-learning feature model</data>
+<data name="creator">Ricardo Fuzeto</data>
+<data name="address"></data>
+<data name="email">ricardofuz@usp.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ICMC-USP</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r System(_r)
+	:m User Context(_r_6)
+		:g (_r_6_7) [1,*] 
+			: Place(_r_6_7_8)
+			: Previous Knowledge(_r_6_7_9)
+			: Acquired Knowledge(_r_6_7_10)
+	:m Educational Capabilities(_r_11)
+		:g (_r_11_12) [1,*] 
+			: Educational Object Provision(_r_11_12_13)
+				:o Educational Object Creation(_r_11_12_13_16)
+				:o Navigation Assistance(_r_11_12_13_24)
+			: Study Group Assembly(_r_11_12_14)
+			: Knowledge Evaluation(_r_11_12_15)
+	:m Sensing Devices(_r_17)
+		:g (_r_17_18) [1,*] 
+			: Environment Devices(_r_17_18_19)
+				:o Wireless Sensor(_r_17_18_19_28)
+				:o Environment-Related RFID(_r_17_18_19_30)
+				:o Smartphone-embedded Sensor(_r_17_18_19_34)
+					:o Accelerometer(_r_17_18_19_34_35)
+					:o Gyroscope(_r_17_18_19_34_36)
+					:o Thermometer(_r_17_18_19_34_37)
+					:o GPS(_r_17_18_19_34_38)
+			: Localization Devices(_r_17_18_20)
+				:o PDA(_r_17_18_20_23)
+				:o Place-Related RFID(_r_17_18_20_24)
+	:o NFC-Enabled PDA(_r_32)
+</feature_tree>
+<constraints>
+constraint_4:~_r_17_18_20_24 or _r_32
+constraint_3:~_r_17_18_19_30 or _r_32
+</constraints>
+</feature_model>

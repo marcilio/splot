@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 4, 2016 - 12:50 PM  -->
+<feature_model name="CarSensors">
+<meta>
+<data name="description">Description of the conguration options of a car</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Car(_r)
+	:m EmergencyCall(_r_1)
+		:g (_r_1_6) [1,1] 
+			: eCallEurope(_r_1_6_7)
+			: ERA_GLONASS_Russia(_r_1_6_8)
+	:m PositioningService(_r_2)
+		:g (_r_2_9) [1,1] 
+			: GPS(_r_2_9_10)
+			: GLONASS(_r_2_9_11)
+	:m AssistenceSystems(_r_3)
+		:o ParkingAssistance(_r_3_12)
+		:m AdaptiveCruiseControl(_r_3_13)
+	:o DistanceSensors(_r_4)
+		:g (_r_4_14) [1,*] 
+			: SideDistanceSensors(_r_4_14_15)
+			: FrontDistanceSensors(_r_4_14_16)
+				:g (_r_4_14_16_17) [1,1] 
+					: SlowFrontDistanceSensors(_r_4_14_16_17_18)
+					: FastFrontDistanceSensors(_r_4_14_16_17_19)
+	:m Infotainment(_r_5)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_6_7 or _r_2_9_10
+constraint_4:~_r_3_12 or _r_4_14_16
+constraint_5:~_r_3_13 or _r_4_14_16
+constraint_2:~_r_1_6_8 or _r_2_9_11
+constraint_3:~_r_3_12 or _r_4_14_15
+</constraints>
+</feature_model>

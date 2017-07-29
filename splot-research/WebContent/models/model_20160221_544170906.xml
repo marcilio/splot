@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 4, 2016 - 5:47 AM  -->
+<feature_model name="PC model">
+<meta>
+<data name="description">PC feature model</data>
+<data name="creator">Carlos</data>
+<data name="address"></data>
+<data name="email">cf.agudelo12@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Celular(_r)
+	:m LCD(_r_4)
+		:g (_r_4_9) [1,1] 
+			: Touch Screen(_r_4_9_10)
+			: Normal(_r_4_9_11)
+	:m Input Device(_r_5)
+		:g (_r_5_15) [1,*] 
+			: KeyPad(_r_5_15_16)
+			: Stylus(_r_5_15_17)
+	:m Battery(_r_7)
+		:g (_r_7_12) [1,1] 
+			: Small(_r_7_12_13)
+			: Large(_r_7_12_14)
+	:o External Memory(_r_8)
+</feature_tree>
+<constraints>
+constraint_1:~_r_4_9_10 or ~_r_7_12_14
+</constraints>
+</feature_model>

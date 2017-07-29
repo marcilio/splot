@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:05 PM  -->
+<feature_model name="Eleição de um prefeito e um vereador">
+<meta>
+<data name="description">Eleição de um prefeito e um vereador</data>
+<data name="creator">Vinicius Cesar</data>
+<data name="address"></data>
+<data name="email">vini22004@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Eleicao de um prefeito e um vereador(_r)
+	:m Digitar Nro Titulo e senha(_r_1)
+		:m Confirmar dados(_r_1_2)
+			:m Votar para prefeito(_r_1_2_3)
+				:o Digitar numero do candidato(_r_1_2_3_4)
+					:m Confirmar(_r_1_2_3_4_6)
+				:o Votar em branco(_r_1_2_3_5)
+					:m Confirmar(_r_1_2_3_5_7)
+			:m Votar para vereador(_r_1_2_8)
+				:o Digitar o numero do candidato(_r_1_2_8_9)
+					:m Confirmar(_r_1_2_8_9_11)
+				:o Votar em branco(_r_1_2_8_10)
+					:m Confirmar(_r_1_2_8_10_12)
+			:m Exibir Estatisticas(_r_1_2_13)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

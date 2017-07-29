@@ -1,0 +1,98 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 13, 2016 - 1:32 AM  -->
+<feature_model name="FabricasTaller1Punto2">
+<meta>
+<data name="description">VariabilidadComputadores</data>
+<data name="creator">Felipe</data>
+<data name="address"></data>
+<data name="email">notclevermail@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Taller1Computadores(Taller1Computadores)
+	:m Tipo(Tipo)
+		:g (_id_0) [1,1] 
+			: Mesa(Mesa)
+			: Portatil(Portatil)
+			: Servidor(Servidor)
+	:m Marca(Marca)
+		:g (_id_1) [1,1] 
+			: Dell(Dell)
+			: Toshiba(Toshiba)
+			: Lenovo(Lenovo)
+			: Apple(Apple)
+			: Clon(Clon)
+	:m CPU(CPU)
+		:m RAM(RAM)
+			:g (_id_2) [1,1] 
+				: M4GB(M4GB)
+				: M8GB(M8GB)
+				: M16GB(M16GB)
+				: M32GB(M32GB)
+				: M64GB(M64GB)
+		:m Procesador(Procesador)
+			:g (_id_3) [1,1] 
+				: Intel(Intel)
+				: AMD(AMD)
+		:m DiscoDuro(DiscoDuro)
+			:g (_id_4) [1,1] 
+				: A500GB(A500GB)
+				: A1TB(A1TB)
+				: A2TB(A2TB)
+				: A5TB(A5TB)
+				: A10TB(A10TB)
+		:o TarjetaGrafica(TarjetaGrafica)
+			:g (_id_5) [1,1] 
+				: NVIDIA(NVIDIA)
+				: ATI(ATI)
+	:o Pantalla(Pantalla)
+		:o Tecnologia(Tecnologia)
+			:g (_id_6) [1,*] 
+				: T3D(T3D)
+				: T4K(T4K)
+		:m Tamanio(Tamanio)
+			:o P14(P14)
+			:o P17(P17)
+			:o P24(P24)
+	:o PlantaPoder(PlantaPoder)
+	:m SO(SO)
+		:g (_id_7) [1,1] 
+			: ServidorSO(ServidorSO)
+				:g (_id_8) [1,1] 
+					: WindowsServer(WindowsServer)
+					: RedHat(RedHat)
+					: OSXServer(OSXServer)
+			: PersonalSO(PersonalSO)
+				:g (_id_9) [1,1] 
+					: Windows10(Windows10)
+					: Fedora(Fedora)
+					: OSXYosemite(OSXYosemite)
+</feature_tree>
+<constraints>
+C16:~Lenovo or ~OSXServer
+C8:~Mesa or M4GB or M8GB or M16GB
+C17:~Clon or ~OSXYosemite
+C7:~Portatil or M4GB or M8GB or M16GB
+C18:~Clon or ~OSXServer
+C19:~Servidor or ServidorSO
+C9:~Mesa or PersonalSO
+C4:~Portatil or ~T4K
+C3:~Portatil or ~T3D
+C6:~Mesa or A500GB or A1TB or A2TB
+C5:~Portatil or A500GB or A1TB or A2TB
+C10:~Portatil or PersonalSO
+C11:~Dell or ~OSXYosemite
+C21:~Servidor or A5TB or A10TB
+C12:~Dell or ~OSXServer
+C13:~Toshiba or ~OSXYosemite
+C14:~Toshiba or ~OSXServer
+C20:~Servidor or M32GB or M64GB
+C15:~Lenovo or ~OSXYosemite
+C1:~Clon or ~Portatil
+C2:~Portatil or Pantalla
+</constraints>
+</feature_model>

@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Apr 11, 2014 - 12:51 PM  -->
+<feature_model name="Final model">
+<meta>
+<data name="description">xor feature model example</data>
+<data name="creator">rafat al-msie'deen</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Lirmm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:m 1(_r_1)
+	:m 2(_r_2)
+	:m 3(_r_3)
+	:o XOR(_r_4)
+		:g (_r_4_5) [1,1] 
+			: F1(_r_4_5_6)
+			: F4(_r_4_5_8)
+	:o F2(_r_10)
+	:o F3(_r_12)
+	:o F5(_r_14)
+	:o F6(_r_15)
+	:o F7(_r_16)
+</feature_tree>
+<constraints>
+constraint_1:_r_4_5_6 or ~_r_14
+constraint_8:~_r_4_5_6 or ~_r_15
+constraint_9:~_r_4_5_6 or ~_r_16
+constraint_10:~_r_4_5_8 or ~_r_10
+constraint_6:_r_12 or ~_r_16
+constraint_11:~_r_4_5_8 or ~_r_14
+constraint_7:~_r_4_5_6 or ~_r_12
+constraint_12:~_r_4_5_8 or ~_r_15
+constraint_4:_r_12 or ~_r_15
+constraint_5:_r_4_5_8 or ~_r_16
+constraint_2:_r_10 or ~_r_14
+constraint_3:_r_10 or ~_r_15
+</constraints>
+</feature_model>

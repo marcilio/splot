@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 7:49 PM  -->
+<feature_model name="Urna - Federal">
+<meta>
+<data name="description">Simulação de uma votação para presidente e dois senadores</data>
+<data name="creator">Matheus Azeredo</data>
+<data name="address"></data>
+<data name="email">matheus_azeredo@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG-DCC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna(_r)
+	:m Inicializacao(_r_1)
+		:m Termino(_r_1_4)
+			:m Apresentar estatisticas(_r_1_4_25)
+			:m Candidatos Eleitos(_r_1_4_26)
+			:m Candidatos derrotados(_r_1_4_28)
+		:m Confirmar dados(_r_1_5)
+			:m Votar presidente(_r_1_5_6)
+				:g (_r_1_5_6_13) [1,1] 
+					: Branco(_r_1_5_6_13_14)
+					: Nulo(_r_1_5_6_13_15)
+					: Voto valido(_r_1_5_6_13_16)
+			:m Votar senador 1(_r_1_5_7)
+				:g (_r_1_5_7_17) [1,1] 
+					: Branco(_r_1_5_7_17_18)
+					: Nulo(_r_1_5_7_17_19)
+					: Voto valido(_r_1_5_7_17_20)
+			:m Votar senador 2(_r_1_5_12)
+				:g (_r_1_5_12_21) [1,1] 
+					: Branco(_r_1_5_12_21_22)
+					: Nulo(_r_1_5_12_21_23)
+					: Voto valido(_r_1_5_12_21_24)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

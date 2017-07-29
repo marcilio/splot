@@ -1,0 +1,76 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Oct 29, 2014 - 9:35 AM  -->
+<feature_model name="E-commerce system">
+<meta>
+<data name="description">E-commerce system</data>
+<data name="creator">Kestutis</data>
+<data name="address"></data>
+<data name="email">kestutis.valincius@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-commerce system(_r)
+	:o Manufacturers catalogue(_r_1)
+		:m Manufacturer categories(_r_1_3)
+		:m Manufacturer(_r_1_4)
+			:m Title(_r_1_4_5)
+			:o Photos(_r_1_4_6)
+			:m Description(_r_1_4_7)
+			:m Products(_r_1_4_8)
+	:m Products catalogue(_r_2)
+		:m Product categories(_r_2_9)
+		:m Product items(_r_2_10)
+		:m Product variations(_r_2_11)
+			:m Title(_r_2_11_13)
+			:o Photos(_r_2_11_14)
+			:m Description(_r_2_11_15)
+			:m Quantity in stock(_r_2_11_16)
+			:m Price(_r_2_11_17)
+			:m Add to shopping cart(_r_2_11_18)
+	:m Purchase(_r_19)
+		:m Shopping cart(_r_19_24)
+			:m Selected products(_r_19_24_25)
+				:g (_r_19_24_25_26) [1,*] 
+					: Product 1(_r_19_24_25_26_27)
+						:m Quantity(_r_19_24_25_26_27_30)
+							:g (_r_19_24_25_26_27_30_31) [1,1] 
+								: G(_r_19_24_25_26_27_30_31_32)
+					: Product n(_r_19_24_25_26_28)
+			:m Confirm shopping cart(_r_19_24_34)
+		:m Checkout(_r_19_35)
+			:m Confirmed Shopping cart(_r_19_35_36)
+			:m Order details(_r_19_35_37)
+				:m Billing details(_r_19_35_37_38)
+				:m Shipping details(_r_19_35_37_39)
+				:m Payment method(_r_19_35_37_40)
+					:g (_r_19_35_37_40_42) [1,1] 
+						: G(_r_19_35_37_40_42_43)
+				:m Shipping method(_r_19_35_37_41)
+					:g (_r_19_35_37_41_44) [1,1] 
+						: G(_r_19_35_37_41_44_45)
+	:m Pages(_r_20)
+		:m Page title(_r_20_46)
+		:m Page content(_r_20_47)
+	:m Contact Forms(_r_21)
+		:m Tell to friend(_r_21_48)
+		:m Contact feedback(_r_21_49)
+	:m Clients(_r_22)
+		:m Registration(_r_22_50)
+		:m Activation(_r_22_51)
+		:m Login(_r_22_52)
+		:m Personal information(_r_22_53)
+		:m Shipping information(_r_22_54)
+		:m Purchases history(_r_22_55)
+		:m Logout(_r_22_56)
+	:m Services(_r_23)
+		:m Generate pre-invoice(_r_23_57)
+		:m Generate invoice(_r_23_58)
+		:m Generate captcha(_r_23_59)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

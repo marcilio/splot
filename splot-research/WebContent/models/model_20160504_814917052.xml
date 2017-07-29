@@ -1,0 +1,52 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 4, 2016 - 4:08 AM  -->
+<feature_model name="Visit Indo">
+<meta>
+<data name="description">feature diagram</data>
+<data name="creator">Musa</data>
+<data name="address"></data>
+<data name="email">muh.nur@ui.ac.id</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universitas Indonesia</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Visit_Indonesia(_r)
+	:m Platform(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Android(_r_1_2_3)
+			: iOS(_r_1_2_4)
+			: Web(_r_1_2_5)
+	:m Map(_r_7)
+		:g (_r_7_8) [1,1] 
+			: Localized(_r_7_8_9)
+			: Global(_r_7_8_10)
+	:m Metode Input Lokasi(_r_12)
+		:g (_r_12_13) [1,*] 
+			: GPS(_r_12_13_14)
+			: Klik Map(_r_12_13_15)
+			: Input Nama Lokasi(_r_12_13_16)
+	:m Keanggotaan(_r_17)
+		:g (_r_17_18) [1,1] 
+			: Email(_r_17_18_19)
+			: Facebook(_r_17_18_20)
+			: Twitter(_r_17_18_21)
+	:m Komunikasi Pengguna(_r_22)
+		:g (_r_22_23) [1,*] 
+			: Komentar(_r_22_23_24)
+			: Chatting(_r_22_23_25)
+	:o Reward(_r_26)
+	:o Notifikasi(_r_29)
+		:g (_r_29_30) [1,*] 
+			: Alarm(_r_29_30_31)
+			: Email(_r_29_30_32)
+	:m Tipe User(_r_34)
+		:g (_r_34_35) [1,1] 
+			: Free User(_r_34_35_36)
+			: Premium User(_r_34_35_37)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

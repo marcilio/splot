@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 6, 2016 - 4:49 AM  -->
+<feature_model name="Telefonos Celulares">
+<meta>
+<data name="description">Arbol de caracteristicas para telefonos celulares</data>
+<data name="creator">Abimelec Cuesta</data>
+<data name="address"></data>
+<data name="email">aa.cuesta@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Independiente</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Telefonos Celulares(_r)
+	:m Hacer llamadas(_r_1)
+	:m Recibir llamadas(_r_2)
+	:m Pantallas(_r_3)
+		:o Basica(_r_3_8)
+		:o Color(_r_3_9)
+		:o Alta resolucion(_r_3_11)
+	:o Camaras(_r_4)
+		:g (_r_4_15) [1,1] 
+			: 5 Mega pixeles(_r_4_15_16)
+			: 10 Mega pixeles(_r_4_15_17)
+	:o Multimedia(_r_5)
+		:m Fotos(_r_5_12)
+		:m Video(_r_5_14)
+	:o Conectividad(_r_6)
+		:g (_r_6_18) [1,*] 
+			: 3G(_r_6_18_19)
+			: 4G(_r_6_18_20)
+	:o Localizacion satelital(_r_7)
+	:m Modelos(_r_21)
+		:g (_r_21_22) [1,*] 
+			: Baja gamma(_r_21_22_23)
+			: Media gamma(_r_21_22_24)
+			: Alta gamma(_r_21_22_25)
+</feature_tree>
+<constraints>
+constraint_1:~_r_4 or _r_3_11
+constraint_4:~_r_7 or ~_r_3_8
+constraint_2:~_r_5 or _r_3_11
+constraint_3:~_r_6_18_20 or _r_21_22_25
+</constraints>
+</feature_model>

@@ -1,0 +1,65 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 7, 2015 - 12:33 AM  -->
+<feature_model name="Wireless sensor actuator network">
+<meta>
+<data name="description">Wireless sensor actuator network</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Great-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r WSAN(_r)
+	:m Communication(_r_1)
+		:m Comm Type(_r_1_2)
+			:o Periodical(_r_1_2_4)
+			:o Event Based(_r_1_2_5)
+			:o On Demand(_r_1_2_6)
+		:m Nodes Identity(_r_1_3)
+			:o Location Based(_r_1_3_7)
+			:o Adress Based(_r_1_3_8)
+			:o Name Based(_r_1_3_9)
+			:g (_r_1_3_10) [1,*] 
+				: Unicast(_r_1_3_10_11)
+				: Multcast(_r_1_3_10_12)
+				: Anycast(_r_1_3_10_13)
+	:o Mensurement(_r_14)
+		:g (_r_14_15) [1,*] 
+			: Temperature(_r_14_15_16)
+			: Humidity(_r_14_15_17)
+			: Light(_r_14_15_18)
+			: Acceleration(_r_14_15_19)
+			: Smoke(_r_14_15_20)
+			: Vital Signs(_r_14_15_21)
+			: Presence(_r_14_15_22)
+			: Batery Level(_r_14_15_23)
+			: User Input(_r_14_15_24)
+				:o Feedback(_r_14_15_24_25)
+				:o Preferences(_r_14_15_24_26)
+				:o User-Generated Alarm(_r_14_15_24_27)
+	:o Actuation(_r_28)
+		:o Alarm(_r_28_29)
+			:o Acustic(_r_28_29_31)
+			:o Visual(_r_28_29_32)
+		:o User Output(_r_28_30)
+			:o Audio(_r_28_30_34)
+			:o Image(_r_28_30_35)
+			:o Video(_r_28_30_36)
+			:o Text(_r_28_30_37)
+		:o Applience Operation(_r_28_38)
+			:o HVAC(_r_28_38_39)
+			:o Lighting(_r_28_38_41)
+			:o Displacement(_r_28_38_42)
+	:o Localization(_r_43)
+		:o GPS-Based(_r_43_44)
+		:o Beacon-Based(_r_43_45)
+		:o RFID-Based(_r_43_46)
+		:o Fixed-Static(_r_43_47)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,30 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jul 4, 2017 - 9:43 PM  -->
+<feature_model name="Modelo de Característica para Entidades Urbanas">
+<meta>
+<data name="description">FM</data>
+<data name="creator">Lucas Vale</data>
+<data name="address"></data>
+<data name="email">valelucas1@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPB</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Entidade Urbana(_r)
+	:m Georeferenciamento(_r_1)
+	:o Capacidade(_r_2)
+	:o Status(_r_3)
+	:o Categoria ou Tipo(_r_4)
+	:o Descricao(_r_5)
+	:o Nivel(_r_6)
+	:o Velocidade(_r_7)
+	:o Rota(_r_8)
+	:o Data e Tempo(_r_9)
+	:o Gravidade(_r_10)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

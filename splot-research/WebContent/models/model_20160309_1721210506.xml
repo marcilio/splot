@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 9, 2016 - 11:52 AM  -->
+<feature_model name="Content Store">
+<meta>
+<data name="description">A content store application for a mobile device. This application may provide different content for the user including applications, movies, mu-sic etc. Different content is organised into different categories.</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ContentStore(_r)
+	:m Payment(_r_1)
+	:m ContentTypes(_r_2)
+		:g (_r_2_3) [1,*] 
+			: Video(_r_2_3_4)
+			: Music(_r_2_3_5)
+			: Applications(_r_2_3_6)
+	:m History(_r_7)
+		:m Retrieval(_r_7_9)
+			:g (_r_7_9_10) [1,1] 
+				: Download(_r_7_9_10_11)
+				: Stream(_r_7_9_10_12)
+	:o AgeGroups(_r_8)
+		:g (_r_8_13) [1,1] 
+			: U(_r_8_13_14)
+			: PG(_r_8_13_15)
+			: Adult(_r_8_13_16)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

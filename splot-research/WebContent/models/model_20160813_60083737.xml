@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Aug 13, 2016 - 12:05 PM  -->
+<feature_model name="Test1">
+<meta>
+<data name="description">Testing</data>
+<data name="creator">Arnon</data>
+<data name="address"></data>
+<data name="email">sturm@bgu.ac.il</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">BGU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Car(_r)
+	:m Gear(_r_1)
+		:o test(_r_1_3)
+		:o test2(_r_1_4)
+	:m Wheel(_r_2)
+		:o Feature-10(_r_2_10)
+		:m Feature-11(_r_2_11)
+	:o Test 5(_r_5)
+		:g (_r_5_6) [1,*] 
+			: Feature-7(_r_5_6_7)
+		:g (_r_5_8) [1,1] 
+			: Feature-9(_r_5_8_9)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_4
+constraint_2:_r_1_4 or _r_2_11
+</constraints>
+</feature_model>

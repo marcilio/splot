@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jun 6, 2014 - 2:08 AM  -->
+<feature_model name="Matrix chain multiplication">
+<meta>
+<data name="description">spl for matrix-chain multiplication</data>
+<data name="creator">Angela Villota Gomez</data>
+<data name="address"></data>
+<data name="email">apvillota@icesi.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DRISO - Icesi</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MatrixChain_Multiplication(_r)
+	:m MatrixPair_Multiplication(_r_1)
+		:g (_r_1_4) [1,1] 
+			: Strassen(_r_1_4_5)
+			: BlockReduce(_r_1_4_6)
+			: Hybrid(_r_1_4_7)
+	:o Scheduler(_r_2)
+		:g (_r_2_8) [1,1] 
+			: Parallel(_r_2_8_9)
+			: Sequential(_r_2_8_10)
+	:o Parenthesizer(_r_3)
+		:g (_r_3_11) [1,1] 
+			: Sequential(_r_3_11_12)
+			: Parallel(_r_3_11_13)
+</feature_tree>
+<constraints>
+constraint_1:~_r_2 or _r_3
+constraint_2:_r_2 or ~_r_3
+</constraints>
+</feature_model>

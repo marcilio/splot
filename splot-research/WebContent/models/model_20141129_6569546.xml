@@ -1,0 +1,51 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 29, 2014 - 6:14 PM  -->
+<feature_model name="Online Bookstore">
+<meta>
+<data name="description">Purchasing Books online</data>
+<data name="creator">Imran</data>
+<data name="address">Glasgow, UK</data>
+<data name="email">imran@dcs.gla.ac.uk</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UoG</data>
+<data name="department">SoCS</data>
+<data name="date">20/09/14</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Online Bookstore(_r)
+	:m Front store(_r_1)
+		:o Registration(_r_1_6)
+			:g (_r_1_6_9) [1,*] 
+				: Login(_r_1_6_9_10)
+				: Sign up(_r_1_6_9_11)
+		:o Catalogue(_r_1_7)
+		:m Purchase(_r_1_8)
+			:m Order(_r_1_8_12)
+				:g (_r_1_8_12_19) [1,1] 
+					: Phone(_r_1_8_12_19_20)
+					: Mail(_r_1_8_12_19_21)
+					: Email(_r_1_8_12_19_22)
+			:m Payment(_r_1_8_13)
+				:g (_r_1_8_13_15) [1,1] 
+					: Credit Card(_r_1_8_13_15_16)
+					: Cheque(_r_1_8_13_15_17)
+					: Pay Pal(_r_1_8_13_15_18)
+			:m Shipment(_r_1_8_14)
+				:g (_r_1_8_14_23) [1,1] 
+					: By Air(_r_1_8_14_23_24)
+					: By Ground(_r_1_8_14_23_25)
+	:o Back store(_r_5)
+	:m Personalization(_r_27)
+		:g (_r_27_28) [1,*] 
+			: Customer Profiling(_r_27_28_29)
+			: Information Filtering(_r_27_28_31)
+			: Identity Management(_r_27_28_32)
+				:g (_r_27_28_32_33) [1,*] 
+					: Authorization(_r_27_28_32_33_34)
+					: Authentication(_r_27_28_32_33_35)
+</feature_tree>
+<constraints>
+constraint_4:~_r_27_28_29 or _r_27_28_32_33_34
+</constraints>
+</feature_model>

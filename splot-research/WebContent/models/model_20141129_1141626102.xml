@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 29, 2014 - 3:33 AM  -->
+<feature_model name="Attempt of mine">
+<meta>
+<data name="description">First attempt</data>
+<data name="creator">silvio</data>
+<data name="address"></data>
+<data name="email">sgiaffre@alice.it</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Trento</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Content my first(_r)
+	:m Tasks(_r_1)
+		:g (_r_1_4) [1,*] 
+			: T1(_r_1_4_5)
+			: T2(_r_1_4_6)
+	:m Algorithms(_r_2)
+		:g (_r_2_7) [1,*] 
+			: A1(_r_2_7_8)
+			: A2(_r_2_7_9)
+			: A3(_r_2_7_10)
+			: A4(_r_2_7_11)
+	:m Data structures(_r_3)
+		:g (_r_3_12) [1,*] 
+			: DS1(_r_3_12_13)
+			: DS2(_r_3_12_14)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_4_5 or _r_2_7_8 or _r_2_7_10 or _r_3_12_13
+constraint_2:_r_1_4_6 or _r_2_7_9 or _r_2_7_10 or _r_2_7_11 or _r_3_12_13 or _r_3_12_14
+</constraints>
+</feature_model>

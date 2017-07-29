@@ -1,0 +1,48 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jul 2, 2017 - 7:08 PM  -->
+<feature_model name="service de la poste">
+<meta>
+<data name="description">service de la poste </data>
+<data name="creator">ines</data>
+<data name="address"></data>
+<data name="email">ines_achour@yahoo.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">RIADI-GDL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Service de poste(_r)
+	:g (_r_2) [1,*] 
+		: Demande(_r_2_3)
+			:g (_r_2_3_8) [1,*] 
+				: Service financier(_r_2_3_8_9)
+					:g (_r_2_3_8_9_19) [1,*] 
+						: Operation investissement(_r_2_3_8_9_19_20)
+							:g (_r_2_3_8_9_19_20_29) [1,*] 
+								: Rachat(_r_2_3_8_9_19_20_29_30)
+								: Abonnement(_r_2_3_8_9_19_20_29_31)
+						: Gestion des comptes(_r_2_3_8_9_19_21)
+							:g (_r_2_3_8_9_19_21_32) [1,*] 
+								: Ouverture de comptes(_r_2_3_8_9_19_21_32_33)
+								: Fermetures de comptes(_r_2_3_8_9_19_21_32_34)
+				: Service non financier(_r_2_3_8_10)
+					:g (_r_2_3_8_10_22) [1,*] 
+						: mise_a_jour(_r_2_3_8_10_22_23)
+						: demande information(_r_2_3_8_10_22_25)
+						: inscription service(_r_2_3_8_10_22_26)
+		: Inscription(_r_2_4)
+		: Authentification(_r_2_5)
+	:o Reclamation(_r_6)
+		:g (_r_6_13) [1,*] 
+			: Regime international(_r_6_13_14)
+			: Regime interne(_r_6_13_15)
+	:o Declaration(_r_7)
+		:g (_r_7_16) [1,*] 
+			: Paiement(_r_7_16_17)
+			: Perte de document(_r_7_16_18)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

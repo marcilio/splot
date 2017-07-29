@@ -1,0 +1,107 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Oct 21, 2014 - 7:24 AM  -->
+<feature_model name="FrameWorkProdemge">
+<meta>
+<data name="description">Este feature model represnta o framework prodemge</data>
+<data name="creator">Sândalo Bessa</data>
+<data name="address"></data>
+<data name="email">sandalo@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DCC-UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r FrameWorkProdemge(_r)
+	:m Domain(_r_1)
+		:m Entity(_r_1_9)
+		:o RepositoryInterface(_r_1_10)
+		:o Utils(_r_1_11)
+	:g (_r_2) [1,1] 
+		: Back-end(_r_2_3)
+			:m SessionFacade(_r_2_3_5)
+				:o iniciarTransacao(_r_2_3_5_84)
+				:o fecharTransacao(_r_2_3_5_85)
+				:o limparTransacao(_r_2_3_5_86)
+				:o cancelarTransacao(_r_2_3_5_87)
+			:o Specification(_r_2_3_6)
+				:m RegraDeNegocio(_r_2_3_6_83)
+			:o Repository(_r_2_3_7)
+				:o gravar(_r_2_3_7_54)
+				:o recuperarObjeto(_r_2_3_7_55)
+					:o antesRecuperaObjeto(_r_2_3_7_55_79)
+					:o inicializaLazy(_r_2_3_7_55_80)
+					:o configuraProfundidadeDoGrafo(_r_2_3_7_55_81)
+					:o aposRecuperaObjeto(_r_2_3_7_55_82)
+				:o listar(_r_2_3_7_56)
+				:o listarBaseadoNoExemplo(_r_2_3_7_57)
+					:o configuraListaOrdenacao(_r_2_3_7_57_58)
+					:o retiraTransientesDaProjecao(_r_2_3_7_57_60)
+					:o retiraTransientesDaOrdenacao(_r_2_3_7_57_61)
+					:o recuperaProjecaoDeColecoes(_r_2_3_7_57_62)
+					:o retiraProjecoesDeColecaoDaProjecaoPrincipal(_r_2_3_7_57_63)
+					:o recuperaObjetosComSuasProjecoes(_r_2_3_7_57_64)
+					:o acrecentaIdNasProjecoes(_r_2_3_7_57_65)
+					:o alteraProjecao(_r_2_3_7_57_66)
+					:o montaRestricoes(_r_2_3_7_57_67)
+					:o recuperaQuantidadeDeRegistros(_r_2_3_7_57_68)
+					:o aplicarFiltroDeSeguranca(_r_2_3_7_57_69)
+					:o configuraProjecao(_r_2_3_7_57_70)
+					:o configuraOrdenacao(_r_2_3_7_57_71)
+					:o antesRecuperaLista(_r_2_3_7_57_72)
+					:o montarListaDeObjetosApartirDaProjecao(_r_2_3_7_57_73)
+					:o recuperaProjecoesDeUmaMesmaColecao(_r_2_3_7_57_74)
+					:o atribuiColecoesAoObjetoMestre(_r_2_3_7_57_75)
+					:o aposRecuperaLista(_r_2_3_7_57_76)
+					:o Feature-91(_r_2_3_7_57_91)
+				:o excluir(_r_2_3_7_59)
+				:o iniciarTransacao(_r_2_3_7_88)
+				:o fecharTransacao(_r_2_3_7_90)
+				:o limparTransacao(_r_2_3_7_92)
+				:o cancelarTransacao(_r_2_3_7_93)
+		: Front-end(_r_2_4)
+			:m View(_r_2_4_12)
+			:m Controller(_r_2_4_13)
+				:o salvar(_r_2_4_13_16)
+					:o trataDetalhesEmBranco(_r_2_4_13_16_17)
+					:o transfereDadosDaTelaParaObjeto(_r_2_4_13_16_18)
+					:o antesSalvar(_r_2_4_13_16_19)
+					:o aposSalvar(_r_2_4_13_16_20)
+				:o recuperar(_r_2_4_13_21)
+					:o atualizaObjetoAtual(_r_2_4_13_21_22)
+						:o antesAtualizaObjetoAtual(_r_2_4_13_21_22_23)
+				:o pesquisar(_r_2_4_13_24)
+					:o antesPesquisar(_r_2_4_13_24_26)
+					:o recuperaLista(_r_2_4_13_24_27)
+					:o configuraListaDeObjetos(_r_2_4_13_24_28)
+				:o inicializar(_r_2_4_13_29)
+					:o configurafachadaDeNegocio(_r_2_4_13_29_30)
+					:o instanciaNovoObjeto(_r_2_4_13_29_31)
+					:o configurarVariavelDeControle(_r_2_4_13_29_34)
+					:o configuraListaDeUnidades(_r_2_4_13_29_35)
+					:o configuraUsuarioLogado(_r_2_4_13_29_36)
+					:o configuraValoresPadroesParaObjetoArg(_r_2_4_13_29_37)
+					:o configuraValoresPadroesParaObjeto(_r_2_4_13_29_38)
+					:o configuraTelaDeEntrada(_r_2_4_13_29_39)
+					:o realizarBind(_r_2_4_13_29_40)
+				:o exlcuir(_r_2_4_13_41)
+			:o MenssageHelper(_r_2_4_14)
+				:o emiteMessagemDeErro(_r_2_4_14_43)
+				:o emiteMessagemDeAtencao(_r_2_4_14_44)
+				:o emiteMessagemDeSucesso(_r_2_4_14_45)
+			:o BinderHelper(_r_2_4_15)
+				:o loadAll(_r_2_4_15_46)
+				:o loadComponent(_r_2_4_15_47)
+				:o habilitaDesabilitaComponent(_r_2_4_15_48)
+			:o ViewHelper(_r_2_4_16)
+				:o ajustaLayoutParaSelecao(_r_2_4_16_49)
+					:o ajustaBotoesParaTelaSelecao(_r_2_4_16_49_50)
+				:o ajustaLayoutParaManutencao(_r_2_4_16_51)
+					:o ajustaBotoesParaTelaManutenca(_r_2_4_16_51_52)
+					:o preparaTelaDeManutencao(_r_2_4_16_51_53)
+			:o zk-configuration(_r_2_4_95)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

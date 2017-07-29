@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 16, 2017 - 5:15 PM  -->
+<feature_model name="E-shop">
+<meta>
+<data name="description">practice</data>
+<data name="creator">SC-Tang</data>
+<data name="address"></data>
+<data name="email">s1030490@mail.ncyu.edu.tw</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">NCYU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-shop(_r)
+	:m Catalogue23(_r_1)
+	:m Payment(_r_2)
+		:g (_r_2_6) [1,*] 
+			: Bank Transfer(_r_2_6_7)
+			: Credit Card(_r_2_6_8)
+			: Electronic Coins(_r_2_6_11)
+	:m Security(_r_3)
+		:g (_r_3_9) [1,1] 
+			: High(_r_3_9_10)
+			: Standard(_r_3_9_11)
+	:o Search(_r_5)
+		:o Public report(_r_5_13)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_6_8 or ~_r_3_9_10
+constraint_2:~_r_3_9_10 or ~_r_5_13
+</constraints>
+</feature_model>

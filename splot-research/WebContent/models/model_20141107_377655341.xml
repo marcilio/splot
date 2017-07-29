@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Nov 7, 2014 - 3:37 PM  -->
+<feature_model name="TiendaEnLinea">
+<meta>
+<data name="description">LPS tienda web</data>
+<data name="creator">Gabriel Rodriguez</data>
+<data name="address"></data>
+<data name="email">luisgabriel84@gmai.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Pontificia Universidad Javeriana Cali</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r TiendaEnLinea(_r)
+	:m Productos(_r_2)
+		:o Inventario(_r_2_7)
+		:o CompativoProductos(_r_2_9)
+		:o CalificadorProductos(_r_2_10)
+	:m Categorias(_r_3)
+	:m Marcas(_r_4)
+	:m CMS(_r_5)
+		:o GaleriaImagenes(_r_5_12)
+		:o ChatLinea(_r_5_13)
+		:o Banners(_r_5_14)
+		:o SocialMedia(_r_5_15)
+	:o RegistroUsuarios(_r_16)
+	:g (_r_17) [1,1] 
+		: RedesSociales(_r_17_18)
+		: Manual(_r_17_19)
+	:o CarroCompras(_r_20)
+		:m Pagos(_r_20_21)
+		:g (_r_20_22) [1,*] 
+			: Consignacion(_r_20_22_23)
+			: Contraentrega(_r_20_22_24)
+			: TarjetaCredito(_r_20_22_25)
+			: PSE(_r_20_22_26)
+		:o Cotizaciones(_r_20_27)
+		:o HistorialCompras(_r_20_28)
+	:o Busquedas(_r_29)
+</feature_tree>
+<constraints>
+constraint_1:~_r_16 or _r_20_28
+constraint_2:_r_16 or ~_r_20_21
+</constraints>
+</feature_model>

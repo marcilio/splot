@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Sep 21, 2016 - 8:18 PM  -->
+<feature_model name="COBI">
+<meta>
+<data name="description">SPL reconocimiento biometrico</data>
+<data name="creator">Edwin Munoz</data>
+<data name="address"></data>
+<data name="email">edwinjmunoz@hotmail.com</data>
+<data name="phone"></data>
+<data name="website">www.acopletecnologico.com</data>
+<data name="organization">Acople Tecnologico</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ControlBiometrico(_r)
+	:m Personas(_r_1)
+		:m PersonasMarcacion(_r_1_9)
+			:m RegPersonasInteres(_r_1_9_11)
+			:o RegPersonasExternas(_r_1_9_12)
+		:m PersonasUsuariosApp(_r_1_10)
+	:m Reportes(_r_6)
+	:o Notificaciones(_r_53)
+	:o Calendario(_r_54)
+	:o AresInteress(_r_55)
+		:g (_r_55_56) [1,*] 
+			: Geografica(_r_55_56_57)
+			: Logica(_r_55_56_58)
+	:m TipoAplicacion(_r_39)
+		:g (_r_39_40) [1,*] 
+			: Acceso(_r_39_40_41)
+				:g (_r_39_40_41_44) [1,*] 
+					: xCondicion(_r_39_40_41_44_45)
+					: xProgramacion(_r_39_40_41_44_46)
+			: Tiempo(_r_39_40_42)
+				:g (_r_39_40_42_49) [1,*] 
+					: TiempoLaborado(_r_39_40_42_49_50)
+					: Ausentismo(_r_39_40_42_49_51)
+			: Consumo(_r_39_40_43)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

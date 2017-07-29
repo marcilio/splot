@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 23, 2015 - 4:06 PM  -->
+<feature_model name="e-Event">
+<meta>
+<data name="description">Event Management System</data>
+<data name="creator">Pablo</data>
+<data name="address"></data>
+<data name="email">pablofmatos@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IFBA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r e-Event(_r)
+	:o Finance(_r_2)
+		:o Payment(_r_2_14)
+			:o In Cash(_r_2_14_16)
+			:o Deposit Slip(_r_2_14_17)
+			:o Bank Slip(_r_2_14_19)
+		:o Discount(_r_2_15)
+			:o Institutional(_r_2_15_20)
+			:o SBC Members(_r_2_15_21)
+	:o Document(_r_3)
+		:o Certificate(_r_3_22)
+			:o Participant(_r_3_22_25)
+			:m Panelist(_r_3_22_26)
+			:o Organization(_r_3_22_27)
+		:o Attendance Certificate(_r_3_23)
+		:o Attendance List(_r_3_24)
+	:m Event(_r_4)
+		:m Activity(_r_4_5)
+			:g (_r_4_5_8) [1,*] 
+				: Lecture(_r_4_5_8_9)
+				: Short Course(_r_4_5_8_12)
+				: Round Table(_r_4_5_8_13)
+		:m Registration(_r_4_6)
+			:m Participant(_r_4_6_7)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

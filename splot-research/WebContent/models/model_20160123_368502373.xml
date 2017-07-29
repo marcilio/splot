@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jan 23, 2016 - 7:11 PM  -->
+<feature_model name="Sample">
+<meta>
+<data name="description">Description</data>
+<data name="creator">denis</data>
+<data name="address"></data>
+<data name="email">denis@ecomp.poli.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UPE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r teste(_r)
+	:m Feature-1(_r_1)
+	:o Feature-2(_r_2)
+	:g (_r_3) [1,1] 
+		: Feature-4(_r_3_4)
+		: Feature-5(_r_3_5)
+	:o Feature-6(_r_6)
+	:g (_r_7) [1,1] 
+		: Feature-8(_r_7_8)
+	:m Feature-9(_r_9)
+	:o Feature-10(_r_10)
+	:o Feature-11(_r_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,57 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 6, 2016 - 10:56 PM  -->
+<feature_model name="Autiomoviles">
+<meta>
+<data name="description">Arbol de Automoviles</data>
+<data name="creator">andruco</data>
+<data name="address"></data>
+<data name="email">andruco3@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Automoviles(_r)
+	:m Puertas(_r_1)
+		:g (_r_1_15) [1,*] 
+			: 3 puertas(_r_1_15_16)
+			: 4 puertas(_r_1_15_17)
+			: 5 puertas(_r_1_15_18)
+	:m Motor(_r_2)
+		:g (_r_2_12) [1,*] 
+			: Gasolina(_r_2_12_13)
+			: Disel(_r_2_12_14)
+	:m Transmision(_r_3)
+		:g (_r_3_19) [1,*] 
+			: Manuales(_r_3_19_20)
+			: Automaticas(_r_3_19_21)
+	:o TurboAlimentador(_r_4)
+	:m Seguridad(_r_5)
+		:m 6 AirBag(_r_5_22)
+		:m Abs(_r_5_23)
+	:o Traccion(_r_6)
+		:g (_r_6_26) [1,1] 
+			: Control de Traccion(_r_6_26_27)
+			: Traccion Integral(_r_6_26_28)
+	:m Entretenimiento(_r_7)
+		:m CD(_r_7_29)
+		:m MP3(_r_7_30)
+		:o Pantalla Tactil(_r_7_31)
+	:o Navegacion(_r_8)
+	:o Adicionales(_r_9)
+		:g (_r_9_32) [1,*] 
+			: Techo Corredizo(_r_9_32_33)
+			: Rines de Lujo(_r_9_32_34)
+			: CojineriaCuero(_r_9_32_35)
+	:m Versiones(_r_36)
+		:g (_r_36_37) [1,1] 
+			: Sedan(_r_36_37_38)
+			: Compacto(_r_36_37_39)
+			: Suv(_r_36_37_40)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_12_14 or _r_36_37_38 or _r_36_37_39
+</constraints>
+</feature_model>

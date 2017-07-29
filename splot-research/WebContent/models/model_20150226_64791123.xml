@@ -1,0 +1,50 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Feb 26, 2015 - 3:34 PM  -->
+<feature_model name="Caso Inmobiliaria">
+<meta>
+<data name="description">Caso Inmobiliaria</data>
+<data name="creator">Javier Vera</data>
+<data name="address"></data>
+<data name="email">javiryma@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Caso Inmobiliaria(_r)
+	:o Gestion_Capital(_r_10)
+		:m Estructuracion_Fondo(_r_10_12)
+			:g (_r_10_12_13) [1,*] 
+				: Inversiones_Alternativas(_r_10_12_13_14)
+				: Inversiones_Tradicionales(_r_10_12_13_15)
+		:m Definicion_Gobierno_Corporativo(_r_10_16)
+		:m Ralaciones_Inversores(_r_10_17)
+		:m Adquisiciones(_r_10_18)
+		:m Liquidacion(_r_10_19)
+	:m Gestion_Activos(_r_20)
+		:m Adquisicion_Inmueble(_r_20_21)
+		:m Gestion_Inmobiliaria(_r_20_22)
+			:m Gestion_Operativa(_r_20_22_27)
+				:o Gestion_Equipamiento(_r_20_22_27_30)
+				:o Instalaciones(_r_20_22_27_31)
+				:o Activos_Fisicos(_r_20_22_27_32)
+			:m Sistemas(_r_20_22_28)
+			:m RRHH(_r_20_22_29)
+		:m Alquileres(_r_20_23)
+		:m Reportes(_r_20_24)
+		:o Valoraciones(_r_20_25)
+		:o Auditoria(_r_20_26)
+		:o Revisiones_Mercado(_r_20_33)
+		:o Contabilidad(_r_20_34)
+		:o Refinanciaciones(_r_20_35)
+		:o Venta_Activos(_r_20_36)
+</feature_tree>
+<constraints>
+constraint_8:_r_20_22_27_30 or ~_r_20_22_27_32
+constraint_10:_r_20_22_27_31 or ~_r_20_22_27_32
+constraint_11:_r_20_25 or _r_20_26
+constraint_12:_r_20_34 or _r_20_36
+</constraints>
+</feature_model>

@@ -1,0 +1,93 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 10, 2017 - 4:03 AM  -->
+<feature_model name="Computador-Miso_201701">
+<meta>
+<data name="description">Describe un computador y sus posibles features</data>
+<data name="creator">Jorge Perea</data>
+<data name="address"></data>
+<data name="email">ja.perea912unaindes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computador(_r)
+	:m Tipo(_r_2)
+		:g (_r_2_3) [1,1] 
+			: mesa(_r_2_3_4)
+			: portatil(_r_2_3_5)
+			: servidor(_r_2_3_6)
+	:m Marca(_r_7)
+		:g (_r_7_8) [1,1] 
+			: Dell(_r_7_8_9)
+			: Toshiba(_r_7_8_10)
+			: Lenovo(_r_7_8_11)
+			: Apple(_r_7_8_12)
+			: Clon(_r_7_8_13)
+	:m Sistema Operativo(_r_14)
+		:g (_r_14_15) [1,1] 
+			: Personal(_r_14_15_16)
+				:g (_r_14_15_16_19) [1,1] 
+					: Windows 10(_r_14_15_16_19_20)
+					: Fedora(_r_14_15_16_19_21)
+					: Yosemite(_r_14_15_16_19_22)
+			: Servidor(_r_14_15_17)
+				:g (_r_14_15_17_23) [1,1] 
+					: Windows Server(_r_14_15_17_23_24)
+					: Red Hat(_r_14_15_17_23_25)
+					: Osx Server(_r_14_15_17_23_26)
+	:m CPU(_r_27)
+		:m RAM(_r_27_28)
+			:g (_r_27_28_32) [1,1] 
+				: 4GB(_r_27_28_32_33)
+				: 8GB(_r_27_28_32_38)
+				: 16GB(_r_27_28_32_39)
+				: 32GB(_r_27_28_32_40)
+				: 64GB(_r_27_28_32_41)
+		:m Procesador(_r_27_29)
+			:g (_r_27_29_48) [1,1] 
+				: Intel(_r_27_29_48_49)
+				: AMD(_r_27_29_48_50)
+		:m Disco Duro(_r_27_30)
+			:g (_r_27_30_42) [1,1] 
+				: 500GB(_r_27_30_42_43)
+				: 1TB(_r_27_30_42_44)
+				: 2TB(_r_27_30_42_45)
+				: 5TB(_r_27_30_42_46)
+				: 10TB(_r_27_30_42_47)
+		:o Tarjeta Grafica(_r_27_31)
+			:g (_r_27_31_51) [1,1] 
+				: NVIDIA(_r_27_31_51_52)
+				: ATI Radeon(_r_27_31_51_53)
+	:o Pantalla(_r_54)
+		:m Tecnologia(_r_54_55)
+			:g (_r_54_55_57) [1,*] 
+				: 3D(_r_54_55_57_58)
+				: 4K(_r_54_55_57_59)
+		:m Tamanio(_r_54_56)
+			:g (_r_54_56_60) [1,1] 
+				: 14 Pulgadas(_r_54_56_60_61)
+				: 17 Pulgadas(_r_54_56_60_62)
+				: 24 Pulgadas(_r_54_56_60_63)
+</feature_tree>
+<constraints>
+constraint_17:~_r_2_3_6 or ~_r_27_28_32_33 or ~_r_27_28_32_38 or ~_r_27_28_32_39
+constraint_18:~_r_2_3_6 or ~_r_27_30_42_43 or ~_r_27_30_42_44 or ~_r_27_30_42_45
+constraint_8:~_r_2_3_4 or ~_r_27_28_32_40 or ~_r_27_28_32_41
+constraint_9:~_r_2_3_5 or ~_r_14_15_17
+constraint_10:~_r_2_3_4 or ~_r_14_15_17
+constraint_6:~_r_2_3_4 or ~_r_27_30_42_46 or ~_r_27_30_42_47
+constraint_11:~_r_7_8_9 or ~_r_14_15_16_19_22
+constraint_7:~_r_2_3_5 or ~_r_27_28_32_40 or ~_r_27_28_32_41
+constraint_12:~_r_7_8_10 or ~_r_14_15_16_19_22
+constraint_4:~_r_2_3_5 or ~_r_54_55_57_58 or ~_r_54_55_57_59
+constraint_13:~_r_7_8_11 or ~_r_14_15_16_19_22
+constraint_14:~_r_7_8_13 or ~_r_14_15_16_19_22
+constraint_5:~_r_2_3_5 or ~_r_27_30_42_46 or ~_r_27_30_42_47
+constraint_15:~_r_2_3_6 or _r_14_15_17
+constraint_2:~_r_2_3_5 or ~_r_7_8_13
+constraint_3:~_r_2_3_5 or _r_54
+</constraints>
+</feature_model>

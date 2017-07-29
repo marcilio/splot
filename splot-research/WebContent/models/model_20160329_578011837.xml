@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 10:47 PM  -->
+<feature_model name="UrnaUFMGSERGIOMiranda">
+<meta>
+<data name="description">urnaParaDisciplina</data>
+<data name="creator">Sergio</data>
+<data name="address">UFMG</data>
+<data name="email">sergio.miranda@dcc.ufmg.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFGM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna(_r)
+	:m iniciar(_r_1)
+		:m cadastrar_candidatos(_r_1_24)
+		:m editar_candidato(_r_1_25)
+		:m deletar_candidato(_r_1_26)
+		:m valida_permissao(_r_1_27)
+	:m terminar(_r_2)
+		:m valida_permissao(_r_2_28)
+	:m realizar_voto(_r_3)
+		:g (_r_3_4) [1,1] 
+			: insere_titulo(_r_3_4_5)
+			: insere_identidade_cpf(_r_3_4_6)
+		:m confirmar(_r_3_7)
+		:m escolhe_candidato(_r_3_8)
+			:g (_r_3_8_9) [1,1] 
+				: escolhe_pres_senador(_r_3_8_9_10)
+				: escolhe_pref_vereador(_r_3_8_9_11)
+				: escolhe_chefe_dep(_r_3_8_9_12)
+		:o possibilidade_abster(_r_3_19)
+	:m apresenta_estatistica(_r_15)
+		:g (_r_15_16) [1,1] 
+			: pres_senador_pref_vereador(_r_15_16_17)
+			: chef_departamento(_r_15_16_18)
+	:m relatorio_final_votacao(_r_20)
+		:g (_r_20_21) [1,1] 
+			: pref_sen_pres_vereador(_r_20_21_22)
+			: chefe_departamento(_r_20_21_23)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

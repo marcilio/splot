@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 19, 2014 - 9:55 PM  -->
+<feature_model name="MarketplaceDeLosAlpes">
+<meta>
+<data name="description">MarketplaceDeLosAlpes</data>
+<data name="creator">Rolando Amarillo</data>
+<data name="address"></data>
+<data name="email">ra.amarillo71@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Marketplace(_r)
+	:m Cliente(_r_3)
+		:m GestionUsuario(_r_3_25)
+			:m AutenticarUsuario(_r_3_25_26)
+			:m RecuperarContrasena(_r_3_25_27)
+			:m CRUD_Usuario(_r_3_25_28)
+	:m Proveedor(_r_4)
+		:m AdministracionDeProductos(_r_4_5)
+			:m RegistrarProducto(_r_4_5_6)
+			:m ActualizarProducto(_r_4_5_7)
+			:m CrearCategoria(_r_4_5_8)
+			:o CrearPaquete(_r_4_5_9)
+			:o AlarmaInventarioBajo(_r_4_5_10)
+			:o Feature-16(_r_4_5_16)
+		:m BuscarProducto(_r_4_11)
+			:m ConsultarHistoricoVentas(_r_4_11_12)
+			:m ConsultarHistoricoComprasCliente(_r_4_11_13)
+			:m ConsultarEstadoPagoCompra(_r_4_11_14)
+			:o CrearPromocion(_r_4_11_15)
+			:o ConsultarHistoricoDevoluciones(_r_4_11_17)
+		:m AdministracionDeEnvios(_r_4_18)
+			:m ConsultarOrdenesEnvio(_r_4_18_19)
+			:m ActualizarEstadoEnvio(_r_4_18_20)
+			:m ConsultarEnviosPorEstado(_r_4_18_22)
+			:o ConsultarEstadoDevoluciones(_r_4_18_23)
+			:o SeleccionarProveedoresEnvio(_r_4_18_24)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

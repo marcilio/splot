@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 9, 2016 - 12:04 PM  -->
+<feature_model name="Visual Data Graph">
+<meta>
+<data name="description">Visual Data Graph</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VisuDataGraph(_r)
+	:m OpenFile(_r_1)
+		:g (_r_1_18) [1,1] 
+			: FileChooser(_r_1_18_19)
+			: SmallFileChooser(_r_1_18_20)
+	:m Graphics(_r_2)
+		:g (_r_2_3) [1,*] 
+			: Barchart(_r_2_3_4)
+			: Piechart(_r_2_3_5)
+			: Temporalchart(_r_2_3_6)
+	:o Preferences(_r_7)
+	:m Views(_r_8)
+		:o ViewSelector(_r_8_9)
+		:m GraphicVisualisation(_r_8_10)
+		:o GraphicSelector(_r_8_11)
+	:o Filter(_r_12)
+		:g (_r_12_13) [1,*] 
+			: Filter1D(_r_12_13_14)
+			: Filter2D(_r_12_13_15)
+			: Filter3D(_r_12_13_16)
+			: TimeLine(_r_12_13_17)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

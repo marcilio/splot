@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 9, 2015 - 9:04 AM  -->
+<feature_model name="test 3">
+<meta>
+<data name="description">calculate total </data>
+<data name="creator">Muhammad Javed</data>
+<data name="address">Hazara Uni Pakistan</data>
+<data name="email">mjavedgohar@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Hazara University Pakistan</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r a(_r)
+	:m b(_r_1)
+		:g (_r_1_3) [1,1] 
+			: d(_r_1_3_5)
+			: e(_r_1_3_6)
+			: h(_r_1_3_10)
+	:o c(_r_2)
+		:g (_r_2_7) [1,*] 
+			: f(_r_2_7_8)
+			: g(_r_2_7_9)
+			: j(_r_2_7_12)
+	:o i(_r_11)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_3_6 or ~_r_2_7_8
+</constraints>
+</feature_model>

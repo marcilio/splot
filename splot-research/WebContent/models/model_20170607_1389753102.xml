@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jun 16, 2017 - 3:20 AM  -->
+<feature_model name="smartPhone">
+<meta>
+<data name="description">feature model of smart phone</data>
+<data name="creator">Maalaoui najla</data>
+<data name="address"></data>
+<data name="email">najlus2012@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">faculté des sciences de bizerte(tunis)</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SmartPhone(_r)
+	:m call(_r_1)
+	:m Appareil-photo(_r_2)
+		:m Appareil-photo-arriere(_r_2_3)
+			:m flash-arriere(_r_2_3_5)
+			:m resolution(_r_2_3_6)
+				:g (_r_2_3_6_7) [1,*] 
+					: 5mp(_r_2_3_6_7_8)
+					: 8mp(_r_2_3_6_7_9)
+					: 10mp(_r_2_3_6_7_10)
+					: 12mp(_r_2_3_6_7_11)
+					: 15mp7(_r_2_3_6_7_12)
+		:o Appareil-photo-frontale(_r_2_4)
+			:o flash-frontale(_r_2_4_13)
+</feature_tree>
+<constraints>
+constraint_6:~_r_2_3_5 or _r_2_3
+</constraints>
+</feature_model>

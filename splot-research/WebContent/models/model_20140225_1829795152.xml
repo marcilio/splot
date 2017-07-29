@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Mar 8, 2014 - 3:35 PM  -->
+<feature_model name="Celular">
+<meta>
+<data name="description">Funcionalidades de um celular</data>
+<data name="creator">Denise</data>
+<data name="address"></data>
+<data name="email">denise.alvesss@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPI</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Celular(_r)
+	:m Chamadas(_r_1)
+		:o Bloqueio de chamadas(_r_1_6)
+	:o GPS(_r_2)
+	:m Screen(_r_3)
+		:g (_r_3_11) [1,1] 
+			: Preto e branco(_r_3_11_12)
+			: Colour(_r_3_11_13)
+			: Alta Resolucao(_r_3_11_14)
+	:o Media(_r_4)
+		:g (_r_4_15) [1,*] 
+			: Camera(_r_4_15_16)
+			: MP3(_r_4_15_17)
+	:m Games(_r_5)
+		:g (_r_5_18) [1,*] 
+			: Quebra Cabeca(_r_5_18_19)
+			: Snake(_r_5_18_20)
+</feature_tree>
+<constraints>
+constraint_1:_r_3_11_14 or ~_r_4_15_16
+</constraints>
+</feature_model>

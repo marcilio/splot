@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 12, 2017 - 6:57 AM  -->
+<feature_model name="DS Monitor Feature">
+<meta>
+<data name="description">DSM</data>
+<data name="creator">brc</data>
+<data name="address"></data>
+<data name="email">burcu.ozten@vestel.com.tr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">engineeer</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r DS MONITOR(_r)
+	:m SOURCE(_r_1)
+		:g (_r_1_5) [1,*] 
+			: VGA(_r_1_5_6)
+			: HDMI(_r_1_5_7)
+				:g (_r_1_5_7_9) [1,1] 
+					: Dual(_r_1_5_7_9_10)
+					: Single(_r_1_5_7_9_11)
+		:o OPS(_r_1_8)
+			:o Jack Sense(_r_1_8_31)
+			:m Sleep Mode(_r_1_8_32)
+			:o Connected(_r_1_8_34)
+				:g (_r_1_8_34_57) [1,*] 
+					: Ethernet(_r_1_8_34_57_58)
+					: Wifi(_r_1_8_34_57_59)
+			:m Audio(_r_1_8_35)
+				:g (_r_1_8_35_54) [1,*] 
+					: Microphone(_r_1_8_35_54_55)
+					: Headphone(_r_1_8_35_54_56)
+			:o USB(_r_1_8_36)
+				:g (_r_1_8_36_51) [1,*] 
+					: USB 20(_r_1_8_36_51_52)
+					: USB 30(_r_1_8_36_51_53)
+			:m Operating System(_r_1_8_39)
+				:g (_r_1_8_39_47) [1,1] 
+					: Linux(_r_1_8_39_47_48)
+					: Windows(_r_1_8_39_47_49)
+					: Android(_r_1_8_39_47_50)
+			:m Processor(_r_1_8_40)
+				:g (_r_1_8_40_41) [1,1] 
+					: AMD(_r_1_8_40_41_42)
+					: Intel(_r_1_8_40_41_45)
+					: ARM(_r_1_8_40_41_46)
+	:o RS232(_r_12)
+	:m Power Options(_r_13)
+		:g (_r_13_22) [1,*] 
+			: Deep Standby(_r_13_22_23)
+			: Power Switch(_r_13_22_24)
+	:o Life-Timer(_r_18)
+	:m Audio Option(_r_19)
+		:g (_r_19_25) [1,*] 
+			: Inline(_r_19_25_26)
+			: Outline(_r_19_25_27)
+	:m Remote Controller(_r_20)
+		:g (_r_20_28) [1,1] 
+			: RC1(_r_20_28_29)
+			: RC2(_r_20_28_30)
+	:m OSD Menu(_r_21)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

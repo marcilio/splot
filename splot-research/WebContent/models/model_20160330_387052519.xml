@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:30 PM  -->
+<feature_model name="URNA - Gabriel Carmo">
+<meta>
+<data name="description">Urna eletrônica</data>
+<data name="creator">Gabriel Carmo</data>
+<data name="address"></data>
+<data name="email">gabriel.carmo@dcc.ufmg.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department">DCC</data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna eletronica(_r)
+	:m inicializarVotacao(_r_1)
+		:m Senha(_r_1_2)
+			:g (_r_1_2_3) [1,1] 
+				: Titulo de eleitor(_r_1_2_3_4)
+				: Documento oficial com foto(_r_1_2_3_5)
+		:m Eleicao(_r_1_6)
+			:g (_r_1_6_7) [1,1] 
+				: Eleicao de Um Presidente e Dois Senadores(_r_1_6_7_8)
+				: Eleicao de Um Prefeito e Um Vereador(_r_1_6_7_9)
+				: Eleicao de Um Chefe de Departamento(_r_1_6_7_10)
+					:g (_r_1_6_7_10_12) [1,1] 
+						: Professor(_r_1_6_7_10_12_13)
+						: Tecnico administrativo(_r_1_6_7_10_12_14)
+	:m inicializarUrna(_r_22)
+		:m Senha(_r_22_23)
+			:g (_r_22_23_24) [1,1] 
+				: TSE(_r_22_23_24_25)
+				: TRE(_r_22_23_24_26)
+				: Professor ativo(_r_22_23_24_27)
+	:m finalizar(_r_28)
+		:m Senha(_r_28_29)
+			:g (_r_28_29_30) [1,1] 
+				: TRE(_r_28_29_30_31)
+				: TSE(_r_28_29_30_32)
+				: Professor ativo(_r_28_29_30_33)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 19, 2014 - 9:48 PM  -->
+<feature_model name="MISO Uniandes 201411102">
+<meta>
+<data name="description">Trabajo U</data>
+<data name="creator">LA</data>
+<data name="address"></data>
+<data name="email">lf.avila11@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UniAndes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MksMISO UniAndes 201401112(_r)
+	:m Registro(_r_1)
+		:m CRUD Usuario(_r_1_2)
+		:o Dar de Baja un Usuario(_r_1_3)
+		:m Recordar Contrasena(_r_1_4)
+	:m Catalogo(_r_5)
+		:m CRUD Articulo(_r_5_6)
+		:o Publicar en redes(_r_5_7)
+		:o Publicar Orfecta(_r_5_8)
+	:o Pagos(_r_9)
+		:m Pagar(_r_9_10)
+		:o Ver compras(_r_9_11)
+		:o Ver envios(_r_9_12)
+		:m Agregar medios de pago(_r_9_13)
+	:o Reportes(_r_14)
+		:m De ventas(_r_14_15)
+		:o De calificaciones(_r_14_16)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

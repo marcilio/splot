@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 1:58 AM  -->
+<feature_model name="Urna Eletronica">
+<meta>
+<data name="description">Urna Eletronica </data>
+<data name="creator">PPS</data>
+<data name="address"></data>
+<data name="email">PPS</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna ReusoSoft(_r)
+	:m Gerenciar Urna(_r_1)
+		:m Identificar responsavel pela urna(_r_1_32)
+		:m Iniciar votacao(_r_1_33)
+		:m Terminar votacao(_r_1_34)
+	:m Gerenciar Votacao(_r_7)
+		:g (_r_7_11) [1,1] 
+			: Eleicao Presidente e Senador(_r_7_11_12)
+			: Eleicao Prefeito e Vereador(_r_7_11_13)
+			: Eleicao Chefe de Departamento(_r_7_11_14)
+		:m Realizar Votacao(_r_7_15)
+			:m Votar em branco(_r_7_15_16)
+			:m Confirmar voto(_r_7_15_17)
+			:m Corrigir voto(_r_7_15_18)
+			:o Votar Nulo(_r_7_15_31)
+		:m Emitir Resultado(_r_7_27)
+			:g (_r_7_27_28) [1,1] 
+				: Candidatos eleitos e derrotados(_r_7_27_28_29)
+				: Candidato eleito(_r_7_27_28_30)
+		:m Identificar Eleitor(_r_7_23)
+			:g (_r_7_23_25) [1,*] 
+				: Identificacao por Titulo(_r_7_23_25_26)
+				: Identificacao por RG(_r_7_23_25_29)
+				: Identificacao por CPF(_r_7_23_25_30)
+	:m Emitir Estatisticas(_r_23)
+		:g (_r_23_24) [1,1] 
+			: Votos por candidato e percentual(_r_23_24_25)
+			: Votos por categoria de funcionario(_r_23_24_26)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

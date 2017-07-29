@@ -1,0 +1,59 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 24, 2016 - 3:55 PM  -->
+<feature_model name="Jetbrains">
+<meta>
+<data name="description">Feature model</data>
+<data name="creator">SPLE Group</data>
+<data name="address"></data>
+<data name="email">huish@student.chalmers.se</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Chalmers</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r JetBrains(_r)
+	:m Languages(_r_2)
+		:g (_r_2_6) [1,*] 
+			: C-sharp(_r_2_6_7)
+			: C or C plusplus(_r_2_6_13)
+			: Groovy(_r_2_6_14)
+			: Java(_r_2_6_15)
+			: JavaScript TypeScript(_r_2_6_16)
+			: Kotlin(_r_2_6_17)
+			: Objective-C(_r_2_6_18)
+			: PHP(_r_2_6_19)
+			: Python(_r_2_6_20)
+			: Ruby(_r_2_6_21)
+			: Scala(_r_2_6_22)
+			: SQL(_r_2_6_23)
+			: Swift(_r_2_6_24)
+			: DSL(_r_2_6_25)
+	:m Technologies(_r_3)
+		:g (_r_3_26) [1,*] 
+			: Java SE(_r_3_26_29)
+			: J2EE Spring(_r_3_26_30)
+			: dot Net(_r_3_26_31)
+			: ASP dot Net(_r_3_26_32)
+			: VB dot Net(_r_3_26_33)
+			: Android(_r_3_26_34)
+			: iOS(_r_3_26_35)
+			: PHP(_r_3_26_36)
+			: Django(_r_3_26_37)
+			: Ruby on Rails(_r_3_26_38)
+			: Node js(_r_3_26_39)
+			: AngularJS(_r_3_26_40)
+			: JRuby(_r_3_26_41)
+	:m Product Type(_r_5)
+		:g (_r_5_42) [1,*] 
+			: IDE(_r_5_42_43)
+			: Team Tools(_r_5_42_44)
+			: Languages(_r_5_42_45)
+			: Education(_r_5_42_46)
+			: Visual Studio Tools(_r_5_42_47)
+			: Utilities(_r_5_42_48)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 11:31 PM  -->
+<feature_model name="urna2_Padia">
+<meta>
+<data name="description">aula</data>
+<data name="creator">Lucas</data>
+<data name="address"></data>
+<data name="email">oi@oi.com.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r urna2_Padia(_r)
+	:m Uso de senha(_r_1)
+	:m Voto(_r_2)
+		:m Unico(_r_2_3)
+		:m Titulo de eleitor(_r_2_4)
+		:m Exibicao do nome(_r_2_5)
+		:m Validacao dos dados(_r_2_6)
+		:m Inicio votacao(_r_2_8)
+	:m Tipo de candidato(_r_17)
+		:g (_r_17_18) [1,1] 
+			: Prefeito(_r_17_18_19)
+			: Vereador(_r_17_18_21)
+	:m Tipo de voto(_r_23)
+		:g (_r_23_24) [1,1] 
+			: Candidato(_r_23_24_25)
+			: Nulo(_r_23_24_27)
+			: Branco(_r_23_24_28)
+	:m Estatisticas(_r_29)
+		:m Numero de votos(_r_29_30)
+		:m Porcentagens de cada um(_r_29_31)
+		:m Candidatos eleitos(_r_29_32)
+		:m Candidatos derrotados(_r_29_33)
+</feature_tree>
+<constraints>
+constraint_1:_r_1 or _r_2
+constraint_4:_r_2_5 or _r_2_6
+constraint_2:_r_1 or _r_2_8
+constraint_3:_r_2_3 or _r_2_4
+</constraints>
+</feature_model>

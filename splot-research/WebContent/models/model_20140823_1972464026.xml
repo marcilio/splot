@@ -1,0 +1,57 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 26, 2014 - 7:40 PM  -->
+<feature_model name="MarketplaceMiso">
+<meta>
+<data name="description">Marketplace Cristo Rodriguez, Luis Fernando Avila, Mauricio Cajamarca</data>
+<data name="creator">Sergio Rios</data>
+<data name="address"></data>
+<data name="email">s.rios11@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Marketplace(_r)
+	:m Catalogo(_r_1)
+		:m Agregar articulo(_r_1_2)
+		:m Modificar articulo(_r_1_3)
+		:m Consultar articulo(_r_1_4)
+		:m Eliminar articulo(_r_1_5)
+		:o Publicar en redes(_r_1_6)
+		:o Publicar oferta(_r_1_7)
+	:m Administrador(_r_8)
+		:m Crear usuario(_r_8_9)
+		:m Editar usuario(_r_8_10)
+		:m Recordar clave(_r_8_11)
+		:o Dar de baja usuario(_r_8_12)
+	:o Reportes(_r_13)
+		:m Consultar ventas(_r_13_14)
+		:m Consultar compras(_r_13_15)
+		:o Consultar calificaciones(_r_13_16)
+	:m Carro de compras(_r_17)
+		:m Agregar articulo(_r_17_18)
+		:m Vaciar carro(_r_17_19)
+		:m Ver carro(_r_17_20)
+		:m Modificar carro(_r_17_21)
+		:o Convertir en lista de deseos(_r_17_22)
+	:m Tienda(_r_23)
+		:m Buscar articulos(_r_23_24)
+		:m Ver articulo(_r_23_25)
+		:o Ver proveedor(_r_23_26)
+		:o Denunciar articulo(_r_23_27)
+		:o Preguntar sobre articulo(_r_23_28)
+		:o Calificar producto(_r_23_37)
+	:m Pagos(_r_30)
+		:m Pagar articulo(_r_30_31)
+		:o Ver compras(_r_30_32)
+		:o Ver envios(_r_30_33)
+		:o Registrar medio de pago(_r_30_34)
+</feature_tree>
+<constraints>
+constraint_4:~_r_17 or _r_30
+constraint_5:~_r_13_15 or _r_30
+constraint_3:~_r_13_14 or _r_30
+</constraints>
+</feature_model>

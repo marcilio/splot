@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Aug 22, 2016 - 3:17 PM  -->
+<feature_model name="Livraria Online">
+<meta>
+<data name="description">Livraria Online</data>
+<data name="creator">Iago Barboza</data>
+<data name="address"></data>
+<data name="email">iagobarboza@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">iOWL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Livraria Online(_r)
+	:m Vitrine(_r_1)
+		:o Lancamentos(_r_1_2)
+		:o Pre-Venda(_r_1_3)
+		:o Mais Vendidos(_r_1_4)
+		:o Categorias(_r_1_5)
+			:o Administracao(_r_1_5_6)
+			:o Computacao(_r_1_5_7)
+			:o Direito(_r_1_5_8)
+			:o Literatura(_r_1_5_9)
+			:o Infantil(_r_1_5_10)
+		:m Adicionar no carrinho(_r_1_22)
+		:o Compartilhar Anuncio(_r_1_24)
+			:g (_r_1_24_25) [1,*] 
+				: Facebook(_r_1_24_25_26)
+				: Twitter(_r_1_24_25_27)
+				: Email(_r_1_24_25_28)
+	:m Pagamento(_r_11)
+		:g (_r_11_12) [1,*] 
+			: Boleto Bancario(_r_11_12_13)
+			: Cartao de Credito(_r_11_12_14)
+			: Cartao de Debito(_r_11_12_17)
+		:o Desconto(_r_11_18)
+	:m Cadastro(_r_20)
+	:m Carrinho(_r_21)
+	:o Busca(_r_23)
+	:m Login(_r_29)
+		:g (_r_29_30) [1,1] 
+			: Facebook(_r_29_30_31)
+			: Twitter(_r_29_30_32)
+			: Login e Senha(_r_29_30_33)
+</feature_tree>
+<constraints>
+constraint_4:~_r_1_24_25_27 or _r_29_30_32
+constraint_2:~_r_1_24_25_26 or _r_29_30_31
+constraint_3:_r_11_12_13 or ~_r_11_18
+</constraints>
+</feature_model>

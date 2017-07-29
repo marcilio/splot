@@ -1,0 +1,92 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Feb 26, 2016 - 6:08 PM  -->
+<feature_model name="Modelo Computadores (Elizabeth M - Andres E)">
+<meta>
+<data name="description">Una empresa que se dedica a vender computadores desea incrementar sus ventas y para eso necesita generar una linea de productos.</data>
+<data name="creator">Elizabeth Martinez</data>
+<data name="address">Elizabeth Martinez Mantilla - Andres Escobar</data>
+<data name="email">e.martinez11@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ANDES</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m Tipos(_r_1)
+		:g (_r_1_11) [1,1] 
+			: Mesa(_r_1_11_12)
+			: Portatil(_r_1_11_13)
+			: Servidor(_r_1_11_14)
+	:m Marcas(_r_2)
+		:g (_r_2_15) [1,1] 
+			: Dell(_r_2_15_16)
+			: Toshiba(_r_2_15_17)
+			: Lenovo(_r_2_15_18)
+			: Apple(_r_2_15_19)
+			: clon(_r_2_15_20)
+	:m Tipo SO(_r_3)
+		:g (_r_3_21) [1,1] 
+			: Para computadores personales(_r_3_21_22)
+				:g (_r_3_21_22_24) [1,1] 
+					: Windows 10(_r_3_21_22_24_25)
+					: Fedora(_r_3_21_22_24_26)
+					: Linux(_r_3_21_22_24_27)
+					: OS Yosemite de Apple(_r_3_21_22_24_28)
+			: Para servidores(_r_3_21_23)
+				:g (_r_3_21_23_31) [1,1] 
+					: Windows server(_r_3_21_23_31_32)
+					: Red Hat(_r_3_21_23_31_33)
+					: OS X server de apple(_r_3_21_23_31_34)
+	:m CPU(_r_4)
+		:m Memoria RAM(_r_4_35)
+			:g (_r_4_35_41) [1,1] 
+				: 4GB(_r_4_35_41_42)
+				: 8GB(_r_4_35_41_43)
+				: 16GB(_r_4_35_41_44)
+				: 64GB(_r_4_35_41_46)
+				: 32GB(_r_4_35_41_47)
+		:m Procesador(_r_4_36)
+			:g (_r_4_36_48) [1,1] 
+				: Intel(_r_4_36_48_49)
+				: AMD(_r_4_36_48_50)
+		:m Disco duro(_r_4_37)
+			:g (_r_4_37_51) [1,1] 
+				: 500GB(_r_4_37_51_52)
+				: 1TB(_r_4_37_51_53)
+				: 2TB(_r_4_37_51_54)
+				: 5TB(_r_4_37_51_55)
+				: 10TB(_r_4_37_51_56)
+		:o Tarjeta grafica(_r_4_38)
+			:g (_r_4_38_57) [1,1] 
+				: NVIDIA(_r_4_38_57_58)
+				: ATI Radon(_r_4_38_57_59)
+	:o Adicionales(_r_5)
+		:g (_r_5_60) [1,*] 
+			: Pantalla(_r_5_60_61)
+				:m Tecnologia(_r_5_60_61_63)
+				:m Tamano(_r_5_60_61_64)
+				:g (_r_5_60_61_65) [1,*] 
+					: 3D(_r_5_60_61_65_66)
+					: 4K(_r_5_60_61_65_67)
+			: Planta de poder(_r_5_60_62)
+				:g (_r_5_60_62_70) [1,1] 
+					: 14 in(_r_5_60_62_70_71)
+					: 17 in(_r_5_60_62_70_72)
+					: 24 in(_r_5_60_62_70_73)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_11_13 or ~_r_2_15_20
+constraint_17:_r_1_11_13 or ~_r_3_21_23
+constraint_23:_r_1_11_14 or _r_4_35 or _r_4_35_41_47
+constraint_20:_r_2_15_19 or _r_3_21_22_24_28
+constraint_12:~_r_1_11_13 or _r_5_60_61
+constraint_4:_r_1_11_13 or _r_4_37 or _r_4_37_51_54
+constraint_5:_r_1_11_12 or _r_4_37 or _r_4_37_51_54
+constraint_14:_r_1_11_13 or _r_4_35 or _r_4_35_41_44
+constraint_15:_r_1_11_12 or _r_4_35 or _r_4_35_41_44
+constraint_24:_r_1_11_14 or _r_4_37 or _r_4_37_51_55
+constraint_3:~_r_1_11_13 or ~_r_5_60_61_65_66 or ~_r_5_60_61_65_67
+</constraints>
+</feature_model>

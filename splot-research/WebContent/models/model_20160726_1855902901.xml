@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jul 26, 2016 - 4:43 PM  -->
+<feature_model name="Jogo">
+<meta>
+<data name="description">Jogo IS</data>
+<data name="creator">Eddy Ghabach</data>
+<data name="address"></data>
+<data name="email">ghabach@i3s.unice.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">I3S</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Jogo(_r)
+	:m Match(_r_1)
+		:m Attribute(_r_1_2)
+			:m homeTeam(_r_1_2_3)
+			:m awayTeam(_r_1_2_4)
+			:m homeScore(_r_1_2_5)
+			:m awayScore(_r_1_2_6)
+		:m Activity(_r_1_7)
+			:m viewMatches(_r_1_7_8)
+			:m addMatch(_r_1_7_9)
+			:m modifyMatch(_r_1_7_10)
+			:o deleteMatch(_r_1_7_11)
+</feature_tree>
+<constraints>
+constraint_2:_r_1_7_8 or ~_r_1_7_11
+</constraints>
+</feature_model>

@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Apr 11, 2016 - 7:57 PM  -->
+<feature_model name="testing">
+<meta>
+<data name="description">SHo</data>
+<data name="creator">lfdsk</data>
+<data name="address"></data>
+<data name="email">lklk</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">jlk</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:m Feature-1(_r_1)
+		:m Feature-2(_r_1_2)
+			:g (_r_1_2_3) [1,*] 
+				: Feature-4(_r_1_2_3_4)
+				: Feature-5(_r_1_2_3_5)
+				: Feature-6(_r_1_2_3_6)
+				: Feature-7(_r_1_2_3_7)
+				: Feature-8(_r_1_2_3_8)
+				: Feature-9(_r_1_2_3_9)
+				: Feature-10(_r_1_2_3_10)
+				: Feature-11(_r_1_2_3_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,87 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Feb 27, 2016 - 8:29 PM  -->
+<feature_model name="Computadores">
+<meta>
+<data name="description">Diagrama de caracteristicas</data>
+<data name="creator">Karen Vega</data>
+<data name="address"></data>
+<data name="email">ky.vega@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computador(_r)
+	:m Tipo(_r_1)
+		:g (_r_1_64) [1,*] 
+			: Mesa(_r_1_64_65)
+			: Portatil(_r_1_64_66)
+			: Servidor(_r_1_64_67)
+	:m Marca(_r_3)
+		:g (_r_3_68) [1,*] 
+			: Dell(_r_3_68_69)
+			: Lenovo(_r_3_68_70)
+			: Toshiba(_r_3_68_71)
+			: Apple(_r_3_68_72)
+			: Clon(_r_3_68_73)
+	:m SO(_r_4)
+		:g (_r_4_17) [1,*] 
+			: SO para computadores(_r_4_17_18)
+				:g (_r_4_17_18_21) [1,*] 
+					: Windows 10(_r_4_17_18_21_22)
+					: Fedora(_r_4_17_18_21_23)
+					: OS X Yosemite(_r_4_17_18_21_25)
+			: SO para servidores(_r_4_17_24)
+				:g (_r_4_17_24_26) [1,*] 
+					: Windows server(_r_4_17_24_26_27)
+					: Red Hat(_r_4_17_24_26_28)
+					: OS X Server(_r_4_17_24_26_29)
+	:m CPU(_r_30)
+		:m Memoria RAM(_r_30_31)
+			:g (_r_30_31_37) [1,*] 
+				: 4GB(_r_30_31_37_38)
+				: 8GB(_r_30_31_37_39)
+				: 16GB(_r_30_31_37_40)
+				: 32GB(_r_30_31_37_41)
+				: 64GB(_r_30_31_37_42)
+		:m Procesador(_r_30_32)
+			:g (_r_30_32_49) [1,*] 
+				: Intel(_r_30_32_49_50)
+				: AMD(_r_30_32_49_51)
+		:m Disco duro(_r_30_33)
+			:g (_r_30_33_43) [1,*] 
+				: 500GB(_r_30_33_43_44)
+				: 1TB(_r_30_33_43_45)
+				: 2TB(_r_30_33_43_46)
+				: 5TB(_r_30_33_43_47)
+				: 10TB(_r_30_33_43_48)
+		:o Tarjeta grafica(_r_30_34)
+			:g (_r_30_34_52) [1,*] 
+				: NVIDIA(_r_30_34_52_53)
+				: ATI(_r_30_34_52_54)
+	:o Pantalla(_r_35)
+		:m Tamano(_r_35_55)
+			:g (_r_35_55_57) [1,*] 
+				: 14(_r_35_55_57_58)
+				: 17(_r_35_55_57_59)
+				: 24(_r_35_55_57_60)
+		:m Tecnologia(_r_35_56)
+			:g (_r_35_56_61) [1,1] 
+				: 3D(_r_35_56_61_62)
+				: 4K(_r_35_56_61_63)
+	:o Planta(_r_36)
+</feature_tree>
+<constraints>
+constraint_8:~_r_30_31_37_38 or ~_r_30_31_37_39 or ~_r_30_31_37_40 or ~_r_1_64_67
+constraint_10:~_r_4_17_18_21_25 or _r_3_68_72
+constraint_9:~_r_30_33_43_44 or ~_r_30_33_43_45 or ~_r_30_33_43_46 or ~_r_1_64_67
+constraint_11:~_r_4_17_24 or ~_r_1_64_65 or ~_r_1_64_66
+constraint_12:~_r_30_31_37_41 or ~_r_30_31_37_42 or ~_r_1_64_65 or ~_r_1_64_66
+constraint_7:_r_4_17_24_26_27 or _r_4_17_24_26_28 or _r_4_17_24_26_29 or ~_r_1_64_67
+constraint_13:~_r_30_33_43_47 or ~_r_30_33_43_48 or ~_r_1_64_65 or ~_r_1_64_66
+constraint_5:_r_35 or ~_r_1_64_66
+constraint_3:~_r_1_64_66 or ~_r_3_68_73
+</constraints>
+</feature_model>

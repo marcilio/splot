@@ -1,0 +1,74 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 30, 2014 - 5:09 PM  -->
+<feature_model name="Notebook Shop">
+<meta>
+<data name="description">Feature model para uma loja de notebooks customizados</data>
+<data name="creator">Haroldo e Jacinto</data>
+<data name="address"></data>
+<data name="email">{hgtf,jfsr}@cin.ufpe.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department">CIn</data>
+<data name="date">04/2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r NotebookShop(_r)
+	:m Processador(_r_1)
+		:g (_r_1_3) [1,1] 
+			: i3(_r_1_3_4)
+			: i5(_r_1_3_5)
+			: i7(_r_1_3_6)
+	:m RAM(_r_2)
+		:g (_r_2_7) [1,1] 
+			: 4GB(_r_2_7_8)
+			: 8GB(_r_2_7_9)
+	:m Sistema Operacional(_r_10)
+		:g (_r_10_11) [1,*] 
+			: Windows(_r_10_11_12)
+				:g (_r_10_11_12_17) [1,1] 
+					: 7(_r_10_11_12_17_18)
+					: 8(_r_10_11_12_17_19)
+			: Ubuntu(_r_10_11_13)
+	:m Disco Rigido(_r_15)
+		:g (_r_15_14) [1,1] 
+			: SATA(_r_15_14_15)
+				:g (_r_15_14_15_34) [1,1] 
+					: 500 GB(_r_15_14_15_34_35)
+					: 1 TB(_r_15_14_15_34_36)
+			: SSD(_r_15_14_16)
+				:g (_r_15_14_16_38) [1,1] 
+					: 128 GB(_r_15_14_16_38_39)
+					: 256 GB(_r_15_14_16_38_40)
+					: 512 GB(_r_15_14_16_38_41)
+	:o Garantia Estendida(_r_20)
+		:g (_r_20_24) [1,1] 
+			: 1 ano(_r_20_24_25)
+			: 2 anos(_r_20_24_26)
+			: 3 anos(_r_20_24_27)
+	:o Cor(_r_21)
+		:g (_r_21_30) [1,1] 
+			: Preta(_r_21_30_31)
+			: Branca(_r_21_30_32)
+			: Rosa(_r_21_30_33)
+	:m Teclado(_r_45)
+		:g (_r_45_56) [1,1] 
+			: Americano(_r_45_56_57)
+			: Brasileiro(_r_45_56_58)
+	:m Placa de Video(_r_46)
+		:g (_r_46_52) [1,1] 
+			: AMD(_r_46_52_53)
+			: NVIDIA(_r_46_52_55)
+	:m Tamanho da Tela(_r_47)
+		:g (_r_47_48) [1,1] 
+			: 14 polegadas(_r_47_48_49)
+			: 15 polegadas(_r_47_48_50)
+			: 17 polegadas(_r_47_48_51)
+	:o Software Adicionais(_r_59)
+		:g (_r_59_60) [1,1] 
+			: Antivirus(_r_59_60_61)
+			: Office(_r_59_60_62)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

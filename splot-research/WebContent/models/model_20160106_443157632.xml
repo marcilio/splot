@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jan 6, 2016 - 12:33 PM  -->
+<feature_model name="Smart Queue">
+<meta>
+<data name="description">Queue Management System Feature Model</data>
+<data name="creator">Osama Omer Dawood</data>
+<data name="address"></data>
+<data name="email">osa1001ma@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">AMAROUSE FOR SOFTWARE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Smart Queue(_r)
+	:m Ticket Dispensor Untin(_r_1)
+		:g (_r_1_7) [1,1] 
+			: Off Line Ticketing(_r_1_7_8)
+				:g (_r_1_7_8_9) [1,1] 
+					: Bluetooth Printer(_r_1_7_8_9_10)
+				:g (_r_1_7_8_11) [1,1] 
+					: Wifi Printer(_r_1_7_8_11_12)
+				:g (_r_1_7_8_13) [1,1] 
+					: Direct Printer(_r_1_7_8_13_14)
+	:g (_r_2) [1,1] 
+		: On Line Ticketing (_r_2_3)
+			:g (_r_2_3_4) [1,1] 
+				: Mobile Ticketing(_r_2_3_4_5)
+			:o SMS Tecketing(_r_2_3_6)
+	:m Service Provider(_r_15)
+	:m Configuration Manager(_r_16)
+	:m Announcements Unit(_r_18)
+	:o Line Monitoring Unti(_r_19)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

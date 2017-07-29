@@ -1,0 +1,59 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Mar 8, 2015 - 7:17 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Inmobiliaria</data>
+<data name="creator">Diego Agudelo</data>
+<data name="address"></data>
+<data name="email">die-agud@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes MISO</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:m GestionDeActivos(_r_1)
+		:o RevisionesMercado(_r_1_4)
+		:o Refinanciacion(_r_1_13)
+		:m AdquisicionInmuebles(_r_1_14)
+		:o Contabilidad(_r_1_15)
+		:m Alquileres(_r_1_16)
+		:o Auditorias(_r_1_18)
+		:o VentaActivos(_r_1_19)
+		:o Valoraciones(_r_1_20)
+		:m Reporting(_r_1_37)
+			:g (_r_1_37_38) [1,*] 
+				: Operativo(_r_1_37_38_39)
+				: Financiero(_r_1_37_38_40)
+	:o GestionDeCapital(_r_2)
+		:m AdquisicionYVentaDeActivos(_r_2_24)
+		:o RelacionInversiones(_r_2_25)
+		:o TipoTransferencia(_r_2_26)
+		:m Inversiones(_r_2_22)
+			:g (_r_2_22_23) [1,*] 
+				: Alternativas(_r_2_22_23_24)
+				: Tradicionales(_r_2_22_23_25)
+		:o TipoTransferencia(__r_2_26)
+			:g (__r_2_26_22) [1,*] 
+				: Seguros(__r_2_26_22_23)
+					:g (__r_2_26_22_23_25) [1,*] 
+						: PatrimoniosAutonomos(__r_2_26_22_23_25_26)
+						: FondosDeCapitalPrivado(__r_2_26_22_23_25_27)
+						: CarterasColectivas(__r_2_26_22_23_25_28)
+				: Vehiculos(__r_2_26_22_24)
+	:m GestionInmobiliaria(_r_3)
+		:m GestionOperativa(_r_3_29)
+			:o Equipamiento(_r_3_29_30)
+			:o Instalaciones(_r_3_29_31)
+			:o ActivosFisicos(_r_3_29_32)
+		:o ProcesosDeTasaciones(_r_3_33)
+		:o ProcesosDeReservas(_r_3_34)
+		:o Sistemas(_r_3_35)
+		:o RecursosHumanos(_r_3_36)
+</feature_tree>
+<constraints>
+constraint_2:~_r_1_4 or _r_1_18 or _r_1_20
+</constraints>
+</feature_model>

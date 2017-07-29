@@ -1,0 +1,75 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Oct 23, 2014 - 9:58 AM  -->
+<feature_model name="MLX">
+<meta>
+<data name="description">MLX</data>
+<data name="creator">tdegueul</data>
+<data name="address"></data>
+<data name="email">thomas.degueule@inria.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">INRIA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MLXRoot(_r)
+	:m External(_r_1)
+		:m AngleMeasurement(_r_1_2)
+			:m ASP(_r_1_2_3)
+			:m ADC(_r_1_2_4)
+			:m DSP(_r_1_2_5)
+			:o APP(_r_1_2_7)
+				:o CounterBlock(_r_1_2_7_15)
+				:o DigitalFilters(_r_1_2_7_16)
+					:g (_r_1_2_7_16_54) [1,1] 
+						: FIR11(_r_1_2_7_16_54_55)
+						: FIR1111(_r_1_2_7_16_54_56)
+				:o Discontinuity(_r_1_2_7_17)
+				:o Hysteresis(_r_1_2_7_18)
+				:o DigitalTransform(_r_1_2_7_19)
+					:g (_r_1_2_7_19_57) [1,1] 
+						: 4Points(_r_1_2_7_19_57_58)
+						: 16Segments(_r_1_2_7_19_57_59)
+				:o Clamping(_r_1_2_7_20)
+		:m SafetyLevel(_r_1_8)
+			:g (_r_1_8_48) [1,*] 
+				: ASIL-QM(_r_1_8_48_49)
+				: ASIL-A(_r_1_8_48_50)
+				: ASIL-B(_r_1_8_48_51)
+				: ASIL-C(_r_1_8_48_52)
+				: ASIL-D(_r_1_8_48_53)
+	:m Internal(_r_32)
+		:o ErrorDebouncing(_r_32_33)
+		:o Watchdog(_r_32_34)
+		:o MARCHTest(_r_32_36)
+		:o ErrorHandling(_r_32_37)
+			:g (_r_32_37_60) [1,1] 
+				: FailSafeMode(_r_32_37_60_61)
+				: SoftResetOnError(_r_32_37_60_62)
+		:o SelfCorrection(_r_32_38)
+			:m OverGain(_r_32_38_43)
+			:o OverTemperature(_r_32_38_44)
+		:o BackgroundTesting(_r_32_39)
+			:o RAMTesting(_r_32_39_45)
+			:o ROMTesting(_r_32_39_46)
+			:o ADCClippingCheck(_r_32_39_47)
+</feature_tree>
+<constraints>
+constraint_30:_r_32_38_44 or ~_r_1_8_48_53
+constraint_32:_r_32_39_45 or ~_r_1_8_48_53
+constraint_31:_r_32_39_46 or ~_r_1_8_48_53
+constraint_19:_r_1_8_48_49 or ~_r_1_8_48_50
+constraint_28:_r_32_33 or ~_r_1_8_48_52
+constraint_29:~_r_1_8_48_52 or _r_32_37_60_61
+constraint_22:_r_1_8_48_52 or ~_r_1_8_48_53
+constraint_23:_r_32_39 or ~_r_1_8_48_50
+constraint_20:_r_1_8_48_50 or ~_r_1_8_48_51
+constraint_21:_r_1_8_48_51 or ~_r_1_8_48_52
+constraint_26:_r_32_36 or ~_r_1_8_48_52
+constraint_27:_r_32_34 or ~_r_1_8_48_52
+constraint_2:_r_32_37 or ~_r_32_39
+constraint_24:_r_32_33 or ~_r_1_8_48_51
+constraint_25:_r_32_38 or ~_r_1_8_48_51
+</constraints>
+</feature_model>

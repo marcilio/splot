@@ -1,0 +1,64 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jul 10, 2014 - 3:44 AM  -->
+<feature_model name="Strategy Mobile Game">
+<meta>
+<data name="description">DSPL of a multiplayer strategy mobile game</data>
+<data name="creator">Gustavo G. Pascual, Mónica Pinto and Lidia Fuentes</data>
+<data name="address">E.T.S.I. Informática, Universidad de Málaga</data>
+<data name="email">gustavo@lcc.uma.es</data>
+<data name="phone"></data>
+<data name="website">http://caosd.lcc.uma.es</data>
+<data name="organization">Universidad de Málaga</data>
+<data name="department">Lenguajes y Ciencias de la Computación</data>
+<data name="date">16/05/2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r StrategyMobileGame(strategy_mobile_game)
+	:o Connectivity(connectivity)
+		:g (g_connectivity) [1,*] 
+			: Network(network)
+				:g (g_network) [1,1] 
+					: EDGE(edge)
+					: HSPA(hspa)
+					: LTE(lte)
+					: WiFi(wifi)
+			: Bluetooth(bluetooth)
+	:m Graphics(graphics)
+		:m DetailLevel(detail_level)
+			:g (g_detail_level) [1,1] 
+				: Low(low)
+				: Medium(medium)
+				: High(high)
+		:m Type(type)
+			:g (g_type) [1,1] 
+				: 2D(2d)
+				: 3D(3d)
+		:m Framerate(framerate)
+			:g (g_framerate) [1,1] 
+				: 40fps(40fps)
+				: 50fps(50fps)
+				: 60fps(60fps)
+	:o Sound(sound)
+		:m Quality(quality)
+			:g (g_quality) [1,1] 
+				: 128kbps(128kbps)
+				: 192kbps(192kbps)
+				: 256kbps(256kbps)
+		:o Vibration(vibration)
+	:m GameMode(game_mode)
+		:g (g_game_mode) [1,1] 
+			: RealTime(real_time)
+			: TurnBased(turn_based)
+	:o Multiplayer(multiplayer)
+		:g (g_multiplayer) [1,1] 
+			: LocalMultiplayer(local_multiplayer)
+			: OnlineMultiplayer(online_multiplayer)
+	:o GlobalScoreboard(global_scoreboard)
+</feature_tree>
+<constraints>
+constraint_1:~local_multiplayer or bluetooth or wifi
+constraint_0:~global_scoreboard or network
+constraint_2:~online_multiplayer or hspa or lte or wifi
+constraint_3:~multiplayer or ~real_time or lte or wifi
+</constraints>
+</feature_model>

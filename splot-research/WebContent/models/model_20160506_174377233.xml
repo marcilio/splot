@@ -1,0 +1,64 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 6, 2016 - 5:25 AM  -->
+<feature_model name="VMS">
+<meta>
+<data name="description">VMS - Prueba</data>
+<data name="creator">Carlos Castillo</data>
+<data name="address"></data>
+<data name="email">carlos.castillo94@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Carlos Castillo</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VMS(_r)
+	:o Load-Boarding(_r_1)
+	:o Auto- Scaling(_r_2)
+	:m CPU-Cores(_r_3)
+		:g (_r_3_12) [1,1] 
+			: 1(_r_3_12_13)
+			: 2(_r_3_12_14)
+			: 4(_r_3_12_15)
+			: 8(_r_3_12_16)
+			: 16(_r_3_12_17)
+			: 32(_r_3_12_18)
+	:m Memory(_r_4)
+		:g (_r_4_19) [1,1] 
+			: 3_5(_r_4_19_20)
+			: 7(_r_4_19_21)
+			: 14(_r_4_19_22)
+			: 28(_r_4_19_23)
+			: 56(_r_4_19_24)
+			: 112(_r_4_19_25)
+			: 224(_r_4_19_26)
+			: 448(_r_4_19_27)
+	:m Disk(_r_5)
+		:m Local(_r_5_28)
+			:m Type(_r_5_28_30)
+				:g (_r_5_28_30_32) [1,1] 
+					: HDD(_r_5_28_30_32_33)
+					: SSD(_r_5_28_30_32_34)
+			:m Size(_r_5_28_35)
+				:m 1023(_r_5_28_35_36)
+			:m Amount(_r_5_28_37)
+				:g (_r_5_28_37_40) [1,1] 
+					: 2(_r_5_28_37_40_41)
+					: 4(_r_5_28_37_40_42)
+					: 8(_r_5_28_37_40_43)
+					: 16(_r_5_28_37_40_44)
+					: 32(_r_5_28_37_40_45)
+		:m Temporal(_r_5_29)
+			:m Type(_r_5_29_46)
+				:g (_r_5_29_46_48) [1,1] 
+					: HDD(_r_5_29_46_48_49)
+					: SSD(_r_5_29_46_48_50)
+			:m Size(_r_5_29_47)
+	:o Cache(_r_6)
+	:m Max IOPS(_r_8)
+	:m Network Adapter(_r_9)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

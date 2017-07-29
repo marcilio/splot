@@ -1,0 +1,75 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Oct 17, 2014 - 6:55 PM  -->
+<feature_model name="Control biometrico">
+<meta>
+<data name="description">SPL reconocimiento biometrico</data>
+<data name="creator">Edwin Munoz</data>
+<data name="address"></data>
+<data name="email">edwinjmunoz@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Acople Tecnologico</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ControlBiometrico(_r)
+	:m Personas(_r_1)
+		:m PersonasMarcacion(_r_1_9)
+			:m RegPersonasInteres(_r_1_9_11)
+			:o RegPersonasExternas(_r_1_9_12)
+		:m PersonasUsuariosApp(_r_1_10)
+	:m UnidadMedida(_r_2)
+		:g (_r_2_13) [1,*] 
+			: Tiempo(_r_2_13_14)
+			: Consumo(_r_2_13_15)
+			: Actividad(_r_2_13_16)
+	:m Aplicacion(_r_3)
+		:g (_r_3_23) [1,*] 
+			: TiempoLab(_r_3_23_24)
+			: Acceso(_r_3_23_25)
+			: Casino(_r_3_23_26)
+	:m ModoComunicacion(_r_4)
+		:m Online(_r_4_27)
+			:g (_r_4_27_29) [1,*] 
+				: TCP_IP(_r_4_27_29_30)
+				: WIFI(_r_4_27_29_31)
+				: GPRS(_r_4_27_29_32)
+		:o Batch(_r_4_28)
+	:m Dispositivo(_r_5)
+		:g (_r_5_35) [1,*] 
+			: Facial(_r_5_35_36)
+			: Huellas(_r_5_35_38)
+	:m Reportes(_r_6)
+		:g (_r_6_40) [1,*] 
+			: UnidadMedidaxTiempo(_r_6_40_41)
+			: UnidadMedidaPersonas(_r_6_40_42)
+	:m Transacciones(_r_7)
+		:m Automatica(_r_7_43)
+		:o Manual(_r_7_44)
+	:m NroPersonas(_r_8)
+		:g (_r_8_47) [1,1] 
+			: 0 - 1200(_r_8_47_50)
+			: 1201-infinito(_r_8_47_51)
+	:o Turnos(_r_52)
+	:o Notificaciones(_r_53)
+	:o Calendario(_r_54)
+	:o AresInteress(_r_55)
+		:g (_r_55_56) [1,*] 
+			: Geografica(_r_55_56_57)
+			: Logica(_r_55_56_58)
+</feature_tree>
+<constraints>
+constraint_1:~_r_2_13_14 or _r_3_23_24
+constraint_10:~_r_3_23_25 or ~_r_4_28
+constraint_9:_r_2_13_14 or ~_r_3_23_24
+constraint_11:~_r_5_35_36 or ~_r_8_47_51
+constraint_6:~_r_2_13_15 or _r_3_23_26
+constraint_12:~_r_2_13_14 or _r_54
+constraint_7:_r_2_13_15 or ~_r_3_23_26
+constraint_13:_r_2_13_14 or ~_r_54
+constraint_14:~_r_3_23_24 or _r_55
+constraint_5:_r_2_13_16 or ~_r_3_23_25
+constraint_2:~_r_2_13_16 or _r_3_23_25
+</constraints>
+</feature_model>

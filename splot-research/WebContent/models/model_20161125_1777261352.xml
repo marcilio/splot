@@ -1,0 +1,57 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Nov 25, 2016 - 3:00 PM  -->
+<feature_model name="Jetbrains">
+<meta>
+<data name="description">Model of jetbrains features</data>
+<data name="creator">Påhl</data>
+<data name="address"></data>
+<data name="email">pahl@student.chalmers.se</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Chalmers Unviersity</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Jetbrains(_r)
+	:m Features(_r_4)
+		:o Variants(_r_4_19)
+			:o Tracing(_r_4_19_32)
+			:o Profiling(_r_4_19_33)
+			:o Decompiler(_r_4_19_34)
+			:o Multi language support(_r_4_19_35)
+			:o Typescript compiler(_r_4_19_36)
+			:o Data flow analysis(_r_4_19_39)
+			:o Language injection(_r_4_19_40)
+			:o Static member completion(_r_4_19_41)
+		:m Commonalities(_r_4_20)
+			:m Debugger(_r_4_20_22)
+			:m Build tools(_r_4_20_23)
+			:m Navigate and Search(_r_4_20_24)
+			:m Version control(_r_4_20_25)
+				:m Local history(_r_4_20_25_26)
+				:m Remote(_r_4_20_25_27)
+			:m Code editor(_r_4_20_28)
+				:m Auto completion(_r_4_20_28_29)
+				:m Code refactoring(_r_4_20_28_30)
+	:m Languages(_r_5)
+		:g (_r_5_6) [1,1] 
+			: Java(_r_5_6_7)
+			: Ruby(_r_5_6_8)
+			: Javascript(_r_5_6_9)
+			: Python_and_Django(_r_5_6_10)
+			: PHP(_r_5_6_11)
+			: HTML(_r_5_6_12)
+			: C Sharp(_r_5_6_13)
+	:m Platform(_r_14)
+		:g (_r_14_15) [1,1] 
+			: Windows(_r_14_15_16)
+			: Mac(_r_14_15_17)
+			: Linux(_r_14_15_18)
+</feature_tree>
+<constraints>
+constraint_6:~_r_5_6_7 or _r_4_19_34 or _r_4_19_35 or _r_4_19_39 or _r_4_19_40 or _r_4_19_41
+constraint_7:~_r_5_6_9 or _r_4_19_32 or _r_4_19_33 or _r_4_19_36
+constraint_5:~_r_5_6_11 or _r_4_19_33
+</constraints>
+</feature_model>

@@ -1,0 +1,63 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jul 13, 2015 - 7:25 AM  -->
+<feature_model name="IVI Development VM">
+<meta>
+<data name="description">Linux-VM with SDK for IVI Development</data>
+<data name="creator">Klaus Birken</data>
+<data name="address"></data>
+<data name="email">klaus.birken@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">itemis AG</data>
+<data name="department"></data>
+<data name="date">2015-07-13</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IVI_Development_VM(_r)
+	:m Linux(_r_1)
+		:g (_r_1_17) [1,1] 
+			: Ubuntu(_r_1_17_18)
+				:m Release(_r_1_17_18_20)
+					:g (_r_1_17_18_20_25) [1,1] 
+						: Precise Pangolin 12-04 LTS(_r_1_17_18_20_25_26)
+						: Trusty Tahr 14-04 LTS(_r_1_17_18_20_25_27)
+				:m Desktop(_r_1_17_18_21)
+					:g (_r_1_17_18_21_22) [1,1] 
+						: LXDE(_r_1_17_18_21_22_23)
+						: Unity - Standard(_r_1_17_18_21_22_24)
+			: Debian(_r_1_17_19)
+				:m Release(_r_1_17_19_28)
+					:g (_r_1_17_19_28_29) [1,1] 
+						: Debian 7-3(_r_1_17_19_28_29_30)
+	:m Eclipse(_r_2)
+		:m Release(_r_2_13)
+			:g (_r_2_13_16) [1,1] 
+				: Kepler(_r_2_13_16_17)
+				: Luna(_r_2_13_16_18)
+				: Mars(_r_2_13_16_19)
+		:m Distribution(_r_2_14)
+			:g (_r_2_14_20) [1,1] 
+				: Eclipse IDE for Java and DSL developers(_r_2_14_20_21)
+				: Eclipse IDE for Automotive Software Developers(_r_2_14_20_22)
+		:m Features(_r_2_15)
+			:o CDT(_r_2_15_23)
+			:o Franca(_r_2_15_24)
+				:m Release(_r_2_15_24_31)
+					:g (_r_2_15_24_31_32) [1,1] 
+						: Franca 0-8-11(_r_2_15_24_31_32_33)
+						: Franca 0-9-1(_r_2_15_24_31_32_34)
+						: Franca 0-10-0(_r_2_15_24_31_32_35)
+			:o CommonAPI Cpp(_r_2_15_25)
+				:m Release(_r_2_15_25_36)
+					:g (_r_2_15_25_36_38) [1,1] 
+						: CommonAPI Cpp 2-1-6(_r_2_15_25_36_38_39)
+						: CommonAPI Cpp 3-1-2(_r_2_15_25_36_38_40)
+				:m Backends(_r_2_15_25_37)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_15_23 or ~_r_2_15_25
+constraint_6:_r_2_15_24_31_32_34 or ~_r_2_15_25_36_38_40
+constraint_5:_r_2_15_24_31_32_33 or ~_r_2_15_25_36_38_39
+constraint_2:~_r_2_14_20_22 or _r_2_15_23
+</constraints>
+</feature_model>

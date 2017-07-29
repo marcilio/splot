@@ -1,0 +1,143 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jan 6, 2016 - 11:36 AM  -->
+<feature_model name="PGL_add">
+<meta>
+<data name="description">PGL_add</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date">2016-01-03</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r PGL(_r)
+	:m Metadata(_r_1)
+		:m Educational(_r_1_2)
+			:m Curricular(_r_1_2_4)
+				:m Topics(_r_1_2_4_5)
+				:m Objectives(_r_1_2_4_6)
+			:m LearnersProfile(_r_1_2_7)
+				:m Level(_r_1_2_7_8)
+					:g (_r_1_2_7_8_12) [1,1] 
+						: Beginner(_r_1_2_7_8_12_13)
+							:g (_r_1_2_7_8_12_13_55) [1,1] 
+								: Yes(_r_1_2_7_8_12_13_55_56)
+								: No(_r_1_2_7_8_12_13_55_57)
+						: Intermediate(_r_1_2_7_8_12_14)
+							:g (_r_1_2_7_8_12_14_58) [1,1] 
+								: Yes(_r_1_2_7_8_12_14_58_59)
+								: No(_r_1_2_7_8_12_14_58_60)
+						: Advanced(_r_1_2_7_8_12_15)
+							:g (_r_1_2_7_8_12_15_61) [1,1] 
+								: Yes(_r_1_2_7_8_12_15_61_62)
+								: No(_r_1_2_7_8_12_15_61_63)
+				:m Style(_r_1_2_7_9)
+					:g (_r_1_2_7_9_16) [1,1] 
+						: Audial(_r_1_2_7_9_16_17)
+							:g (_r_1_2_7_9_16_17_64) [1,1] 
+								: Yes(_r_1_2_7_9_16_17_64_65)
+								: No(_r_1_2_7_9_16_17_64_66)
+						: Visual(_r_1_2_7_9_16_18)
+							:g (_r_1_2_7_9_16_18_67) [1,1] 
+								: Yes(_r_1_2_7_9_16_18_67_68)
+								: No(_r_1_2_7_9_16_18_67_69)
+						: Kinesthetic(_r_1_2_7_9_16_19)
+							:g (_r_1_2_7_9_16_19_70) [1,1] 
+								: Yes(_r_1_2_7_9_16_19_70_71)
+								: No(_r_1_2_7_9_16_19_70_72)
+				:m Pace(_r_1_2_7_10)
+					:g (_r_1_2_7_10_20) [1,1] 
+						: Slow(_r_1_2_7_10_20_21)
+							:g (_r_1_2_7_10_20_21_73) [1,1] 
+								: Yes(_r_1_2_7_10_20_21_73_74)
+								: No(_r_1_2_7_10_20_21_73_75)
+						: Medium(_r_1_2_7_10_20_22)
+							:g (_r_1_2_7_10_20_22_76) [1,1] 
+								: Yes(_r_1_2_7_10_20_22_76_77)
+								: No(_r_1_2_7_10_20_22_76_78)
+						: Fast(_r_1_2_7_10_20_23)
+							:g (_r_1_2_7_10_20_23_79) [1,1] 
+								: Yes(_r_1_2_7_10_20_23_79_80)
+								: No(_r_1_2_7_10_20_23_79_81)
+				:m PreferencesOfLA(_r_1_2_7_11)
+					:g (_r_1_2_7_11_24) [1,1] 
+						: Conceptual(_r_1_2_7_11_24_25)
+							:g (_r_1_2_7_11_24_25_82) [1,1] 
+								: Yes(_r_1_2_7_11_24_25_82_83)
+								: No(_r_1_2_7_11_24_25_82_84)
+						: Example-based(_r_1_2_7_11_24_26)
+							:g (_r_1_2_7_11_24_26_85) [1,1] 
+								: Yes(_r_1_2_7_11_24_26_85_86)
+								: No(_r_1_2_7_11_24_26_85_87)
+						: CaseStudy(_r_1_2_7_11_24_27)
+							:g (_r_1_2_7_11_24_27_88) [1,1] 
+								: Yes(_r_1_2_7_11_24_27_88_89)
+								: No(_r_1_2_7_11_24_27_88_90)
+						: Simulation(_r_1_2_7_11_24_28)
+							:g (_r_1_2_7_11_24_28_91) [1,1] 
+								: Yes(_r_1_2_7_11_24_28_91_92)
+								: No(_r_1_2_7_11_24_28_91_93)
+						: Demonstration(_r_1_2_7_11_24_29)
+							:g (_r_1_2_7_11_24_29_94) [1,1] 
+								: Yes(_r_1_2_7_11_24_29_94_95)
+								: No(_r_1_2_7_11_24_29_94_96)
+		:m Technological(_r_1_3)
+			:m InteractivityLevel(_r_1_3_30)
+				:g (_r_1_3_30_33) [1,1] 
+					: Low(_r_1_3_30_33_34)
+					: Medium(_r_1_3_30_33_35)
+					: High(_r_1_3_30_33_36)
+			:m InteractivityType(_r_1_3_31)
+				:g (_r_1_3_31_37) [1,1] 
+					: Active(_r_1_3_31_37_38)
+					: Expositive(_r_1_3_31_37_39)
+					: Mixed(_r_1_3_31_37_40)
+			:m LOType(_r_1_3_32)
+				:g (_r_1_3_32_41) [1,1] 
+					: Text(_r_1_3_32_41_42)
+					: Picture(_r_1_3_32_41_43)
+					: Audio-Video(_r_1_3_32_41_44)
+					: Questionnaire(_r_1_3_32_41_45)
+	:o User-orientedAttributes(_r_46)
+		:o QualityOfLO(_r_46_53)
+			:g (_r_46_53_61) [1,1] 
+				: Poor(_r_46_53_61_62)
+				: Fair(_r_46_53_61_63)
+				: Good(_r_46_53_61_64)
+				: Excellent(_r_46_53_61_65)
+				: NoOpinion(_r_46_53_61_66)
+			:o Comments(_r_46_53_67)
+		:o LearningIntention(_r_46_54)
+			:o Research(_r_46_54_55)
+				:g (_r_46_54_55_97) [1,1] 
+					: Yes(_r_46_54_55_97_98)
+					: No(_r_46_54_55_97_99)
+			:o Survey(_r_46_54_56)
+				:g (_r_46_54_56_100) [1,1] 
+					: Yes(_r_46_54_56_100_101)
+					: No(_r_46_54_56_100_102)
+			:o QuickReference(_r_46_54_57)
+				:g (_r_46_54_57_103) [1,1] 
+					: Yes(_r_46_54_57_103_104)
+					: No(_r_46_54_57_103_105)
+			:o Assignement(_r_46_54_58)
+				:g (_r_46_54_58_106) [1,1] 
+					: Yes(_r_46_54_58_106_107)
+					: No(_r_46_54_58_106_108)
+			:o Project(_r_46_54_59)
+				:g (_r_46_54_59_109) [1,1] 
+					: Yes(_r_46_54_59_109_110)
+					: No(_r_46_54_59_109_111)
+			:o BasicIntroduction(_r_46_54_60)
+				:g (_r_46_54_60_112) [1,1] 
+					: Yes(_r_46_54_60_112_113)
+					: No(_r_46_54_60_112_114)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_2_4_5 or _r_1_2_4_6
+constraint_2:_r_1_2_4_5 or ~_r_1_2_4_6
+</constraints>
+</feature_model>

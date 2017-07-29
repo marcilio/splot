@@ -1,0 +1,129 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Dec 13, 2016 - 2:44 PM  -->
+<feature_model name="SmartTV">
+<meta>
+<data name="description">smrttv</data>
+<data name="creator">crns</data>
+<data name="address"></data>
+<data name="email">cerensahingebizli@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">crn</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Smart TV(_r)
+	:o Connectivity(_r_2)
+		:o DLNA(_r_2_9)
+			:g (_r_2_9_31) [1,1] 
+				: Audio Video Sharing(_r_2_9_31_32)
+				: DLNA(_r_2_9_31_33)
+		:m Wifi(_r_2_10)
+		:o FollowTV(_r_2_11)
+			:g (_r_2_11_38) [1,1] 
+				: DMR(_r_2_11_38_39)
+				: Mirror(_r_2_11_38_40)
+		:o Wireless Display(_r_2_12)
+			:o IntelWidi(_r_2_12_99)
+			:o Miracast(_r_2_12_100)
+		:o Netflix(_r_2_29)
+		:o Portal(_r_2_30)
+			:g (_r_2_30_34) [1,1] 
+				: VSTL(_r_2_30_34_35)
+				: FXM(_r_2_30_34_36)
+				: TSB(_r_2_30_34_37)
+		:o HBBTV(_r_2_97)
+		:o Verimatrix Web(_r_2_98)
+	:o 3D(_r_3)
+		:m Glass Type(_r_3_13)
+			:g (_r_3_13_41) [1,1] 
+				: ACC(_r_3_13_41_42)
+				: ENT(_r_3_13_41_43)
+	:o CEC(_r_4)
+		:g (_r_4_97) [1,*] 
+			: Audio Control(_r_4_97_98)
+			: Auto Power Down(_r_4_97_99)
+	:m Media Browser(_r_5)
+		:m Video Play(_r_5_16)
+			:g (_r_5_16_100) [1,*] 
+				: MKV(_r_5_16_100_101)
+				: AVI(_r_5_16_100_102)
+				: WMA(_r_5_16_100_103)
+				: WMV(_r_5_16_100_104)
+		:m Audio Play(_r_5_17)
+			:m MP3(_r_5_17_53)
+		:m Picture Preview(_r_5_18)
+			:g (_r_5_18_105) [1,*] 
+				: PNG(_r_5_18_105_106)
+				: JPG(_r_5_18_105_107)
+				: BMP(_r_5_18_105_108)
+	:o Bluetooth(_r_6)
+		:g (_r_6_21) [1,*] 
+			: Headset(_r_6_21_22)
+			: Shutter Glass(_r_6_21_23)
+	:m EPG(_r_7)
+		:g (_r_7_24) [1,*] 
+			: Timeline Schedule(_r_7_24_25)
+			: List Schedule(_r_7_24_26)
+			: Now and Next(_r_7_24_27)
+	:m HDMI(_r_42)
+		:g (_r_42_44) [1,*] 
+			: 1(_r_42_44_45)
+			: 2(_r_42_44_46)
+			: 3(_r_42_44_47)
+			: 4(_r_42_44_48)
+	:m Keypad(_r_49)
+		:g (_r_49_50) [1,1] 
+			: 146(_r_49_50_51)
+			: cy(_r_49_50_52)
+			: f(_r_49_50_53)
+			: 145(_r_49_50_54)
+			: 148(_r_49_50_55)
+			: 147(_r_49_50_56)
+	:m RC(_r_57)
+		:g (_r_57_58) [1,1] 
+			: 12(_r_57_58_59)
+			: 14(_r_57_58_60)
+			: w3(_r_57_58_61)
+			: y78(_r_57_58_62)
+			: 45(_r_57_58_63)
+			: 4565(_r_57_58_64)
+			: er34(_r_57_58_65)
+			: yu8(_r_57_58_66)
+			: 12s(_r_57_58_67)
+			: 14x(_r_57_58_68)
+			: 34s(_r_57_58_69)
+			: 34(_r_57_58_70)
+			: 2846(_r_57_58_71)
+	:m Sources(_r_72)
+		:g (_r_72_73) [1,*] 
+			: hdmi(_r_72_73_74)
+			: scart(_r_72_73_75)
+			: dvd(_r_72_73_76)
+			: scarts(_r_72_73_77)
+			: scart2(_r_72_73_78)
+			: scart2s(_r_72_73_79)
+			: fav(_r_72_73_80)
+			: pc(_r_72_73_81)
+			: tv(_r_72_73_82)
+			: ypbpr(_r_72_73_83)
+			: widi(_r_72_73_84)
+			: ipcam(_r_72_73_85)
+	:o Amblight Sensor(_r_86)
+	:o Audio Description(_r_87)
+	:m Auto TV Off(_r_88)
+		:g (_r_88_89) [1,1] 
+			: 4hr(_r_88_89_90)
+			: 5hr(_r_88_89_91)
+			: 6hr(_r_88_89_92)
+			: 7hr(_r_88_89_93)
+			: 8hr(_r_88_89_94)
+			: Off(_r_88_89_95)
+	:o Bootlogo(_r_96)
+	:o DualView Support(_r_101)
+	:o Twin Tuner(_r_102)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

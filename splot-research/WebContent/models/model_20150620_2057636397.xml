@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 20, 2015 - 9:59 AM  -->
+<feature_model name="Movie System">
+<meta>
+<data name="description">Family of systems used to obtain and display information about movies</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federak do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Movie System(_r)
+	:m GUI(_r_1)
+		:g (_r_1_5) [1,1] 
+			: Thin(_r_1_5_6)
+			: Rich(_r_1_5_7)
+	:m DB(_r_2)
+		:g (_r_2_8) [1,1] 
+			: Local(_r_2_8_9)
+			: Remote(_r_2_8_10)
+				:m CachePolicy(_r_2_8_10_11)
+	:m Network(_r_3)
+		:g (_r_3_12) [1,1] 
+			: Wifi(_r_3_12_13)
+			: Bluetooth(_r_3_12_14)
+	:o GPS(_r_4)
+		:o Built-In(_r_4_15)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

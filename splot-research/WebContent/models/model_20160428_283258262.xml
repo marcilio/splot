@@ -1,0 +1,64 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 28, 2016 - 9:34 AM  -->
+<feature_model name="Bike Computer">
+<meta>
+<data name="description">BC System</data>
+<data name="creator">Tom</data>
+<data name="address"></data>
+<data name="email">tom.baudis@uni-rostock.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uni Rostock</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Bike Computer(_r)
+	:m 4 Controls(_r_1)
+	:m Display(_r_2)
+	:m Versions(_r_3)
+		:m Basic(_r_3_4)
+			:m Speedometer(_r_3_4_9)
+			:m Total speed(_r_3_4_10)
+			:m Trip count(_r_3_4_11)
+			:m Clock(_r_3_4_13)
+		:o Advanced(_r_3_5)
+			:m Avg Speed(_r_3_5_14)
+			:m Avg Trip(_r_3_5_15)
+			:m Stopwatch(_r_3_5_16)
+		:o Deluxe(_r_3_6)
+			:m Pedal rotation(_r_3_6_17)
+			:m Feature-18(_r_3_6_18)
+			:g (_r_3_6_19) [1,1] 
+				: Pedal rotation(_r_3_6_19_20)
+				: connect to heartbeat monitor(_r_3_6_19_21)
+				: conntec to gps(_r_3_6_19_22)
+				: connect to Nike(_r_3_6_19_23)
+	:m Markets(_r_24)
+		:o US(_r_24_25)
+			:m Wirless only for speedometer(_r_24_25_30)
+		:o RU(_r_24_28)
+			:m Wired only(_r_24_28_31)
+		:o Other(_r_24_29)
+	:m Energy(_r_32)
+		:g (_r_32_33) [1,*] 
+			: battery(_r_32_33_34)
+			: rechargable battery(_r_32_33_35)
+			: photovoltaic cell(_r_32_33_36)
+	:m Mountable(_r_37)
+		:g (_r_37_38) [1,*] 
+			: cable ties(_r_37_38_39)
+			: orings(_r_37_38_40)
+	:m Sensors(_r_41)
+		:m speedometer(_r_41_42)
+			:g (_r_41_42_44) [1,*] 
+				: wired(_r_41_42_44_45)
+				: wireless(_r_41_42_44_46)
+		:o pedal rotation(_r_41_43)
+			:g (_r_41_43_47) [1,*] 
+				: wired(_r_41_43_47_48)
+				: wireless(_r_41_43_47_49)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Apr 11, 2014 - 1:21 PM  -->
+<feature_model name="Sylvain Example">
+<meta>
+<data name="description">Sylvain Example Final</data>
+<data name="creator">Sylvain, ra'fat and Marianne</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Lirmm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:o XOR(_r_1)
+		:g (_r_1_2) [1,1] 
+			: F1(_r_1_2_3)
+			: F4(_r_1_2_4)
+	:o F2(_r_6)
+	:o F3(_r_7)
+	:o F5(_r_8)
+	:o F6(_r_9)
+	:o F7(_r_10)
+	:m 1(_r_12)
+	:m 2(_r_13)
+	:m 3(_r_14)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_2_3 or ~_r_8
+constraint_8:~_r_1_2_3 or ~_r_9
+constraint_9:~_r_1_2_3 or ~_r_10
+constraint_10:~_r_1_2_4 or ~_r_6
+constraint_6:_r_1_2_4 or ~_r_10
+constraint_11:~_r_1_2_4 or ~_r_8
+constraint_7:~_r_1_2_3 or ~_r_7
+constraint_12:~_r_1_2_4 or ~_r_9
+constraint_4:_r_7 or ~_r_9
+constraint_5:_r_7 or ~_r_10
+constraint_2:_r_6 or ~_r_8
+constraint_3:_r_6 or ~_r_9
+</constraints>
+</feature_model>

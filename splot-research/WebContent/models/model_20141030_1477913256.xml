@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Oct 30, 2014 - 9:23 AM  -->
+<feature_model name="FeatureModelName">
+<meta>
+<data name="description">test_feature model</data>
+<data name="creator">xy</data>
+<data name="address">dkas</data>
+<data name="email">dasdköa@kdsdk.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">cmddas</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r TestDiagramm(_r)
+	:m SubFeature(_r_1)
+	:o SubFeature_optional(_r_2)
+	:g (_r_3) [1,1] 
+		: Feature-5(_r_3_5)
+		: SubFeature_OR(_r_3_6)
+	:g (_r_7) [1,*] 
+		: SubFeature_XOR(_r_7_8)
+		: SubFeature_XOR2(_r_7_13)
+	:m Feature-14(_r_14)
+	:m Feature-15(_r_15)
+	:m Feature-16(_r_16)
+	:m Feature-17(_r_17)
+	:m Feature-18(_r_18)
+</feature_tree>
+<constraints>
+constraint_1:~_r_7_8 or _r_7_13
+</constraints>
+</feature_model>

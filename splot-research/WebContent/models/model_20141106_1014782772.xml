@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 6, 2014 - 8:00 AM  -->
+<feature_model name="BuurtPensioen">
+<meta>
+<data name="description">ANalyse de Buurtpensioen</data>
+<data name="creator">Biset Maxime</data>
+<data name="address"></data>
+<data name="email">maxime.biset@student.uclouvain.be</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UCL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BuurrtPensoien(_r)
+	:m Modele economique(_r_1)
+		:m Public cible(_r_1_3)
+			:g (_r_1_3_9) [1,*] 
+				: Personnes physiques(_r_1_3_9_10)
+					:g (_r_1_3_9_10_12) [1,*] 
+						: -18 ans(_r_1_3_9_10_12_13)
+						: Etudiants(_r_1_3_9_10_12_14)
+						: Adultes(_r_1_3_9_10_12_15)
+						: 3eme age(_r_1_3_9_10_12_16)
+				: Personnes morales(_r_1_3_9_11)
+					:g (_r_1_3_9_11_17) [1,*] 
+						: Petits commerces(_r_1_3_9_11_17_18)
+						: Autres entreprises(_r_1_3_9_11_17_19)
+						: Services publiques(_r_1_3_9_11_17_20)
+		:o Monnaie(_r_1_4)
+		:m Objectif(_r_1_5)
+			:g (_r_1_5_6) [1,*] 
+				: Social(_r_1_5_6_7)
+				: Economique(_r_1_5_6_8)
+	:o Outil(_r_2)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

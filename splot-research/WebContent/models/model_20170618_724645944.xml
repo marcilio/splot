@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 18, 2017 - 12:41 PM  -->
+<feature_model name="MPES2016-2.Reuso2">
+<meta>
+<data name="description">Modelo de exemplo para a disciplina de Reuso 2 do Mestrado Profissional de Engenharia de Software do CESAR</data>
+<data name="creator">Anderson Lima</data>
+<data name="address"></data>
+<data name="email">andclima@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Cesar</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Conference(_r)
+	:m Submission(_r_1)
+		:g (_r_1_5) [1,1] 
+			: Complete(_r_1_5_6)
+			: Partial(_r_1_5_7)
+	:m Review(_r_2)
+		:m Indication(_r_2_23)
+			:g (_r_2_23_26) [1,*] 
+				: Automatic(_r_2_23_26_27)
+				: Manual(_r_2_23_26_28)
+		:m AcceptReject(_r_2_25)
+	:m Notification(_r_4)
+		:m Result(_r_4_29)
+		:m Assignment(_r_4_30)
+		:o News(_r_4_31)
+</feature_tree>
+<constraints>
+constraint_4:~_r_1_5_7 or ~_r_4_31
+constraint_3:~_r_1_5_6 or _r_4_31
+</constraints>
+</feature_model>

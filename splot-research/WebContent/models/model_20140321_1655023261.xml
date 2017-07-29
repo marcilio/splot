@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 21, 2014 - 7:28 AM  -->
+<feature_model name="Pip">
+<meta>
+<data name="description">A feature model of pip commands</data>
+<data name="creator">joost</data>
+<data name="address"></data>
+<data name="email">joostnaaijen@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Joost</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r PIP(_r)
+	:m freeze(_r_1)
+	:m help(_r_2)
+	:m install(_r_3)
+		:m single packages(_r_3_4)
+		:m requirements file(_r_3_5)
+		:m VCS project url(_r_3_6)
+		:m local project path(_r_3_7)
+		:m source archive path(_r_3_8)
+	:m list(_r_9)
+	:m search(_r_10)
+	:m show(_r_11)
+	:m uninstall(_r_12)
+	:m wheel(_r_13)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

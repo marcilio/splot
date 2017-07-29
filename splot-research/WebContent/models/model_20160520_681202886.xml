@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 20, 2016 - 1:13 AM  -->
+<feature_model name="ubuntu">
+<meta>
+<data name="description">this is for testing tool</data>
+<data name="creator">Muhammad Javed</data>
+<data name="address">Hazara University, Pakistan</data>
+<data name="email">mjaved@aust.edu.pk</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Hazara University, Pakistan</data>
+<data name="department">IT</data>
+<data name="date">20-5-2016</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Ubuntu(_r)
+	:m texteditor(_r_1)
+		:o Feature-12(_r_1_12)
+	:m bash(_r_2)
+	:m gui(_r_3)
+		:g (_r_3_6) [1,*] 
+			: kde(_r_3_6_7)
+			: gnome(_r_3_6_8)
+	:o games(_r_5)
+		:g (_r_5_9) [1,1] 
+			: gnuchess(_r_5_9_10)
+			: glchess(_r_5_9_11)
+	:m bash(_r_13)
+</feature_tree>
+<constraints>
+constraint_1:_r or _r_1
+</constraints>
+</feature_model>

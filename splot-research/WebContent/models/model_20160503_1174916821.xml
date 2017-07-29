@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 10, 2016 - 12:27 PM  -->
+<feature_model name="Smart UMKM">
+<meta>
+<data name="description">Root</data>
+<data name="creator">Kelompok B</data>
+<data name="address"></data>
+<data name="email">ardye.ilkom@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universitas Indonesia</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Smart UMKM(_r)
+	:m Registrasi(_r_1)
+		:m Penjual(_r_1_2)
+		:m Pembeli(_r_1_4)
+	:m Pengelolaan(_r_5)
+		:m Pemesanan(_r_5_6)
+			:m Mencatat Pesanan(_r_5_6_8)
+			:m Mengubah Kuantitas(_r_5_6_9)
+			:m Membatalkan Pesanan(_r_5_6_10)
+		:m Katalog(_r_5_7)
+			:m Menambah(_r_5_7_11)
+			:m Menghapus(_r_5_7_12)
+			:m Merubah(_r_5_7_13)
+	:m Menampilkan Katalog(_r_14)
+	:m Pencarian(_r_15)
+		:m Kategori(_r_15_16)
+		:m Lokasi(_r_15_17)
+		:m Harga(_r_15_18)
+		:m Penjual(_r_15_19)
+		:m Produk Populer(_r_15_21)
+	:o Komparasi Produk(_r_22)
+	:o Chatting(_r_23)
+	:o Inden Produk(_r_24)
+	:m Pembayaran(_r_25)
+		:g (_r_25_26) [1,*] 
+			: Transfer(_r_25_26_27)
+			: Paypall(_r_25_26_28)
+			: Cash on Delivery(_r_25_26_29)
+	:m Pengiriman(_r_30)
+		:g (_r_30_31) [1,*] 
+			: Tiki(_r_30_31_32)
+			: Jne(_r_30_31_33)
+			: Go Send(_r_30_31_34)
+	:m Laporan(_r_35)
+		:m Harian(_r_35_36)
+		:m Bulanan(_r_35_37)
+		:m Tahunan(_r_35_38)
+	:o Mencatat ulasan pembeli(_r_40)
+	:o Tracking Pengiriman Barang(_r_42)
+	:o Validasi KTP(_r_43)
+	:m Otentikasi(_r_44)
+		:g (_r_44_43) [1,*] 
+			: Admin(_r_44_43_44)
+			: Penjual(_r_44_43_45)
+			: Pembeli(_r_44_43_46)
+</feature_tree>
+<constraints>
+constraint_1:_r_25_26_27 or ~_r_25_26_28 or ~_r_25_26_29
+constraint_2:_r_30_31_32 or ~_r_30_31_33 or ~_r_30_31_34
+constraint_3:_r_5_6_8 or _r_5_6_9 or _r_5_6_10
+</constraints>
+</feature_model>

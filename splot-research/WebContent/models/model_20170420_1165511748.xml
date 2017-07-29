@@ -1,0 +1,113 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 20, 2017 - 5:44 PM  -->
+<feature_model name="windows">
+<meta>
+<data name="description">test</data>
+<data name="creator">azadeh</data>
+<data name="address"></data>
+<data name="email">6138997862</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">test</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Accessibility(_r)
+	:o UseTheComputerWithoutAScreen(_r_1)
+		:o HearTheTextReadAloud(_r_1_8)
+			:g (_r_1_8_20) [1,1] 
+				: EnableAudioDescription(_r_1_8_20_21)
+				: ActivateTheNarrator(_r_1_8_20_22)
+				: ConfigureVoiceSynthesis(_r_1_8_20_23)
+		:o AdjustSchedulingLimitAndFlashingVisual(_r_1_9)
+			:g (_r_1_9_16) [1,1] 
+				: HowLongTheNotificationBoxesShouldRemainOpen(_r_1_9_16_17)
+				: DisableAllUnnecessaryAnimations(_r_1_9_16_18)
+		:o SeeAsWell(_r_1_10)
+			:o AudioDevicesAndSoundThemes(_r_1_10_14)
+			:o OnlineSupportTechnologies(_r_1_10_15)
+		:o OthersPrograms(_r_1_12)
+			:m ActivateJavaAccessBridge(_r_1_12_13)
+	:o ImproveTheReadabilityOfTheComputer(_r_2)
+		:g (_r_2_24) [1,1] 
+			: MakeTheElementOnTheScreenEasierToSee(_r_2_24_25)
+				:g (_r_2_24_25_34) [1,1] 
+					: MakeTheFocusRectangleThicker(_r_2_24_25_34_35)
+					: DisableAllUnnecessaryAnimations_(_r_2_24_25_34_36)
+					: RemoveBackgroundImages(_r_2_24_25_34_37)
+					: AdjustTheColorAndTransparencyOfWindowsBorders(_r_2_24_25_34_38)
+					: AdjustTheDisplayEffect(_r_2_24_25_34_39)
+			: EnchargeTheItemsDisplayOnTheScreen(_r_2_24_26)
+				:g (_r_2_24_26_31) [1,1] 
+					: ChangeTheSizeOfTextAndIcons(_r_2_24_26_31_32)
+					: ActivateMagnifyingGlass(_r_2_24_26_31_33)
+			: HighContrast(_r_2_24_27)
+				:g (_r_2_24_27_28) [1,1] 
+					: ChooseAHighContrastSet(_r_2_24_27_28_29)
+					: EnableOrDisableHighContrast(_r_2_24_27_28_30)
+	:o UseTheComputerWithoutAMouseOrKeyboard(_r_3)
+		:g (_r_3_40) [1,1] 
+			: GrabUsingAPointingDevice(_r_3_40_41)
+				:m UseVisualKeyboard(_r_3_40_41_43)
+			: AvoidUsingMouseAndKeyboard(_r_3_40_42)
+				:g (_r_3_40_42_44) [1,1] 
+					: UseVoiceRecognition(_r_3_40_42_44_45)
+					: SpeakIntoAMicrophoneToControlComputer(_r_3_40_42_44_46)
+	:o MakeTheMouseEasierToUse(_r_4)
+		:o MousePointer(_r_4_47)
+			:g (_r_4_47_58) [1,1] 
+				: StandardWhite(_r_4_47_58_59)
+				: StandardBlack(_r_4_47_58_60)
+				: StandardInverted(_r_4_47_58_61)
+				: LargeBlack(_r_4_47_58_62)
+				: LargeWhite(_r_4_47_58_63)
+				: LargerWhite(_r_4_47_58_64)
+				: LargerBlack(_r_4_47_58_65)
+				: LargeInverted(_r_4_47_58_66)
+				: LargerInverted(_r_4_47_58_67)
+		:o ControlTheMouseWithTheKeyboard(_r_4_49)
+			:g (_r_4_49_55) [1,1] 
+				: ConfigureMouseKeys(_r_4_49_55_56)
+				: ActivateMouseKey(_r_4_49_55_57)
+		:o EasyToManageWindows(_r_4_50)
+			:g (_r_4_50_52) [1,1] 
+				: PreventWindowsFromBeingAutomaticallyReorganized_(_r_4_50_52_53)
+				: ActivateAWindowsByClickingOnItWithTheMouse_(_r_4_50_52_54)
+		:o MouseSetting(_r_4_51)
+	:o MakeTheKeyboardEasierToUse(_r_5)
+		:g (_r_5_70) [1,1] 
+			: ControlTheMouseWithTheKeyboard_(_r_5_70_71)
+				:g (_r_5_70_71_76) [1,1] 
+					: ActivateMouseKey_(_r_5_70_71_76_77)
+					: ConfigureMouseKeys_(_r_5_70_71_76_78)
+			: SeeAsWell_(_r_5_70_72)
+				:g (_r_5_70_72_79) [1,1] 
+					: AddADvorakKeyboard(_r_5_70_72_79_80)
+					: KeyboardSetting(_r_5_70_72_79_81)
+			: MakeUsingKeyboardShortcutsEasier(_r_5_70_73)
+				:m HighlightKeyboardShortcutsAndHotkeys(_r_5_70_73_82)
+			: MakeEntryEasier(_r_5_70_74)
+				:g (_r_5_70_74_83) [1,1] 
+					: ActivateTheFilterKeys(_r_5_70_74_83_84)
+					: ConfigureTheFilterKeys(_r_5_70_74_83_85)
+					: ConfigureTheRetentiveKeys(_r_5_70_74_83_86)
+					: ActivateTheRetentiveKeys(_r_5_70_74_83_87)
+					: ActivateTheToggleKeys(_r_5_70_74_83_88)
+			: EasyToManageWindows_(_r_5_70_75)
+				:m PreventWindowsFromBeingAutomaticallyReorganized__(_r_5_70_75_89)
+	:o ReplaceSoundByOtherWrittenOrVisualMethods(_r_6)
+		:g (_r_6_90) [1,1] 
+			: ChooseAVisualWarning(_r_6_90_91)
+				:g (_r_6_90_91_94) [1,1] 
+					: Nothing(_r_6_90_91_94_95)
+					: FlashTheActiveLegendeBar(_r_6_90_91_94_96)
+					: MakeTheDesktopBlink(_r_6_90_91_94_97)
+					: FlashTheActiveWindows(_r_6_90_91_94_98)
+			: ActivateSubtilesForSpokenDialogue(_r_6_90_92)
+			: AudioDevicesAndSoundThemes_(_r_6_90_93)
+	:o MakingTasksEasierToAccomplish(_r_7)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

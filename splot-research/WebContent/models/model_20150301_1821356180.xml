@@ -1,0 +1,54 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Mar 1, 2015 - 8:03 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Diagrama Caso Inmobiliaria Taller 1</data>
+<data name="creator">Juan David Poveda</data>
+<data name="address"></data>
+<data name="email">juand.poveda@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">U. de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:m GestionActivos(_r_1)
+		:m GestionInmobiliaria(_r_1_8)
+			:m GestionOperativa(_r_1_8_19)
+				:o Equipamiento(_r_1_8_19_22)
+				:o Instalaciones(_r_1_8_19_23)
+				:o ActivosFisicos(_r_1_8_19_24)
+			:o Tasaciones(_r_1_8_20)
+			:o Reservas(_r_1_8_21)
+		:m Alquileres(_r_1_9)
+		:m Reporting(_r_1_10)
+			:g (_r_1_10_41) [1,*] 
+				: Financiero(_r_1_10_41_42)
+				: Operativo(_r_1_10_41_43)
+		:o Valoraciones(_r_1_11)
+		:o Auditorias(_r_1_12)
+		:o RevisionesDeMercado(_r_1_13)
+		:o Contabilidad(_r_1_14)
+		:o Refinanciaciones(_r_1_15)
+		:o VentaDeActivos(_r_1_16)
+		:m AdquisicionDeInmueble(_r_1_25)
+	:o GestionCapital(_r_2)
+		:m EstructuracionDelFondo(_r_2_3)
+			:g (_r_2_3_33) [1,*] 
+				: InversionesAlternativas(_r_2_3_33_34)
+				: InversionesTradicionales(_r_2_3_33_35)
+		:o DefinicionDelGobiernoCorporativo(_r_2_4)
+		:o RelacionesConInversores(_r_2_5)
+		:m Adquisiciones(_r_2_6)
+		:m VentasDeActivos(_r_2_7)
+</feature_tree>
+<constraints>
+constraint_8:~_r_1_14 or _r_1_16
+constraint_9:~_r_2_4 or ~_r_2_5
+constraint_6:_r_1_11 or ~_r_1_12
+constraint_5:~_r_1_8_19_23 or ~_r_1_8_19_24
+constraint_2:~_r_1_8_19_22 or ~_r_1_8_19_24
+</constraints>
+</feature_model>

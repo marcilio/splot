@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 3, 2014 - 3:02 PM  -->
+<feature_model name="teste_2">
+<meta>
+<data name="description">teste_2</data>
+<data name="creator">Alessandra</data>
+<data name="address"></data>
+<data name="email">UFJF</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFJF_2</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r teste(_r)
+	:m Feature-1(_r_1)
+	:m Feature-2(_r_2)
+	:o Feature-3(_r_3)
+	:o Feature-4(_r_4)
+	:o Feature-5(_r_5)
+	:o Feature-6(_r_6)
+	:o Feature-7(_r_7)
+	:o Feature-8(_r_8)
+	:o Feature-9(_r_9)
+	:o Feature-10(_r_10)
+	:o Feature-11(_r_11)
+	:o Feature-12(_r_12)
+		:g (_r_12_13) [1,1] 
+			: Feature-14(_r_12_13_14)
+			: Feature-15(_r_12_13_15)
+			: Feature-16(_r_12_13_16)
+			: Feature-17(_r_12_13_17)
+			: Feature-18(_r_12_13_18)
+			: Feature-19(_r_12_13_19)
+			: Feature-20(_r_12_13_20)
+			: Feature-21(_r_12_13_21)
+			: Feature-22(_r_12_13_22)
+			: Feature-23(_r_12_13_23)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

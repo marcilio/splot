@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Dec 16, 2015 - 1:48 PM  -->
+<feature_model name="Metadata">
+<meta>
+<data name="description">Metadata</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Metadata(_r)
+	:m Objectives(_r_1)
+		:g (_r_1_2) [1,*] 
+			: Phase(_r_1_2_3)
+				:g (_r_1_2_3_5) [1,*] 
+					: Representation(_r_1_2_3_5_6)
+						:g (_r_1_2_3_5_6_8) [1,*] 
+							: Recalling(_r_1_2_3_5_6_8_9)
+							: Application(_r_1_2_3_5_6_8_10)
+							: Synthesis(_r_1_2_3_5_6_8_11)
+					: Explanation(_r_1_2_3_5_7)
+						:g (_r_1_2_3_5_7_12) [1,*] 
+							: Understanding(_r_1_2_3_5_7_12_13)
+							: Analysis(_r_1_2_3_5_7_12_14)
+							: Evaluation(_r_1_2_3_5_7_12_15)
+			: Level(_r_1_2_4)
+				:g (_r_1_2_4_16) [1,*] 
+					: Beginner(_r_1_2_4_16_17)
+					: Intermediate(_r_1_2_4_16_18)
+					: Advanced(_r_1_2_4_16_19)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

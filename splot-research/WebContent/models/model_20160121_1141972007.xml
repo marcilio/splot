@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jan 21, 2016 - 5:43 AM  -->
+<feature_model name="Cloud Storage Software">
+<meta>
+<data name="description">This model provides the early features for cloud service software</data>
+<data name="creator">Noor Hasrina Bakar</data>
+<data name="address"></data>
+<data name="email">noor.hasrina@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Malaya</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cloud Storage Software(_r)
+	:m Storage Service(_r_9)
+		:m Full disk image(_r_9_10)
+			:o Unlimited space(_r_9_10_11)
+		:m Web Based(_r_9_12)
+		:m Cost Savvy(_r_9_13)
+	:m backup(_r_15)
+		:m encryption(_r_15_16)
+		:o backup for mobiles(_r_15_17)
+			:o Android(_r_15_17_18)
+			:o iPhone(_r_15_17_19)
+			:o Windows Phone(_r_15_17_20)
+			:o Blackberry(_r_15_17_21)
+		:m share(_r_15_23)
+			:m file sharing(_r_15_23_24)
+			:m sync(_r_15_23_25)
+			:m easy to navigate(_r_15_23_26)
+		:g (_r_15_29) [1,*] 
+			: continuous backup(_r_15_29_30)
+			: scheduled backup(_r_15_29_31)
+	:m uploads(_r_32)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

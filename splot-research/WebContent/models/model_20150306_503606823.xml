@@ -1,0 +1,48 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 6, 2015 - 5:28 PM  -->
+<feature_model name="InmobiliatiaCase">
+<meta>
+<data name="description">Inmo</data>
+<data name="creator">Harold Murcia</data>
+<data name="address"></data>
+<data name="email">hl.murcialtair@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">NA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o GestionCapital(_r_1)
+		:m EstructuraFondo(_r_1_4)
+			:g (_r_1_4_8) [1,*] 
+				: InversionesTradicionales(_r_1_4_8_9)
+				: InversionesAlternativas(_r_1_4_8_10)
+		:o DefGobiernoCorp(_r_1_5)
+		:o RelacionInversores(_r_1_6)
+		:m AdquisicionVentasActivos(_r_1_7)
+	:m GestionInmobiliaria(_r_2)
+		:m GestionOperativa(_r_2_11)
+			:o EquipamientoInstalaciones(_r_2_11_12)
+			:o ActivosFisicos(_r_2_11_13)
+		:m RRHH(_r_2_14)
+		:o Tasacion(_r_2_15)
+		:o Reservas(_r_2_17)
+	:m GestionActivos(_r_3)
+		:g (_r_3_18) [1,1] 
+			: ReportingFinanciero(_r_3_18_19)
+			: ReportingOperativo(_r_3_18_20)
+		:m AdquisicionInmuebles(_r_3_21)
+		:m Alquileres(_r_3_22)
+		:m GestionInmobiliariaProc(_r_3_23)
+		:o Valoraciones(_r_3_24)
+		:o Auditorias(_r_3_25)
+		:o RevisionMercado(_r_3_26)
+		:o Refinanciacion(_r_3_27)
+		:o Contabilidad(_r_3_28)
+		:o VentaActivos(_r_3_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

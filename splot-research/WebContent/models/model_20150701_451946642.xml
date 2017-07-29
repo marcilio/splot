@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jul 1, 2015 - 9:36 PM  -->
+<feature_model name="17-mobile Game">
+<meta>
+<data name="description">Example of FM</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Great-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Mobile Game(_r)
+	:o Conectivity(_r_2)
+		:g (_r_2_7) [1,*] 
+			: Bluetooth(_r_2_7_8)
+			: Network(_r_2_7_9)
+				:g (_r_2_7_9_10) [1,1] 
+					: EDGE(_r_2_7_9_10_11)
+					: HSPA(_r_2_7_9_10_12)
+					: LTE(_r_2_7_9_10_13)
+					: WiFi(_r_2_7_9_10_14)
+	:m Graphquality(_r_3)
+		:g (_r_3_15) [1,1] 
+			: Low(_r_3_15_16)
+			: Medium(_r_3_15_17)
+			: High(_r_3_15_18)
+	:o Sound(_r_4)
+		:m Quality(_r_4_19)
+			:g (_r_4_19_21) [1,1] 
+				: 128kbps(_r_4_19_21_22)
+				: 192kbps(_r_4_19_21_23)
+				: 256kbps(_r_4_19_21_24)
+		:o Vibration(_r_4_20)
+	:o Multiplayer(_r_5)
+		:g (_r_5_25) [1,1] 
+			: Local(_r_5_25_26)
+			: Online(_r_5_25_27)
+	:o GlobalscoreBoard(_r_6)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

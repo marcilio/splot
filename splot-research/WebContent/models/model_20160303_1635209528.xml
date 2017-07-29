@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 3, 2016 - 2:07 PM  -->
+<feature_model name="Navigation Protocol">
+<meta>
+<data name="description">navigation service family</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Navigation_Protocol(_r)
+	:m SearchRoute(_r_1)
+	:m ReqMap(_r_2)
+		:g (_r_2_7) [1,1] 
+			: ReqLocalMap(_r_2_7_8)
+			: ReqGoogleMap(_r_2_7_9)
+	:m GetMap(_r_3)
+	:o TrafficMng(_r_4)
+		:g (_r_4_10) [1,*] 
+			: NoTraffic(_r_4_10_11)
+			: YesTraffic(_r_4_10_12)
+				:m CheckTraffic(_r_4_10_12_13)
+				:m GetTraffic(_r_4_10_12_14)
+	:m Alt_Route(_r_5)
+		:g (_r_5_15) [1,*] 
+			: FastRoute(_r_5_15_16)
+			: ShortRoute(_r_5_15_17)
+			: OptRoute(_r_5_15_18)
+	:m InitNav(_r_6)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

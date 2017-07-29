@@ -1,0 +1,93 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 19, 2017 - 11:04 PM  -->
+<feature_model name="Discipline_Requirements">
+<meta>
+<data name="description">Descrição de Atividades de Requisitos</data>
+<data name="creator">Henrique Persch</data>
+<data name="address"></data>
+<data name="email">hpersch@inf.ufsm.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFSM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Requisitos(_r)
+	:m Elicitacao_e_Levantamento(_r_1)
+		:m Identificar_Envolvidos(_r_1_2)
+			:g (_r_1_2_3) [1,*] 
+				: Identificacao_Envolvidos-Pressman(_r_1_2_3_4)
+				: Stakeholders_Identification-ISO(_r_1_2_3_6)
+				: Reconheimento_Diversos_Pontos_de_Vista-Pressman(_r_1_2_3_8)
+				: Elicit_Stakeholders-RUP(_r_1_2_3_10)
+		:m Elicitar_Requisitos(_r_1_11)
+			:o Levantamento_Requisitos_Agil-Pressman(_r_1_11_12)
+			:o Descoberta_Requisitos-Sommerville(_r_1_11_13)
+			:o Requirements_Elicitation-SWEBOK(_r_1_11_14)
+			:o Requirements_Identification-ISO12207(_r_1_11_15)
+			:o Levantar_Necessidades-CMMI(_r_1_11_16)
+			:o Coleta_Colaborativa_Requisitos-Pressman(_r_1_11_18)
+			:o Requirements_Records-ISO12207(_r_1_11_19)
+		:o Identificar_Termos(_r_1_22)
+			:g (_r_1_22_25) [1,1] 
+				: Capture_a_Common_Vocabulary-RUP(_r_1_22_25_26)
+	:m Analise_e_Elaboracao(_r_28)
+		:o Classificar_Requisitos(_r_28_32)
+			:g (_r_28_32_33) [1,*] 
+				: Classificacao_e_Organizacao_Requisitos-SOMMERVILLE(_r_28_32_33_34)
+				: Requirements_Classification-SWEBOK(_r_28_32_33_36)
+		:m Modelagem_Conceitual(_r_28_37)
+			:g (_r_28_37_38) [1,*] 
+				: Construcao_Modelo_Analise-Pressman(_r_28_37_38_39)
+				: Develop_Vision-RUP(_r_28_37_38_40)
+				: Conceptual_Modeling-SWEBOK(_r_28_37_38_41)
+				: Desebonver_Requisitos_do_Cliente-CMMI(_r_28_37_38_42)
+		:m Alocacao_Requisitos(_r_28_43)
+			:g (_r_28_43_46) [1,*] 
+				: Architectural_Design_and_Requirementes_Allocation-SWEBOK(_r_28_43_46_47)
+				: Analisar_Requisitos_de_Componente_de_Produto-CMMI(_r_28_43_46_48)
+		:o Negociacao_de_Requisitos(_r_28_53)
+			:g (_r_28_53_54) [1,*] 
+				: Requirements_Agreement-ISO 12207(_r_28_53_54_55)
+				: Analisar_Requisitos_visando_Balanceamento-CMMI(_r_28_53_54_56)
+				: Priorizacao_e_Negociacao-Sommerville(_r_28_53_54_57)
+				: Negociacao_Requisitos-Pressman(_r_28_53_54_58)
+	:m Especificacao(_r_60)
+		:o Especificar_Requisitos(_r_60_61)
+			:g (_r_60_61_62) [1,*] 
+				: Software_Requirements_Specification-ISO12207(_r_60_61_62_63)
+				: Software_Requirements_Specification-SWEBOOK(_r_60_61_62_65)
+				: Software_Requirements_Analysis-ISO12207(_r_60_61_62_66)
+		:o Especificar_Requisitos_Funcionais(_r_60_67)
+			:g (_r_60_67_70) [1,*] 
+				: Especificacao_dos_Requisitos-Sommerville(_r_60_67_70_71)
+				: Find_Actors_and_Use_Cases-RUP(_r_60_67_70_72)
+				: Structure_the_Use_Case_Model-RUP(_r_60_67_70_73)
+		:o Especificar_Requisitos_Nao_Funcionais(_r_60_74)
+			:g (_r_60_74_75) [1,*] 
+				: Develop_Suplementary_Specfication-RUP(_r_60_74_75_76)
+		:o Detalhar_Requisitos(_r_60_77)
+			:g (_r_60_77_80) [1,*] 
+				: Detail_Use_Case-RUP(_r_60_77_80_81)
+				: Detail_the_Software_Requirements-RUP(_r_60_77_80_82)
+				: Estabelecer_Conceitos_Operacionais_e_Cenarios-CMMI(_r_60_77_80_83)
+				: Prioritize_Use_Cases-RUP(_r_60_77_80_84)
+	:m Validacao(_r_85)
+		:m Verificar_Requisitos(_r_85_86)
+			:g (_r_85_86_87) [1,*] 
+				: Model_Validation-CMMI(_r_85_86_87_88)
+				: Requirements_Review-RUP(_r_85_86_87_89)
+				: Requirements_Review-SWEBOK(_r_85_86_87_90)
+		:m Validar_Requisitos(_r_85_91)
+			:g (_r_85_91_92) [1,*] 
+				: Validar_Requisitos-CMMI(_r_85_91_92_93)
+				: Validacao_Requisitos-Pressman(_r_85_91_92_94)
+				: Validacao_Requisitos-Sommerville(_r_85_91_92_95)
+				: Prototyping-ISO12207(_r_85_91_92_96)
+				: Acceptance_Tests-SWEBOK(_r_85_91_92_97)
+				: Requirements_Evaluation-ISO12207(_r_85_91_92_98)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

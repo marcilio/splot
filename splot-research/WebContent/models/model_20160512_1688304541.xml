@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 12, 2016 - 7:19 AM  -->
+<feature_model name="KDDI">
+<meta>
+<data name="description">sa</data>
+<data name="creator">Shimizu</data>
+<data name="address"></data>
+<data name="email">gadgasdg</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">dsag</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r KDDI_mobilephone(_r)
+	:m display(_r_1)
+		:m type(_r_1_9)
+			:g (_r_1_9_37) [1,1] 
+				: Super AMOLED(_r_1_9_37_38)
+				: TFT(_r_1_9_37_39)
+		:m size(_r_1_10)
+			:g (_r_1_10_28) [1,1] 
+				: 5_5inch(_r_1_10_28_29)
+				: 5inch(_r_1_10_28_30)
+	:m OS(_r_2)
+		:g (_r_2_12) [1,1] 
+			: Android 6(_r_2_12_13)
+			: Android 5_1(_r_2_12_14)
+	:m CPU(_r_3)
+		:g (_r_3_21) [1,1] 
+			: MSM8916 1_2GHz(_r_3_21_22)
+			: MSM8996 2_2GHz(_r_3_21_23)
+	:m memory_capacity(_r_4)
+		:m internal_memory(_r_4_24)
+			:m 32GB(_r_4_24_26)
+		:m external_memory(_r_4_25)
+			:o 200GB(_r_4_25_32)
+			:o 500GB(_r_4_25_33)
+	:m function(_r_6)
+		:o waterproof(_r_6_15)
+		:o dustcontroll(_r_6_16)
+		:o shock resistant(_r_6_17)
+	:m application(_r_7)
+		:m call(_r_7_19)
+		:m mail(_r_7_20)
+	:m datacommunication(_r_8)
+		:g (_r_8_40) [1,1] 
+			: WiMAX2plus(_r_8_40_41)
+			: 4GLTE(_r_8_40_42)
+			: 4GLTEandWiMAX2plus(_r_8_40_43)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

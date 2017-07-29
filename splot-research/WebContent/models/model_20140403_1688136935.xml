@@ -1,0 +1,78 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 3, 2014 - 4:35 PM  -->
+<feature_model name="Java EE 6 - Camilo Fierro">
+<meta>
+<data name="description">Java EE 6 Patterns</data>
+<data name="creator">Camilo Fierro</data>
+<data name="address"></data>
+<data name="email">ca-fierr@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Java EE 6 Patterns(_r)
+	:o Boundary(_r_1)
+		:g (_r_1_2) [1,*] 
+			: CRUD Boundary(_r_1_2_3)
+			: Dual-View Boundary(_r_1_2_4)
+			: SOA Boundary(_r_1_2_5)
+				:g (_r_1_2_5_9) [1,*] 
+					: Asynchronous Boundary(_r_1_2_5_9_10)
+					: SOA Boundary(_r_1_2_5_9_11)
+			: Multichannel Boundary(_r_1_2_7)
+				:o IIOP Boundary(_r_1_2_7_12)
+	:o Control(_r_13)
+		:g (_r_13_14) [1,*] 
+			: Stateless Session Bean Strategy(_r_13_14_15)
+			: DAO Hybrid Strategy(_r_13_14_16)
+			: FLUID LOGIC PATTERN(_r_13_14_28)
+	:o Entity(_r_18)
+		:g (_r_18_19) [1,*] 
+			: DSL-Test-Domain_Driven Strategy(_r_18_19_20)
+			: Fat Entity Strategy(_r_18_19_21)
+			: Data-Bound Entity Strategy(_r_18_19_22)
+	:o Gateway(_r_23)
+		:g (_r_23_24) [1,1] 
+			: Server-Side Gateway Strategy(_r_23_24_25)
+			: RIA Gateway Strategy(_r_23_24_26)
+			: Hybrid Gateway Strategy(_r_23_24_27)
+	:o Paginator and Fast Lane Reader(_r_29)
+		:g (_r_29_30) [1,*] 
+			: Paginator and Value List Handler Strategy(_r_29_30_31)
+			: Page or Everything Strategy(_r_29_30_32)
+			: Table View Strategy(_r_29_30_33)
+			: Fast Lane Reader(_r_29_30_34)
+				:g (_r_29_30_34_36) [1,1] 
+					: With JDBC Strategy(_r_29_30_34_36_37)
+					: With EntityManager Strategy(_r_29_30_34_36_38)
+	:o Configurator(_r_39)
+	:g (_r_40) [1,*] 
+		: Multistage Configurator Strategy(_r_40_41)
+		: Pluggable Configuration Provider Strategy(_r_40_42)
+		: Configurator JMX-REST View Strategy(_r_40_43)
+		: Dynamic Configuration Strategy(_r_40_44)
+	:o Re-Injector(_r_45)
+	:o Async Worker(_r_48)
+		:g (_r_48_49) [1,1] 
+			: Fire-and-Forget Strategy(_r_48_49_50)
+			: Persistent Worker Strategy(_r_48_49_51)
+			: EJB Excecutor Strategy(_r_48_49_52)
+	:o Parallelizer(_r_53)
+		:g (_r_53_57) [1,1] 
+			: Push Strategy(_r_53_57_58)
+			: Pull Strategy(_r_53_57_59)
+	:o HTTP Events(_r_60)
+		:g (_r_60_61) [1,*] 
+			: Real-Time Strategy(_r_60_61_62)
+			: Batch Strategy(_r_60_61_63)
+			: Channels Strategy(_r_60_61_64)
+</feature_tree>
+<constraints>
+constraint_1:_r_1 or ~_r_23
+constraint_2:~_r_1 or _r_23
+constraint_3:_r_48 or ~_r_53
+</constraints>
+</feature_model>

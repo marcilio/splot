@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Nov 6, 2015 - 8:42 AM  -->
+<feature_model name="Card Payment Terminal">
+<meta>
+<data name="description">Describes card payment terminal with direct debit and credit card possibilities</data>
+<data name="creator">Xavier Devroey</data>
+<data name="address"></data>
+<data name="email">xavier.devroey@unamur.be</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">PReCISE, University of Namur</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r CPTerminal(_r)
+	:m PaymentSchema(_r_1)
+		:g (_r_1_5) [1,*] 
+			: DirectDebit(_r_1_5_6)
+				:g (_r_1_5_6_8) [1,*] 
+					: DebitCard(_r_1_5_6_8_9)
+					: EPurse(_r_1_5_6_8_10)
+					: PrepaidCard(_r_1_5_6_8_11)
+			: CreditCard(_r_1_5_7)
+	:m Connectivity(_r_2)
+		:g (_r_2_12) [1,*] 
+			: Online(_r_2_12_13)
+				:g (_r_2_12_13_15) [1,*] 
+					: PSTN(_r_2_12_13_15_16)
+					: Mobile3G(_r_2_12_13_15_17)
+					: VPN(_r_2_12_13_15_18)
+					: PrivateWAN(_r_2_12_13_15_19)
+			: Offline(_r_2_12_14)
+	:m CardReader(_r_3)
+		:g (_r_3_20) [1,*] 
+			: Chip(_r_3_20_21)
+			: MagStrip(_r_3_20_22)
+			: NFC(_r_3_20_23)
+	:o Identification(_r_4)
+		:o PIN(_r_4_24)
+		:m Signature(_r_4_25)
+</feature_tree>
+<constraints>
+constraint_1:_r_4 or ~_r_1_5_7
+constraint_4:~_r_1_5_6_8_11 or _r_3_20_21 or _r_3_20_23
+constraint_2:~_r_1_5_6_8_9 or _r_4_24
+constraint_3:~_r_1_5_6_8_10 or _r_3_20_21 or _r_3_20_23
+</constraints>
+</feature_model>

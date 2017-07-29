@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Sep 21, 2016 - 7:58 PM  -->
+<feature_model name="Control biometrico">
+<meta>
+<data name="description">SPL reconocimiento biometrico</data>
+<data name="creator">Edwin Munoz</data>
+<data name="address">info@acopletecnologico.com</data>
+<data name="email">edwinjmunoz@gmail.com</data>
+<data name="phone">(+57) 3182218452</data>
+<data name="website">www.acopletecnologico.com</data>
+<data name="organization">Acople Tecnologico</data>
+<data name="department">Sistemas</data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ControlBiometrico(_r)
+	:m Personas(_r_1)
+		:m PersonasMarcacion(_r_1_9)
+			:m RegPersonasInteres(_r_1_9_11)
+			:o RegPersonasExternas(_r_1_9_12)
+		:m PersonasUsuariosApp(_r_1_10)
+	:m TipoAplicacion(_r_3)
+		:g (_r_3_23) [1,*] 
+			: Tiempo(_r_3_23_24)
+				:g (_r_3_23_24_42) [1,*] 
+					: Ausentismo(_r_3_23_24_42_43)
+					: TiempoLaborado(_r_3_23_24_42_44)
+			: Acceso(_r_3_23_25)
+				:g (_r_3_23_25_39) [1,*] 
+					: xCondicion(_r_3_23_25_39_40)
+					: xProgramacion(_r_3_23_25_39_41)
+			: Consumo(_r_3_23_26)
+	:m Reportes(_r_6)
+	:m NroPersonas(_r_8)
+		:g (_r_8_47) [1,1] 
+			: 0 - 1200(_r_8_47_50)
+			: 1201-infinito(_r_8_47_51)
+	:m Biometrico(_r_52)
+	:o Notificaciones(_r_53)
+	:o Calendario(_r_54)
+	:o AresInteress(_r_55)
+		:g (_r_55_56) [1,*] 
+			: Geografica(_r_55_56_57)
+			: Logica(_r_55_56_58)
+	:m Marcaciones(_r_48)
+		:m RegAutomatico(_r_48_49)
+		:o RegManual(_r_48_50)
+		:o Autorizaciones(_r_48_51)
+	:m Biometrico(_r_52)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

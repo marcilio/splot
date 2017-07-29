@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jun 6, 2016 - 10:43 PM  -->
+<feature_model name="Priscilinha">
+<meta>
+<data name="description">LESE</data>
+<data name="creator">Pri</data>
+<data name="address"></data>
+<data name="email">priscilinhaps@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Pri</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r LESE(_r)
+	:m Jogar(_r_1)
+		:m 1 Jogador(_r_1_2)
+	:m Ranking(_r_3)
+	:o Gerenciamento(_r_4)
+		:m Varios jogadores(_r_4_6)
+		:m Gerenciar Questoes(_r_4_7)
+			:m Criar Questao(_r_4_7_8)
+			:m Alterar Questao(_r_4_7_9)
+		:m Gerenciar Coringas(_r_4_10)
+			:m Criar Coringa(_r_4_10_11)
+			:m Alterar Coringa(_r_4_10_12)
+		:m Autenticacao(_r_4_13)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

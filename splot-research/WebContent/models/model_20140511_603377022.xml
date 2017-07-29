@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 22, 2016 - 3:58 PM  -->
+<feature_model name="Pruebas Booleanas">
+<meta>
+<data name="description">Archivo de pruebas</data>
+<data name="creator">Carlos Rangel</data>
+<data name="address"></data>
+<data name="email">carangelmx@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Casa</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Prueba Boleana(_r)
+	:m Mandatoria(_r_1)
+		:g (_r_1_2) [1,*] 
+			: GrupoOR(_r_1_2_3)
+		:g (_r_1_4) [1,1] 
+			: GrupoXOR(_r_1_4_5)
+	:o Opcional(_r_6)
+		:g (_r_6_7) [1,*] 
+			: GrupoOR_2(_r_6_7_8)
+		:g (_r_6_9) [1,1] 
+			: GrupoXOR_2(_r_6_9_10)
+	:m Mandatoria2(_r_11)
+	:m SiblingFeature(_r_12)
+	:m Mandatoria3(_r_13)
+	:o SiblingFeature_2(_r_14)
+	:g (_r_15) [1,*] 
+		: SiblingFeature_2_Optional(_r_15_16)
+		: SF2_OR(_r_15_20)
+	:g (_r_17) [1,1] 
+		: SiblingFeature_3_GrupoXOR(_r_17_18)
+		: SF3_XOR_2(_r_17_19)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

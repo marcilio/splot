@@ -1,0 +1,78 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 15, 2014 - 3:28 PM  -->
+<feature_model name="BioFM">
+<meta>
+<data name="description">bio RA project</data>
+<data name="creator">Mikaela Cashman</data>
+<data name="address"></data>
+<data name="email">mcashman@cse.unl.edu</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cell(_r)
+	:m binding site(_r_1)
+		:g (_r_1_5) [1,1] 
+			: R1(_r_1_5_6)
+			: R2(_r_1_5_7)
+			: R3(_r_1_5_8)
+			: R4(_r_1_5_9)
+			: other(_r_1_5_10)
+	:m protien(_r_2)
+		:g (_r_2_11) [1,1] 
+			: ADP(_r_2_11_12)
+			: ATP(_r_2_11_13)
+	:m numFreeDnaAATP(_r_3)
+	:m cell volume(_r_4)
+		:g (_r_4_14) [1,1] 
+			: Cylinder(_r_4_14_15)
+				:m radius(_r_4_14_15_19)
+					:g (_r_4_14_15_19_22) [1,1] 
+						: 5e-8(_r_4_14_15_19_22_23)
+						: 7e-8(_r_4_14_15_19_22_24)
+						: 9e-8(_r_4_14_15_19_22_25)
+						: 11e-8(_r_4_14_15_19_22_26)
+						: 13e-8(_r_4_14_15_19_22_27)
+						: 15e-8(_r_4_14_15_19_22_28)
+			: Sphere(_r_4_14_16)
+				:m radius(_r_4_14_16_29)
+					:g (_r_4_14_16_29_31) [1,1] 
+						: 5e-8(_r_4_14_16_29_31_32)
+						: 6e-8(_r_4_14_16_29_31_33)
+						: 7e-8(_r_4_14_16_29_31_34)
+						: 8e-8(_r_4_14_16_29_31_35)
+						: 9e-8(_r_4_14_16_29_31_36)
+						: 10e-8(_r_4_14_16_29_31_37)
+				:m height(_r_4_14_16_30)
+					:g (_r_4_14_16_30_38) [1,1] 
+						: 10e-8(_r_4_14_16_30_38_39)
+						: 15e-8(_r_4_14_16_30_38_40)
+						: 20e-8(_r_4_14_16_30_38_41)
+						: 25e-8(_r_4_14_16_30_38_42)
+						: 30e-8(_r_4_14_16_30_38_43)
+						: 35e-8(_r_4_14_16_30_38_44)
+						: 40e-8(_r_4_14_16_30_38_45)
+			: Pill(_r_4_14_17)
+				:m radius(_r_4_14_17_46)
+					:g (_r_4_14_17_46_50) [1,1] 
+						: 4e-8(_r_4_14_17_46_50_51)
+						: 5e-8(_r_4_14_17_46_50_52)
+						: 6e-8(_r_4_14_17_46_50_53)
+						: 7e-8(_r_4_14_17_46_50_54)
+						: 8e-8(_r_4_14_17_46_50_55)
+				:m length(_r_4_14_17_47)
+					:g (_r_4_14_17_47_56) [1,1] 
+						: 10e-8(_r_4_14_17_47_56_57)
+						: 15e-8(_r_4_14_17_47_56_58)
+						: 20 e-8(_r_4_14_17_47_56_59)
+						: 25 e-8(_r_4_14_17_47_56_60)
+						: 30 e-8(_r_4_14_17_47_56_61)
+						: 35 e-8(_r_4_14_17_47_56_62)
+						: 40 e-8(_r_4_14_17_47_56_63)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

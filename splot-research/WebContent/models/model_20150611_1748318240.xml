@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jun 11, 2015 - 2:01 AM  -->
+<feature_model name="Scenario Application">
+<meta>
+<data name="description">Feature model to scenario Applications</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GREAT-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ContentStore(_r)
+	:m Payment(_r_1)
+	:m Content Types(_r_2)
+		:g (_r_2_3) [1,*] 
+			: Video(_r_2_3_4)
+			: Music(_r_2_3_5)
+			: Aplications(_r_2_3_6)
+	:m History(_r_7)
+		:m Retrieval(_r_7_8)
+			:g (_r_7_8_9) [1,1] 
+				: Download(_r_7_8_9_10)
+				: Stream(_r_7_8_9_11)
+	:o Age Groups(_r_12)
+		:g (_r_12_13) [1,1] 
+			: U(_r_12_13_14)
+			: GP(_r_12_13_15)
+			: Adults(_r_12_13_16)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

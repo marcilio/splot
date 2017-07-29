@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 19, 2014 - 11:45 AM  -->
+<feature_model name="Data Collection Model">
+<meta>
+<data name="description">Mobile Application</data>
+<data name="creator">Peter</data>
+<data name="address"></data>
+<data name="email">peter.forbrig€uni-rostock.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Rostock</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Data Collector(_r)
+	:m Submnission Mode(_r_1)
+		:g (_r_1_2) [1,1] 
+			: optional(_r_1_2_3)
+			: obligatory(_r_1_2_4)
+	:m Interruptable Mode(_r_5)
+		:g (_r_5_6) [1,1] 
+			: interruptable(_r_5_6_7)
+			: not interruptable(_r_5_6_8)
+	:m Completion Mode(_r_9)
+		:g (_r_9_10) [1,1] 
+			: sequential(_r_9_10_11)
+			: arbitrary order(_r_9_10_12)
+				:g (_r_9_10_12_13) [1,1] 
+					: editable given answer(_r_9_10_12_13_14)
+					: not editable given answer(_r_9_10_12_13_15)
+	:m Dialog structure(_r_16)
+		:g (_r_16_17) [1,*] 
+			: Stepwise(_r_16_17_18)
+			: Pyramid(_r_16_17_19)
+			: Hub and Spoke(_r_16_17_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,62 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 8, 2016 - 4:17 PM  -->
+<feature_model name="SalesScenario">
+<meta>
+<data name="description">Sales Scenario</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SalesScenario(_r)
+	:m Account_Mgmnt(_r_1)
+		:g (_r_1_2) [1,*] 
+			: Customer_Ratings(_r_1_2_3)
+			: Customer_Groups(_r_1_2_4)
+				:g (_r_1_2_4_5) [1,*] 
+					: Consumer(_r_1_2_4_5_6)
+					: Enterprise(_r_1_2_4_5_7)
+						:g (_r_1_2_4_5_7_8) [1,*] 
+							: Competitor(_r_1_2_4_5_7_8_9)
+							: Prospect(_r_1_2_4_5_7_8_10)
+	:m Product_Mgmnt(_r_11)
+		:m Stock_Mgmnt(_r_11_12)
+			:g (_r_11_12_13) [1,1] 
+				: Single_Stock(_r_11_12_13_14)
+				: Multiple_Stock(_r_11_12_13_15)
+	:o Communication(_r_16)
+		:g (_r_16_17) [1,*] 
+			: Email(_r_16_17_18)
+			: Letter(_r_16_17_19)
+			: Fax(_r_16_17_20)
+	:m Customer_Order_Mgmnt(_r_21)
+		:g (_r_21_22) [1,*] 
+			: Sales_Processing(_r_21_22_23)
+			: Quotation(_r_21_22_24)
+		:o Avaliability_Check(_r_21_25)
+		:o Pricing_Strategy(_r_21_26)
+			:o Enterprise_Discount(_r_21_26_33)
+			:o Quantity_Discount(_r_21_26_34)
+			:o VATPricing(_r_21_26_35)
+		:o Credit_Check(_r_21_27)
+		:o Approval_Process(_r_21_28)
+			:g (_r_21_28_30) [1,*] 
+				: AutomaticApprove(_r_21_28_30_31)
+				: ManualApprove(_r_21_28_30_32)
+		:o Returns(_r_21_29)
+	:o Payment(_r_36)
+		:g (_r_36_37) [1,*] 
+			: Invoicing(_r_36_37_38)
+			: Cash_On_Delivery(_r_36_37_39)
+			: Credit_Card(_r_36_37_40)
+</feature_tree>
+<constraints>
+constraint_1:_r_11_12 or _r_21_25
+constraint_2:_r_1_2_4_5_7 or _r_21_26_33
+</constraints>
+</feature_model>

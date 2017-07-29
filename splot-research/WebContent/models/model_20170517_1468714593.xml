@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 17, 2017 - 6:39 PM  -->
+<feature_model name="Mobile Phone UPT - 18413">
+<meta>
+<data name="description">Mobile Phone - Software Product Lines</data>
+<data name="creator">Márcio Rodrigues</data>
+<data name="address"></data>
+<data name="email">marcio10hoquei@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Portucalense</data>
+<data name="department"></data>
+<data name="date">17/05/2017</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Mobile Phone(_r)
+	:m Calls(_r_9)
+	:m Screen(_r_10)
+		:g (_r_10_16) [1,1] 
+			: Basic(_r_10_16_17)
+			: Colour(_r_10_16_18)
+			: High Resolution(_r_10_16_19)
+	:o GPS(_r_12)
+	:o Media Devices(_r_13)
+		:g (_r_13_20) [1,*] 
+			: Camera(_r_13_20_21)
+			: Mp3(_r_13_20_22)
+</feature_tree>
+<constraints>
+constraint_9:_r_10_16_19 or ~_r_13_20_21
+constraint_7:~_r_12 or ~_r_10_16_17
+</constraints>
+</feature_model>

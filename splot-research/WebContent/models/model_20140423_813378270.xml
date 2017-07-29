@@ -1,0 +1,76 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 23, 2014 - 3:21 AM  -->
+<feature_model name="Toko">
+<meta>
+<data name="description">Tugas RPL Lanjut</data>
+<data name="creator">Mawar Dkk. (Bukan Nama Sebenarnya)</data>
+<data name="address">Jl. Bunga Mawar 1/2</data>
+<data name="email">mawar@bunga.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Bunga Bunga Di Dinding</data>
+<data name="department">Software Engineering</data>
+<data name="date"></data>
+<data name="reference">Course Assignment</data>
+</meta>
+<feature_tree>
+:r Toko ElektroMIK(_r)
+	:m Pemesanan(_r_1)
+		:m Validasi(_r_1_20)
+		:m Pembayaran(_r_1_27)
+			:m Invoice(_r_1_27_28)
+			:m AlatPembayaran(_r_1_27_33)
+				:g (_r_1_27_33_34) [1,1] 
+					: CreditCard(_r_1_27_33_34_35)
+					: DebitCard(_r_1_27_33_34_36)
+					: BankTransfer(_r_1_27_33_34_37)
+					: PayPal(_r_1_27_33_34_38)
+		:o RiwayatPemesanan(_r_1_79)
+	:m Katalog(_r_2)
+		:o Ulasan(_r_2_21)
+			:g (_r_2_21_82) [1,*] 
+				: Teks(_r_2_21_82_83)
+				: NilaiRating(_r_2_21_82_84)
+		:o Rekomendasi(_r_2_22)
+		:o Perbandingan(_r_2_23)
+		:m Pencarian(_r_2_76)
+		:m DaftarBarang(_r_2_78)
+	:m Laporan(_r_39)
+		:o Penjualan(_r_39_40)
+		:m Periodik(_r_39_41)
+			:g (_r_39_41_42) [1,*] 
+				: Mingguan(_r_39_41_42_43)
+				: Bulanan(_r_39_41_42_44)
+				: Tahunan(_r_39_41_42_45)
+		:o Gudang(_r_39_46)
+	:o TanyaJawab(_r_47)
+		:m ContentFiltering(_r_47_48)
+		:o Forum(_r_47_55)
+		:o RealTimeChat(_r_47_56)
+	:o Iklan(_r_54)
+		:o Banner(_r_54_57)
+			:g (_r_54_57_62) [1,1] 
+				: Teks(_r_54_57_62_63)
+				: Gambar(_r_54_57_62_64)
+				: Video(_r_54_57_62_65)
+		:o Email(_r_54_58)
+			:g (_r_54_58_59) [1,*] 
+				: Manual(_r_54_58_59_60)
+				: Periodik(_r_54_58_59_61)
+	:m Pengiriman(_r_66)
+		:m Metode(_r_66_67)
+			:g (_r_66_67_68) [1,*] 
+				: ONS(_r_66_67_68_69)
+				: Reguler(_r_66_67_68_70)
+				: AmbilDiToko(_r_66_67_68_71)
+		:o Pelacakan(_r_66_72)
+			:g (_r_66_72_73) [1,1] 
+				: RFID(_r_66_72_73_74)
+				: Barcode(_r_66_72_73_75)
+	:m User(_r_80)
+		:m Registrasi(_r_80_81)
+</feature_tree>
+<constraints>
+constraint_11:~_r_2_22 or _r_1_79
+constraint_12:~_r_66_67_68_71 or ~_r_66_72
+</constraints>
+</feature_model>

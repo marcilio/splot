@@ -1,0 +1,89 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Sep 19, 2016 - 2:44 PM  -->
+<feature_model name="ExtendedFM-IMPEX">
+<meta>
+<data name="description">voting Features Model</data>
+<data name="creator">JLR</data>
+<data name="address"></data>
+<data name="email">jean-luc.raffy@telecom-sudparis.eu</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Telecom SudParis</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Extended FM-IMPEX(_r)
+	:m ElectionSetUp(_r_1)
+		:m BallotType(_r_1_63)
+			:g (_r_1_63_64) [1,1] 
+				: SeveralBallots(_r_1_63_64_65)
+				: SingleBallot(_r_1_63_64_66)
+	:m VoteRecording(_r_2)
+		:m Vote(_r_2_10)
+			:m Type(_r_2_10_14)
+				:m ValidVote(_r_2_10_14_96)
+					:g (_r_2_10_14_96_111) [1,1] 
+						: BallotChosen(_r_2_10_14_96_111_112)
+						: BallotFulFilled(_r_2_10_14_96_111_113)
+							:g (_r_2_10_14_96_111_113_114) [1,1] 
+								: Ordered(_r_2_10_14_96_111_113_114_115)
+								: UnOrdered(_r_2_10_14_96_111_113_114_116)
+				:o UnValidVote(_r_2_10_14_99)
+					:g (_r_2_10_14_99_100) [1,*] 
+						: BlankVote(_r_2_10_14_99_100_101)
+						: InvalidVote(_r_2_10_14_99_100_102)
+			:m VoteVisibility(_r_2_10_25)
+				:g (_r_2_10_25_26) [1,1] 
+					: Encrypted(_r_2_10_25_26_27)
+					: NonEncrypted(_r_2_10_25_26_28)
+		:m Where(_r_2_11)
+			:g (_r_2_11_32) [1,*] 
+				: VotingStation(_r_2_11_32_34)
+					:g (_r_2_11_32_34_35) [1,1] 
+						: Unique(_r_2_11_32_34_35_36)
+						: Multiple(_r_2_11_32_34_35_88)
+							:g (_r_2_11_32_34_35_88_89) [1,1] 
+								: Restricted(_r_2_11_32_34_35_88_89_90)
+								: Any(_r_2_11_32_34_35_88_89_91)
+				: Remote(_r_2_11_32_87)
+		:m Voter(_r_2_12)
+			:m VoterList(_r_2_12_41)
+			:o Procurement(_r_2_12_103)
+				:g (_r_2_12_103_104) [1,1] 
+					: Constrainted(_r_2_12_103_104_105)
+					: UnConstrained(_r_2_12_103_104_106)
+			:o Revote(_r_2_12_107)
+				:g (_r_2_12_107_108) [1,1] 
+					: Constrained(_r_2_12_107_108_109)
+					: UnConstrainted(_r_2_12_107_108_110)
+	:m VoteCounting(_r_3)
+		:m CountingAlgorithm(_r_3_53)
+			:m ValidityChecking(_r_3_53_54)
+			:g (_r_3_53_55) [1,1] 
+				: Manual(_r_3_53_55_56)
+				: Automatic(_r_3_53_55_57)
+			:o ResultOrder(_r_3_53_58)
+				:g (_r_3_53_58_59) [1,1] 
+					: Ordered(_r_3_53_58_59_60)
+					: Unordered(_r_3_53_58_59_61)
+			:o List(_r_3_53_62)
+				:g (_r_3_53_62_63) [1,1] 
+					: Complete(_r_3_53_62_63_64)
+					: Uncomplete(_r_3_53_62_63_65)
+		:m NbVoterPerVote(_r_3_66)
+			:g (_r_3_66_67) [1,1] 
+				: UniqueVote(_r_3_66_67_68)
+				: MultipleVote(_r_3_66_67_92)
+					:g (_r_3_66_67_92_93) [1,1] 
+						: FirstVoteCounted(_r_3_66_67_92_93_94)
+						: LastVoteCounted(_r_3_66_67_92_93_95)
+</feature_tree>
+<constraints>
+constraint_11:~_r_3_53_62 or _r_1_63_64_66
+constraint_12:~_r_3_53_58 or _r_1_63_64_66
+constraint_14:~_r_1_63_64_65 or _r_2_10_14_96_111_112
+constraint_15:_r_1_63_64_65 or ~_r_2_10_14_96_111_112
+constraint_16:~_r_3_66_67_92 or _r_2_12_107
+</constraints>
+</feature_model>

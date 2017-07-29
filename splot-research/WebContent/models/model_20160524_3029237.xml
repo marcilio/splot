@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 24, 2016 - 12:33 PM  -->
+<feature_model name="PawelsTestThermometer">
+<meta>
+<data name="description">PawelsTestThermometer</data>
+<data name="creator">Pawel</data>
+<data name="address"></data>
+<data name="email">pawel@mb.hs-wismar.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Wismar University of Applied Sciences</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Thermometer(_r)
+	:m Funktion(_r_1)
+		:g (_r_1_4) [1,*] 
+			: Temperatur anzeigen(_r_1_4_5)
+			: Luftdruck anzeigen(_r_1_4_6)
+	:m Systembausteine(_r_2)
+		:o Temperatursensorsignalkette(_r_2_7)
+			:m Temperatursensor(_r_2_7_14)
+				:g (_r_2_7_14_17) [1,1] 
+					: PT100(_r_2_7_14_17_18)
+					: TS4711(_r_2_7_14_17_19)
+			:m Elektronik(_r_2_7_16)
+			:g (_r_2_7_20) [1,1] 
+				: AD Wandler(_r_2_7_20_21)
+					:g (_r_2_7_20_21_23) [1,1] 
+						: 8 Bit(_r_2_7_20_21_23_24)
+						: 16 Bit(_r_2_7_20_21_23_25)
+				: SPI Schnittstelle(_r_2_7_20_22)
+		:o Drucksensorsignalkette(_r_2_8)
+		:m Anzeigeaktuatorkette(_r_2_9)
+			:m Anzeige(_r_2_9_10)
+				:g (_r_2_9_10_11) [1,1] 
+					: LCD Anzeige(_r_2_9_10_11_12)
+					: LED Anzeige(_r_2_9_10_11_13)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_4_5 or _r_2_7
+constraint_2:~_r_1_4_6 or _r_2_8
+</constraints>
+</feature_model>

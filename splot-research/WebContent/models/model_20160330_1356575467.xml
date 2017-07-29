@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 12:35 AM  -->
+<feature_model name="votacao eletronica">
+<meta>
+<data name="description">Eleicao de um presidente e dois senadores</data>
+<data name="creator">Diego Aniceto</data>
+<data name="address"></data>
+<data name="email">dhca@dcc.ufmg.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Votacao Eletronica(_r)
+	:m Senha Credenciada(_r_4)
+		:m Eleitor Fornece Titulo(_r_4_5)
+			:m Exibicao e Confirmacao dos Dados(_r_4_5_6)
+				:g (_r_4_5_6_10) [1,*] 
+					: Vota em Candidato(_r_4_5_6_10_11)
+					: Vota em Branco(_r_4_5_6_10_12)
+					: Anula o Voto(_r_4_5_6_10_13)
+				:m Senha Credenciada Final(_r_4_5_6_17)
+					:m Estatisticas da Eleicao(_r_4_5_6_17_18)
+						:m Exibe resultado final da eleicao(_r_4_5_6_17_18_19)
+</feature_tree>
+<constraints>
+constraint_2:_r_4_5_6_10_11 or _r_4_5_6_10_12 or _r_4_5_6_10_13
+</constraints>
+</feature_model>

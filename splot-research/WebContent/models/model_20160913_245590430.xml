@@ -1,0 +1,91 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 13, 2016 - 2:27 PM  -->
+<feature_model name="Venta computadores">
+<meta>
+<data name="description">Configuraciones de computadores</data>
+<data name="creator">Wilson Guarin</data>
+<data name="address"></data>
+<data name="email">wr.guarin234@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:g (_r_2) [1,1] 
+		: Mesa(_r_2_3)
+		: Portatil(_r_2_4)
+		: Servidor(_r_2_5)
+	:g (_r_6) [1,1] 
+		: Dell(_r_6_7)
+		: Toshiba(_r_6_8)
+		: Lenovo(_r_6_9)
+		: Apple(_r_6_10)
+		: Clon(_r_6_11)
+	:g (_r_12) [1,1] 
+		: SO personal(_r_12_13)
+			:g (_r_12_13_15) [1,1] 
+				: Windows10(_r_12_13_15_16)
+				: Fedora(_r_12_13_15_17)
+				: OS X Yosemite(_r_12_13_15_18)
+		: SO Servidor(_r_12_14)
+			:g (_r_12_14_19) [1,1] 
+				: Windows Server(_r_12_14_19_20)
+				: Red Hat(_r_12_14_19_21)
+				: OS X server(_r_12_14_19_22)
+	:g (_r_23) [1,1] 
+		: 4GB RAM(_r_23_24)
+		: 8GB RAM(_r_23_25)
+		: 16GB RAM(_r_23_26)
+		: 32GB RAM(_r_23_27)
+		: 64GB RAM(_r_23_28)
+	:g (_r_29) [1,1] 
+		: 500GB Disco(_r_29_30)
+		: 1TB Disco(_r_29_31)
+		: 2TB Disco(_r_29_32)
+		: 5TB Disco(_r_29_33)
+		: 10TB Disco(_r_29_34)
+	:g (_r_35) [1,1] 
+		: Intel(_r_35_36)
+		: AMD(_r_35_37)
+	:g (_r_38) [1,1] 
+		: Nvidia(_r_38_39)
+		: ATI Radeon(_r_38_40)
+	:o Fuente de Poder(_r_41)
+	:o Pantalla(_r_42)
+		:g (_r_42_43) [1,*] 
+			: 3D(_r_42_43_44)
+			: 4K(_r_42_43_45)
+		:g (_r_42_46) [1,1] 
+			: 14(_r_42_46_47)
+			: 17(_r_42_46_48)
+			: 24(_r_42_46_49)
+</feature_tree>
+<constraints>
+constraint_1:~_r_2_4 or ~_r_6_11
+constraint_59:_r_6_10 or ~_r_12_14_19_22
+constraint_42:~_r_2_4 or ~_r_42
+constraint_58:_r_6_10 or ~_r_12_13_15_18
+constraint_57:~_r_2_3 or ~_r_12_14
+constraint_65:~_r_2_5 or ~_r_29_31
+constraint_56:~_r_2_4 or ~_r_12_14
+constraint_47:~_r_2_4 or ~_r_42_43_45
+constraint_64:~_r_2_5 or ~_r_29_30
+constraint_46:~_r_2_4 or ~_r_42_43_44
+constraint_55:~_r_2_4 or ~_r_23_28
+constraint_49:~_r_2_4 or ~_r_29_34
+constraint_54:~_r_2_4 or ~_r_23_27
+constraint_66:~_r_2_5 or ~_r_29_32
+constraint_48:~_r_2_4 or ~_r_29_33
+constraint_53:~_r_2_3 or ~_r_23_28
+constraint_62:~_r_2_5 or ~_r_23_25
+constraint_63:~_r_2_5 or ~_r_23_24
+constraint_60:~_r_2_5 or _r_12_14
+constraint_61:~_r_2_5 or ~_r_23_26
+constraint_50:~_r_2_3 or ~_r_29_33
+constraint_51:~_r_2_3 or ~_r_29_34
+constraint_52:~_r_2_3 or ~_r_23_27
+</constraints>
+</feature_model>

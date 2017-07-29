@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 12:01 PM  -->
+<feature_model name="urna_bf1022">
+<meta>
+<data name="description">Urna Eletronica</data>
+<data name="creator">Bruno Ferreira</data>
+<data name="address"></data>
+<data name="email">Bruno Ferreira</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r urna_bf1022(_r)
+	:m InicializaUrna(_r_3)
+		:m Recebe Senha(_r_3_5)
+			:g (_r_3_5_35) [1,1] 
+				: TSE(_r_3_5_35_36)
+				: TRE(_r_3_5_35_37)
+				: Chefe Departamento(_r_3_5_35_38)
+	:m Voto(_r_4)
+		:m InicarVotacao(_r_4_8)
+			:m ValidaEleitor(_r_4_8_9)
+				:g (_r_4_8_9_44) [1,1] 
+					: TituloEleitor(_r_4_8_9_44_45)
+					: IdentidadeCpf(_r_4_8_9_44_46)
+				:m TipoEleitor(_r_4_8_9_53)
+					:g (_r_4_8_9_53_54) [1,1] 
+						: TecnicoAdm(_r_4_8_9_53_54_55)
+						: Professor(_r_4_8_9_53_54_56)
+			:m Eleicao(_r_4_8_48)
+			:g (_r_4_8_49) [1,1] 
+				: PresidenteSenador(_r_4_8_49_50)
+				: PrefeitoVereador(_r_4_8_49_51)
+				: ChefeDepartamento(_r_4_8_49_52)
+			:m TipoVoto(_r_4_8_57)
+				:g (_r_4_8_57_60) [1,*] 
+					: Branco(_r_4_8_57_60_61)
+					: Nulo(_r_4_8_57_60_62)
+					: Valido(_r_4_8_57_60_63)
+	:m EncerraVotacao(_r_6)
+		:m RecebeSenha(_r_6_7)
+			:g (_r_6_7_39) [1,1] 
+				: TSE(_r_6_7_39_40)
+				: TRE(_r_6_7_39_41)
+				: Chefe Departamento(_r_6_7_39_42)
+		:m Resultado(_r_6_24)
+			:m TotalVotosValidos(_r_6_24_27)
+			:m TotalVotosCandidato(_r_6_24_28)
+			:m CandidatosEleitos(_r_6_24_29)
+			:m CandidatosDerrotados(_r_6_24_30)
+			:m Estatisticas(_r_6_24_43)
+</feature_tree>
+<constraints>
+constraint_8:~_r_4_8_49_50 or _r_4_8_57 or _r_4_8_57_60_62
+constraint_10:~_r_4_8_49_51 or _r_4_8_57 or _r_4_8_57_60_61
+constraint_9:~_r_4_8_49_50 or _r_4_8_57 or _r_4_8_57_60_63
+constraint_11:~_r_4_8_49_51 or _r_4_8_57 or _r_4_8_57_60_62
+constraint_12:~_r_4_8_49_51 or _r_4_8_57 or _r_4_8_57_60_63
+constraint_7:~_r_4_8_49_50 or _r_4_8_57 or _r_4_8_57_60_61
+constraint_14:~_r_4_8_49_52 or _r_4_8_57 or _r_4_8_57_60_61
+constraint_15:_r_4_8_49_52 or _r_4_8_57 or _r_4_8_57_60_63
+</constraints>
+</feature_model>

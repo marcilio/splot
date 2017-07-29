@@ -1,0 +1,87 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 9, 2014 - 5:02 PM  -->
+<feature_model name="TrafficLight">
+<meta>
+<data name="description">Traffic Light</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r TrafficLight(_r)
+	:m Priority(_r_1)
+		:g (_r_1_2) [1,*] 
+			: PH(_r_1_2_3)
+			: PI(_r_1_2_4)
+			: PL(_r_1_2_5)
+			: None(_r_1_2_6)
+	:m CO(_r_7)
+		:m LN(_r_7_8)
+	:m LA(_r_9)
+		:g (_r_9_10) [1,1] 
+			: CT(_r_9_10_11)
+			: PS(_r_9_10_12)
+	:m LL(_r_13)
+		:g (_r_13_14) [1,1] 
+			: BG(_r_13_14_15)
+			: IT(_r_13_14_16)
+			: AD(_r_13_14_17)
+	:m M(_r_18)
+		:g (_r_18_19) [1,1] 
+			: PR(_r_18_19_20)
+			: PB(_r_18_19_21)
+	:m A(_r_22)
+		:g (_r_22_23) [1,*] 
+			: FT(_r_22_23_24)
+				:m No(_r_22_23_24_55)
+			: DB(_r_22_23_25)
+				:g (_r_22_23_25_56) [1,1] 
+					: 1(_r_22_23_25_56_57)
+					: 2(_r_22_23_25_56_58)
+					: 3(_r_22_23_25_56_59)
+	:m O(_r_32)
+		:g (_r_32_33) [1,1] 
+			: 123(_r_32_33_34)
+			: 132(_r_32_33_35)
+			: 213(_r_32_33_36)
+			: 231(_r_32_33_37)
+			: 312(_r_32_33_38)
+			: 321(_r_32_33_39)
+	:m T(_r_40)
+		:g (_r_40_41) [1,1] 
+			: 500(_r_40_41_42)
+			: 1000(_r_40_41_43)
+			: 1500(_r_40_41_44)
+	:m T1(_r_45)
+		:g (_r_45_46) [1,1] 
+			: 100(_r_45_46_47)
+			: 200(_r_45_46_48)
+			: 300(_r_45_46_49)
+	:m N(_r_50)
+		:g (_r_50_51) [1,1] 
+			: 3(_r_50_51_52)
+			: 4(_r_50_51_53)
+			: 5(_r_50_51_54)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_2_3 or _r_7
+constraint_8:~_r_1_2_5 or _r_32
+constraint_9:~_r_1_2_5 or _r_40
+constraint_10:~_r_1_2_5 or _r_45
+constraint_6:~_r_1_2_4 or _r_22
+constraint_11:~_r_1_2_5 or _r_50
+constraint_7:~_r_1_2_4 or _r_13
+constraint_12:~_r_13_14_15 or _r_22_23_24
+constraint_4:~_r_1_2_3 or _r_18
+constraint_13:~_r_13_14_16 or _r_22_23_24
+constraint_14:~_r_13_14_16 or _r_22_23_25
+constraint_15:~_r_13_14_17 or _r_22_23_24
+constraint_16:~_r_13_14_17 or _r_22_23_25
+constraint_3:~_r_1_2_3 or _r_9
+</constraints>
+</feature_model>

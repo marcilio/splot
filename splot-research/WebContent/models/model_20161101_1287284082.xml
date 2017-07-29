@@ -1,0 +1,77 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 1, 2016 - 11:16 AM  -->
+<feature_model name="IosAccessibiliteFrench">
+<meta>
+<data name="description">Accessibility options IOS</data>
+<data name="creator">Marianne Huchard</data>
+<data name="address"></data>
+<data name="email">huchard@lirmm.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">LIRMM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IosAccessibiliteFrench(_r)
+	:o VoiceOver(_r_1)
+	:o InverserLesCouleurs(_r_2)
+	:o ReduireLesAnimations(_r_3)
+	:o AugmenterContraste(_r_4)
+		:g (_r_4_13) [1,*] 
+			: ReduireTransparence(_r_4_13_14)
+			: AssombrirLesCouleurs(_r_4_13_15)
+			: ReduireLePointBlanc(_r_4_13_16)
+	:o Parole(_r_5)
+		:o EnoncerLeContenuDeLEcran(_r_5_17)
+		:o EnoncerLaSelection(_r_5_19)
+		:o ChoixVoix(_r_5_20)
+			:m Voix(_r_5_20_40)
+				:g (_r_5_20_40_41) [1,1] 
+					: francais(_r_5_20_40_41_42)
+						:g (_r_5_20_40_41_42_44) [1,1] 
+							: France(_r_5_20_40_41_42_44_45)
+								:o qualiteAmelioree(_r_5_20_40_41_42_44_45_47)
+							: Canada(_r_5_20_40_41_42_44_46)
+								:o qualiteAmelioree(_r_5_20_40_41_42_44_46_48)
+					: anglais(_r_5_20_40_41_43)
+						:g (_r_5_20_40_41_43_49) [1,1] 
+							: US(_r_5_20_40_41_43_49_50)
+								:o qualiteAmelioree(_r_5_20_40_41_43_49_50_52)
+							: UK(_r_5_20_40_41_43_49_51)
+								:o qualiteAmelioree(_r_5_20_40_41_43_49_51_53)
+			:o SurlignerLeContenu(_r_5_20_54)
+			:o DebitVocal(_r_5_20_55)
+				:g (_r_5_20_55_56) [1,1] 
+					: Tortue(_r_5_20_55_56_57)
+					: Intermediaire(_r_5_20_55_56_58)
+					: Lievre(_r_5_20_55_56_59)
+		:o EnonciationAutomatique(_r_5_21)
+	:o Zoom(_r_6)
+		:o SuivreMiseAuPoint(_r_6_29)
+		:o ZoomerSurLeClavier(_r_6_30)
+		:o ZoomerSurUneZone(_r_6_31)
+			:g (_r_6_31_33) [1,1] 
+				: ZoomPleinEcran(_r_6_31_33_34)
+				: ZoomFenetre(_r_6_31_33_35)
+		:o AfficherLeControleur(_r_6_32)
+			:g (_r_6_32_36) [1,1] 
+				: visibilite0(_r_6_32_36_37)
+				: Visibilite50(_r_6_32_36_38)
+				: visibilite100(_r_6_32_36_39)
+	:o PolicePlusGrande(_r_8)
+		:g (_r_8_22) [1,1] 
+			: Taille1(_r_8_22_23)
+			: Taille2(_r_8_22_24)
+			: Taille3(_r_8_22_25)
+			: Taille4(_r_8_22_26)
+			: Taille5(_r_8_22_27)
+			: Taille6(_r_8_22_28)
+	:o EtiquettesActivees(_r_9)
+	:o TexteEnGras(_r_10)
+	:o FormesDeBouton(_r_11)
+	:o NuancesDeGris(_r_12)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

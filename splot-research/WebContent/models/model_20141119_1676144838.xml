@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Nov 19, 2014 - 7:02 AM  -->
+<feature_model name="BSS_CS5702_G3">
+<meta>
+<data name="description">BSS Feature Model Group 3</data>
+<data name="creator">Liam Hayes</data>
+<data name="address"></data>
+<data name="email">13161164@studentmail.ul.ie</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Limerick Student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BSS(_r)
+	:m Station(_r_1)
+		:m Bicycle Statand(_r_1_6)
+			:m Electric Lock(_r_1_6_7)
+		:o Kiosk(_r_1_8)
+	:m Employees(_r_2)
+		:m Maintenance(_r_2_9)
+		:o HelpDesk(_r_2_10)
+	:m Users(_r_3)
+		:g (_r_3_11) [1,1] 
+			: Annual Member(_r_3_11_12)
+		:g (_r_3_13) [1,1] 
+			: Week Pass(_r_3_13_14)
+	:m Bicycles(_r_4)
+		:m GPS Device(_r_4_15)
+	:o Fine(_r_5)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 11:15 PM  -->
+<feature_model name="MM-URNA">
+<meta>
+<data name="description">HW for Software Reuse class</data>
+<data name="creator">Marlon Marques</data>
+<data name="address"></data>
+<data name="email">marlonbr1@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna-MM(_r)
+	:m Inicializacao(_r_1)
+		:m Acesso por senha(_r_1_4)
+	:m Termino(_r_5)
+		:m Acesso por senha(_r_5_6)
+	:g (_r_8) [1,1] 
+		: Somente um usuario tem a senha(_r_8_9)
+		: Mais de um usuario pode ter a senha(_r_8_10)
+	:m Um voto por eleitor(_r_11)
+	:g (_r_12) [1,*] 
+		: Identificacao por Titulo de Eleitor(_r_12_13)
+		: Identificacao por RG(_r_12_14)
+		: Identificacao por CPF(_r_12_15)
+	:m Tipos de voto(_r_17)
+		:m Em candidato(_r_17_18)
+		:m Em branco(_r_17_20)
+		:o Nulo(_r_17_21)
+	:m Registro de candidatos(_r_22)
+		:m Por nome(_r_22_23)
+		:m Por titulo(_r_22_24)
+		:o Autenticacao de candidatura(_r_22_25)
+	:m Tipo de contagem(_r_27)
+		:g (_r_27_28) [1,1] 
+			: Maioria simples(_r_27_28_29)
+			: Maioria ponderada(_r_27_28_30)
+	:m Estatisticas(_r_31)
+		:m Por candidato(_r_31_35)
+		:o Por categoria(_r_31_36)
+	:m Turnos(_r_37)
+		:m Aceita um turno(_r_37_38)
+		:o Aceita dois turnos(_r_37_40)
+	:m Numero de candidatos(_r_41)
+		:m Permito registro de 1 candidato(_r_41_42)
+		:o Permite registro de ate 3 candidatos(_r_41_44)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

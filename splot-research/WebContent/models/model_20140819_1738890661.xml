@@ -1,0 +1,29 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 19, 2014 - 9:50 PM  -->
+<feature_model name="MK Andes">
+<meta>
+<data name="description">MKAndes</data>
+<data name="creator">Cristo Rodriguez</data>
+<data name="address"></data>
+<data name="email">ca.rodriguez18@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r marketplace(_r)
+	:m Registro(_r_1)
+		:m CRUD usuario(_r_1_5)
+		:m Recordar clave(_r_1_6)
+	:m Catalogo(_r_2)
+		:m Agregar articulo(_r_2_7)
+		:m Modificar articulo(_r_2_8)
+		:m Consultar catalogo(_r_2_10)
+		:o Publicar en redes(_r_2_11)
+	:o Estadisticas(_r_4)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

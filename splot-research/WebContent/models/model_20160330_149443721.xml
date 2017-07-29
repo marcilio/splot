@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 3:03 PM  -->
+<feature_model name="UrnaJP">
+<meta>
+<data name="description">Exercise Reuse Class</data>
+<data name="creator">João Paulo F. Diniz</data>
+<data name="address"></data>
+<data name="email">jpaulodiniz@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DCC/UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r UrnaJP(_r)
+	:m Cadastramento de Senhas(_r_1)
+	:m Gestao de Eleicoes(_r_6)
+		:o Habilitacao de Voto Nulo(_r_6_25)
+		:m Gestao de Quantidade de Votos(_r_6_26)
+	:m Gestao de Eleitores(_r_7)
+		:g (_r_7_11) [1,1] 
+			: Identificacao por Titulo(_r_7_11_12)
+			: Identificacao por RG ou CPF(_r_7_11_13)
+		:o Peso por Voto(_r_7_14)
+	:m Gestao de Candidatos(_r_8)
+	:g (_r_17) [1,*] 
+		: Presidente(_r_17_18)
+		: Senador(_r_17_19)
+		: Prefeito(_r_17_20)
+		: Vereador(_r_17_21)
+		: Chefe de Departamento(_r_17_22)
+	:m Votacao Individual(_r_30)
+		:m Identificar Eleitor(_r_30_34)
+		:o Confirmar Eleitor(_r_30_35)
+		:m Gestao de Votos(_r_30_36)
+			:m Tela de Votacao(_r_30_36_53)
+			:m Processar Voto(_r_30_36_54)
+	:m Inicializacao via Senha(_r_31)
+	:m Finalizacao via Senha(_r_32)
+	:m Apresentar Estatisticas(_r_33)
+	:g (_r_38) [1,*] 
+		: Tabela Qtd Votos(_r_38_39)
+		: Tabela Pct Votos(_r_38_44)
+		: Tabela Qtd Votos por Categoria(_r_38_46)
+	:m Apresentar Resultado(_r_48)
+		:m Exibir Eleitos(_r_48_50)
+		:o Exibir Derrotados(_r_48_52)
+</feature_tree>
+<constraints>
+constraint_17:_r_7_14 or ~_r_17_22
+constraint_19:~_r_6_25 or ~_r_17_22
+constraint_8:_r_17_18 or ~_r_17_19
+constraint_10:_r_17_20 or ~_r_17_21
+constraint_9:~_r_17_20 or _r_17_21
+constraint_20:_r_6_25 or ~_r_17_18
+constraint_11:_r_7_11_13 or ~_r_17_22
+constraint_21:_r_6_25 or ~_r_17_20
+constraint_12:_r_7_11_12 or ~_r_17_18
+constraint_7:~_r_17_18 or _r_17_19
+constraint_13:_r_7_11_12 or ~_r_17_20
+constraint_14:~_r_17_18 or ~_r_17_22
+constraint_15:~_r_17_20 or ~_r_17_22
+constraint_16:~_r_17_18 or ~_r_17_20
+</constraints>
+</feature_model>

@@ -1,0 +1,29 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Feb 28, 2017 - 5:30 AM  -->
+<feature_model name="Autosoft">
+<meta>
+<data name="description">Driver assist automotive features</data>
+<data name="creator">Sandy Beidu</data>
+<data name="address"></data>
+<data name="email">sandybeidu@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Waterloo</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BDS(_r)
+	:o CC(_r_1)
+		:o FCA(_r_1_3)
+		:o HC(_r_1_4)
+			:o HP(_r_1_4_5)
+		:o SLC(_r_1_6)
+		:o LCC(_r_1_7)
+			:o LXC(_r_1_7_8)
+			:o RCA(_r_1_7_9)
+	:o LCA(_r_2)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

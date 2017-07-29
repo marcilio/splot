@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jul 15, 2015 - 11:52 AM  -->
+<feature_model name="Master">
+<meta>
+<data name="description">Model used in a SPL experiment</data>
+<data name="creator">Kattiana Constantino</data>
+<data name="address"></data>
+<data name="email">kattiana@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MasterFeatures(_r)
+	:m Mandatory1(_r_4)
+		:g (_r_4_7) [1,*] 
+			: Or1(_r_4_7_8)
+			: Or2(_r_4_7_9)
+			: Or3(_r_4_7_10)
+	:m Mandatory2(_r_5)
+		:o Optional1(_r_5_11)
+			:m Mandatory4(_r_5_11_14)
+			:m Mandatory5(_r_5_11_15)
+		:o Optional2(_r_5_12)
+		:o Optional3(_r_5_13)
+			:o Optional4(_r_5_13_16)
+			:o Optional5(_r_5_13_17)
+	:m Mandatory3(_r_6)
+		:g (_r_6_18) [1,1] 
+			: Xor1(_r_6_18_19)
+			: Xor2(_r_6_18_24)
+			: Xor3(_r_6_18_25)
+</feature_tree>
+<constraints>
+constraint_4:_r_5_12 or ~_r_5_13
+</constraints>
+</feature_model>

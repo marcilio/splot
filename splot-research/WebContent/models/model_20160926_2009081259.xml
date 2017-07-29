@@ -1,0 +1,111 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Sep 26, 2016 - 11:13 AM  -->
+<feature_model name="SD-Model">
+<meta>
+<data name="description">stm card modelisation</data>
+<data name="creator">Bechir Zahra</data>
+<data name="address"></data>
+<data name="email">bechir.zahra@esprit.tn</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Esprit</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Carte SD(_r)
+	:m Proc(_r_1)
+		:m frequence(_r_1_18)
+			:g (_r_1_18_35) [1,1] 
+				: 10hz(_r_1_18_35_36)
+			:g (_r_1_18_37) [1,1] 
+				: 30Hz(_r_1_18_37_38)
+			:g (_r_1_18_39) [1,1] 
+				: 80Hz(_r_1_18_39_40)
+			:g (_r_1_18_41) [1,1] 
+				: 200Hz(_r_1_18_41_42)
+			:g (_r_1_18_43) [1,1] 
+				: 600Hz(_r_1_18_43_44)
+		:m Type(_r_1_19)
+			:g (_r_1_19_25) [1,1] 
+				: Cortex M3(_r_1_19_25_26)
+			:g (_r_1_19_27) [1,1] 
+				: Cortex M4(_r_1_19_27_28)
+			:g (_r_1_19_29) [1,1] 
+				: Cortex A8(_r_1_19_29_30)
+		:m architecture(_r_1_20)
+			:g (_r_1_20_21) [1,1] 
+				: 32bits(_r_1_20_21_22)
+			:g (_r_1_20_23) [1,1] 
+				: 64bits(_r_1_20_23_24)
+	:m Ram(_r_2)
+		:g (_r_2_48) [1,1] 
+			: 1Mo(_r_2_48_49)
+		:g (_r_2_50) [1,1] 
+			: 512Ko(_r_2_50_51)
+	:m Rom(_r_3)
+		:g (_r_3_56) [1,1] 
+			: 192ko(_r_3_56_57)
+		:g (_r_3_58) [1,1] 
+			: 128ko(_r_3_58_59)
+	:o Ethernet(_r_4)
+		:g (_r_4_60) [1,1] 
+			: FastEthernet(_r_4_60_61)
+		:g (_r_4_62) [1,1] 
+			: GigabitEthernet(_r_4_62_63)
+	:o DMA(_r_6)
+	:o USART(_r_7)
+	:m Input Output(_r_64)
+		:g (_r_64_69) [1,*] 
+			: usb(_r_64_69_70)
+				:m Type(_r_64_69_70_97)
+					:g (_r_64_69_70_97_98) [1,*] 
+						: micro(_r_64_69_70_97_98_99)
+					:g (_r_64_69_70_97_116) [1,*] 
+						: mini(_r_64_69_70_97_116_117)
+		:g (_r_64_71) [1,*] 
+			: led(_r_64_71_72)
+				:m type(_r_64_71_72_73)
+					:g (_r_64_71_72_73_76) [1,*] 
+						: Red(_r_64_71_72_73_76_77)
+					:g (_r_64_71_72_73_79) [1,*] 
+						: Green(_r_64_71_72_73_79_80)
+					:g (_r_64_71_72_73_83) [1,*] 
+						: Blue(_r_64_71_72_73_83_84)
+					:g (_r_64_71_72_73_85) [1,*] 
+						: Orange(_r_64_71_72_73_85_86)
+				:m Power suply(_r_64_71_72_74)
+					:g (_r_64_71_72_74_87) [1,1] 
+						: 3 3v(_r_64_71_72_74_87_88)
+					:g (_r_64_71_72_74_89) [1,1] 
+						: 5v(_r_64_71_72_74_89_90)
+		:g (_r_64_91) [1,*] 
+			: pins(_r_64_91_92)
+		:g (_r_64_107) [1,*] 
+			: Buttons(_r_64_107_108)
+				:m Type(_r_64_107_108_109)
+					:g (_r_64_107_108_109_110) [1,1] 
+						: User(_r_64_107_108_109_110_111)
+					:g (_r_64_107_108_109_114) [1,*] 
+						: Rest(_r_64_107_108_109_114_115)
+	:o TIM(_r_93)
+		:m DataSize(_r_93_102)
+			:g (_r_93_102_103) [1,1] 
+				: 16b(_r_93_102_103_104)
+			:g (_r_93_102_105) [1,1] 
+				: 32b(_r_93_102_105_106)
+	:o ADC(_r_94)
+	:o SPI(_r_95)
+		:m Speed(_r_95_122)
+			:g (_r_95_122_123) [1,1] 
+				: Feature-124(_r_95_122_123_124)
+	:o EXTI(_r_96)
+</feature_tree>
+<constraints>
+constraint_8:_r_6 or _r_64_69_70
+constraint_4:_r_1_20_21_22 or _r_1_19_25_26
+constraint_5:_r_64_71_72_73_76_77 or _r_64_71_72_74_87_88
+constraint_2:_r_1_20_21_22 or _r_1_19_27_28
+constraint_3:_r_1_20_23_24 or _r_1_19_29_30
+</constraints>
+</feature_model>

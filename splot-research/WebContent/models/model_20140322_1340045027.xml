@@ -1,0 +1,29 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Mar 22, 2014 - 2:02 AM  -->
+<feature_model name="test gv">
+<meta>
+<data name="description">A TEST FEATURE MODEL</data>
+<data name="creator">GEETIKA</data>
+<data name="address">CS and IT DEPT</data>
+<data name="email">geetika.vyas@iisuniv.ac.in</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">the IIS University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r feature 1(_r)
+	:m feature 2(_r_1)
+	:o Feature3(_r_2)
+	:o Feature4(_r_3)
+	:m Feature5(_r_4)
+	:m Feature6(_r_5)
+	:o Feature7(_r_6)
+	:o Feature8(_r_7)
+	:o Feature9(_r_8)
+	:m Feature10(_r_9)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

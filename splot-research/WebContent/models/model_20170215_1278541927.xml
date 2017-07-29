@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Feb 15, 2017 - 2:16 AM  -->
+<feature_model name="Security">
+<meta>
+<data name="description">Security</data>
+<data name="creator">Igor Veselinovic</data>
+<data name="address"></data>
+<data name="email">igorveselinovic@cmail.carleton.ca</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Carleton University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Security(_r)
+	:m SaaSAppFrontEndLayer(_r_2)
+		:m Authentication(_r_2_7)
+			:g (_r_2_7_9) [1,*] 
+				: OAuthAuthorization(_r_2_7_9_10)
+				: SocialSignOn(_r_2_7_9_11)
+				: FederatedAuthentication(_r_2_7_9_12)
+				: Password(_r_2_7_9_13)
+					:m PasswordFormat(_r_2_7_9_13_14)
+					:m MaximumInvalidLoginAttempts(_r_2_7_9_13_16)
+					:o PasswordChangeFrequency(_r_2_7_9_13_18)
+	:m SaaSAppServerLayer(_r_3)
+		:m SessionManagement(_r_3_19)
+		:m DataIsolation(_r_3_21)
+			:g (_r_3_21_26) [1,1] 
+				: SharedSchema(_r_3_21_26_27)
+				: SeparateSchema(_r_3_21_26_28)
+		:m UserAccessAuthorization(_r_3_22)
+			:m TableSecurity(_r_3_22_29)
+				:g (_r_3_22_29_31) [1,*] 
+					: Create(_r_3_22_29_31_32)
+					: Read(_r_3_22_29_31_33)
+					: Update(_r_3_22_29_31_34)
+					: Delete(_r_3_22_29_31_35)
+			:m RecordSecurity(_r_3_22_30)
+				:g (_r_3_22_30_36) [1,*] 
+					: Read(_r_3_22_30_36_37)
+					: Write(_r_3_22_30_36_38)
+					: Transfer(_r_3_22_30_36_40)
+		:m RoleSecurityManagement(_r_3_23)
+	:m InfrastructureServiceLayer(_r_4)
+		:m DataSecurity(_r_4_41)
+			:m DataLocation(_r_4_41_42)
+			:m DataPrivacy(_r_4_41_43)
+			:m DataAccessAuthorization(_r_4_41_44)
+		:m SecureDataTransmission(_r_4_45)
+			:g (_r_4_45_46) [1,1] 
+				: SSL(_r_4_45_46_47)
+				: TLS(_r_4_45_46_48)
+	:m VirtualizationLayer(_r_5)
+		:g (_r_5_51) [1,*] 
+			: PatchManagement(_r_5_51_52)
+			: SecureConfiguration(_r_5_51_53)
+			: OSHardening(_r_5_51_54)
+	:m DataCentreLayer(_r_6)
+		:g (_r_6_55) [1,*] 
+			: PhysicalSecurity(_r_6_55_56)
+			: ElectronicAccessControlSystem(_r_6_55_57)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

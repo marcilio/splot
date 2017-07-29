@@ -1,0 +1,91 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Mar 12, 2017 - 10:21 PM  -->
+<feature_model name="German_Computadores">
+<meta>
+<data name="description">Venta de computadores</data>
+<data name="creator">German A. Chica Duque</data>
+<data name="address"></data>
+<data name="email">gchicaduque@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad LosAndes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m Tipo(_r_1)
+		:g (_r_1_4) [1,1] 
+			: Escritorio(_r_1_4_5)
+			: Portatil(_r_1_4_18)
+			: Servidor(_r_1_4_19)
+	:m Marca(_r_16)
+		:g (_r_16_20) [1,1] 
+			: Dell(_r_16_20_21)
+			: Toshiba(_r_16_20_22)
+			: Lenovo(_r_16_20_25)
+			: Apple(_r_16_20_26)
+			: Clon(_r_16_20_27)
+	:m Sistema operativo(_r_28)
+		:g (_r_28_31) [1,1] 
+			: SO Personal(_r_28_31_32)
+				:g (_r_28_31_32_34) [1,1] 
+					: Windows 10(_r_28_31_32_34_35)
+					: Fedora-Linux(_r_28_31_32_34_36)
+					: X-Yosemite(_r_28_31_32_34_37)
+			: SO Servidor(_r_28_31_33)
+				:g (_r_28_31_33_38) [1,1] 
+					: Windows Server(_r_28_31_33_38_39)
+					: Red Hat-Linux(_r_28_31_33_38_40)
+					: X Server(_r_28_31_33_38_41)
+	:m CPU(_r_42)
+		:m Procesador(_r_42_44)
+			:g (_r_42_44_67) [1,1] 
+				: Intel(_r_42_44_67_68)
+				: AMD(_r_42_44_67_69)
+		:m RAM(_r_42_45)
+			:g (_r_42_45_48) [1,1] 
+				: 4 GB(_r_42_45_48_49)
+				: 8 GB(_r_42_45_48_59)
+				: 16 GB(_r_42_45_48_60)
+				: 32 GB(_r_42_45_48_61)
+				: 64 GB(_r_42_45_48_62)
+		:m Disco Duro(_r_42_46)
+			:g (_r_42_46_57) [1,1] 
+				: 500 GB(_r_42_46_57_58)
+				: 1 TB(_r_42_46_57_63)
+				: 2 TB(_r_42_46_57_64)
+				: 5 TB(_r_42_46_57_65)
+				: 10 TB(_r_42_46_57_66)
+		:o Tarjeta grafica(_r_42_47)
+			:g (_r_42_47_70) [1,1] 
+				: NVIDIA(_r_42_47_70_71)
+				: ATI Radeon(_r_42_47_70_72)
+	:o Pantalla(_r_73)
+		:m Tamano(_r_73_75)
+			:g (_r_73_75_78) [1,1] 
+				: 14 pulg(_r_73_75_78_79)
+				: 17 pulg(_r_73_75_78_80)
+				: 24 pulg(_r_73_75_78_81)
+		:m Tecnologia(_r_73_76)
+			:g (_r_73_76_82) [1,*] 
+				: 3D(_r_73_76_82_83)
+				: 4K(_r_73_76_82_84)
+				: LCD(_r_73_76_82_85)
+	:o Planta de poder(_r_74)
+</feature_tree>
+<constraints>
+constraint_40:_r_1_4_18 or ~_r_73_76_82_83 or ~_r_73_76_82_84
+constraint_50:_r_1_4_19 or _r_42_46_57_65 or _r_42_46_57_66
+constraint_41:_r_1_4_18 or ~_r_42_45_48_61 or ~_r_42_45_48_62
+constraint_43:_r_1_4_18 or ~_r_42_46_57_65 or ~_r_42_46_57_66
+constraint_42:_r_1_4_5 or ~_r_42_45_48_61 or ~_r_42_45_48_62
+constraint_45:_r_1_4_5 or _r_1_4_18 or ~_r_28_31_33
+constraint_44:_r_1_4_5 or ~_r_42_46_57_65 or ~_r_42_46_57_66
+constraint_47:_r_1_4_19 or _r_28_31_33
+constraint_26:_r_1_4_18 or ~_r_16_20_27
+constraint_46:_r_16_20_26 or _r_28_31_32_34_37 or _r_28_31_33_38_41
+constraint_27:_r_1_4_18 or _r_73
+constraint_49:_r_1_4_19 or _r_42_45_48_61 or _r_42_45_48_62
+</constraints>
+</feature_model>

@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 18, 2017 - 5:08 PM  -->
+<feature_model name="smartphone">
+<meta>
+<data name="description">description d'un smartphone</data>
+<data name="creator">michael</data>
+<data name="address"></data>
+<data name="email">michael888yl@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">miage</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r smartphone(_r)
+	:m Ecran(_r_1)
+	:m Antenne(_r_2)
+		:m antenne gsm(_r_2_24)
+		:m antenne wifi(_r_2_25)
+		:o antenne bluetooth(_r_2_28)
+	:o Appareil photo(_r_3)
+		:o appareil photo frontal(_r_3_26)
+	:m haut parleur(_r_4)
+	:o led notification(_r_5)
+	:m processeur(_r_6)
+	:m memoire vive(_r_7)
+	:m os(_r_8)
+	:m port de recharge(_r_10)
+	:m espace de stockage(_r_11)
+	:m slot sim(_r_12)
+	:m batterie(_r_13)
+	:o port casque(_r_15)
+	:m capteur(_r_16)
+		:o capteur empreinte(_r_16_17)
+		:o capteur luminosite(_r_16_18)
+		:o capteur proximite(_r_16_19)
+		:o capteur infrarouge(_r_16_22)
+		:o capteur cardiaque(_r_16_23)
+	:m microphone(_r_21)
+	:m microphone(_r_21)
+	:o puce NFC(_r_27)
+	:m Feature-29(_r_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

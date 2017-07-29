@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jun 23, 2015 - 1:36 PM  -->
+<feature_model name="celular">
+<meta>
+<data name="description">aparelho celular</data>
+<data name="creator">Ba</data>
+<data name="address"></data>
+<data name="email">ba@email.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFLA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Celular(_r)
+	:m Ligacoes(_r_3)
+	:o GPS(_r_4)
+	:m Tela(_r_5)
+		:g (_r_5_6) [1,1] 
+			: Basica(_r_5_6_7)
+			: Colorida(_r_5_6_8)
+			: Alta_Resolucao(_r_5_6_9)
+	:o Midia(_r_10)
+		:g (_r_10_11) [1,1] 
+			: Camera(_r_10_11_12)
+			: MP3(_r_10_11_13)
+</feature_tree>
+<constraints>
+constraint_4:~_r_4 or ~_r_5_6_7
+constraint_3:~_r_5_6_9 or _r_10_11_12
+</constraints>
+</feature_model>

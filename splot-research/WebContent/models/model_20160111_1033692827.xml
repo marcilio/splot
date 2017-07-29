@@ -1,0 +1,90 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jan 11, 2016 - 6:12 PM  -->
+<feature_model name="bCMS">
+<meta>
+<data name="description">Barbados Chrisis Management System</data>
+<data name="creator">Stefan Gehrke</data>
+<data name="address"></data>
+<data name="email">stefangehrke@me.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">TUDresden</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r bCMS(_r)
+	:m Functional(_r_12)
+		:m Chrisis Detail Exchange(_r_12_14)
+			:m Police Station Details(_r_12_14_15)
+			:m Fire Station Details(_r_12_14_16)
+		:m Coordinator Identification(_r_12_17)
+			:m Police Station Coordinator Identification(_r_12_17_18)
+			:m Fire Station Coordinator Identification(_r_12_17_19)
+		:m Create Coordinate Route(_r_12_20)
+			:m Vehicles To Deploy(_r_12_20_21)
+			:m Propose Route for Police Vehicles(_r_12_20_22)
+			:m Propose Route for Fire Trucks(_r_12_20_23)
+			:m Fire Station Coordinator agree to Route(_r_12_20_24)
+		:m Vehicle dispatch coordination(_r_12_25)
+			:m Police Car dispatch(_r_12_25_32)
+			:m Fire Truck dispatch(_r_12_25_33)
+		:m Vehicle arrival coordination(_r_12_26)
+			:m Police Car arrival(_r_12_26_30)
+			:m Fire Truck arrival(_r_12_26_31)
+		:m Completion coordination(_r_12_27)
+			:m Fire Truck comlete(_r_12_27_28)
+			:m Police Car Complete(_r_12_27_29)
+		:m Close Chrisis(_r_12_34)
+		:m Communication establihement(_r_12_35)
+			:g (_r_12_35_36) [1,*] 
+				: Police Station Coordinator communication(_r_12_35_36_37)
+				: Fire Station Coordinator communication(_r_12_35_36_38)
+		:o Vehicle management communication Protocol(_r_12_39)
+			:o SOAP(_r_12_39_40)
+			:o SSL(_r_12_39_41)
+		:m Police Fire Station multiplicity(_r_12_42)
+			:g (_r_12_42_43) [1,1] 
+				: One Police Fire Station(_r_12_42_43_44)
+				: Many Police Fire Station(_r_12_42_43_45)
+		:o Vehicle Management(_r_12_47)
+			:g (_r_12_47_48) [1,1] 
+				: No send receive(_r_12_47_48_49)
+				: Other(_r_12_47_48_50)
+					:o Police Station Coordinator send and receive(_r_12_47_48_50_51)
+					:o Fire Station Coordinator send and receive(_r_12_47_48_50_52)
+					:o Police Station Coordinator and Fire Station Coordinator send(_r_12_47_48_50_53)
+					:o Police Station Coordinator receive(_r_12_47_48_50_54)
+	:m Non-Functional(_r_13)
+		:o Communication layer(_r_13_55)
+			:g (_r_13_55_56) [1,1] 
+				: Proprietary(_r_13_55_56_57)
+				: Other(_r_13_55_56_59)
+					:o HTTP(_r_13_55_56_59_60)
+		:o Authentication(_r_13_62)
+			:g (_r_13_62_63) [1,*] 
+				: Password based(_r_13_62_63_64)
+				: Certificate based(_r_13_62_63_66)
+				: Biometric based(_r_13_62_63_68)
+				: One Time Password(_r_13_62_63_69)
+				: Challenge response(_r_13_62_63_70)
+					:g (_r_13_62_63_70_71) [1,1] 
+						: Symmetric encryption(_r_13_62_63_70_71_72)
+						: Kerberos(_r_13_62_63_70_71_73)
+						: Mutual authorization(_r_13_62_63_70_71_74)
+		:m Data communication confidentiality(_r_13_75)
+			:g (_r_13_75_76) [1,1] 
+				: Encrypted(_r_13_75_76_77)
+				: Not Encrypted(_r_13_75_76_78)
+		:m Integrity(_r_13_83)
+			:m of chrisis location vehicle no and location(_r_13_83_86)
+			:m of other data(_r_13_83_87)
+		:m Availability(_r_13_84)
+		:m Performance(_r_13_85)
+</feature_tree>
+<constraints>
+constraint_4:~_r_12_47_48_50_51 or _r_12_47_48_50_53
+constraint_5:~_r_12_39 or _r_12_47_48_50
+constraint_3:~_r_12_47_48_50_52 or _r_12_47_48_50_53
+</constraints>
+</feature_model>

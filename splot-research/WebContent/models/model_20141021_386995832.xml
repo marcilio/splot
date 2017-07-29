@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 15, 2014 - 10:46 PM  -->
+<feature_model name="E-Learning">
+<meta>
+<data name="description">LMS</data>
+<data name="creator">ZAKBARI</data>
+<data name="address"></data>
+<data name="email">akbari.zahra@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Caspian</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-Learing(_r)
+	:m Profile Management(_r_2)
+	:m Course management(_r_3)
+		:o Collaboration Tools(_r_3_6)
+			:g (_r_3_6_15) [1,*] 
+				: Forum(_r_3_6_15_16)
+				: Chat(_r_3_6_15_17)
+				: Wiki(_r_3_6_15_18)
+		:m Course Content(_r_3_7)
+			:g (_r_3_7_12) [1,1] 
+				: Online Reading(_r_3_7_12_13)
+				: Upload(_r_3_7_12_26)
+			:o upload(_r_3_7_26)
+		:o Evaluation(_r_3_8)
+			:o Exercise(_r_3_8_19)
+			:m Scoring(_r_3_8_20)
+		:m Enrollment(_r_3_9)
+		:o Announcement(_r_3_10)
+		:o Group Management(_r_3_11)
+	:o Other Tools(_r_5)
+		:g (_r_5_21) [1,*] 
+			: Statistic(_r_5_21_22)
+			: Certification(_r_5_21_23)
+			: Research(_r_5_21_26)
+	:o Login(_r_23)
+		:g (_r_23_26) [1,*] 
+			: Sound(_r_23_26_29)
+			: Text(_r_23_26_30)
+</feature_tree>
+<constraints>
+constraint_4:~_r_3_8_19 or ~_r_5_21_23
+constraint_3:_r_3_9 or _r_23
+</constraints>
+</feature_model>

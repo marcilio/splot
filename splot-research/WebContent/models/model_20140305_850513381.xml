@@ -1,0 +1,129 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 5, 2014 - 6:46 PM  -->
+<feature_model name="FraSCati">
+<meta>
+<data name="description">FraSCati</data>
+<data name="creator">Lucas Garcia</data>
+<data name="address"></data>
+<data name="email">lucas.sg@globo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r FraSCati(_r)
+	:m ScaParser(_r_1)
+		:m Metamodels(_r_1_3)
+			:o MM_Native(_r_1_3_4)
+			:o MM_FraSCati(_r_1_3_5)
+			:o MM_Tuscani(_r_1_3_6)
+			:m MM_SCA(_r_1_3_7)
+			:o MM_UPnP(_r_1_3_8)
+	:o RemoteManagement(_r_9)
+	:o JMX(_r_10)
+	:o Fscript(_r_11)
+	:o Explorer(_r_12)
+	:m AssemblyFactory(_r_13)
+		:m Implementations(_r_13_14)
+			:o Implementation_Fractal(_r_13_14_15)
+			:o Implementation_BPEL(_r_13_14_16)
+			:o Implementation_OSGi(_r_13_14_17)
+				:g (_r_13_14_17_18) [1,1] 
+					: Equinox(_r_13_14_17_18_19)
+					: knopflerfish(_r_13_14_17_18_21)
+					: Apache_Felix(_r_13_14_17_18_22)
+			:o Implementation_Resource(_r_13_14_23)
+			:o Implementation_Script(_r_13_14_24)
+				:o JavaScript(_r_13_14_24_25)
+				:o Xquery(_r_13_14_24_26)
+				:o Groovy(_r_13_14_24_27)
+				:o Jython(_r_13_14_24_28)
+				:o JRuby(_r_13_14_24_29)
+				:o BearShell(_r_13_14_24_30)
+				:o FScript(_r_13_14_24_31)
+			:o Implementation_Spring(_r_13_14_32)
+			:m Implementation_Composite(_r_13_14_33)
+			:m Implementation_Java(_r_13_14_34)
+		:m PropertyTypes(_r_13_35)
+			:o Property_JAXB(_r_13_35_36)
+			:m Property_Java(_r_13_35_37)
+			:m Property_XSD(_r_13_35_38)
+		:m Bindings(_r_13_39)
+			:m Binding_SCA(_r_13_39_40)
+			:o Binding_JMS(_r_13_39_41)
+			:o Binding_HTTP(_r_13_39_42)
+			:o Binding_REST(_r_13_39_43)
+			:o Binding_UPnP(_r_13_39_44)
+			:o Binding_JavaRMI(_r_13_39_45)
+			:o Binding_JNA(_r_13_39_46)
+			:o Binding_WS(_r_13_39_47)
+			:o Binding_JSON_RPC(_r_13_39_48)
+		:m Interfaces(_r_13_49)
+			:o Interface_WSDL(_r_13_49_50)
+			:o Interface_Native(_r_13_49_51)
+			:m Interface_Java(_r_13_49_52)
+	:o BindingFactory(_r_53)
+	:m ComponentFactory(_r_54)
+		:o MenbraneGeneration(_r_54_55)
+			:m MenbraneGenerators(_r_54_55_56)
+				:o MG_OSGi(_r_54_55_56_58)
+				:o MG_Tinfi(_r_54_55_56_59)
+			:o JavaCompilers(_r_54_55_57)
+				:g (_r_54_55_57_63) [1,1] 
+					: JDK6(_r_54_55_57_63_64)
+					: JDT(_r_54_55_57_63_65)
+		:m MembraneFactories(_r_54_67)
+			:m MF_Tinfi(_r_54_67_68)
+			:o MF_OSGi(_r_54_67_69)
+			:o MF_Julia(_r_54_67_70)
+</feature_tree>
+<constraints>
+constraint_43:~_r_10 or _r_13
+constraint_42:~_r_11 or _r_13_14_15
+constraint_45:~_r_9 or _r_13_39_43
+constraint_44:~_r_9 or _r_13
+constraint_46:~_r_9 or _r_11
+constraint_17:_r_11 or ~_r_13_14_24_31
+constraint_18:_r_1_3_6 or ~_r_13_14_23
+constraint_19:_r_1_3_7 or ~_r_13_49_52
+constraint_8:_r_1_3_5 or ~_r_13_14_15
+constraint_10:~_r_13_14_17 or _r_54_67_69
+constraint_9:_r_1_3_5 or ~_r_13_14_17
+constraint_11:_r_13_14_17 or ~_r_54_67_69
+constraint_6:~_r_13_14_16 or _r_13_49_50
+constraint_12:~_r_13_14_17 or _r_54_55_56_58
+constraint_7:_r_1_3_7 or _r_13_14_32
+constraint_13:_r_13_14_17 or ~_r_54_55_56_58
+constraint_4:_r_1_3_7 or ~_r_13_14_33
+constraint_14:_r_54_55_56_58 or ~_r_54_67_69
+constraint_5:_r_1_3_7 or ~_r_13_14_16
+constraint_2:_r_1 or ~_r_13
+constraint_15:~_r_54_55_56_58 or _r_54_67_69
+constraint_3:~_r_13 or _r_54
+constraint_16:_r_1_3_5 or ~_r_13_14_24
+constraint_39:~_r_12 or _r_13_14_15
+constraint_30:_r_1_3_5 or ~_r_13_39_48
+constraint_34:_r_1_3_8 or ~_r_13_39_44
+constraint_33:~_r_13_39_43 or _r_53
+constraint_32:_r_1_3_5 or _r_13_39_43
+constraint_31:~_r_13_39_48 or _r_53
+constraint_38:~_r_12 or _r_53
+constraint_37:~_r_12 or _r_13
+constraint_36:_r_1_3_4 or ~_r_13_39_46
+constraint_35:~_r_13_39_44 or _r_53
+constraint_28:~_r_13_39_45 or _r_53
+constraint_29:_r_1_3_6 or ~_r_13_39_42
+constraint_40:~_r_11 or _r_13
+constraint_41:~_r_11 or _r_53
+constraint_22:_r_1_3_7 or ~_r_13_39_40
+constraint_23:_r_1_3_7 or ~_r_13_39_47
+constraint_20:_r_1_3_7 or ~_r_13_49_50
+constraint_21:_r_1_3_4 or ~_r_13_49_51
+constraint_26:~_r_13_39_41 or _r_53
+constraint_27:_r_1_3_5 or ~_r_13_39_45
+constraint_24:~_r_13_39_47 or _r_53
+constraint_25:_r_1_3_7 or ~_r_13_39_41
+</constraints>
+</feature_model>

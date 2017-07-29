@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 10, 2017 - 8:35 PM  -->
+<feature_model name="CPS">
+<meta>
+<data name="description">CPS</data>
+<data name="creator">Bosch</data>
+<data name="address"></data>
+<data name="email">Bosch@Bosch.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Bosch</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r CPS(_r)
+	:m Application(_r_1)
+		:g (_r_1_3) [1,*] 
+			: Parking Support(_r_1_3_4)
+				:m Distance indication(_r_1_3_4_6)
+					:o Front(_r_1_3_4_6_8)
+					:m Rear(_r_1_3_4_6_9)
+				:o Steering assistance(_r_1_3_4_7)
+			: Precrash detection(_r_1_3_5)
+	:m Sensor equipment(_r_2)
+		:g (_r_2_10) [1,*] 
+			: Front(_r_2_10_11)
+				:g (_r_2_10_11_15) [1,1] 
+					: Low-end(_r_2_10_11_15_16)
+					: High-end(_r_2_10_11_15_17)
+			: Rear(_r_2_10_12)
+				:g (_r_2_10_12_18) [1,1] 
+					: Low-end(_r_2_10_12_18_19)
+					: High-end(_r_2_10_12_18_22)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

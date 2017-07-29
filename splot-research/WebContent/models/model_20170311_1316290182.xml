@@ -1,0 +1,101 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Mar 11, 2017 - 4:08 AM  -->
+<feature_model name="Venta Computadores">
+<meta>
+<data name="description">Variability for sell computers</data>
+<data name="creator">Fabian Triana - Alfonso Ardila</data>
+<data name="address"></data>
+<data name="email">wf.triana@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GroupVariability</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VentaComputadores(_r)
+	:m Tipo(_r_1)
+		:g (_r_1_8) [1,1] 
+			: Mesa(_r_1_8_9)
+			: Portatil(_r_1_8_10)
+			: Servidor(_r_1_8_11)
+	:m Marca(_r_12)
+		:g (_r_12_20) [1,1] 
+			: Dell(_r_12_20_21)
+			: Toshiba(_r_12_20_22)
+			: Lenovo(_r_12_20_23)
+			: Apple(_r_12_20_24)
+			: Clone(_r_12_20_25)
+	:m Sistema Operativo(_r_26)
+		:g (_r_26_27) [1,1] 
+			: SO Personal(_r_26_27_28)
+				:g (_r_26_27_28_30) [1,1] 
+					: Windows 10(_r_26_27_28_30_31)
+					: Fedora(_r_26_27_28_30_32)
+					: OS X Yosemite(_r_26_27_28_30_33)
+			: SO Servidor(_r_26_27_29)
+				:g (_r_26_27_29_34) [1,1] 
+					: Windows Server(_r_26_27_29_34_35)
+					: Redhat(_r_26_27_29_34_36)
+					: OX Server(_r_26_27_29_34_37)
+	:m CPU(_r_38)
+		:m RAM(_r_38_39)
+			:g (_r_38_39_63) [1,1] 
+				: 4GB(_r_38_39_63_64)
+				: 8GB(_r_38_39_63_65)
+				: 16GB(_r_38_39_63_66)
+				: 32GB(_r_38_39_63_67)
+				: 64GB(_r_38_39_63_68)
+		:m Procesador(_r_38_40)
+			:g (_r_38_40_55) [1,1] 
+				: Intel(_r_38_40_55_56)
+				: AMD(_r_38_40_55_57)
+		:m Disco duro(_r_38_41)
+			:g (_r_38_41_49) [1,1] 
+				: 500GB(_r_38_41_49_50)
+				: 1TB(_r_38_41_49_51)
+				: 2TB(_r_38_41_49_52)
+				: 5TB(_r_38_41_49_53)
+				: 10TB(_r_38_41_49_54)
+		:o Tarjeta grafica(_r_38_42)
+			:g (_r_38_42_58) [1,1] 
+				: NVIDIA(_r_38_42_58_59)
+				: ATI Radeon(_r_38_42_58_60)
+	:o Pantalla(_r_61)
+		:m Tecnologia(_r_61_69)
+			:g (_r_61_69_71) [1,*] 
+				: 3D(_r_61_69_71_72)
+				: 4K(_r_61_69_71_73)
+		:m Size(_r_61_70)
+			:g (_r_61_70_74) [1,1] 
+				: 14 Pulgadas(_r_61_70_74_75)
+				: 17 Pulgadas(_r_61_70_74_76)
+				: 24 Pulgadas(_r_61_70_74_77)
+	:o Planta de Poder(_r_62)
+</feature_tree>
+<constraints>
+constraint_30:~_r_1_8_11 or ~_r_38_41_49_52
+constraint_31:~_r_1_8_11 or ~_r_38_41_49_50
+constraint_18:~_r_1_8_10 or ~_r_26_27_29
+constraint_28:~_r_1_8_11 or ~_r_38_39_63_66
+constraint_19:~_r_1_8_9 or ~_r_26_27_29
+constraint_29:~_r_1_8_11 or ~_r_38_41_49_51
+constraint_22:~_r_12_20_24 or ~_r_26_27_28_30_32
+constraint_8:~_r_1_8_9 or ~_r_38_41_49_54
+constraint_23:~_r_12_20_24 or ~_r_26_27_29_34_35
+constraint_9:~_r_1_8_10 or ~_r_38_41_49_53
+constraint_10:~_r_1_8_10 or ~_r_38_41_49_54
+constraint_11:~_r_1_8_10 or ~_r_38_39_63_67
+constraint_21:~_r_12_20_24 or ~_r_26_27_28_30_31
+constraint_7:~_r_1_8_9 or ~_r_38_41_49_53
+constraint_12:~_r_1_8_10 or ~_r_38_39_63_68
+constraint_26:~_r_1_8_11 or ~_r_38_39_63_64
+constraint_4:~_r_1_8_10 or _r_61
+constraint_13:~_r_1_8_9 or ~_r_38_39_63_67
+constraint_27:~_r_1_8_11 or ~_r_38_39_63_65
+constraint_14:~_r_1_8_9 or ~_r_38_39_63_68
+constraint_24:~_r_12_20_24 or ~_r_26_27_29_34_36
+constraint_25:~_r_1_8_11 or _r_26_27_29
+constraint_3:~_r_1_8_10 or ~_r_12_20_25
+</constraints>
+</feature_model>

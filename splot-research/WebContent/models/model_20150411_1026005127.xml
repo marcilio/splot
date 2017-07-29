@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Apr 11, 2015 - 6:23 AM  -->
+<feature_model name="Bandymas">
+<meta>
+<data name="description">Bandymas</data>
+<data name="creator">Daina</data>
+<data name="address"></data>
+<data name="email">daina.gudoniene@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MokymosiObjektas(_r)
+	:m Turinys(_r_1)
+		:g (_r_1_4) [1,*] 
+			: Tekstas(_r_1_4_5)
+			: Vaizdas(_r_1_4_6)
+	:m SemantiniaiRysiai(_r_2)
+		:o Metaduomenys(_r_2_10)
+		:o Paieska(_r_2_11)
+	:m Vertinimas(_r_3)
+		:g (_r_3_12) [1,*] 
+			: Testas(_r_3_12_13)
+			: SavarankiskasDarbas(_r_3_12_14)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1 or _r_2_10
+constraint_2:_r_1 or ~_r_3
+</constraints>
+</feature_model>

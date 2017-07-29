@@ -1,0 +1,51 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Dec 1, 2015 - 11:50 AM  -->
+<feature_model name="Configurable Tank">
+<meta>
+<data name="description">Cyber-Physical System Product Line Example</data>
+<data name="creator">Aitor Arrieta</data>
+<data name="address"></data>
+<data name="email">aarrieta@mondragon.edu</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Mondragon Unibertsitatea</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference">http://doi.acm.org/10.1145/2791060.2791095</data>
+</meta>
+<feature_tree>
+:r ConfigurableTank(_r)
+	:m Sensors(_r_1)
+		:m Level_Sens(_r_1_2)
+			:g (_r_1_2_3) [1,1] 
+				: SDP1000(_r_1_2_3_4)
+				: UCL510(_r_1_2_3_5)
+		:o Temperature_Sens(_r_1_7)
+			:g (_r_1_7_11) [1,1] 
+				: LM35(_r_1_7_11_12)
+				: AD22100(_r_1_7_11_13)
+		:o pH_Sens(_r_1_9)
+			:g (_r_1_9_14) [1,1] 
+				: pH3300HT(_r_1_9_14_15)
+				: ph3500P(_r_1_9_14_16)
+	:m Actuators(_r_10)
+		:m Drain_Gate(_r_10_17)
+		:m Fill_Gate(_r_10_18)
+		:m Alarm(_r_10_19)
+			:g (_r_10_19_20) [1,*] 
+				: Sound(_r_10_19_20_21)
+				: Light(_r_10_19_20_22)
+	:m Physical_System(_r_23)
+		:m Liquid(_r_23_24)
+			:g (_r_23_24_25) [1,1] 
+				: Water(_r_23_24_25_27)
+				: Chemical(_r_23_24_25_36)
+		:m Tank_Shape(_r_23_28)
+			:g (_r_23_28_33) [1,1] 
+				: Cylindrical(_r_23_28_33_34)
+				: Conical(_r_23_28_33_35)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_9 or ~_r_23_24_25_27
+constraint_2:_r_1_9 or ~_r_23_24_25_36
+</constraints>
+</feature_model>

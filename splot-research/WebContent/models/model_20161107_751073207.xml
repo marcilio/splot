@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Nov 7, 2016 - 8:46 PM  -->
+<feature_model name="Rotation1">
+<meta>
+<data name="description">dfff</data>
+<data name="creator">dfd</data>
+<data name="address"></data>
+<data name="email">wkaustin1@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">power</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Rotation(_r)
+	:g (_r_1) [1,*] 
+		: er(_r_1_2)
+	:g (_r_3) [1,*] 
+		: Feature-4(_r_3_4)
+			:o g(_r_3_4_6)
+			:g (_r_3_4_14) [1,1] 
+				: dfff(_r_3_4_14_15)
+			:g (_r_3_4_16) [1,*] 
+				: kop(_r_3_4_16_17)
+		: Feature-5(_r_3_5)
+	:g (_r_7) [1,1] 
+		: dfd(_r_7_8)
+			:g (_r_7_8_9) [1,1] 
+				: dfg(_r_7_8_9_10)
+					:g (_r_7_8_9_10_11) [1,*] 
+						: dfd(_r_7_8_9_10_11_12)
+							:o fd(_r_7_8_9_10_11_12_13)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

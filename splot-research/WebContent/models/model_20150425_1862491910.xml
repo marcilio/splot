@@ -1,0 +1,117 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 13, 2015 - 5:53 AM  -->
+<feature_model name="FISH">
+<meta>
+<data name="description">Management FISH</data>
+<data name="creator">MIK-SOFT</data>
+<data name="address"></data>
+<data name="email">mik_fish@mail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">MIKFISHCORP</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r FISH(_r)
+	:m Pendaftaran(_r_1)
+		:m Cara Daftar(_r_1_19)
+			:g (_r_1_19_22) [1,*] 
+				: Manual register(_r_1_19_22_23)
+				: Online Register(_r_1_19_22_26)
+		:m Biaya Daftar(_r_1_20)
+			:g (_r_1_20_27) [1,*] 
+				: Free(_r_1_20_27_28)
+				: Paid(_r_1_20_27_29)
+		:m Mekanisme(_r_1_21)
+			:g (_r_1_21_30) [1,*] 
+				: Selection(_r_1_21_30_31)
+				: Non-Selection(_r_1_21_30_32)
+	:m Pembayaran(_r_2)
+		:m Periode(_r_2_33)
+			:g (_r_2_33_103) [1,*] 
+				: Periodik(_r_2_33_103_104)
+				: Langsung(_r_2_33_103_105)
+		:m Via(_r_2_99)
+			:g (_r_2_99_100) [1,*] 
+				: Cash(_r_2_99_100_101)
+				: Transfer(_r_2_99_100_102)
+	:m Pengelolaan(_r_3)
+		:m Akun Anggota(_r_3_81)
+			:g (_r_3_81_86) [1,*] 
+				: Otoritas(_r_3_81_86_87)
+					:g (_r_3_81_86_87_89) [1,*] 
+						: Nelayan(_r_3_81_86_87_89_90)
+						: Petugas(_r_3_81_86_87_89_91)
+						: Manager(_r_3_81_86_87_89_92)
+						: Akun Lain(_r_3_81_86_87_89_93)
+				: Status(_r_3_81_86_88)
+					:g (_r_3_81_86_88_96) [1,1] 
+						: Aktif(_r_3_81_86_88_96_97)
+						: Non AKtif(_r_3_81_86_88_96_98)
+		:m Tangkapan(_r_3_107)
+	:m Back Up(_r_4)
+		:m Periode Backup(_r_4_72)
+			:g (_r_4_72_74) [1,*] 
+				: Tiap Pekan(_r_4_72_74_75)
+				: Tiap Bulan(_r_4_72_74_76)
+				: Tiap Tahun(_r_4_72_74_77)
+		:m Cara Backup(_r_4_73)
+			:g (_r_4_73_78) [1,*] 
+				: Manual Backup(_r_4_73_78_79)
+				: Auto Backup(_r_4_73_78_80)
+	:m Update(_r_5)
+		:m Harga(_r_5_61)
+			:g (_r_5_61_65) [1,1] 
+				: Manual(_r_5_61_65_66)
+				: Auto(_r_5_61_65_68)
+					:g (_r_5_61_65_68_69) [1,1] 
+						: Kemendag(_r_5_61_65_68_69_70)
+						: Sumber Lain(_r_5_61_65_68_69_71)
+		:o Cuaca(_r_5_62)
+		:o Lokasi(_r_5_64)
+	:o CSR(_r_6)
+		:o Jenis CSR(_r_6_52)
+			:g (_r_6_52_57) [1,*] 
+				: Penyuluhan(_r_6_52_57_58)
+				: Pendampingan(_r_6_52_57_59)
+				: Bantuan Modal(_r_6_52_57_60)
+		:o Periode CSR(_r_6_53)
+			:o Bulanan(_r_6_53_54)
+			:o Tahunan(_r_6_53_55)
+			:o Eventually(_r_6_53_56)
+	:o Larangan(_r_7)
+		:o Jenis Tangkapan(_r_7_46)
+		:o Wilayah Tangkapan(_r_7_47)
+			:o Berbahaya(_r_7_47_48)
+			:o dilindungi(_r_7_47_49)
+	:m Petunjuk(_r_8)
+		:g (_r_8_43) [1,*] 
+			: EmbedInSIstem(_r_8_43_44)
+			: PrintOut(_r_8_43_45)
+	:o Pengembangan(_r_9)
+	:m Jenis Aplikasi(_r_10)
+		:g (_r_10_36) [1,*] 
+			: Web(_r_10_36_37)
+			: Mobile(_r_10_36_38)
+				:g (_r_10_36_38_39) [1,*] 
+					: Android(_r_10_36_38_39_40)
+					: IOS(_r_10_36_38_39_41)
+					: Windows(_r_10_36_38_39_42)
+	:m Bahasa(_r_18)
+		:m Indoensia(_r_18_30)
+		:o Inggris(_r_18_31)
+		:o Lain-Lain(_r_18_32)
+	:o Notifikasi(_r_29)
+		:o Kondisi Kritis(_r_29_33)
+		:o Perubahan Cuaca(_r_29_34)
+		:o Perubahan Lokasi(_r_29_35)
+	:m Pelayaran(_r_109)
+		:g (_r_109_110) [1,*] 
+			: Pengajuan(_r_109_110_111)
+			: Rekomendasi(_r_109_110_112)
+</feature_tree>
+<constraints>
+constraint_5:_r_2 or _r_3_107
+</constraints>
+</feature_model>

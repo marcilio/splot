@@ -1,0 +1,85 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 13, 2016 - 5:06 AM  -->
+<feature_model name="Computadores">
+<meta>
+<data name="description">Computadores</data>
+<data name="creator">Abimelec Cuesta</data>
+<data name="address"></data>
+<data name="email">aa.cuesta@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m Tipo(_r_1)
+		:o PC(_r_1_3)
+		:o Portatil(_r_1_4)
+		:o Servidor(_r_1_5)
+	:m Marca(_r_2)
+		:o Dell(_r_2_6)
+		:o Toshiba(_r_2_7)
+		:o Lenovo(_r_2_8)
+		:o Apple(_r_2_9)
+		:o Clon(_r_2_10)
+	:m SO(_r_11)
+		:m SO PC(_r_11_12)
+			:g (_r_11_12_16) [1,1] 
+				: Windows 10(_r_11_12_16_17)
+				: Fedora(_r_11_12_16_22)
+				: Yosemite(_r_11_12_16_23)
+		:m SO Servidor(_r_11_13)
+			:g (_r_11_13_24) [1,1] 
+				: Red Hat(_r_11_13_24_25)
+				: Windows Server(_r_11_13_24_26)
+				: OS X Server(_r_11_13_24_27)
+	:m CPU(_r_28)
+		:m RAM(_r_28_29)
+			:g (_r_28_29_30) [1,1] 
+				: 4GB(_r_28_29_30_31)
+				: 8GB(_r_28_29_30_32)
+				: 16GB(_r_28_29_30_33)
+				: 32GB(_r_28_29_30_34)
+				: 64GB(_r_28_29_30_35)
+		:m HDD(_r_28_36)
+			:g (_r_28_36_37) [1,1] 
+				: 500GB(_r_28_36_37_38)
+				: 1TB(_r_28_36_37_39)
+				: 2TB(_r_28_36_37_40)
+				: 5TB(_r_28_36_37_41)
+				: 10TB(_r_28_36_37_42)
+		:m Procesador(_r_28_43)
+			:g (_r_28_43_44) [1,1] 
+				: Intel(_r_28_43_44_45)
+				: AMD(_r_28_43_44_46)
+		:o Tarjetas Graficas(_r_28_47)
+			:g (_r_28_47_48) [1,1] 
+				: Nvidia(_r_28_47_48_49)
+				: Ati(_r_28_47_48_50)
+	:o Pantalla(_r_51)
+		:m Tecnologia(_r_51_53)
+			:g (_r_51_53_55) [1,*] 
+				: 3D(_r_51_53_55_56)
+				: 4K(_r_51_53_55_57)
+		:m Tamano(_r_51_54)
+			:g (_r_51_54_58) [1,1] 
+				: 14 pulgadas(_r_51_54_58_59)
+				: 17 pulgadas(_r_51_54_58_60)
+				: 24 pulgadas(_r_51_54_58_61)
+	:o Planta poder(_r_52)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_4 or ~_r_2_10
+constraint_8:_r_2_9 or ~_r_11_12_16_17 or ~_r_11_12_16_22 or ~_r_11_13_24_25 or ~_r_11_13_24_26
+constraint_9:_r_1_5 or ~_r_11_12
+constraint_11:_r_1_5 or _r_28_29 or ~_r_28_29_30_31 or ~_r_28_29_30_32 or ~_r_28_29_30_33
+constraint_6:_r_1_3 or _r_1_4 or _r_28_29 or ~_r_28_29_30_34 or ~_r_28_29_30_35
+constraint_12:_r_1_5 or _r_28_36 or ~_r_28_36_37_38 or ~_r_28_36_37_39 or ~_r_28_36_37_40
+constraint_7:_r_1_3 or _r_1_4 or ~_r_11_13
+constraint_5:_r_1_3 or _r_1_4 or _r_28_36 or ~_r_28_36_37_41 or ~_r_28_36_37_42
+constraint_2:_r_1_4 or _r_51
+constraint_3:_r_1_4 or ~_r_51_53_55_56 or ~_r_51_53_55_57
+</constraints>
+</feature_model>

@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 11, 2016 - 1:49 PM  -->
+<feature_model name="Sistema de venda de passagens">
+<meta>
+<data name="description">Sistema de venda de passagens</data>
+<data name="creator">NM</data>
+<data name="address"></data>
+<data name="email">de_guela@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNEB</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Venda de Passagens(_r)
+	:m Cliente(_r_1)
+		:m Informar dados preliminares da viagem(_r_1_5)
+		:m Informar dados da passagem(_r_1_9)
+			:m Informar dados do passageiro(_r_1_9_13)
+			:m Realizar pagamento(_r_1_9_20)
+				:m Selecionar forma de pagamento(_r_1_9_20_21)
+					:m Informar dados do cartao de credito(_r_1_9_20_21_22)
+					:m Informar dados do cartao de debito(_r_1_9_20_21_32)
+					:m Gerar boleto(_r_1_9_20_21_37)
+			:m Cancelar viagem(_r_1_9_38)
+		:o Remarcar viagem(_r_1_62)
+		:o Efetuar cadastro(_r_1_63)
+		:o Selecionar servicos adicionais(_r_1_64)
+	:m Funcionario(_r_2)
+		:m Cadastrar estacoes(_r_2_39)
+		:m Cadastrar veiculos(_r_2_43)
+		:m Cadastrar viagens(_r_2_49)
+		:o Cadastrar ofertas(_r_2_65)
+		:o Gerar relatorio de vendas(_r_2_66)
+		:o Cadastrar servicos adicionais(_r_2_67)
+		:o Informar distancia do trajeto(_r_2_68)
+	:m Administrador(_r_3)
+		:m Cadastrar empresa(_r_3_60)
+		:m Cadastrar funcionario(_r_3_61)
+		:o Gerar relatorio de vendas(_r_3_69)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

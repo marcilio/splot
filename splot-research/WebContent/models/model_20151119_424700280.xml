@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 19, 2015 - 6:41 PM  -->
+<feature_model name="Feature Tree Example">
+<meta>
+<data name="description">Example of a generic Feature Tree</data>
+<data name="creator">Paul Buschatz</data>
+<data name="address"></data>
+<data name="email">PA.89@outlook.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">TUM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r System(_r)
+	:m 1(_r_1)
+		:m a(_r_1_5)
+	:m 2(_r_2)
+		:g (_r_2_6) [1,*] 
+			: Feature-7(_r_2_6_7)
+			: Feature-8(_r_2_6_8)
+	:o 3(_r_3)
+	:m 4(_r_4)
+		:g (_r_4_9) [1,1] 
+			: Feature-10(_r_4_9_10)
+			: Feature-11(_r_4_9_11)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_6_7 or _r_4_9_10
+constraint_3:_r_2_6_8 or ~_r_4_9_10
+</constraints>
+</feature_model>

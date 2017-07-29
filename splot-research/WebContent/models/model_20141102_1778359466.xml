@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Nov 2, 2014 - 10:24 AM  -->
+<feature_model name="EjericioModeloCaracteristicas">
+<meta>
+<data name="description">Ejercicio</data>
+<data name="creator">Esteban Pérez Carpintero</data>
+<data name="address"></data>
+<data name="email">karpin7@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UAL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Compra(_r)
+	:m Comprador(_r_2)
+	:m Carrito(_r_3)
+	:m FormaPago(_r_6)
+		:m PayPal(_r_6_11)
+		:m Contrarrembolso(_r_6_12)
+		:o IngresoCuenta(_r_6_14)
+		:o Tarjeta(_r_6_15)
+			:m PasarelaPago(_r_6_15_16)
+				:g (_r_6_15_16_19) [1,*] 
+					: AmerianExpress(_r_6_15_16_19_20)
+					: MasterCard(_r_6_15_16_19_21)
+					: VISA(_r_6_15_16_19_22)
+	:o Registro(_r_8)
+	:m Entrega(_r_9)
+		:o RecogidaTienda(_r_9_30)
+		:m Envio(_r_9_31)
+			:g (_r_9_31_32) [1,*] 
+				: FedEx(_r_9_31_32_33)
+				: MRW(_r_9_31_32_34)
+				: Correos(_r_9_31_32_35)
+				: UPS(_r_9_31_32_36)
+	:m Descuento(_r_26)
+		:g (_r_26_27) [1,1] 
+			: Codigo(_r_26_27_28)
+			: Promocion(_r_26_27_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

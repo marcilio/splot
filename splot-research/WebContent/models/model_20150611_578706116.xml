@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jun 11, 2015 - 1:42 AM  -->
+<feature_model name="MoviesApp">
+<meta>
+<data name="description">Feature model of the Movie System</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Great-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Movieapp(_r)
+	:m GUI(_r_1)
+		:g (_r_1_7) [1,1] 
+			: Rich(_r_1_7_8)
+			: Thin(_r_1_7_9)
+	:m DB(_r_2)
+		:g (_r_2_12) [1,*] 
+			: Local(_r_2_12_13)
+			: Remote(_r_2_12_14)
+				:m Cache Policy(_r_2_12_14_15)
+	:m Network(_r_3)
+		:g (_r_3_16) [1,*] 
+			: Wifi(_r_3_16_17)
+			: Bluetooth(_r_3_16_18)
+	:o GPS(_r_4)
+		:o Builtin(_r_4_19)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

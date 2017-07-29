@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 14, 2015 - 3:50 PM  -->
+<feature_model name="Classifieds Systems">
+<meta>
+<data name="description">A system of buying and selling products and services on the web</data>
+<data name="creator">Ana Cristina Soriano</data>
+<data name="address"></data>
+<data name="email">cristinasoriano@alu.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará - UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Type name for root feature(_r)
+	:m Sell(_r_1)
+	:m Shop(_r_2)
+		:o paymentMethod(_r_2_9)
+			:o Card(_r_2_9_10)
+			:o BankSlip(_r_2_9_11)
+	:m User(_r_3)
+		:m Seller(_r_3_7)
+		:o Buyer(_r_3_8)
+	:m ProductCadastre(_r_4)
+		:g (_r_4_28) [1,*] 
+			: Automobile(_r_4_28_29)
+			: Service(_r_4_28_30)
+			: Building(_r_4_28_31)
+			: Product(_r_4_28_32)
+			: Other(_r_4_28_33)
+	:m dao(_r_5)
+	:o Complaint(_r_12)
+	:o Reputation(_r_14)
+		:g (_r_14_15) [1,1] 
+			: Badges(_r_14_15_16)
+			: Points(_r_14_15_17)
+	:o Negotiation(_r_18)
+		:g (_r_18_21) [1,*] 
+			: Chat(_r_18_21_22)
+			: Email(_r_18_21_23)
+	:o Search(_r_25)
+</feature_tree>
+<constraints>
+constraint_9:~_r_12 or _r_14
+constraint_10:~_r_18_21_22 or ~_r_18_21_23
+constraint_12:~_r_3_8 or _r_18
+</constraints>
+</feature_model>

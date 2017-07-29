@@ -1,0 +1,105 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 20, 2017 - 9:21 PM  -->
+<feature_model name="Computadores">
+<meta>
+<data name="description">Venta de Computadores</data>
+<data name="creator">Belman Santos</data>
+<data name="address"></data>
+<data name="email">belmanese@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Belman Santos</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computador(_r)
+	:m Tipo(_r_13)
+		:g (_r_13_18) [1,1] 
+			: Servidor(_r_13_18_19)
+		:g (_r_13_35) [1,1] 
+			: Personal(_r_13_35_36)
+				:g (_r_13_35_36_37) [1,1] 
+					: Mesa(_r_13_35_36_37_38)
+				:g (_r_13_35_36_39) [1,1] 
+					: Portatil(_r_13_35_36_39_40)
+	:m Marca(_r_22)
+		:g (_r_22_23) [1,1] 
+			: Dell(_r_22_23_24)
+		:g (_r_22_25) [1,1] 
+			: Toshiba(_r_22_25_26)
+		:g (_r_22_27) [1,1] 
+			: Lenovo(_r_22_27_28)
+		:g (_r_22_29) [1,1] 
+			: Apple(_r_22_29_30)
+		:g (_r_22_31) [1,1] 
+			: Clon(_r_22_31_32)
+	:m SO(_r_34)
+		:g (_r_34_49) [1,1] 
+			: Windows 10(_r_34_49_50)
+		:g (_r_34_51) [1,1] 
+			: Linux(_r_34_51_52)
+				:g (_r_34_51_52_56) [1,1] 
+					: Fedora(_r_34_51_52_56_57)
+				:g (_r_34_51_52_58) [1,1] 
+					: Red Hat(_r_34_51_52_58_59)
+		:g (_r_34_53) [1,1] 
+			: Apple(_r_34_53_54)
+				:g (_r_34_53_54_60) [1,1] 
+					: Yosemite(_r_34_53_54_60_61)
+				:g (_r_34_53_54_62) [1,1] 
+					: OS X(_r_34_53_54_62_63)
+	:m CPU(_r_64)
+		:m Procesador(_r_64_65)
+			:g (_r_64_65_89) [1,1] 
+				: AMD(_r_64_65_89_90)
+			:g (_r_64_65_91) [1,1] 
+				: Intel(_r_64_65_91_92)
+		:m Memoria(_r_64_66)
+			:g (_r_64_66_69) [1,1] 
+				: 4 GB(_r_64_66_69_70)
+			:g (_r_64_66_71) [1,1] 
+				: 8 GB(_r_64_66_71_72)
+			:g (_r_64_66_73) [1,1] 
+				: 16 GB(_r_64_66_73_74)
+			:g (_r_64_66_75) [1,1] 
+				: 32 GB(_r_64_66_75_76)
+			:g (_r_64_66_77) [1,1] 
+				: 64 GB(_r_64_66_77_78)
+		:m Disco(_r_64_67)
+			:g (_r_64_67_79) [1,1] 
+				: 500 GB(_r_64_67_79_80)
+			:g (_r_64_67_81) [1,1] 
+				: 1 TB(_r_64_67_81_82)
+			:g (_r_64_67_83) [1,1] 
+				: 2 TB(_r_64_67_83_84)
+			:g (_r_64_67_85) [1,1] 
+				: 5 TB(_r_64_67_85_86)
+			:g (_r_64_67_87) [1,1] 
+				: 10 TB(_r_64_67_87_88)
+		:o Tarjeta Grafica(_r_64_68)
+			:g (_r_64_68_93) [1,1] 
+				: ATI(_r_64_68_93_94)
+			:g (_r_64_68_95) [1,1] 
+				: Nvidia(_r_64_68_95_96)
+	:o Pantalla(_r_97)
+		:m tecnologia(_r_97_101)
+			:g (_r_97_101_105) [1,*] 
+				: 3D(_r_97_101_105_106)
+			:g (_r_97_101_107) [1,*] 
+				: 4K(_r_97_101_107_108)
+		:m Size(_r_97_102)
+			:g (_r_97_102_109) [1,1] 
+				: 14 pulgadas(_r_97_102_109_110)
+			:g (_r_97_102_111) [1,1] 
+				: 17 pulgadas(_r_97_102_111_112)
+			:g (_r_97_102_113) [1,1] 
+				: 24 pulgadas(_r_97_102_113_114)
+	:o Planta de Poder(_r_98)
+</feature_tree>
+<constraints>
+constraint_14:_r_13_35_36 or _r_34_51_52_56_57
+constraint_15:_r_13_35_36 or _r_34_53_54_60_61
+constraint_16:_r_13_35_36 or _r_34_49_50
+</constraints>
+</feature_model>

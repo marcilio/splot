@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Apr 15, 2017 - 4:49 AM  -->
+<feature_model name="Car">
+<meta>
+<data name="description">Any Car</data>
+<data name="creator">mounika</data>
+<data name="address"></data>
+<data name="email">moni.yerram@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Car(_r)
+	:m Car body(_r_1)
+	:m engine(_r_2)
+		:g (_r_2_5) [1,*] 
+			: Gasoline(_r_2_5_6)
+			: Electric(_r_2_5_7)
+	:m Gear shift(_r_3)
+		:g (_r_3_8) [1,1] 
+			: Manual(_r_3_8_9)
+			: Automatic(_r_3_8_10)
+	:o Power Lock(_r_4)
+	:o Audio Video(_r_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

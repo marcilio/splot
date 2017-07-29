@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Apr 10, 2017 - 7:34 AM  -->
+<feature_model name="ESCA Embeeded System">
+<meta>
+<data name="description">Uoit work</data>
+<data name="creator">cheloesperguel</data>
+<data name="address"></data>
+<data name="email">chelo.esperguel@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UOIT/UFRO</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Embeeded System(_r)
+	:m Processor(_r_1)
+		:m Data Bus Width(_r_1_2)
+			:g (_r_1_2_3) [1,1] 
+				: 4 bit(_r_1_2_3_4)
+				: 8 bit(_r_1_2_3_13)
+				: 16 bit(_r_1_2_3_14)
+				: 32 bit(_r_1_2_3_15)
+				: 64 bit(_r_1_2_3_16)
+		:m Type(_r_1_17)
+			:g (_r_1_17_18) [1,1] 
+				: Microcontroller(_r_1_17_18_19)
+				: Microprocessor(_r_1_17_18_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

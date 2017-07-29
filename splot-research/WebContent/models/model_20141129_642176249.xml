@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 29, 2014 - 3:14 AM  -->
+<feature_model name="First Italian Attempt">
+<meta>
+<data name="description">I just put several tasks & Algo & Data Structures</data>
+<data name="creator">silvio giaffredo</data>
+<data name="address"></data>
+<data name="email">sgiaffre@alice.it</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Trento (Italy)</data>
+<data name="department">DISI </data>
+<data name="date">29/11/2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Content(_r)
+	:m Tasks(_r_1)
+		:g (_r_1_7) [1,*] 
+			: T1(_r_1_7_8)
+			: T2(_r_1_7_9)
+			: T3(_r_1_7_10)
+	:m Algorithms(_r_2)
+		:g (_r_2_11) [1,*] 
+			: A1(_r_2_11_12)
+			: A2(_r_2_11_15)
+			: A3(_r_2_11_16)
+			: A4(_r_2_11_17)
+	:m Data structures(_r_3)
+		:g (_r_3_18) [1,*] 
+			: DS1(_r_3_18_19)
+			: DS2(_r_3_18_20)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_7_8 or _r_2_11_15 or _r_2_11_16
+constraint_2:_r_1_7_9 or _r_2_11_12 or _r_2_11_16 or _r_2_11_17 or _r_3_18_19
+constraint_3:_r_1_7_10 or _r_2_11_12 or _r_2_11_16 or _r_3_18_20
+</constraints>
+</feature_model>

@@ -1,0 +1,63 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 21, 2015 - 7:44 AM  -->
+<feature_model name="Online-book-shopping">
+<meta>
+<data name="description">Self-adaptive service compositions that supports online book shoppingat Orange Country Bookstore </data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Online-book-shopping(_r)
+	:m Book Management(_r_1)
+		:m Look for a Book(_r_1_6)
+			:g (_r_1_6_15) [1,1] 
+				: Bames and Noble Books(_r_1_6_15_16)
+					:m Search Book(_r_1_6_15_16_25)
+					:m Show Book Info(_r_1_6_15_16_26)
+					:o Show Related Books(_r_1_6_15_16_27)
+				: Amazon Books(_r_1_6_15_17)
+					:m Book Searching(_r_1_6_15_17_28)
+					:m Book Description(_r_1_6_15_17_29)
+		:m Look Again for a Book(_r_1_7)
+		:o Related Titles(_r_1_8)
+	:m Shopping Cart(_r_2)
+		:m Add a Book(_r_2_9)
+			:g (_r_2_9_30) [1,1] 
+				: Amazon Shopping Cart(_r_2_9_30_31)
+				: Bames and Noble Shopping Cart(_r_2_9_30_32)
+		:m Add More Books(_r_2_10)
+	:m User Authentication(_r_3)
+		:m Google Authentication(_r_3_11)
+	:m Total Calculation(_r_4)
+		:m Payment Calculator(_r_4_12)
+	:m Payment(_r_5)
+		:m Credit Card Payment(_r_5_13)
+			:g (_r_5_13_18) [1,1] 
+				: Bank of America Credit Card Payment(_r_5_13_18_19)
+				: Wells Fargo Online(_r_5_13_18_20)
+				: Chase Banking(_r_5_13_18_21)
+		:m Validate Credit Card(_r_5_14)
+			:m Continue Valid Transaction(_r_5_14_22)
+				:m Invoice Delivery(_r_5_14_22_34)
+					:g (_r_5_14_22_34_37) [1,1] 
+						: E-mail Invoice(_r_5_14_22_34_37_38)
+						: SMS Invoice(_r_5_14_22_34_37_39)
+				:m Shipment(_r_5_14_22_36)
+					:g (_r_5_14_22_36_40) [1,1] 
+						: UPS Shipping(_r_5_14_22_36_40_41)
+						: FedEX Express(_r_5_14_22_36_40_42)
+						: DHL Delivery(_r_5_14_22_36_40_43)
+			:m Finalize Invalid Transaction(_r_5_14_24)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_8 or ~_r_1_6_15_17
+constraint_2:~_r_1_6_15_16 or _r_2_9_30_32
+constraint_3:~_r_1_6_15_17 or _r_2_9_30_31
+</constraints>
+</feature_model>

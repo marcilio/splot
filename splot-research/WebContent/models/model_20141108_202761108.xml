@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 8, 2014 - 7:57 AM  -->
+<feature_model name="jjjjj">
+<meta>
+<data name="description">jjjjjjjjj</data>
+<data name="creator">jjjjjjjjjj</data>
+<data name="address"></data>
+<data name="email">nnnnnnn</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">jjjjjj</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r car(_r)
+	:m car body (_r_1)
+	:m transmission(_r_2)
+		:g (_r_2_5) [1,1] 
+			: automatic (_r_2_5_6)
+			: manual(_r_2_5_10)
+			: Feature-11(_r_2_5_11)
+	:m engine(_r_3)
+		:g (_r_3_12) [1,*] 
+			: electric(_r_3_12_13)
+			: gasoline(_r_3_12_14)
+	:o pull traler(_r_4)
+</feature_tree>
+<constraints>
+constraint_1:_r or _r_1 or _r_2 or _r_3 or _r_4 or _r_2_5_6 or _r_2_5_10 or _r_2_5_11 or _r_3_12_13 or _r_3_12_14
+constraint_2:_r or _r_1 or _r_2 or _r_3 or _r_4 or _r_2_5_6 or _r_2_5_10 or _r_2_5_11 or _r_3_12_13 or _r_3_12_14
+</constraints>
+</feature_model>

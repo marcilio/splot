@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 8:53 PM  -->
+<feature_model name="Eleição para presidente e dois senadores">
+<meta>
+<data name="description">Eleição para presidente e dois senadores</data>
+<data name="creator">Vinicius Cesar</data>
+<data name="address"></data>
+<data name="email">vini22004@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r urna_eletronica(_r)
+	:m Digitar senha(_r_10)
+		:m Confirmacao dos dados(_r_10_15)
+			:m Votar para presidente(_r_10_15_16)
+				:o Digitar o numero do candidato(_r_10_15_16_17)
+					:m Confirmar(_r_10_15_16_17_33)
+				:o Votar em branco(_r_10_15_16_19)
+					:m Confirmar(_r_10_15_16_19_34)
+			:m Votar para senador 1(_r_10_15_21)
+				:o Digitar o numero do candidato(_r_10_15_21_22)
+					:m Confirmar(_r_10_15_21_22_31)
+				:o Votar em branco(_r_10_15_21_23)
+					:m Confirmar(_r_10_15_21_23_32)
+			:m Votar para senador 2(_r_10_15_25)
+				:o Digitar o numero do canditado(_r_10_15_25_26)
+					:m Confirmar(_r_10_15_25_26_29)
+				:o Votar em branco(_r_10_15_25_27)
+					:m Confirmar(_r_10_15_25_27_30)
+			:m Exibir estatisticas(_r_10_15_37)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 1, 2017 - 1:02 PM  -->
+<feature_model name="Pizza">
+<meta>
+<data name="description">Pizzabestellung</data>
+<data name="creator">DP</data>
+<data name="address"></data>
+<data name="email">dapue@gmx.net</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">FIN</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Pizza(_r)
+	:m Belag(_r_1)
+		:g (_r_1_5) [1,*] 
+			: Kaese(_r_1_5_6)
+			: Fleisch(_r_1_5_7)
+			: Gemuese(_r_1_5_8)
+	:m Sosse(_r_2)
+		:g (_r_2_13) [1,*] 
+			: BBQ(_r_2_13_14)
+			: Tomatensosse(_r_2_13_15)
+			: Kaesesosse(_r_2_13_16)
+	:m Groesse(_r_3)
+		:g (_r_3_17) [1,1] 
+			: 20 cm(_r_3_17_18)
+			: 26 cm(_r_3_17_19)
+			: 40 cm(_r_3_17_20)
+	:o Kaeserand(_r_4)
+</feature_tree>
+<constraints>
+constraint_5:~_r_4 or _r_3_17_20
+</constraints>
+</feature_model>

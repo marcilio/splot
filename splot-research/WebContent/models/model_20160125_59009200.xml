@@ -1,0 +1,68 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jan 25, 2016 - 7:40 PM  -->
+<feature_model name="ProductosCreditoV2">
+<meta>
+<data name="description">Diagrama de features de productos de credito</data>
+<data name="creator">Mauricio Verano Merino</data>
+<data name="address"></data>
+<data name="email">m.verano239@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Producto(_r)
+	:g (_r_4) [1,*] 
+		: Bronce(_r_4_5)
+			:m Comunes(_r_4_5_9)
+				:m LineaCredito(_r_4_5_9_10)
+					:m TipoDeAmortizacion(_r_4_5_9_10_15)
+						:g (_r_4_5_9_10_15_16) [1,1] 
+							: CuotaFija(_r_4_5_9_10_15_16_17)
+							: CuotaFijaPeriodoGracia(_r_4_5_9_10_15_16_18)
+								:m PeriodoGracia(_r_4_5_9_10_15_16_18_22)
+									:g (_r_4_5_9_10_15_16_18_22_40) [1,1] 
+										: SumaInteres(_r_4_5_9_10_15_16_18_22_40_41)
+										: SumaDeuda(_r_4_5_9_10_15_16_18_22_40_42)
+							: AbonoCteCapital(_r_4_5_9_10_15_16_19)
+							: CuotaFijaTasaVariable(_r_4_5_9_10_15_16_20)
+							: AbonoCteCapitalTasaVariable(_r_4_5_9_10_15_16_21)
+					:o CuotaExtraordinaria(_r_4_5_9_10_26)
+					:m Interes(_r_4_5_9_10_27)
+						:m InteresCorriente(_r_4_5_9_10_27_28)
+							:m TasaInteres(_r_4_5_9_10_27_28_30)
+								:g (_r_4_5_9_10_27_28_30_31) [1,1] 
+									: TrimestreAnticipado(_r_4_5_9_10_27_28_30_31_32)
+									: MesAnticipado(_r_4_5_9_10_27_28_30_31_33)
+									: EfectivoAnual(_r_4_5_9_10_27_28_30_31_34)
+						:m InteresMora(_r_4_5_9_10_27_29)
+					:m FormaPago(_r_4_5_9_10_35)
+						:g (_r_4_5_9_10_35_36) [1,1] 
+							: Anticipado(_r_4_5_9_10_35_36_37)
+							: Vencido(_r_4_5_9_10_35_36_38)
+							: Periodico(_r_4_5_9_10_35_36_39)
+				:o Libranza(_r_4_5_9_11)
+					:m EntidadPagadora(_r_4_5_9_11_14)
+				:m Pagos(_r_4_5_9_12)
+				:m InterfaceContable(_r_4_5_9_13)
+		: Plata(_r_4_6)
+			:m GarantiaCredito(_r_4_6_43)
+			:m SolicitudCredito(_r_4_6_44)
+		: Oro(_r_4_7)
+			:m CompraVentaDeCredito(_r_4_7_45)
+			:m ManejoDocumentos(_r_4_7_46)
+		: Platino(_r_4_8)
+			:m EscalabilidadDeCreditos(_r_4_8_47)
+</feature_tree>
+<constraints>
+constraint_1:~_r_4_5 or _r_4_5_9
+constraint_10:~_r_4_5_9_11 or _r_4_5_9_10_15_16_17
+constraint_11:~_r_4_5_9_11 or _r_4_5_9_10_27_28_30_31_33
+constraint_12:~_r_4_5_9_11 or _r_4_5_9_10_35_36_39
+constraint_4:_r_4_7 or ~_r_4_8
+constraint_2:_r_4_5 or ~_r_4_6
+constraint_3:_r_4_6 or ~_r_4_7
+</constraints>
+</feature_model>

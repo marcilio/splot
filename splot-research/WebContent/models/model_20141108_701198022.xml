@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 4, 2016 - 3:32 AM  -->
+<feature_model name="erewr">
+<meta>
+<data name="description">wqeqw</data>
+<data name="creator">eqwe</data>
+<data name="address"></data>
+<data name="email">yunskilic@yandex.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">asd</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r test(_r)
+	:o testtt(_r_1)
+	:o yrrtyrt(_r_2)
+	:g (_r_3) [1,*] 
+		: ewrwerw(_r_3_4)
+			:o fdgfdg(_r_3_4_5)
+				:m sffsdfs(_r_3_4_5_6)
+				:o fdgdfgfdgdf(_r_3_4_5_7)
+					:o hjghj(_r_3_4_5_7_8)
+					:o terterte(_r_3_4_5_7_9)
+						:m dfsdfsd(_r_3_4_5_7_9_10)
+	:g (_r_11) [1,1] 
+		: group(_r_11_12)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

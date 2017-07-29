@@ -1,0 +1,57 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Feb 28, 2015 - 7:22 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Modelo de Inmobiliaria</data>
+<data name="creator">Ernesto Nobmann</data>
+<data name="address"></data>
+<data name="email">nobmann88@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o Gestion de Capital(_r_1)
+		:o Estructurar Fondo(_r_1_4)
+			:m Inversiones(_r_1_4_5)
+				:m Alternativas(_r_1_4_5_9)
+				:m Tradicionales(_r_1_4_5_10)
+			:m Alta Segmentacion(_r_1_4_6)
+				:g (_r_1_4_6_15) [1,1] 
+					: Relaciones con Inversores(_r_1_4_6_15_16)
+					: Definicion Gobierno Corporativo(_r_1_4_6_15_17)
+			:m Adquisiciones(_r_1_4_7)
+			:m Venta de Activos(_r_1_4_8)
+	:m Gestion de Activos(_r_2)
+		:m Adquisicion(_r_2_18)
+		:m Gestion Inmobiliaria(_r_2_19)
+		:m Alquiler(_r_2_20)
+		:m Reporting(_r_2_21)
+			:g (_r_2_21_25) [1,*] 
+				: Operativo(_r_2_21_25_26)
+				: Financiero(_r_2_21_25_27)
+		:o Valoraciones(_r_2_28)
+		:o Auditoria(_r_2_29)
+		:o Revisiones de Mercado(_r_2_30)
+		:o Contabilidad(_r_2_33)
+		:o Refinanciaciones(_r_2_34)
+		:o Ventas de Activo(_r_2_35)
+	:o Gestion Inmobiliaria(_r_3)
+		:o Gestion del Equipamento(_r_3_37)
+		:o Instalaciones(_r_3_38)
+		:o Activos Fisicos(_r_3_39)
+		:o Tasacion(_r_3_40)
+		:o Reservas(_r_3_41)
+			:o Control de Reservas(_r_3_41_42)
+			:o Aceptacion Propietario(_r_3_41_43)
+			:o Vigencia de la Reserva(_r_3_41_44)
+</feature_tree>
+<constraints>
+constraint_4:_r_3_37 or ~_r_3_39
+constraint_2:_r_2_28 or _r_2_29
+constraint_3:_r_2_33 or _r_2_35
+</constraints>
+</feature_model>

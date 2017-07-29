@@ -1,0 +1,48 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 3, 2014 - 1:22 PM  -->
+<feature_model name="deepak_fm">
+<meta>
+<data name="description">my feature model</data>
+<data name="creator">Deepak Rana</data>
+<data name="address"></data>
+<data name="email">dra_89@hotmail.co.uk</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Personal</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Appointment and Service System(_r)
+	:m Registration(_r_1)
+		:m Register(_r_1_6)
+		:m Validate(_r_1_7)
+		:m View(_r_1_8)
+		:o Edit(_r_1_9)
+		:o Delete(_r_1_10)
+	:m Appointment(_r_2)
+		:m Book(_r_2_11)
+		:m Validate(_r_2_12)
+		:m Store(_r_2_13)
+		:o Urgent Booking(_r_2_14)
+		:o Cancel(_r_2_15)
+		:o View(_r_2_16)
+	:m Products(_r_3)
+		:m selection(_r_3_17)
+		:m de-selection(_r_3_18)
+	:m Treatment(_r_4)
+		:m Receive(_r_4_19)
+		:o Alter(_r_4_22)
+	:m Payment(_r_5)
+		:m Cost Service(_r_5_23)
+		:m Cost Product(_r_5_24)
+		:o Apply Discount(_r_5_25)
+		:o Invoice(_r_5_26)
+		:m Pay(_r_5_27)
+		:g (_r_5_28) [1,1] 
+			: Cash(_r_5_28_29)
+			: Card(_r_5_28_34)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

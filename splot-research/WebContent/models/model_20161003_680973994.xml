@@ -1,0 +1,89 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Oct 3, 2016 - 6:05 PM  -->
+<feature_model name="Tienda Virtual">
+<meta>
+<data name="description">Modelo de características para una tienda en línea</data>
+<data name="creator">equipo de variamos</data>
+<data name="address"></data>
+<data name="email"> lfrincon@javerianacali.edu.co </data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Pontificia Universidad Javeriana Cali</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Tienda Virtual(_r)
+	:o Envios(_r_1)
+		:o Costo envio(_r_1_10)
+		:o Servicio de Entrega(_r_1_11)
+	:o Pagos(_r_2)
+		:m Pagar(_r_2_15)
+			:g (_r_2_15_16) [1,*] 
+				: Pago Offline(_r_2_15_16_17)
+					:g (_r_2_15_16_17_21) [1,*] 
+						: Consignacion(_r_2_15_16_17_21_22)
+						: Servicio Contra-entrega(_r_2_15_16_17_21_23)
+				: Pago Online(_r_2_15_16_18)
+					:g (_r_2_15_16_18_24) [1,*] 
+						: PayPal(_r_2_15_16_18_24_25)
+						: Tarjeta Credito(_r_2_15_16_18_24_26)
+						: Tarjeta Debito(_r_2_15_16_18_24_27)
+						: Cupon(_r_2_15_16_18_24_28)
+						: Cheque(_r_2_15_16_18_24_29)
+		:m Facturacion(_r_2_30)
+			:g (_r_2_30_31) [1,1] 
+				: Factura Fisica(_r_2_30_31_35)
+				: Factura Online(_r_2_30_31_36)
+			:m Certificado Compra(_r_2_30_34)
+		:o Notificar Pagos(_r_2_37)
+	:o Compras(_r_3)
+		:g (_r_3_38) [1,*] 
+			: Carro de Compras(_r_3_38_39)
+			: Recuperar Compras(_r_3_38_40)
+			: Historial de Compras(_r_3_38_41)
+	:o Listas Mensajeria(_r_5)
+	:o Notificaciones(_r_6)
+	:m Productos(_r_7)
+		:o Descuentos(_r_7_42)
+		:m Catalogo(_r_7_43)
+			:m Busquedas(_r_7_43_45)
+			:m Compartir(_r_7_43_46)
+				:g (_r_7_43_46_50) [1,*] 
+					: Por Correo Electronico(_r_7_43_46_50_51)
+					: Por Redes Sociales(_r_7_43_46_50_52)
+			:m Publicidad Productos(_r_7_43_47)
+				:g (_r_7_43_47_53) [1,*] 
+					: Publicidad Externa(_r_7_43_47_53_54)
+					: Publicidad Interna(_r_7_43_47_53_55)
+			:m Sugerencias(_r_7_43_48)
+			:m Publicacion Productos(_r_7_43_49)
+		:m Categorias(_r_7_44)
+	:m Administracion Sitio Web(_r_12)
+		:m Administracion Pagina(_r_12_56)
+			:g (_r_12_56_58) [1,*] 
+				: Gestion de la Estructura(_r_12_56_58_59)
+				: Gestion del Contenido(_r_12_56_58_60)
+		:m Usuarios(_r_12_57)
+			:g (_r_12_57_61) [1,1] 
+				: Autenticacion Externa(_r_12_57_61_62)
+				: Autenticacion Interna(_r_12_57_61_63)
+	:o Servicio al Cliente(_r_13)
+		:g (_r_13_64) [1,*] 
+			: Comentarios(_r_13_64_65)
+			: Ayuda en Linea(_r_13_64_66)
+			: Buzon de Sugerencias(_r_13_64_67)
+			: Lista de Deseos(_r_13_64_68)
+			: Trazabilidad de Pedidos(_r_13_64_69)
+			: Calificacion de Productos(_r_13_64_70)
+</feature_tree>
+<constraints>
+constraint_1:_r_1 or ~_r_2_30_31_35
+constraint_6:~_r_5 or _r_6
+constraint_7:~_r_7_43_49 or _r_12_56_58_59
+constraint_4:_r_6 or ~_r_2_30_31_36
+constraint_5:_r_6 or ~_r_7_43_46_50_51
+constraint_2:_r_6 or ~_r_2_37
+constraint_3:_r_6 or ~_r_2_30_34
+</constraints>
+</feature_model>

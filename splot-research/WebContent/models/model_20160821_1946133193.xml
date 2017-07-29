@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Aug 21, 2016 - 4:47 AM  -->
+<feature_model name="Clinica Medica">
+<meta>
+<data name="description">Features Basicas de uma Clinica Medica</data>
+<data name="creator">Iago Barboza</data>
+<data name="address"></data>
+<data name="email">iagobarboza@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">iOWL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ClinicaMedica(_r)
+	:m Login(_r_1)
+		:g (_r_1_17) [1,1] 
+			: Facebook(_r_1_17_18)
+			: Email(_r_1_17_19)
+	:m Cadastro(_r_2)
+		:g (_r_2_3) [1,*] 
+			: Medico(_r_2_3_4)
+			: Paciente(_r_2_3_5)
+	:m Agenda(_r_6)
+		:m Adicionar Consulta(_r_6_7)
+		:m Remover Consulta(_r_6_8)
+		:m Editar Consulta(_r_6_9)
+	:m Atendimento Medico(_r_10)
+		:g (_r_10_11) [1,*] 
+			: Sistema Web(_r_10_11_12)
+			: Aplicativo Movel(_r_10_11_13)
+</feature_tree>
+<constraints>
+constraint_1:~_r_10_11_13 or _r_1_17_18
+</constraints>
+</feature_model>

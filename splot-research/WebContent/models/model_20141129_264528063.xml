@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 29, 2014 - 3:07 AM  -->
+<feature_model name="Content">
+<meta>
+<data name="description">turinys</data>
+<data name="creator">TJ</data>
+<data name="address"></data>
+<data name="email">tatjana.jevsikova@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">VU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Content(_r)
+	:m Tasks(_r_1)
+		:g (_r_1_4) [1,*] 
+			: T1(_r_1_4_5)
+			: T2(_r_1_4_8)
+			: T3(_r_1_4_9)
+	:m Algorithms(_r_2)
+		:g (_r_2_10) [1,*] 
+			: A2(_r_2_10_11)
+			: A3(_r_2_10_12)
+			: A1(_r_2_10_13)
+	:m Data structures(_r_3)
+		:g (_r_3_14) [1,*] 
+			: S1(_r_3_14_15)
+			: S2(_r_3_14_16)
+			: S3(_r_3_14_17)
+</feature_tree>
+<constraints>
+constraint_2:~_r_1_4_5 or ~_r_2_10_13
+</constraints>
+</feature_model>

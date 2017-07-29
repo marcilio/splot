@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Oct 19, 2014 - 3:41 AM  -->
+<feature_model name="FrameWorkProdemge">
+<meta>
+<data name="description">Este feature model represnta o framework prodemge</data>
+<data name="creator">Sândalo Bessa</data>
+<data name="address"></data>
+<data name="email">sandalo@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DCC-UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r FrameWorkProdemge(_r)
+	:m Domain(_r_1)
+		:m Entity(_r_1_9)
+		:o RepositoryFacadeInterface(_r_1_10)
+		:o Utils(_r_1_11)
+		:m maven-configuration(_r_1_24)
+	:g (_r_2) [1,1] 
+		: Back-end(_r_2_3)
+			:m RepositoryFacadeImpl(_r_2_3_5)
+			:o Specification(_r_2_3_6)
+			:o Repository(_r_2_3_7)
+			:m maven-configuration(_r_2_3_25)
+		: Front-end(_r_2_4)
+			:m View(_r_2_4_12)
+				:m id(_r_2_4_12_16)
+			:m Controller(_r_2_4_13)
+				:o savar(_r_2_4_13_17)
+				:o recuperar(_r_2_4_13_18)
+				:o excluir(_r_2_4_13_20)
+				:o inicializar(_r_2_4_13_23)
+			:o MenssageHelper(_r_2_4_14)
+			:o BinderHelper(_r_2_4_15)
+			:o ViewHelper(_r_2_4_16)
+			:m maven-configuration(_r_2_4_26)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

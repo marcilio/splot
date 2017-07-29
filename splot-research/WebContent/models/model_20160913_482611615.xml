@@ -1,0 +1,90 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 13, 2016 - 2:56 PM  -->
+<feature_model name="ComputerDiagram">
+<meta>
+<data name="description">diagrama de Variabilidad para Computadores</data>
+<data name="creator">Diego C</data>
+<data name="address"></data>
+<data name="email">andruco3@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m TiposComputador(_r_1)
+		:g (_r_1_77) [1,1] 
+			: Mesa(_r_1_77_78)
+			: Portatil(_r_1_77_79)
+			: Servidor(_r_1_77_80)
+	:m CPU(_r_19)
+		:m Memoria Ram(_r_19_20)
+			:g (_r_19_20_21) [1,1] 
+				: 4 GB(_r_19_20_21_22)
+				: 8 GB(_r_19_20_21_23)
+				: 16 GB(_r_19_20_21_24)
+				: 32 GB(_r_19_20_21_25)
+				: 64 GB(_r_19_20_21_26)
+		:m Disco Duro(_r_19_27)
+			:g (_r_19_27_28) [1,1] 
+				: 500 GB(_r_19_27_28_29)
+				: 1 TB(_r_19_27_28_30)
+				: 2 TB(_r_19_27_28_31)
+				: 5 TB(_r_19_27_28_32)
+				: 10 TB(_r_19_27_28_33)
+		:o T Grafica(_r_19_34)
+			:g (_r_19_34_39) [1,1] 
+				: NVidia(_r_19_34_39_40)
+				: Ati Radeon(_r_19_34_39_41)
+		:m Procesador(_r_19_35)
+			:g (_r_19_35_36) [1,1] 
+				: Intel(_r_19_35_36_37)
+				: AMD(_r_19_35_36_38)
+	:o Planta de Poder(_r_42)
+	:o Pantalla(_r_43)
+		:o Tamano(_r_43_44)
+			:g (_r_43_44_51) [1,1] 
+				: 14 Pulgadas(_r_43_44_51_52)
+				: 17 Pulgadas(_r_43_44_51_53)
+				: 24 Pulgadas(_r_43_44_51_54)
+		:o Tecnologia(_r_43_45)
+			:g (_r_43_45_48) [1,*] 
+				: 3D(_r_43_45_48_49)
+				: 4K(_r_43_45_48_50)
+	:m Sistemas Operativos(_r_57)
+		:g (_r_57_58) [1,1] 
+			: OS Personales(_r_57_58_59)
+				:g (_r_57_58_59_62) [1,1] 
+					: Windows 10(_r_57_58_59_62_63)
+					: Fedora(_r_57_58_59_62_64)
+					: OS X Yosemite(_r_57_58_59_62_65)
+			: OS Servidores(_r_57_58_61)
+				:g (_r_57_58_61_66) [1,1] 
+					: Windows Server(_r_57_58_61_66_67)
+					: Red Hat(_r_57_58_61_66_68)
+					: X - Server(_r_57_58_61_66_69)
+	:m Marcas(_r_81)
+		:g (_r_81_82) [1,1] 
+			: Dell(_r_81_82_83)
+			: Toshiba(_r_81_82_84)
+			: Lenovo(_r_81_82_85)
+			: Apple(_r_81_82_86)
+			: Clon(_r_81_82_87)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_77_79 or _r_19_20_21_22 or _r_19_20_21_23 or _r_19_20_21_24
+constraint_8:~_r_1_77_80 or _r_19_27_28_32 or _r_19_27_28_33
+constraint_9:~_r_1_77_79 or ~_r_81_82_87
+constraint_10:_r_57_58_59_62_65 or _r_57_58_61_66_69 or ~_r_81_82_86
+constraint_6:~_r_1_77_78 or _r_19_27_28_29 or _r_19_27_28_30 or _r_19_27_28_31
+constraint_11:~_r_1_77_80 or _r_57_58_61
+constraint_12:~_r_1_77_79 or _r_43
+constraint_4:~_r_1_77_79 or _r_19_27_28_29 or _r_19_27_28_30 or _r_19_27_28_31
+constraint_13:~_r_1_77_79 or ~_r_43_45
+constraint_14:~_r_1_77_80 or _r_57_58_61
+constraint_2:~_r_1_77_78 or _r_19_20_21_22 or _r_19_20_21_23 or _r_19_20_21_24
+constraint_3:~_r_1_77_80 or _r_19_20_21_25 or _r_19_20_21_26
+</constraints>
+</feature_model>

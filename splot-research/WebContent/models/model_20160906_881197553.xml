@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 6, 2016 - 10:33 PM  -->
+<feature_model name="Telefonos Moviles">
+<meta>
+<data name="description">Ver distintas configuraciones de telefonos</data>
+<data name="creator">Diego Corredor</data>
+<data name="address"></data>
+<data name="email">andruco3@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Telefonos Moviles(_r)
+	:m Pantalla(_r_1)
+		:g (_r_1_14) [1,1] 
+			: Basica(_r_1_14_15)
+			: Color(_r_1_14_16)
+			: Alta Resolucion(_r_1_14_17)
+	:o CamaraFotos(_r_2)
+		:g (_r_2_22) [1,1] 
+			: 5 MegaPixeles(_r_2_22_23)
+			: 10 MegaPixeles(_r_2_22_24)
+	:o Multimedia(_r_8)
+		:g (_r_8_25) [1,*] 
+			: Musica(_r_8_25_26)
+			: Fotos(_r_8_25_27)
+			: Videos(_r_8_25_28)
+	:o Localizacion(_r_9)
+		:g (_r_9_29) [1,1] 
+			: 4G(_r_9_29_30)
+			: 3G(_r_9_29_31)
+	:m Llamadas(_r_32)
+		:m llamar(_r_32_33)
+		:m RecibirLlamadas(_r_32_34)
+</feature_tree>
+<constraints>
+constraint_8:_r_9 or _r_1_14_17
+constraint_6:_r_1_14_17 or _r_8_25_28
+constraint_7:_r_1_14_17 or _r_8_25_27
+constraint_4:_r_2 or _r_1_14_17
+</constraints>
+</feature_model>

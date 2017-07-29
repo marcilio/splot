@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 11:23 PM  -->
+<feature_model name="Urna - Marcos Felipe - UFMG">
+<meta>
+<data name="description">Urna - Marcos Felipe - UFMG</data>
+<data name="creator">Marcos Felipe</data>
+<data name="address"></data>
+<data name="email">lanzoni0@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna - Marcos Felipe - UFMG(_r)
+	:m Iniciar Sessao(_r_12)
+		:g (_r_12_17) [1,1] 
+			: Credenciado TSE(_r_12_17_18)
+			: Credenciado TRE(_r_12_17_19)
+			: Senha(_r_12_17_20)
+	:m Finalizar Sessao(_r_13)
+		:g (_r_13_21) [1,1] 
+			: Credenciado(_r_13_21_22)
+				:g (_r_13_21_22_46) [1,1] 
+					: Credenciado TSE(_r_13_21_22_46_47)
+					: Credenciado TRE(_r_13_21_22_46_48)
+				:m Apresentar Estatisticas(_r_13_21_22_49)
+			: Senha(_r_13_21_24)
+				:m Apresentar por categoria(_r_13_21_24_50)
+	:m Iniciar Votacao(_r_14)
+		:g (_r_14_25) [1,1] 
+			: Titulo Eleitor(_r_14_25_26)
+				:g (_r_14_25_26_34) [1,1] 
+					: Votar Presidente Senadores(_r_14_25_26_34_35)
+					: Votar Prefeito Vereador(_r_14_25_26_34_36)
+			: Identidade ou CPF(_r_14_25_27)
+				:g (_r_14_25_27_38) [1,1] 
+					: Professor(_r_14_25_27_38_39)
+						:m Votar Professor 2x(_r_14_25_27_38_39_42)
+					: Tecnico Admnistrativo(_r_14_25_27_38_40)
+						:m Votar Professor(_r_14_25_27_38_40_43)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

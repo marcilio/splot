@@ -1,0 +1,61 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:47 PM  -->
+<feature_model name="Urna Eletrônica - Renato - UFMG">
+<meta>
+<data name="description">Urna Eletrônica - Renato - UFMG</data>
+<data name="creator">Renato</data>
+<data name="address"></data>
+<data name="email">renatto.martins@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna(_r)
+	:m Election Type(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Federal(_r_1_2_3)
+				:m President(_r_1_2_3_7)
+				:m Senator1(_r_1_2_3_8)
+				:m Senator2(_r_1_2_3_9)
+			: Municipal(_r_1_2_4)
+				:m Mayor(_r_1_2_4_10)
+				:m Alderman(_r_1_2_4_11)
+			: Departament(_r_1_2_5)
+				:m Departament Boss(_r_1_2_5_12)
+	:m Election Management(_r_6)
+		:m Start Election(_r_6_13)
+			:m Receive pass(_r_6_13_15)
+		:m End Election(_r_6_14)
+			:m Receive pass(_r_6_14_16)
+		:m Voting Start(_r_6_17)
+			:o Receive unique voter ID(_r_6_17_18)
+			:o Receive unique document number(_r_6_17_27)
+				:g (_r_6_17_27_31) [1,*] 
+					: ID(_r_6_17_27_31_32)
+					: CPF(_r_6_17_27_31_33)
+		:m Stats(_r_6_20)
+			:m View Stats(_r_6_20_21)
+		:m Voting Confirmation(_r_6_34)
+			:m Vote(_r_6_34_37)
+				:o Voto Peso 2(_r_6_34_37_40)
+			:m Branco(_r_6_34_38)
+			:o Nulo(_r_6_34_39)
+</feature_tree>
+<constraints>
+constraint_17:~_r_1_2_5 or ~_r_6_34_39
+constraint_18:~_r_6_17_18 or ~_r_6_17_27
+constraint_9:~_r_1_2_3 or _r_6_34_39
+constraint_10:~_r_1_2_3 or _r_6_17_18
+constraint_11:~_r_1_2_4 or _r_6_34_39
+constraint_20:_r_6_17_27_31_32 or ~_r_6_17_27
+constraint_12:~_r_1_2_4 or _r_6_17_18
+constraint_21:_r_6_17_27_31_33 or ~_r_6_17_27
+constraint_13:~_r_1_2_5 or _r_6_17_27
+constraint_14:~_r_1_2_5 or _r_6_34_37_40
+constraint_15:~_r_1_2_3 or ~_r_6_34_37_40
+constraint_16:~_r_1_2_4 or ~_r_6_34_37_40
+</constraints>
+</feature_model>

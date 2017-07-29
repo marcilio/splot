@@ -1,0 +1,64 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Sep 22, 2016 - 11:00 PM  -->
+<feature_model name="Control Biometrico">
+<meta>
+<data name="description">SPL Reconocimiento Biometrico</data>
+<data name="creator">Edwin J. Munoz R.</data>
+<data name="address"></data>
+<data name="email">edwinjmunoz@gmail.com</data>
+<data name="phone"></data>
+<data name="website">www.acopletecnologico.com</data>
+<data name="organization">Acople Tecnologico SAS</data>
+<data name="department"></data>
+<data name="date">Sept-2016</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ControlBiometrico(_r)
+	:m Personas(_r_1)
+		:m PersonasMarcacion(_r_1_9)
+			:m RegPersonasInteres(_r_1_9_11)
+			:o RegPersonasExternas(_r_1_9_12)
+		:m PersonasUsuariosApp(_r_1_10)
+	:m Reportes(_r_6)
+	:o Turnos(_r_52)
+	:o Notificaciones(_r_53)
+	:o Calendario(_r_54)
+	:m TipoAplicacion(_r_34)
+		:g (_r_34_37) [1,*] 
+			: Tiempo(_r_34_37_38)
+				:g (_r_34_37_38_41) [1,*] 
+					: TiempoLaborado(_r_34_37_38_41_42)
+					: Ausentismo(_r_34_37_38_41_43)
+			: Consumo(_r_34_37_39)
+			: Acceso(_r_34_37_40)
+				:g (_r_34_37_40_44) [1,*] 
+					: xProgramacion(_r_34_37_40_44_45)
+					: xCondicion(_r_34_37_40_44_46)
+	:m DspBiometrico(_r_47)
+		:m TipoTransaccion(_r_47_48)
+			:g (_r_47_48_57) [1,*] 
+				: OnLine(_r_47_48_57_58)
+				: Batch(_r_47_48_57_36)
+		:m TipoDispositivo(_r_47_49)
+			:g (_r_47_49_54) [1,*] 
+				: Facial(_r_47_49_54_55)
+				: Huellas(_r_47_49_54_37)
+		:m NroPersonasDsp(_r_47_50)
+			:g (_r_47_50_51) [1,1] 
+				: P0a1200(_r_47_50_51_52)
+				: P1201aInf(_r_47_50_51_38)
+	:m Marcaciones(_r_60)
+		:m RegAutomatico(_r_60_61)
+		:o RegManual(_r_60_63)
+		:o Autorizaciones(_r_60_64)
+	:m AreaInteres(_r_65)
+		:m Logica(_r_65_66)
+		:o Geografica(_r_65_67)
+</feature_tree>
+<constraints>
+constraint_18:_r_54 or ~_r_34_37_38_41_42
+constraint_20:_r_52 or ~_r_34_37_38_41_42
+constraint_21:_r_52 or ~_r_34_37_40_44_45
+constraint_5:~_r_47_49_54_55 or ~_r_47_50_51_38
+</constraints>
+</feature_model>

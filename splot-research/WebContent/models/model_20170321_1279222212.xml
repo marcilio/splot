@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 21, 2017 - 2:13 PM  -->
+<feature_model name="Minimalistic PC Feature Model">
+<meta>
+<data name="description">Minimalistic PC Feature Model</data>
+<data name="creator">secano</data>
+<data name="address"></data>
+<data name="email">secano@web.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">scn</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r PC(_r)
+	:m Mainboard(_r_1)
+		:g (_r_1_4) [1,1] 
+			: Socket 1151(_r_1_4_5)
+			: Socket AM4(_r_1_4_6)
+		:m RAM(_r_1_7)
+	:m Power Supply Unit(_r_2)
+	:o Optical Drive(_r_3)
+	:m CPU Cooler(_r_8)
+		:g (_r_8_9) [1,1] 
+			: Socket 1151 compatible(_r_8_9_10)
+			: Socket AM4 compatible(_r_8_9_11)
+</feature_tree>
+<constraints>
+constraint_2:~_r_1_4_6 or _r_8_9_11
+constraint_3:~_r_1_4_5 or _r_8_9_10
+</constraints>
+</feature_model>

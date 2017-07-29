@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 17, 2016 - 6:35 PM  -->
+<feature_model name="Game Entity Model">
+<meta>
+<data name="description">Model game entity</data>
+<data name="creator">Ryan</data>
+<data name="address"></data>
+<data name="email">asdasd@asd.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">asdasdasd</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Entity(_r)
+	:o Render(_r_1)
+		:m Mesh(_r_1_4)
+		:o Cast Shadows(_r_1_16)
+		:o Receive Shadows(_r_1_17)
+		:o Animated(_r_1_18)
+		:m Material(_r_1_19)
+	:m Transform(_r_5)
+		:g (_r_5_13) [1,1] 
+			: Static(_r_5_13_14)
+			: Dynamic(_r_5_13_15)
+				:o Controllable(_r_5_13_15_42)
+	:o Physics(_r_20)
+		:m Collision Volume(_r_20_23)
+			:g (_r_20_23_24) [1,1] 
+				: Sphere(_r_20_23_24_25)
+				: Cube(_r_20_23_24_26)
+				: Mesh(_r_20_23_24_27)
+		:o Trigger(_r_20_32)
+		:m Collider(_r_20_37)
+			:g (_r_20_37_38) [1,1] 
+				: Static(_r_20_37_38_39)
+				: Rigidbody(_r_20_37_38_40)
+				: Kinematic Rigidbody(_r_20_37_38_41)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

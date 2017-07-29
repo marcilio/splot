@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Feb 12, 2015 - 11:58 AM  -->
+<feature_model name="Topology">
+<meta>
+<data name="description">test</data>
+<data name="creator">J</data>
+<data name="address"></data>
+<data name="email">juergen.grasser@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">J</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Topology(_r)
+	:m Camera(_r_1)
+		:g (_r_1_4) [1,1] 
+			: RFK(_r_1_4_5)
+			: SVS(_r_1_4_6)
+	:m HU(_r_2)
+		:g (_r_2_7) [1,1] 
+			: Entry(_r_2_7_8)
+			: NBT(_r_2_7_9)
+			: MGU(_r_2_7_10)
+	:m KAFAS(_r_3)
+		:g (_r_3_11) [1,1] 
+			: 3high(_r_3_11_12)
+			: 4mid(_r_3_11_13)
+			: 4high(_r_3_11_14)
+</feature_tree>
+<constraints>
+constraint_6:~_r_2_7_9 or ~_r_3_11_13
+</constraints>
+</feature_model>

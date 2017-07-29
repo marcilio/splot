@@ -1,0 +1,56 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 14, 2014 - 11:59 AM  -->
+<feature_model name="blog-Gabriel-magister2014">
+<meta>
+<data name="description">Blog Feature Model</data>
+<data name="creator">Gabriel</data>
+<data name="address"></data>
+<data name="email">gabriel.epuyao@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFRO</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Blog(_r)
+	:m Contenidos(_r_1)
+		:m Despliegue(_r_1_16)
+			:g (_r_1_16_24) [1,1] 
+				: Administracion secciones(_r_1_16_24_25)
+				: Secciones defecto(_r_1_16_24_32)
+			:o Organizacion por tema(_r_1_16_30)
+			:m Organizacion por fecha(_r_1_16_31)
+			:o Gestion Idiomas(_r_1_16_34)
+		:m Administracion Contenidos(_r_1_19)
+			:g (_r_1_19_21) [1,1] 
+				: Editor Profesional(_r_1_19_21_22)
+				: Editor Basico(_r_1_19_21_23)
+	:o Gestion Multimedia(_r_2)
+		:g (_r_2_4) [1,*] 
+			: Videos(_r_2_4_5)
+			: Imagenes(_r_2_4_12)
+			: Audios(_r_2_4_15)
+	:m Contacto(_r_3)
+	:o Gestion Temas(_r_13)
+		:g (_r_13_38) [1,*] 
+			: Ajuste Diseno(_r_13_38_39)
+			: Ajuste Fuente(_r_13_38_40)
+			: Ajuste Template(_r_13_38_45)
+	:o Gestion Eventos(_r_17)
+		:m Calendario(_r_17_18)
+	:o Galeria(_r_33)
+	:o Gestion Redes Sociales(_r_41)
+		:g (_r_41_42) [1,1] 
+			: Configuracion vinculos(_r_41_42_43)
+			: Conexion a todas(_r_41_42_44)
+	:o Backend(_r_46)
+		:m Administracion Cuentas(_r_46_50)
+		:m Administracion Plugins(_r_46_51)
+</feature_tree>
+<constraints>
+constraint_6:_r_2 or _r_13 or _r_17 or _r_1_16_34 or _r_41 or ~_r_46
+constraint_4:~_r_1_19_21_22 or _r_1_16_30
+constraint_3:~_r_2 or _r_33
+</constraints>
+</feature_model>

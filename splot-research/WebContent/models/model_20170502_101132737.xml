@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 2, 2017 - 3:21 PM  -->
+<feature_model name="Bike Computer Feature Model">
+<meta>
+<data name="description">BC FM</data>
+<data name="creator">Taramov Andrei</data>
+<data name="address"></data>
+<data name="email">tar-a-spb@yandex.ru</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universitaet Rostock</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Bike computer(_r)
+	:m Bracket mount(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Fitted with cable ties(_r_1_2_3)
+			: Fitted with O-rings(_r_1_2_4)
+	:m Measurment functionality(_r_6)
+		:m Speedometer(_r_6_7)
+		:m Distance total(_r_6_8)
+		:m Trip count(_r_6_9)
+		:m Clock(_r_6_10)
+		:o Advanced version(_r_6_13)
+			:m Average trip(_r_6_13_17)
+			:m Average speed(_r_6_13_18)
+			:m Stopwatch(_r_6_13_20)
+			:o Deluxe version(_r_6_13_21)
+				:m Advanced version pedal rotation(_r_6_13_21_22)
+				:o Additional functionality(_r_6_13_21_46)
+					:g (_r_6_13_21_46_47) [1,*] 
+						: GPS navigation system(_r_6_13_21_46_47_48)
+						: Heartbeat monitor(_r_6_13_21_46_47_49)
+						: Nike shoes connection(_r_6_13_21_46_47_50)
+	:m Sensors(_r_23)
+		:m Speedometer sensor(_r_23_26)
+			:g (_r_23_26_27) [1,1] 
+				: Wireless speedometer sensor and magnet(_r_23_26_27_28)
+				: Cable-based speedometer sensor and magnet(_r_23_26_27_29)
+		:o Pedal rotation sensor(_r_23_30)
+			:g (_r_23_30_31) [1,1] 
+				: Wireless pedal sensor and magnet(_r_23_30_31_32)
+				: Cable-based pedal sensor and magnet(_r_23_30_31_33)
+	:m Energy supply(_r_34)
+		:g (_r_34_35) [1,1] 
+			: Battery(_r_34_35_36)
+				:o Ability to recharge(_r_34_35_36_37)
+			: Photovoltaic cell(_r_34_35_39)
+	:o Market(_r_41)
+		:g (_r_41_42) [1,1] 
+			: Russian(_r_41_42_43)
+			: US(_r_41_42_44)
+</feature_tree>
+<constraints>
+constraint_17:_r_23_26_27_28 or ~_r_6_13_21_46_47_50
+constraint_18:_r_23_30_31_32 or ~_r_6_13_21_46_47_50
+constraint_10:~_r_6_13_21_22 or ~_r_41_42_44
+constraint_11:~_r_23_30_31_32 or ~_r_41_42_44
+constraint_6:~_r_23_30_31_32 or ~_r_34_35_39
+constraint_12:~_r_23_30_31_32 or ~_r_41_42_43
+constraint_14:~_r_23_26_27_28 or ~_r_41_42_43
+constraint_5:~_r_23_26_27_28 or ~_r_34_35_39
+constraint_2:~_r_6_13_21_22 or _r_23_30
+</constraints>
+</feature_model>

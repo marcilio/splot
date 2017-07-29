@@ -1,0 +1,69 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 11, 2016 - 1:52 PM  -->
+<feature_model name="|Loja Virtual">
+<meta>
+<data name="description">para TEES</data>
+<data name="creator">Fabiane</data>
+<data name="address"></data>
+<data name="email">fabi.santana13@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNEB</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Loja Virtual(_r)
+	:m Cliente(_r_1)
+		:m Cadastro de Cliente(_r_1_2)
+			:o Solicitacao de Cancelamento de Conta(_r_1_2_3)
+			:m Alteracao de Dados(_r_1_2_4)
+			:m Cadastro de Dados(_r_1_2_5)
+			:m Contas Prime(_r_1_2_6)
+		:o Wishlist(_r_1_17)
+		:o Watchlist(_r_1_18)
+		:o Newsletter(_r_1_19)
+	:m Funcionario(_r_20)
+		:m Cadastro de Funcionario(_r_20_21)
+			:m Cadastro dos Dados(_r_20_21_22)
+			:m Alteracao dos Dados(_r_20_21_23)
+		:m Alteracao de Pedidos(_r_20_24)
+	:m Produtos(_r_25)
+		:m Cadastro de Produtos(_r_25_26)
+			:m Alteracao de Dados(_r_25_26_27)
+			:m Cadastro de Dados(_r_25_26_28)
+		:o Categorias de Produtos(_r_25_29)
+		:o Classificacao conforma a avaliacao(_r_25_30)
+		:o Reserva de Produtos(_r_25_31)
+		:o Pesquisa de Produtos(_r_25_32)
+		:o Produtos em Destaque(_r_25_33)
+		:o Produtos Mais Vendidos(_r_25_34)
+		:o Sugestao de Produtos(_r_25_35)
+		:o Produtos Mais Pesquisados(_r_25_36)
+		:m Visualizacao do Produto(_r_25_38)
+	:m Carrinho(_r_39)
+		:m Adicionar Produtos(_r_39_40)
+		:m Remover Produtos(_r_39_41)
+		:m Alteracao da Qualidade(_r_39_42)
+		:m Persistir Produtos do Carrinho(_r_39_43)
+	:o Controle de Estoque(_r_44)
+		:o Devolucoes(_r_44_45)
+		:o Compras(_r_44_46)
+		:o Vendas(_r_44_47)
+	:m Compras(_r_48)
+		:o Cancelamento de Pedidos(_r_48_49)
+		:m Realizacao de Pedidos(_r_48_50)
+		:o Calculo de Frete(_r_48_51)
+		:o Entrega  - Rastrear Pedidos(_r_48_52)
+	:o Contato(_r_53)
+	:o Sobre a Empresa(_r_54)
+	:o Site em Outros Idiomas(_r_55)
+	:m Pagamento(_r_56)
+		:m Tipos de Pagamento(_r_56_57)
+			:o Cartao(_r_56_57_58)
+			:o PayPal(_r_56_57_59)
+			:o Boleto(_r_56_57_60)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

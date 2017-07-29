@@ -1,0 +1,56 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Dec 13, 2016 - 12:16 PM  -->
+<feature_model name="SPLE robot assignment">
+<meta>
+<data name="description">robt navigation functionality </data>
+<data name="creator">RobDC</data>
+<data name="address"></data>
+<data name="email">roberta.dec6@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Robot navigation functionality(_r)
+	:m Obstacle avoidance(_r_1)
+		:g (_r_1_9) [1,1] 
+			: DWA(_r_1_9_10)
+			: SND(_r_1_9_11)
+	:m Trajectory(_r_2)
+		:g (_r_2_41) [1,*] 
+			: TFollowing(_r_2_41_42)
+			: TPlanning(_r_2_41_43)
+	:m Localization(_r_3)
+		:g (_r_3_15) [1,1] 
+			: GM(_r_3_15_16)
+			: VM(_r_3_15_17)
+	:m Obstacle Detection(_r_4)
+		:g (_r_4_18) [1,1] 
+			: Distance based(_r_4_18_19)
+				:g (_r_4_18_19_23) [1,1] 
+					: 2D(_r_4_18_19_23_24)
+					: 3D(_r_4_18_19_23_25)
+			: A-based(_r_4_18_20)
+	:m Robot equipment(_r_5)
+		:m Rover(_r_5_21)
+			:g (_r_5_21_26) [1,1] 
+				: Youbot(_r_5_21_26_27)
+				: Pioneer(_r_5_21_26_28)
+		:m Sensors(_r_5_22)
+			:g (_r_5_22_35) [1,*] 
+				: HL(_r_5_22_35_36)
+				: KDS(_r_5_22_35_37)
+				: BSC(_r_5_22_35_38)
+</feature_tree>
+<constraints>
+constraint_9:~_r_4_18_20 or _r_5_22_35_38
+constraint_10:~_r_4_18_19_23_24 or _r_5_22_35_36
+constraint_11:~_r_4_18_19_23_25 or _r_5_22_35_37
+constraint_12:~_r_4_18_20 or ~_r_5_22_35_36
+constraint_13:~_r_4_18_20 or ~_r_5_22_35_37
+constraint_14:~_r_4_18_19_23_24 or ~_r_5_22_35_38
+constraint_15:~_r_4_18_19_23_25 or ~_r_5_22_35_38
+</constraints>
+</feature_model>

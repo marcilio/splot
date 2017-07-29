@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Sep 25, 2014 - 11:49 AM  -->
+<feature_model name="ReallyConsistentQuestion">
+<meta>
+<data name="description">Testing on FM consistency</data>
+<data name="creator">Arnaud Dieumegard</data>
+<data name="address"></data>
+<data name="email">arnaud.dieumegard@enseeiht.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IRIT</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Delay(_r)
+	:g (_r_1) [1,1] 
+		: DelayMode_Simple(_r_1_2)
+			:m SimpleDelay(_r_1_2_4)
+				:g (_r_1_2_4_5) [1,1] 
+					: InputVectAndIntICVect(_r_1_2_4_5_6)
+						:m InternalICVector(_r_1_2_4_5_6_17)
+						:m InputVector(_r_1_2_4_5_6_18)
+					: V2(_r_1_2_4_5_7)
+						:m InternalICScal(_r_1_2_4_5_7_8)
+						:m InputScalar(_r_1_2_4_5_7_9)
+							:m DelayParameter(_r_1_2_4_5_7_9_10)
+		: DelayMode_List(_r_1_3)
+			:m ListDelay(_r_1_3_11)
+				:g (_r_1_3_11_12) [1,1] 
+					: V1(_r_1_3_11_12_13)
+						:m InputScalar(_r_1_3_11_12_13_15)
+							:m DelayParameter(_r_1_3_11_12_13_15_19)
+						:m InternalICVector(_r_1_3_11_12_13_16)
+					: InputVectAndIntICMat(_r_1_3_11_12_14)
+						:m InputVector(_r_1_3_11_12_14_20)
+							:m DelayParameter(_r_1_3_11_12_14_20_22)
+						:m InternalICMatrix(_r_1_3_11_12_14_21)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 15, 2017 - 4:14 AM  -->
+<feature_model name="Amazon web services">
+<meta>
+<data name="description">AWS</data>
+<data name="creator">Alvaro Gonzalez</data>
+<data name="address"></data>
+<data name="email">alvaretogonzo@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">los andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Amazonwebservices(_r)
+	:m Basededatos(_r_4)
+		:g (_r_4_29) [1,*] 
+			: Aurora(_r_4_29_30)
+				:g (_r_4_29_30_36) [1,*] 
+					: MySQL(_r_4_29_30_36_37)
+					: PostgreSQL(_r_4_29_30_36_38)
+			: RDS(_r_4_29_31)
+				:g (_r_4_29_31_45) [1,*] 
+					: Aurora(_r_4_29_31_45_46)
+					: PostgreSQL(_r_4_29_31_45_47)
+					: MySQL(_r_4_29_31_45_48)
+					: MariaDB(_r_4_29_31_45_49)
+					: Oracle(_r_4_29_31_45_50)
+					: SQL Server(_r_4_29_31_45_51)
+			: Dynamo BD(_r_4_29_32)
+			: ElastiCache(_r_4_29_33)
+				:g (_r_4_29_33_52) [1,*] 
+					: REDIS(_r_4_29_33_52_53)
+					: Memcached(_r_4_29_33_52_54)
+			: Redfish(_r_4_29_34)
+			: Database Migration Service(_r_4_29_35)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

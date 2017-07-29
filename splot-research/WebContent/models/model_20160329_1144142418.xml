@@ -1,0 +1,86 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 11:38 PM  -->
+<feature_model name="Urna Bruno Luan">
+<meta>
+<data name="description">Linha de produto de software de urnas eletrônicas</data>
+<data name="creator">Bruno Luan de Sousa</data>
+<data name="address"></data>
+<data name="email">bruno.luan.sousa@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal de Minas Gerais</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna Bruno Luan(_r)
+	:m DefinirEleicao(_r_10)
+		:g (_r_10_12) [1,1] 
+			: ElegerPresidente(_r_10_12_13)
+				:m Eleger Presidente(_r_10_12_13_24)
+				:m Eleger Senador(_r_10_12_13_25)
+				:m ElegerSenador(_r_10_12_13_26)
+			: ElegerPrefeito(_r_10_12_14)
+				:m Eleger Prefeito(_r_10_12_14_27)
+				:m Eleger Vereador(_r_10_12_14_28)
+			: ElegerChefeDepartamento(_r_10_12_15)
+				:m ElegerChegeDepartamento(_r_10_12_15_29)
+	:m IniciarVotacao(_r_19)
+		:g (_r_19_32) [1,1] 
+			: Inserir Senha Funcionario TRE(_r_19_32_33)
+				:m Identificar Eleitor(_r_19_32_33_35)
+			: Inserir Senha Eleitor(_r_19_32_34)
+				:g (_r_19_32_34_76) [1,1] 
+					: Professor(_r_19_32_34_76_77)
+					: Tecnico Administrativo(_r_19_32_34_76_78)
+	:m Votar(_r_21)
+		:g (_r_21_36) [1,1] 
+			: Eleicao Presidente(_r_21_36_37)
+				:m Voto Presidente(_r_21_36_37_38)
+					:g (_r_21_36_37_38_39) [1,1] 
+						: Votar no candidato(_r_21_36_37_38_39_40)
+						: Votar em branco(_r_21_36_37_38_39_41)
+						: Votar nulo(_r_21_36_37_38_39_42)
+				:m Voto Senador 1(_r_21_36_37_43)
+					:g (_r_21_36_37_43_45) [1,1] 
+						: Voto no candidato(_r_21_36_37_43_45_46)
+						: Voto em branco(_r_21_36_37_43_45_47)
+						: Voto nulo(_r_21_36_37_43_45_48)
+				:m Voto Senador 2(_r_21_36_37_44)
+					:g (_r_21_36_37_44_49) [1,1] 
+						: Voto no candidato(_r_21_36_37_44_49_50)
+						: Voto em branco(_r_21_36_37_44_49_51)
+						: Voto nulo(_r_21_36_37_44_49_52)
+			: Eleicao Prefeito(_r_21_36_53)
+				:m Voto Prefeito(_r_21_36_53_55)
+					:g (_r_21_36_53_55_57) [1,1] 
+						: Voto no candidato(_r_21_36_53_55_57_58)
+						: Voto em branco(_r_21_36_53_55_57_59)
+						: Voto nulo(_r_21_36_53_55_57_60)
+				:m Voto Vereador(_r_21_36_53_56)
+					:g (_r_21_36_53_56_61) [1,1] 
+						: Voto no candidato(_r_21_36_53_56_61_62)
+						: Voto em branco(_r_21_36_53_56_61_63)
+						: Voto nulo(_r_21_36_53_56_61_64)
+			: Eleicao Chefe de Departamento(_r_21_36_54)
+				:g (_r_21_36_54_66) [1,1] 
+					: Voto no candidato(_r_21_36_54_66_67)
+					: Voto em branco(_r_21_36_54_66_68)
+					: Nao votar(_r_21_36_54_66_71)
+	:m FinalizarVotacao(_r_22)
+		:g (_r_22_72) [1,1] 
+			: Inserir Senha Funcionario TRE(_r_22_72_73)
+			: Inserir Senha Eleitor(_r_22_72_74)
+	:m Resultados(_r_87)
+		:m Apresentar Estatisticas(_r_87_88)
+			:g (_r_87_88_90) [1,1] 
+				: Percentual de Votos Validos(_r_87_88_90_91)
+				: Percentual por Categoria(_r_87_88_90_92)
+		:m Classificar Canditados(_r_87_89)
+			:g (_r_87_89_93) [1,1] 
+				: Classificacao Normal(_r_87_89_93_94)
+				: Classificacao por Peso(_r_87_89_93_95)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

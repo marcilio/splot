@@ -1,0 +1,52 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 5, 2015 - 3:10 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Inmobiliaria</data>
+<data name="creator">Andres F Osorio V / Julio C Galvez E</data>
+<data name="address"></data>
+<data name="email">anfosoriova@gmail,com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Andres F Osorio V / Julio C Galvez E</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:m Gestion_de_Capital_o_Gestion_de_Fondos_Inversiones(_r_2)
+		:m Inversiones(_r_2_4)
+			:m Alternativas(_r_2_4_8)
+				:m Vehiculos(_r_2_4_8_10)
+				:m Seguros(_r_2_4_8_11)
+					:g (_r_2_4_8_11_14) [1,*] 
+						: Fondos_De_Capital_Privado(_r_2_4_8_11_14_15)
+						: Patrimonios_Autonomos(_r_2_4_8_11_14_16)
+						: Carteras_Colectivas(_r_2_4_8_11_14_17)
+			:m Tradicionales(_r_2_4_9)
+		:o Definicion_gobierno_corporativo(_r_2_5)
+		:o Relacion_con_Inversores(_r_2_6)
+		:m Manejo_Activos(_r_2_7)
+			:m Ventas(_r_2_7_18)
+			:m Adquisiciones(_r_2_7_19)
+	:m Gestion_De_Activos(_r_3)
+		:m Adquisicion_Inmueble(_r_3_20)
+		:m Gestion_Inmobiliaria(_r_3_21)
+			:m Gestion_Operativa_inmuebles(_r_3_21_33)
+				:o Feature-43(_r_3_21_33_43)
+		:m Alquiler(_r_3_22)
+		:m Reporting(_r_3_23)
+			:g (_r_3_23_38) [1,*] 
+				: Financiero(_r_3_23_38_39)
+				: Operativo(_r_3_23_38_40)
+					:m Presupuestos_Operativos(_r_3_23_38_40_42)
+		:o Valoraciones(_r_3_24)
+		:o Auditorias(_r_3_25)
+		:o Reversiones_De_Mercado(_r_3_26)
+		:o Contabilidad(_r_3_27)
+		:o Refinanciaciones(_r_3_28)
+		:o Ventas_Activos(_r_3_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

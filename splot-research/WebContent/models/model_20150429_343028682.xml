@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 29, 2015 - 10:01 PM  -->
+<feature_model name="Emergency Response Application">
+<meta>
+<data name="description">ER</data>
+<data name="creator">Pedro O. Rossel</data>
+<data name="address"></data>
+<data name="email">prossel@ucsc.cl</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad Católica de la Santísima Concepción</data>
+<data name="department"></data>
+<data name="date">29-Apr-2015</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Emergency Response Application(_r)
+	:m Resource(_r_1)
+		:o Digital resource(_r_1_29)
+		:m Roles(_r_1_30)
+			:g (_r_1_30_34) [1,1] 
+				: Team leader(_r_1_30_34_35)
+				: Out of duty firefighter(_r_1_30_34_36)
+				: Truck driver companion(_r_1_30_34_37)
+				: Truck driver(_r_1_30_34_38)
+				: Incident commander(_r_1_30_34_39)
+		:m Location(_r_1_31)
+		:m Material Resources(_r_1_32)
+			:m Fire company(_r_1_32_40)
+			:m Hydrants(_r_1_32_41)
+			:m Fire truck(_r_1_32_42)
+		:m Human resources(_r_1_33)
+			:m Team leader(_r_1_33_43)
+			:m Out of duty firefighter(_r_1_33_44)
+			:m Truck driver companion(_r_1_33_45)
+			:m Truck driver(_r_1_33_46)
+			:m Incident commander(_r_1_33_47)
+	:m Emergency site(_r_2)
+		:m Route(_r_2_4)
+			:g (_r_2_4_9) [1,*] 
+				: Step-by-step indications(_r_2_4_9_10)
+				: Arrows(_r_2_4_9_11)
+			:m Distance(_r_2_4_12)
+			:o Traffic(_r_2_4_13)
+		:m Map(_r_2_5)
+		:o Augmented reality(_r_2_6)
+			:g (_r_2_6_14) [1,*] 
+				: Distance(_r_2_6_14_15)
+				: Radar view(_r_2_6_14_16)
+		:m Location(_r_2_7)
+		:m Layer(_r_2_8)
+			:g (_r_2_8_17) [1,*] 
+				: Point of interest(_r_2_8_17_18)
+				: Areas(_r_2_8_17_19)
+	:m Communication(_r_3)
+		:o Send to people(_r_3_20)
+		:o Share with everybody(_r_3_21)
+		:o Create(_r_3_22)
+			:g (_r_3_22_25) [1,*] 
+				: Photo(_r_3_22_25_26)
+				: Video(_r_3_22_25_27)
+				: Message(_r_3_22_25_28)
+		:m Receive(_r_3_23)
+		:m Visualize(_r_3_24)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

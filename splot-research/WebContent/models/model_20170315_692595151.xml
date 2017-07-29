@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 15, 2017 - 1:12 AM  -->
+<feature_model name="LPS">
+<meta>
+<data name="description">lps</data>
+<data name="creator">Neto</data>
+<data name="address"></data>
+<data name="email">jgdrneto@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IMD</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Roteiro(_r)
+	:m Cadastrar Evento(_r_1)
+	:m Criar Roteiro(_r_2)
+		:o Ludico(_r_2_4)
+		:o Palestra(_r_2_5)
+		:o Exposicao(_r_2_6)
+		:o Mesa redonda(_r_2_7)
+		:o Alimentacao(_r_2_9)
+			:g (_r_2_9_10) [1,1] 
+				: 1-3 Estrela(_r_2_9_10_11)
+				: 3-4 Estrela(_r_2_9_10_12)
+				: 5 Estrela(_r_2_9_10_13)
+		:m Intervalo(_r_2_14)
+			:g (_r_2_14_15) [1,1] 
+				: 30 min(_r_2_14_15_16)
+				: 60 min(_r_2_14_15_17)
+		:m Turno(_r_2_18)
+			:g (_r_2_18_19) [1,*] 
+				: Matutino(_r_2_18_19_20)
+				: Vespertino(_r_2_18_19_21)
+				: Noturno(_r_2_18_19_22)
+		:m Horas de evento(_r_2_23)
+		:g (_r_2_24) [1,1] 
+			: 1-3 horas(_r_2_24_25)
+			: 3-4 horas(_r_2_24_26)
+			: Acima de 5 horas(_r_2_24_27)
+	:o Visualizar Roteiro(_r_28)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,70 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 8, 2016 - 5:50 PM  -->
+<feature_model name="Linux">
+<meta>
+<data name="description">Linux Kernel</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Linux(_r)
+	:m File_System(_r_1)
+		:g (_r_1_17) [1,1] 
+			: EXT_3(_r_1_17_18)
+			: Reiserfs(_r_1_17_19)
+			: JFS(_r_1_17_20)
+	:m General_Setup(_r_2)
+		:o Auditing_Support(_r_2_12)
+		:o Swap(_r_2_13)
+	:m Power_Management_Options(_r_3)
+		:o Software_Suspended(_r_3_14)
+		:o CPU_Frequency_Scaling(_r_3_15)
+		:o APM_BIOS_Support(_r_3_16)
+	:o Security_Options(_r_4)
+		:o NSA_SELinux(_r_4_25)
+		:o Socket_and_Networking(_r_4_26)
+			:o IPSec(_r_4_26_29)
+	:m Device_Drivers(_r_5)
+		:o SATA(_r_5_30)
+		:o Wireless_LAN(_r_5_31)
+		:o Networking_Device(_r_5_32)
+			:o Ethernet_10_or_100_MBit(_r_5_32_33)
+			:o Ethernet_1000_MBit(_r_5_32_34)
+	:o Networking_Options(_r_6)
+		:o IrDA(_r_6_43)
+		:o Bluetooth(_r_6_44)
+		:o TCP_IP(_r_6_45)
+			:o Multicasting(_r_6_45_46)
+			:o Tunneling(_r_6_45_47)
+			:o IPv6(_r_6_45_48)
+	:o Cryptography_Algorithms(_r_7)
+		:g (_r_7_21) [1,*] 
+			: MD5(_r_7_21_22)
+			: SHA256(_r_7_21_23)
+			: AES_Cipher(_r_7_21_24)
+	:m Processor_Type_and_Features(_r_8)
+		:m Processor_Family(_r_8_35)
+			:g (_r_8_35_37) [1,1] 
+				: Intel(_r_8_35_37_38)
+				: AMD(_r_8_35_37_39)
+				: Generic_x86_64(_r_8_35_37_40)
+		:o Symmetric_MultiProcessing_Support(_r_8_36)
+			:o Hyper_Threading_Support(_r_8_36_41)
+			:o Multi_core_Support(_r_8_36_42)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3 or _r_8_36
+constraint_6:_r_5_31 or ~_r_6_44
+constraint_7:_r_2_13 or ~_r_3_14
+constraint_4:_r_7 or ~_r_4_26
+constraint_5:_r_5_31 or ~_r_6_43
+constraint_2:_r_5_31 or _r_5_32 or ~_r_6_45
+constraint_3:_r_6 or ~_r_4_26
+</constraints>
+</feature_model>

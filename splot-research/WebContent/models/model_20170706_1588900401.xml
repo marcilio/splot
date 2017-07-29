@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jul 6, 2017 - 8:44 AM  -->
+<feature_model name="SmartAppExampleModel">
+<meta>
+<data name="description">Partial example of SmartApp Tree</data>
+<data name="creator">Clément SIMON</data>
+<data name="address"></data>
+<data name="email">csimon@lirmm.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">LIRMM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SmartApp(_r)
+	:m id(_r_1)
+	:m title(_r_3)
+	:o description(_r_4)
+	:o theme(_r_5)
+		:g (_r_5_6) [1,*] 
+			: blue(_r_5_6_7)
+			: dark(_r_5_6_8)
+	:o language(_r_9)
+		:g (_r_9_10) [1,*] 
+			: fr(_r_9_10_11)
+			: en(_r_9_10_12)
+			: es(_r_9_10_13)
+			: de(_r_9_10_14)
+	:m Concerns(_r_15)
+		:o Concern(_r_15_16)
+			:m id(_r_15_16_17)
+			:o title(_r_15_16_18)
+			:o description(_r_15_16_19)
+			:o mandatory(_r_15_16_21)
+			:m Layout(_r_15_16_23)
+				:m id(_r_15_16_23_24)
+				:o title(_r_15_16_23_26)
+				:o Action(_r_15_16_23_27)
+					:m id(_r_15_16_23_27_28)
+					:o type(_r_15_16_23_27_29)
+						:g (_r_15_16_23_27_29_30) [1,1] 
+							: navigation(_r_15_16_23_27_29_30_31)
+							: method(_r_15_16_23_27_29_30_32)
+							: dataUpdate(_r_15_16_23_27_29_30_33)
+							: dataDelete(_r_15_16_23_27_29_30_34)
+							: logout(_r_15_16_23_27_29_30_35)
+							: login(_r_15_16_23_27_29_30_36)
+</feature_tree>
+<constraints>
+constraint_1:~_r_5_6_7 or _r_9_10_11
+</constraints>
+</feature_model>

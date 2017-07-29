@@ -1,0 +1,101 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Feb 29, 2016 - 4:01 AM  -->
+<feature_model name="Taller 1 Cristian y Jorge">
+<meta>
+<data name="description">Taller 1 Cristian y Jorge</data>
+<data name="creator">Taller 1 Cristian y Jorge</data>
+<data name="address"></data>
+<data name="email">cc.huertas@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m Marca(_r_1)
+		:g (_r_1_12) [1,1] 
+			: Dell(_r_1_12_13)
+			: Toshiba(_r_1_12_14)
+			: Lenovo(_r_1_12_15)
+			: Apple(_r_1_12_16)
+			: Clon(_r_1_12_17)
+	:m Sistema Operativo(_r_19)
+		:g (_r_19_22) [1,1] 
+			: Personal(_r_19_22_23)
+				:g (_r_19_22_23_25) [1,1] 
+					: Windows 10(_r_19_22_23_25_26)
+					: Fedora Linux(_r_19_22_23_25_27)
+					: OSX Yosemite(_r_19_22_23_25_28)
+			: Servidor(_r_19_22_24)
+				:g (_r_19_22_24_29) [1,1] 
+					: Windows Server(_r_19_22_24_29_30)
+					: RedHat(_r_19_22_24_29_31)
+					: OSX Server(_r_19_22_24_29_32)
+	:m CPU(_r_33)
+		:m Memoria RAM(_r_33_34)
+			:g (_r_33_34_38) [1,1] 
+				: 4Gb(_r_33_34_38_39)
+				: 8Gb(_r_33_34_38_40)
+				: 16Gb(_r_33_34_38_41)
+				: 32Gb(_r_33_34_38_42)
+				: 64Gb(_r_33_34_38_43)
+		:m Procesador(_r_33_35)
+			:g (_r_33_35_50) [1,1] 
+				: Intel(_r_33_35_50_51)
+				: AMD(_r_33_35_50_52)
+		:m Disco Duro(_r_33_36)
+			:g (_r_33_36_44) [1,1] 
+				: 500Gb(_r_33_36_44_45)
+				: 1Tb(_r_33_36_44_46)
+				: 2Tb(_r_33_36_44_47)
+				: 5Tb(_r_33_36_44_48)
+				: 10Tb(_r_33_36_44_49)
+		:o Tarjeta Grafica(_r_33_37)
+			:g (_r_33_37_53) [1,1] 
+				: Nvidia(_r_33_37_53_54)
+				: ATI Radeon(_r_33_37_53_55)
+	:o Pantalla(_r_56)
+		:o Tecnologia(_r_56_58)
+			:g (_r_56_58_78) [1,*] 
+				: 3D(_r_56_58_78_79)
+				: 4K(_r_56_58_78_80)
+		:m Tamano(_r_56_59)
+			:g (_r_56_59_63) [1,1] 
+				: 14(_r_56_59_63_64)
+				: 17(_r_56_59_63_65)
+				: 24(_r_56_59_63_66)
+	:o Planta Poder(_r_57)
+	:m Tipo(_r_67)
+		:g (_r_67_70) [1,1] 
+			: Portatil(_r_67_70_71)
+			: Mesa(_r_67_70_72)
+			: Servidor(_r_67_70_73)
+</feature_tree>
+<constraints>
+constraint_30:~_r_33_36_44_47 or ~_r_67_70_73
+constraint_34:~_r_67_70_71 or ~_r_56_58_78_80
+constraint_33:~_r_67_70_71 or ~_r_56_58_78_79
+constraint_17:~_r_33_34_38_43 or ~_r_67_70_71
+constraint_18:~_r_33_34_38_42 or ~_r_67_70_72
+constraint_28:~_r_33_36_44_45 or ~_r_67_70_73
+constraint_19:~_r_33_34_38_43 or ~_r_67_70_72
+constraint_29:~_r_33_36_44_46 or ~_r_67_70_73
+constraint_22:_r_1_12_16 or ~_r_19_22_23_25_28
+constraint_23:_r_1_12_16 or ~_r_19_22_24_29_32
+constraint_9:~_r_33_36_44_48 or ~_r_67_70_71
+constraint_11:~_r_33_36_44_49 or ~_r_67_70_71
+constraint_20:~_r_19_22_24 or ~_r_67_70_71
+constraint_12:~_r_33_36_44_48 or ~_r_67_70_72
+constraint_21:~_r_19_22_24 or ~_r_67_70_72
+constraint_26:~_r_33_34_38_40 or ~_r_67_70_73
+constraint_4:~_r_1_12_17 or ~_r_67_70_71
+constraint_13:~_r_33_36_44_49 or ~_r_67_70_72
+constraint_27:~_r_33_34_38_39 or ~_r_67_70_73
+constraint_5:_r_56 or ~_r_67_70_71
+constraint_24:~_r_19_22_24 or _r_67_70_73
+constraint_25:~_r_33_34_38_41 or ~_r_67_70_73
+constraint_16:~_r_33_34_38_42 or ~_r_67_70_71
+</constraints>
+</feature_model>

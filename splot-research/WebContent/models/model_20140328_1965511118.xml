@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 28, 2014 - 3:13 PM  -->
+<feature_model name="Dental Surgery">
+<meta>
+<data name="description">This diagram is the feature model of the given dental system.</data>
+<data name="creator">cr229</data>
+<data name="address"></data>
+<data name="email">cleoroti@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Leicester </data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Surgery(_r)
+	:m Slot(_r_1)
+	:m Appointment(_r_2)
+	:m Dentist(_r_3)
+	:o Products(_r_4)
+	:m Treatment(_r_5)
+	:m Customer(_r_6)
+		:g (_r_6_7) [1,1] 
+			: NHS(_r_6_7_8)
+		:g (_r_6_9) [1,1] 
+			: Private(_r_6_9_10)
+		:g (_r_6_11) [1,1] 
+			: Inactive(_r_6_11_12)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

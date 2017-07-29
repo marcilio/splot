@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Sep 19, 2016 - 7:02 PM  -->
+<feature_model name="Assistente de Compras">
+<meta>
+<data name="description">Teste</data>
+<data name="creator">Luiz Gustavo</data>
+<data name="address"></data>
+<data name="email">lgpa@icomp.ufam.edu.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFAM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Assistente Pessoal(_r)
+	:m Acesso(_r_15)
+		:g (_r_15_23) [1,1] 
+			: Mobile(_r_15_23_24)
+			: Web(_r_15_23_25)
+	:m Cadastro(_r_20)
+		:g (_r_20_21) [1,*] 
+			: Cliente(_r_20_21_22)
+			: Varejista(_r_20_21_27)
+				:m Produto(_r_20_21_27_31)
+	:m Lista(_r_28)
+		:o Pesquisa(_r_28_30)
+	:o Avaliar(_r_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

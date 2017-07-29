@@ -1,0 +1,30 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 26, 2014 - 10:40 AM  -->
+<feature_model name="Match de foot">
+<meta>
+<data name="description">Feature model d'un match de football</data>
+<data name="creator">Eddy Ghabach</data>
+<data name="address"></data>
+<data name="email">eddy_ghabach@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">I3S</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Match de foot(_r)
+	:o Competition(_r_1)
+	:m Stade(_r_2)
+	:m Date(_r_3)
+	:m Equipe acceuil(_r_4)
+	:m Equipe adverse(_r_5)
+	:m Arbitres(_r_6)
+		:m Arbitre central(_r_6_10)
+		:o Arbitre assistant 1(_r_6_13)
+		:o Arbitre assistant 2(_r_6_15)
+		:o Arbitre surveillant(_r_6_16)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

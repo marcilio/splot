@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Feb 15, 2017 - 1:00 AM  -->
+<feature_model name="AmazonEC2">
+<meta>
+<data name="description">AmazonEC2 (Garćıa-Galán et al., 2013)</data>
+<data name="creator">Igor Veselinvoic</data>
+<data name="address"></data>
+<data name="email">igorveselinovic@cmail.carleton.ca</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Carleton University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r AmazonEC2(_r)
+	:o LoadBalancer(_r_1)
+	:o VirtualMachine(_r_2)
+		:m OS(_r_2_4)
+			:g (_r_2_4_9) [1,1] 
+				: Windows(_r_2_4_9_10)
+					:g (_r_2_4_9_10_12) [1,1] 
+						: StdWindows(_r_2_4_9_10_12_13)
+						: SQLStd(_r_2_4_9_10_12_14)
+						: SQLWeb(_r_2_4_9_10_12_15)
+				: Linux(_r_2_4_9_11)
+					:g (_r_2_4_9_11_16) [1,1] 
+						: StdLinux(_r_2_4_9_11_16_17)
+						: RedHat(_r_2_4_9_11_16_18)
+						: Suse(_r_2_4_9_11_16_19)
+		:o DetailedMonitoring(_r_2_5)
+		:o Dedicated(_r_2_6)
+		:m InstanceType(_r_2_7)
+			:g (_r_2_7_20) [1,1] 
+				: Default(_r_2_7_20_21)
+					:g (_r_2_7_20_21_26) [1,1] 
+						: S(_r_2_7_20_21_26_27)
+						: M(_r_2_7_20_21_26_28)
+						: L(_r_2_7_20_21_26_29)
+						: XL(_r_2_7_20_21_26_30)
+				: HighIO(_r_2_7_20_22)
+				: HighMem(_r_2_7_20_23)
+					:g (_r_2_7_20_23_31) [1,1] 
+						: HighMemXL(_r_2_7_20_23_31_32)
+						: HighMem2XL(_r_2_7_20_23_31_34)
+						: HighMem4XL(_r_2_7_20_23_31_35)
+				: HighCPU(_r_2_7_20_24)
+					:g (_r_2_7_20_24_36) [1,1] 
+						: HighCPUM(_r_2_7_20_24_36_37)
+						: HighCPUXL(_r_2_7_20_24_36_38)
+				: Cluster(_r_2_7_20_25)
+					:g (_r_2_7_20_25_39) [1,1] 
+						: Cluster4XL(_r_2_7_20_25_39_40)
+						: GPU4XL(_r_2_7_20_25_39_41)
+						: Cluster8XL(_r_2_7_20_25_39_42)
+	:o Storage(_r_3)
+		:g (_r_3_43) [1,1] 
+			: Provisioned(_r_3_43_44)
+			: Std(_r_3_43_45)
+</feature_tree>
+<constraints>
+constraint_6:~_r_2_4_9_10_12_14 or ~_r_2_7_20_21_26_30
+constraint_7:~_r_2_4_9_10_12_14 or ~_r_2_7_20_24_36_37
+constraint_5:~_r_2_4_9_11_16_18 or ~_r_2_7_20_25
+</constraints>
+</feature_model>

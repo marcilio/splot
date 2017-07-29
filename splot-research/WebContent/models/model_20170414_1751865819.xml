@@ -1,0 +1,105 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, May 15, 2017 - 3:06 PM  -->
+<feature_model name="GoPhone">
+<meta>
+<data name="description">feature model for the GoPhone products</data>
+<data name="creator">Mariem Mefteh</data>
+<data name="address"></data>
+<data name="email">mariem.mefteh.ch@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ENIS</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r GoPhone(_r)
+	:m manage ringing tones(_r_1)
+		:g (_r_1_2) [1,1] 
+			: download tones(_r_1_2_3)
+			: tones composing(_r_1_2_4)
+		:o filtering ringing tones(_r_1_5)
+			:o attribute special tones to profiles(_r_1_5_6)
+	:o receive animated screen-savers(_r_7)
+	:o message(_r_8)
+		:m manage message(_r_8_9)
+			:m search message by strings(_r_8_9_10)
+			:m delete message(_r_8_9_11)
+			:m edit message(_r_8_9_12)
+			:m create new message(_r_8_9_13)
+				:m send message(_r_8_9_13_18)
+				:m save message(_r_8_9_13_19)
+				:m create basic message(_r_8_9_13_20)
+					:o automatic text recognition(_r_8_9_13_20_22)
+				:o create e-mail(_r_8_9_13_21)
+				:m attach object(_r_8_9_13_23)
+					:m save business card(_r_8_9_13_23_24)
+					:o save WAP-settings(_r_8_9_13_23_25)
+					:m save calendar entry(_r_8_9_13_23_26)
+					:o save file(_r_8_9_13_23_27)
+					:o save sound(_r_8_9_13_23_28)
+					:m attach business card(_r_8_9_13_23_29)
+					:m attach calendar entry(_r_8_9_13_23_30)
+				:m create extended short message(_r_8_9_13_31)
+			:o show message content(_r_8_9_14)
+		:m parse incoming messages(_r_8_17)
+			:m by basic parse(_r_8_17_36)
+			:o for special messages(_r_8_17_37)
+			:o for inserted objects(_r_8_17_38)
+	:o alarm clock(_r_32)
+	:o MS Outlook synchronization(_r_33)
+	:o address database(_r_34)
+	:m display flag(_r_35)
+	:o browse(_r_39)
+		:m browse folders(_r_39_40)
+		:o browsing(_r_39_41)
+	:o chat(_r_42)
+	:m addressbook processing(_r_43)
+		:m add contact entry to addressbook(_r_43_44)
+		:m display list of contacts(_r_43_46)
+			:m show contact information(_r_43_46_49)
+			:m search addressbook entry(_r_43_46_50)
+		:m modify addressbook entry(_r_43_47)
+		:m delete addressbook entry(_r_43_48)
+	:o provide voice dialing(_r_51)
+	:m call(_r_52)
+		:m accept incoming call(_r_52_53)
+		:m manage call(_r_52_54)
+			:m make call(_r_52_54_55)
+			:o show missed calls(_r_52_54_56)
+			:o show received calls(_r_52_54_57)
+	:m read multimedia(_r_58)
+		:m display photo(_r_58_59)
+		:o read video(_r_58_60)
+		:o read sound(_r_58_61)
+	:o redial(_r_62)
+		:o redial last call number(_r_62_64)
+		:o automatic redial(_r_62_65)
+	:o calendar entry(_r_66)
+		:m manage calendar entries(_r_66_67)
+			:m remove calendar entry(_r_66_67_69)
+			:m display calendar entries(_r_66_67_70)
+			:m edit calendar entry(_r_66_67_72)
+			:m add calendar entry(_r_66_67_73)
+		:m remainder for calendar entries(_r_66_68)
+	:o manage organizer(_r_74)
+		:m use calculator(_r_74_75)
+		:o ToDo list(_r_74_76)
+		:o notes(_r_74_77)
+		:o currency converter(_r_74_78)
+	:o game(_r_79)
+		:m play games(_r_79_80)
+		:o install games(_r_79_81)
+	:o voice dialing(_r_82)
+</feature_tree>
+<constraints>
+constraint_1:~_r_8_17 or _r_35
+constraint_8:~_r_8_9_13_23 or _r_39_40
+constraint_6:~_r_8_9_12 or _r_39_40
+constraint_7:~_r_8_9_14 or _r_39_40
+constraint_4:~_r_8_9_10 or _r_39_40
+constraint_5:~_r_8_9_11 or _r_39_40
+constraint_2:~_r_35 or _r_52_53
+constraint_3:_r_8_9_13_23_30 or ~_r_66_67_70
+</constraints>
+</feature_model>

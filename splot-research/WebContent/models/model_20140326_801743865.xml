@@ -1,0 +1,43 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 27, 2014 - 9:41 AM  -->
+<feature_model name="Cell-Phone-SPL-2014-Part2">
+<meta>
+<data name="description">An example of FM</data>
+<data name="creator">Ra'fat Al-msie'deen</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Lirmm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cell_Phone(_r)
+	:m Accu_Cell(_r_1)
+	:m Display(_r_2)
+	:m Games(_r_3)
+	:o Single_Player(_r_5)
+		:m Artificial_Opponent(_r_5_8)
+	:g (_r_9) [1,1] 
+		: Strong(_r_9_10)
+		: Medium(_r_9_11)
+		: Weak(_r_9_13)
+	:g (_r_28) [1,*] 
+		: Bluetooth(_r_28_29)
+		: Wireless(_r_28_30)
+		: Infrared(_r_28_31)
+		: Multi_Player(_r_28_32)
+</feature_tree>
+<constraints>
+constraint_8:_r_5_8 or ~_r_9_13
+constraint_10:~_r_28_29 or _r_28_30
+constraint_9:_r_28_30 or ~_r_28_31
+constraint_11:_r_9_10 or ~_r_28_29
+constraint_7:_r_5 or ~_r_9_13
+constraint_12:~_r_9_11 or ~_r_28_29
+constraint_13:~_r_9_13 or ~_r_28_32
+constraint_14:~_r_9_13 or ~_r_28_29
+constraint_15:_r_28_30 or _r_28_32
+</constraints>
+</feature_model>

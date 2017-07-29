@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 24, 2015 - 9:37 PM  -->
+<feature_model name="immortals">
+<meta>
+<data name="description">brass</data>
+<data name="creator">Fred Eisele</data>
+<data name="address"></data>
+<data name="email">phreed@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Vanderbilt University</data>
+<data name="department"></data>
+<data name="date">November 24, 2015</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r immortals case study(_r)
+	:m distributor(_r_1)
+		:m distribution policy evaluator(_r_1_6)
+		:o distribution policy editor(_r_1_8)
+		:m channel(_r_1_13)
+			:o file channel(_r_1_13_14)
+				:m sdcard(_r_1_13_14_15)
+			:o reliable channel(_r_1_13_16)
+			:o unreliable channel(_r_1_13_17)
+			:o secure radio channel(_r_1_13_18)
+	:m data contract(_r_2)
+		:m data store generation(_r_2_3)
+		:m reference user activity generation(_r_2_4)
+		:m topic registration(_r_2_5)
+	:m user presentation plug-in(_r_9)
+		:o maps(_r_9_10)
+			:m projections(_r_9_10_19)
+			:o annotations(_r_9_10_20)
+				:o military symbology(_r_9_10_20_26)
+				:m photography(_r_9_10_20_27)
+			:m map tile server(_r_9_10_21)
+			:o planning(_r_9_10_22)
+				:m measurement(_r_9_10_22_23)
+				:m annotation(_r_9_10_22_24)
+				:o path routing(_r_9_10_22_25)
+			:m sensor(_r_9_10_31)
+				:m location(_r_9_10_31_32)
+					:m GPS(_r_9_10_31_32_34)
+				:o temperature(_r_9_10_31_33)
+		:o chat(_r_9_11)
+			:m photo sharing(_r_9_11_29)
+			:o side bar topics(_r_9_11_30)
+		:o robot control(_r_9_12)
+			:o round trip video(_r_9_12_28)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

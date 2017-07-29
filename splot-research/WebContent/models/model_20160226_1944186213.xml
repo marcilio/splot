@@ -1,0 +1,112 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 28, 2016 - 1:59 AM  -->
+<feature_model name="TallerVarComputador">
+<meta>
+<data name="description">Taller Venta de Computadores</data>
+<data name="creator">Nicolas J</data>
+<data name="address"></data>
+<data name="email">estnicjimsae@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNIANDES</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computadores(_r)
+	:m Tipo(_r_2)
+		:g (_r_2_3) [1,1] 
+			: Escritorio(_r_2_3_4)
+		:g (_r_2_7) [1,1] 
+			: Laptop(_r_2_7_8)
+		:g (_r_2_9) [1,1] 
+			: Servidor(_r_2_9_10)
+	:m Marca(_r_11)
+		:g (_r_11_12) [1,1] 
+			: Dell(_r_11_12_13)
+		:g (_r_11_14) [1,1] 
+			: Toshiba(_r_11_14_15)
+		:g (_r_11_16) [1,1] 
+			: Lenovo(_r_11_16_17)
+		:g (_r_11_18) [1,1] 
+			: Apple(_r_11_18_19)
+		:g (_r_11_11) [1,1] 
+			: Clon(_r_11_11_12)
+	:m SO(_r_13)
+		:g (_r_13_14) [1,1] 
+			: Personales(_r_13_14_15)
+				:g (_r_13_14_15_18) [1,1] 
+					: Win10(_r_13_14_15_18_19)
+				:g (_r_13_14_15_20) [1,1] 
+					: Fedora(_r_13_14_15_20_21)
+				:g (_r_13_14_15_22) [1,1] 
+					: Yosemite(_r_13_14_15_22_23)
+		:g (_r_13_16) [1,1] 
+			: Servidores(_r_13_16_17)
+				:g (_r_13_16_17_26) [1,1] 
+					: WinServer(_r_13_16_17_26_27)
+				:g (_r_13_16_17_28) [1,1] 
+					: RedHat(_r_13_16_17_28_29)
+				:g (_r_13_16_17_30) [1,1] 
+					: XServer(_r_13_16_17_30_31)
+	:m CPU(_r_32)
+		:m RAM(_r_32_33)
+			:g (_r_32_33_37) [1,1] 
+				: 4GB(_r_32_33_37_38)
+			:g (_r_32_33_39) [1,1] 
+				: 8GB(_r_32_33_39_40)
+			:g (_r_32_33_41) [1,1] 
+				: 16GB(_r_32_33_41_42)
+			:g (_r_32_33_43) [1,1] 
+				: 32GB(_r_32_33_43_44)
+			:g (_r_32_33_45) [1,1] 
+				: 64GB(_r_32_33_45_46)
+		:m Procesador(_r_32_34)
+			:g (_r_32_34_57) [1,1] 
+				: Intel(_r_32_34_57_58)
+			:g (_r_32_34_59) [1,1] 
+				: AMD(_r_32_34_59_60)
+		:m DD(_r_32_35)
+			:g (_r_32_35_47) [1,1] 
+				: 500GB(_r_32_35_47_48)
+			:g (_r_32_35_49) [1,1] 
+				: 1TB(_r_32_35_49_50)
+			:g (_r_32_35_51) [1,1] 
+				: 2TB(_r_32_35_51_52)
+			:g (_r_32_35_53) [1,1] 
+				: 5TB(_r_32_35_53_54)
+			:g (_r_32_35_55) [1,1] 
+				: 10TB(_r_32_35_55_56)
+		:o GPU(_r_32_36)
+			:g (_r_32_36_61) [1,1] 
+				: NVIDIA(_r_32_36_61_62)
+			:g (_r_32_36_63) [1,1] 
+				: ATI(_r_32_36_63_64)
+	:o Pantalla(_r_65)
+		:o Tecnologia(_r_65_67)
+			:g (_r_65_67_51) [1,*] 
+				: 3D(_r_65_67_51_52)
+			:g (_r_65_67_53) [1,*] 
+				: 4K(_r_65_67_53_54)
+		:m Tamano(_r_65_72)
+			:g (_r_65_72_73) [1,1] 
+				: 14(_r_65_72_73_74)
+			:g (_r_65_72_75) [1,1] 
+				: 17(_r_65_72_75_76)
+			:g (_r_65_72_77) [1,1] 
+				: 24(_r_65_72_77_78)
+	:o FuentePoder(_r_66)
+</feature_tree>
+<constraints>
+constraint_8:_r_11_12_13 or _r_11_14_15 or _r_11_16_17 or _r_11_11_12 or ~_r_13_14_15_22_23 or ~_r_13_16_17_30_31
+constraint_9:_r_2_9_10 or ~_r_13_14_15
+constraint_10:_r_2_9_10 or ~_r_32_33_37_38 or ~_r_32_33_39_40 or ~_r_32_33_41_42
+constraint_6:_r_2_3_4 or _r_2_7_8 or ~_r_32_33_43_44 or ~_r_32_33_45_46
+constraint_11:_r_2_9_10 or ~_r_32_35_49_50 or ~_r_32_35_51_52
+constraint_7:_r_2_3_4 or _r_2_7_8 or ~_r_13_16_17
+constraint_14:_r_2_7_8 or ~_r_65_67_51_52 or ~_r_65_67_53_54
+constraint_5:_r_2_3_4 or _r_2_7_8 or ~_r_32_35_53_54 or ~_r_32_35_55_56
+constraint_2:_r_2_7_8 or ~_r_11_11_12
+constraint_3:_r_2_7_8 or _r_65
+</constraints>
+</feature_model>

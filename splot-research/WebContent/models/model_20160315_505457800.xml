@@ -1,0 +1,48 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 15, 2016 - 1:01 AM  -->
+<feature_model name="Trabalho Topicos">
+<meta>
+<data name="description">É um modelo de feature criado para aprendizado</data>
+<data name="creator">Anderson,Calison,Fabricio,Marilia, Joice e Rafael</data>
+<data name="address"></data>
+<data name="email">calisonsi@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Anderson,Calison,Fabricio,Marilia, Joice e Rafael</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Sistema(_r)
+	:m Campeonato(_r_1)
+		:m Partida(_r_1_3)
+			:m Cadastrar resultado(_r_1_3_4)
+			:m Cadastrar jogada(_r_1_3_5)
+		:m Criar Campeonato(_r_1_6)
+			:g (_r_1_6_7) [1,*] 
+				: Gerar Torneio(_r_1_6_7_8)
+				: Gerar Campeonato(_r_1_6_7_12)
+				: Gerar Copa(_r_1_6_7_13)
+		:m Cronograma(_r_1_14)
+			:m Criar Cronograma de Jogos(_r_1_14_15)
+				:m Cadastrar Partida(_r_1_14_15_17)
+				:m Gerar Partidas(_r_1_14_15_18)
+			:m Ver Cronograma(_r_1_14_19)
+			:m Gerenciar Datas de Jogos(_r_1_14_20)
+				:m Adicionar data da partida(_r_1_14_20_21)
+				:m Editar data da partida(_r_1_14_20_22)
+		:m Ver Ranking(_r_1_24)
+		:o Penalizar Time(_r_1_26)
+	:m Time(_r_2)
+		:o Adicionar estatistica de time(_r_2_27)
+		:m Cadastrar time(_r_2_28)
+		:m Jogador(_r_2_29)
+			:o Adicionar estatistica de jogador(_r_2_29_30)
+			:m Cadastrar Jogador(_r_2_29_31)
+		:o Membros Auxiliares(_r_2_32)
+		:o Cadastrar tecnico(_r_2_35)
+		:o Cadastrar Auxiliares(_r_2_36)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

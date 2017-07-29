@@ -1,0 +1,50 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 15, 2015 - 2:06 PM  -->
+<feature_model name="Mobile Phone">
+<meta>
+<data name="description">FM of Mobile Phone</data>
+<data name="creator">Muhammad Javed</data>
+<data name="address">Hazara University</data>
+<data name="email">mjavedgohar@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Hazara University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r a(_r)
+	:m utility(_r_23)
+		:m calls(_r_23_24)
+			:g (_r_23_24_29) [1,*] 
+				: voice(_r_23_24_29_30)
+				: data(_r_23_24_29_31)
+		:m Message(_r_23_25)
+			:g (_r_23_25_32) [1,*] 
+				: sms(_r_23_25_32_33)
+				: mms(_r_23_25_32_34)
+				: ems(_r_23_25_32_35)
+		:o games(_r_23_26)
+		:m alarm(_r_23_27)
+		:m tones(_r_23_28)
+	:m setting(_r_36)
+		:o java(_r_36_37)
+		:m os(_r_36_38)
+			:g (_r_36_38_39) [1,1] 
+				: symbion(_r_36_38_39_40)
+				: winCE(_r_36_38_39_41)
+	:o media(_r_43)
+		:o camera(_r_43_44)
+		:o mp3(_r_43_45)
+		:o mp4(_r_43_46)
+	:o connect(_r_47)
+		:g (_r_47_48) [1,*] 
+			: bluetooth(_r_47_48_49)
+			: usb(_r_47_48_50)
+			: wifi(_r_47_48_51)
+</feature_tree>
+<constraints>
+constraint_8:~_r_23_26 or _r_36_37
+constraint_9:~_r_43_45 or ~_r_43_46
+</constraints>
+</feature_model>

@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Sep 5, 2016 - 12:47 PM  -->
+<feature_model name="Celulares">
+<meta>
+<data name="description">Variabilidad de celulares</data>
+<data name="creator">Wilson Guarin</data>
+<data name="address"></data>
+<data name="email">wr.guarin234@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Celulares(_r)
+	:m Hacer y recibir llamadas(_r_1)
+	:g (_r_3) [1,*] 
+		: Pantalla basica(_r_3_4)
+		: Pantalla a color(_r_3_5)
+			:o GPS(_r_3_5_16)
+		: Pantalla Alta resolucion(_r_3_6)
+			:o Camara de Fotos(_r_3_6_7)
+				:g (_r_3_6_7_9) [1,*] 
+					: 5 MP(_r_3_6_7_9_10)
+					: 10 MP(_r_3_6_7_9_11)
+			:o Reproductor de videos y fotos(_r_3_6_12)
+			:o GPS(_r_3_6_17)
+	:o Reproductor de Muscia(_r_13)
+	:m Conexion 3G(_r_14)
+	:o Conexion 4G(_r_15)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

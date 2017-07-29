@@ -1,0 +1,60 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 21, 2014 - 4:26 PM  -->
+<feature_model name="bCMSContext">
+<meta>
+<data name="description">car crash crisis management system context</data>
+<data name="creator">mehrnaz najafi</data>
+<data name="address"></data>
+<data name="email">mehrnaz@cs.toronto.edu</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">university of toronto</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r bCMSContext(_r)
+	:o InteractionDevice(_r_1)
+		:o BiometricSensorDetector(_r_1_4)
+		:o PoliceCarGPS(_r_1_34)
+		:o FireTruckGPS(_r_1_35)
+	:m Network(_r_2)
+		:m Server(_r_2_8)
+			:m Standard(_r_2_8_15)
+			:o KeyGenerator(_r_2_8_16)
+			:o CertificateGenerator(_r_2_8_17)
+		:m Connection(_r_2_9)
+			:o EncryptionCX(_r_2_9_18)
+			:m Protocol(_r_2_9_19)
+				:g (_r_2_9_19_21) [1,*] 
+					: HTTPCX(_r_2_9_19_21_22)
+					: SOAPCX(_r_2_9_19_21_23)
+					: SSLCX(_r_2_9_19_21_24)
+	:m ObjectOfInterest(_r_25)
+		:m CrisisCX(_r_25_27)
+			:m CMutiplicity(_r_25_27_36)
+				:g (_r_25_27_36_39) [1,1] 
+					: SingleCrisis(_r_25_27_36_39_40)
+					: MultipleCrisis(_r_25_27_36_39_41)
+			:o CLocation(_r_25_27_37)
+				:g (_r_25_27_37_42) [1,1] 
+					: DangerousLocation(_r_25_27_37_42_43)
+					: NormalLocation(_r_25_27_37_42_44)
+			:m VictimCX(_r_25_27_33)
+				:g (_r_25_27_33_34) [1,1] 
+					: CriticalCondition(_r_25_27_33_34_35)
+					: NonCriticalCondition(_r_25_27_33_34_36)
+		:m FireStation(_r_25_28)
+			:g (_r_25_28_30) [1,1] 
+				: OneFireStation(_r_25_28_30_31)
+				: ManyFireStation(_r_25_28_30_32)
+		:m PoliceStation(_r_25_29)
+			:g (_r_25_29_33) [1,1] 
+				: OnePoliceStation(_r_25_29_33_34)
+				: ManyPoliceStation(_r_25_29_33_35)
+		:m Vehicle(_r_25_46)
+			:o CitizenVehicle(_r_25_46_48)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

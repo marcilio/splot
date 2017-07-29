@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 26, 2016 - 1:32 PM  -->
+<feature_model name="BC">
+<meta>
+<data name="description">Bike Computer Usecase</data>
+<data name="creator">Oliver Zippel</data>
+<data name="address"></data>
+<data name="email">oz017@uni-rostock.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uni Rostock</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BC(_r)
+	:m Display(_r_1)
+	:m 4Controls(_r_2)
+	:m mountable(_r_3)
+		:g (_r_3_8) [1,1] 
+			: permanent(_r_3_8_9)
+			: removeable(_r_3_8_26)
+	:m speedometer(_r_4)
+		:o average speed(_r_4_17)
+	:m Distance(_r_5)
+	:m Tripcount(_r_6)
+		:m average trip(_r_6_19)
+	:m Clock(_r_7)
+		:o stop watch(_r_7_20)
+	:m Sensor(_r_12)
+		:o wired(_r_12_13)
+		:o wireless(_r_12_16)
+	:o pedal rotation(_r_21)
+		:o pedal rotation per minute(_r_21_22)
+	:o Heartbeat(_r_23)
+	:o GPS Navi(_r_24)
+	:o Nike Bike Shoes(_r_25)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

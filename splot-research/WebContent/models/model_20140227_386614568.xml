@@ -1,0 +1,107 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Apr 7, 2014 - 8:04 PM  -->
+<feature_model name="Speech Recognition">
+<meta>
+<data name="description">fm do processo de reconhecimento de fala</data>
+<data name="creator">Diógenes Ricardo</data>
+<data name="address"></data>
+<data name="email">diogenesr.freitas@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">POLI/UPE</data>
+<data name="department"></data>
+<data name="date">02/27/2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Speech Recognition(_r)
+	:m BaseDeDados(_r_1)
+		:m Gereciamento de Locutores(_r_1_3)
+		:m Gereciamento de Locucoes(_r_1_4)
+			:g (_r_1_4_13) [1,1] 
+				: Manual(_r_1_4_13_14)
+				: Importacao(_r_1_4_13_15)
+		:m Gerenciar Dicionario(_r_1_8)
+			:o Calculo do Histograma(_r_1_8_22)
+		:m Selecao das Amostras(_r_1_16)
+			:o Calcular SNR(_r_1_16_18)
+			:g (_r_1_16_19) [1,1] 
+				: Importacao(_r_1_16_19_20)
+				: Transcricao(_r_1_16_19_21)
+	:m Extracao de Caracteristicas(_r_2)
+		:o Aplicar VAD(_r_2_14)
+		:o Normalizacao(_r_2_15)
+		:m Superposicao(_r_2_20)
+			:g (_r_2_20_21) [1,1] 
+				: 0(_r_2_20_21_22)
+				: 025(_r_2_20_21_23)
+				: 05(_r_2_20_21_24)
+				: 06(_r_2_20_21_25)
+				: 075(_r_2_20_21_26)
+		:m Duracao do Frame(_r_2_27)
+			:g (_r_2_27_28) [1,1] 
+				: 10(_r_2_27_28_29)
+				: 15(_r_2_27_28_30)
+				: 20(_r_2_27_28_31)
+				: 25(_r_2_27_28_32)
+				: 30(_r_2_27_28_33)
+		:m Janelamento(_r_2_34)
+			:g (_r_2_34_35) [1,1] 
+				: Hamming(_r_2_34_35_36)
+				: Hanning(_r_2_34_35_37)
+				: Retangular(_r_2_34_35_38)
+		:m Tecnica(_r_2_39)
+			:g (_r_2_39_40) [1,1] 
+				: MFCC(_r_2_39_40_41)
+					:m NumeroDeFiltros(_r_2_39_40_41_44)
+					:m Espectro(_r_2_39_40_41_47)
+						:g (_r_2_39_40_41_47_49) [1,1] 
+							: Magnitute(_r_2_39_40_41_47_49_50)
+							: Energia(_r_2_39_40_41_47_49_51)
+					:m NumeroDeCoeficientes(_r_2_39_40_41_48)
+						:g (_r_2_39_40_41_48_52) [1,1] 
+							: MFCC(_r_2_39_40_41_48_52_53)
+							: MFCC_D(_r_2_39_40_41_48_52_54)
+							: MFCC_D_A(_r_2_39_40_41_48_52_55)
+				: HTK(_r_2_39_40_42)
+					:m NumeroDeFiltros(_r_2_39_40_42_56)
+					:m NumeroDeCoeficientes(_r_2_39_40_42_57)
+				: MGCC(_r_2_39_40_43)
+	:m Classificacao de Padroes(_r_58)
+		:m Divisao da Base(_r_58_59)
+		:m Threashold(_r_58_60)
+		:m Tecnica(_r_58_61)
+			:g (_r_58_61_63) [1,1] 
+				: SVM(_r_58_61_63_64)
+					:m Kernel(_r_58_61_63_64_69)
+						:g (_r_58_61_63_64_69_70) [1,1] 
+							: Linear(_r_58_61_63_64_69_70_71)
+							: Polinomial(_r_58_61_63_64_69_70_72)
+							: Sigmoide(_r_58_61_63_64_69_70_73)
+							: RBF(_r_58_61_63_64_69_70_74)
+						:m GAMMA(_r_58_61_63_64_69_75)
+						:m COST(_r_58_61_63_64_69_76)
+						:m DEGREE(_r_58_61_63_64_69_77)
+				: HMM(_r_58_61_63_65)
+					:m Gaussianas(_r_58_61_63_65_80)
+					:m Interacoes(_r_58_61_63_65_81)
+					:m HERest(_r_58_61_63_65_82)
+					:m Estado(_r_58_61_63_65_85)
+						:g (_r_58_61_63_65_85_88) [1,1] 
+							: Por Fonema(_r_58_61_63_65_85_88_89)
+							: Fixo(_r_58_61_63_65_85_88_94)
+					:m Topologia 1(_r_58_61_63_65_86)
+						:g (_r_58_61_63_65_86_90) [1,1] 
+							: Simples(_r_58_61_63_65_86_90_91)
+							: Left_Right(_r_58_61_63_65_86_90_95)
+					:m Topologia 2(_r_58_61_63_65_87)
+						:g (_r_58_61_63_65_87_92) [1,1] 
+							: Word(_r_58_61_63_65_87_92_93)
+							: Fonema(_r_58_61_63_65_87_92_96)
+							: Trifonema(_r_58_61_63_65_87_92_97)
+				: GMM(_r_58_61_63_66)
+					:m Numero de Interacoes(_r_58_61_63_66_78)
+					:m Numero de Gaussianas(_r_58_61_63_66_79)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Nov 9, 2016 - 9:30 AM  -->
+<feature_model name="SPL_e_commerce">
+<meta>
+<data name="description">Toy example of a SPL about e-commerce applications</data>
+<data name="creator">Jessie Carbonnel</data>
+<data name="address"></data>
+<data name="email">jessie.carbonnel@lirmm.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">LIRMM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r e_commerce(_r)
+	:m catalog(_r_1)
+		:g (_r_1_2) [1,1] 
+			: grid(_r_1_2_3)
+			: list(_r_1_2_4)
+	:o payment_method(_r_5)
+		:g (_r_5_6) [1,*] 
+			: credit_card(_r_5_6_7)
+			: check(_r_5_6_8)
+	:o basket(_r_9)
+	:o wishlist(_r_10)
+	:o newsletter(_r_11)
+</feature_tree>
+<constraints>
+constraint_1:~_r_5 or _r_9
+constraint_2:_r_5 or ~_r_9
+</constraints>
+</feature_model>

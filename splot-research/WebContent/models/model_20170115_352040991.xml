@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jan 15, 2017 - 12:18 PM  -->
+<feature_model name="MobiLine">
+<meta>
+<data name="description">A Software Product Line for the Development of Mobile and Context-Sensitive Applications</data>
+<data name="creator">Anderson Gonçalves Uchôa</data>
+<data name="address"></data>
+<data name="email">andersonguchoa@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Federal University of Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobiLine(_r)
+	:m Show Map(_r_1)
+		:o Show Location(_r_1_2)
+	:o Show Profile Compatibility(_r_3)
+	:m Show Profile Environment(_r_4)
+		:m List Items(_r_4_5)
+			:m Show Documents(_r_4_5_6)
+				:g (_r_4_5_6_7) [1,*] 
+					: Video(_r_4_5_6_7_8)
+					: Image(_r_4_5_6_7_9)
+					: Text(_r_4_5_6_7_10)
+	:m Manage Context(_r_11)
+		:o Persistence(_r_11_12)
+		:m Access(_r_11_13)
+		:m Acquisition(_r_11_14)
+			:m Capture(_r_11_14_15)
+				:g (_r_11_14_15_16) [1,*] 
+					: Via Sensor(_r_11_14_15_16_17)
+					: Via External Service(_r_11_14_15_16_18)
+</feature_tree>
+<constraints>
+constraint_1:~_r_11_14_15_16_17 or _r_11_14_15_16_18
+</constraints>
+</feature_model>

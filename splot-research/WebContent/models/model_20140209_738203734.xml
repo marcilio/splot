@@ -1,0 +1,104 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 9, 2014 - 3:37 PM  -->
+<feature_model name="Ornaments Design">
+<meta>
+<data name="description">Ornaments drawing</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r OrnamentsDesign(_r)
+	:m Objective(_r_1)
+		:m LN(_r_1_16)
+	:m Activity(_r_2)
+		:g (_r_2_17) [1,1] 
+			: CT(_r_2_17_18)
+			: PS(_r_2_17_19)
+	:m Level(_r_3)
+		:g (_r_3_20) [1,1] 
+			: BG(_r_3_20_21)
+			: IT(_r_3_20_22)
+			: AD(_r_3_20_23)
+	:m Method(_r_5)
+		:g (_r_5_28) [1,1] 
+			: PR(_r_5_28_29)
+			: PB(_r_5_28_30)
+	:m Motor(_r_6)
+		:g (_r_6_31) [1,1] 
+			: AB(_r_6_31_32)
+			: AC(_r_6_31_33)
+			: BC(_r_6_31_34)
+	:m Speed1(_r_7)
+		:g (_r_7_35) [1,1] 
+			: 10(_r_7_35_36)
+			: 30(_r_7_35_37)
+			: 50(_r_7_35_38)
+	:m Speed2(_r_8)
+		:g (_r_8_39) [1,1] 
+			: 10(_r_8_39_40)
+			: 30(_r_8_39_41)
+			: 50(_r_8_39_42)
+	:m Time(_r_9)
+		:g (_r_9_43) [1,1] 
+			: 1000(_r_9_43_44)
+			: 3000(_r_9_43_45)
+			: 5000(_r_9_43_46)
+	:m P(_r_10)
+		:g (_r_10_47) [1,1] 
+			: 4(_r_10_47_48)
+			: 5(_r_10_47_49)
+			: 6(_r_10_47_50)
+	:m D1(_r_11)
+		:g (_r_11_51) [1,1] 
+			: 10(_r_11_51_52)
+			: 30(_r_11_51_53)
+	:m D2(_r_12)
+		:g (_r_12_54) [1,1] 
+			: 10(_r_12_54_55)
+			: 30(_r_12_54_56)
+	:m T1(_r_13)
+		:g (_r_13_57) [1,1] 
+			: 200(_r_13_57_58)
+			: 500(_r_13_57_59)
+	:m P1(_r_14)
+		:g (_r_14_60) [1,*] 
+			: 1(_r_14_60_61)
+			: 2(_r_14_60_62)
+			: 3(_r_14_60_63)
+	:m Priority(_r_15)
+		:g (_r_15_64) [1,*] 
+			: PH(_r_15_64_65)
+			: PI(_r_15_64_66)
+			: PL(_r_15_64_67)
+			: None(_r_15_64_68)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1 or _r_15_64_65
+constraint_19:~_r_3_20_21 or _r_14_60_61
+constraint_22:~_r_3_20_23 or _r_14_60_61
+constraint_8:~_r_7 or _r_15_64_67
+constraint_23:~_r_3_20_23 or _r_14_60_62
+constraint_9:~_r_8 or _r_15_64_67
+constraint_10:~_r_9 or _r_15_64_67
+constraint_20:~_r_3_20_22 or _r_14_60_61
+constraint_6:~_r_5 or _r_15_64_65
+constraint_11:~_r_10 or _r_15_64_67
+constraint_21:~_r_3_20_22 or _r_14_60_62
+constraint_7:~_r_6 or _r_15_64_67
+constraint_12:~_r_11 or _r_15_64_67
+constraint_26:~_r_3_20_21 or ~_r_14_60_63
+constraint_4:~_r_3 or _r_15_64_66
+constraint_13:~_r_12 or _r_15_64_67
+constraint_14:~_r_13 or _r_15_64_67
+constraint_24:~_r_3_20_23 or _r_14_60_63
+constraint_2:~_r_2 or _r_15_64_65
+constraint_15:~_r_14 or _r_15_64_67
+constraint_25:~_r_3_20_21 or ~_r_14_60_62
+</constraints>
+</feature_model>

@@ -1,0 +1,76 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 23, 2015 - 5:55 PM  -->
+<feature_model name="Heidelberg Ion-Beam Therapy Center">
+<meta>
+<data name="description">Software system of a complex medical device of radiotherapy.</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date">23-05-2015</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r DeviceControlUnit(_r)
+	:m DCUMasterParameter(_r_1)
+		:m MeasuringMode(_r_1_2)
+			:g (_r_1_2_3) [1,1] 
+				: Mode4(_r_1_2_3_4)
+				: Mode3(_r_1_2_3_5)
+				: Mode2(_r_1_2_3_6)
+				: Mode1(_r_1_2_3_7)
+				: Mode0(_r_1_2_3_8)
+		:o RtbTimingEn(_r_1_9)
+		:o ErrorMonEn(_r_1_10)
+		:m AddRtbDelayTime(_r_1_11)
+		:m LowCurrentTimer(_r_1_12)
+	:m DCUTypeParameter(_r_13)
+		:m Name(_r_13_14)
+		:o DeviceControlParameter(_r_13_15)
+			:o RefValueTHoldMax(_r_13_15_16)
+			:m TimeoutFeedback(_r_13_15_17)
+			:m DelayTimeFeedback(_r_13_15_18)
+			:m DelayTimeActivate(_r_13_15_19)
+			:o BeamRequest(_r_13_15_20)
+			:o EnableShutdown(_r_13_15_21)
+			:o EnableSwitchOn(_r_13_15_22)
+		:m Checksum(_r_13_23)
+		:m Version(_r_13_24)
+		:o TimingMasterParameter(_r_13_25)
+			:o EnableGenRTBMasterClock(_r_13_25_50)
+			:o EnableSyncSupplyFequence(_r_13_25_51)
+	:m OperationMode(_r_26)
+		:g (_r_26_27) [1,1] 
+			: QualityAssurance(_r_26_27_28)
+			: Adjustment(_r_26_27_29)
+			: Experiment(_r_26_27_30)
+			: Standby(_r_26_27_31)
+			: Therapy(_r_26_27_32)
+			: Manual(_r_26_27_33)
+			: Idle(_r_26_27_34)
+	:m DeviceController(_r_35)
+	:m Type(_r_36)
+		:g (_r_36_37) [1,1] 
+			: Z(_r_36_37_38)
+			: SD(_r_36_37_39)
+			: DeviceControl(_r_36_37_40)
+				:g (_r_36_37_40_41) [1,1] 
+					: Ramped(_r_36_37_40_41_42)
+						:g (_r_36_37_40_41_42_46) [1,1] 
+							: RK(_r_36_37_40_41_42_46_47)
+							: RB(_r_36_37_40_41_42_46_48)
+							: R(_r_36_37_40_41_42_46_49)
+					: P(_r_36_37_40_41_43)
+					: T(_r_36_37_40_41_44)
+					: TS(_r_36_37_40_41_45)
+</feature_tree>
+<constraints>
+constraint_1:~_r_13_15 or _r_36_37_40
+constraint_6:_r_13_25 or ~_r_36_37_38
+constraint_4:~_r_13_15_16 or ~_r_36_37_40_41_42_46_47
+constraint_5:~_r_13_25 or _r_36_37_38
+constraint_3:_r_13_15 or ~_r_36_37_40
+</constraints>
+</feature_model>

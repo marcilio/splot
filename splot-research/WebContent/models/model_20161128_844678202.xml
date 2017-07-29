@@ -1,0 +1,65 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Nov 28, 2016 - 2:43 PM  -->
+<feature_model name="mac">
+<meta>
+<data name="description">Mac OS</data>
+<data name="creator">Austin</data>
+<data name="address">AustinW</data>
+<data name="email">wkaustin1@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Laboratoire</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Accessibility(_r0)
+	:o InvertColors(_r1)
+	:o ReduceAnimations(_r2)
+	:o IncreaseContrast(_r3)
+		:g (_id_0) [1,1] 
+			: ReduceTheWhitePoint(_r4)
+			: DarkenTheColors(_r5)
+			: ReduceTransparency(_r6)
+	:o Speech(_r7)
+		:o StateTheContentOfTheScreen(_r8)
+		:o StateTheSelection(_r9)
+		:o ChoiceOfVoice(_r10)
+			:m Voice(_r11)
+				:g (_id_1) [1,1] 
+					: English(_r12)
+					: French(_r13)
+						:g (_id_2) [1,1] 
+							: CanadaFrench(_r14)
+								:o ImprovedQualityCF(_r15)
+							: FranceFrench(_r16)
+								:o ImprovedQualityFF(_r17)
+			:o VoiceDebit(_r18)
+			:o HighlightContent(_r19)
+		:o AutomaticEnunciation(_r20)
+	:o Zoom(_r21)
+		:o FollowUpFocus(_r22)
+		:o ZoomOnTheKeyboard(_r23)
+		:o ZoomInOnAnArea(_r24)
+			:g (_id_3) [1,1] 
+				: ZoomFullScreen(_r25)
+				: ZoomWindow(_r26)
+		:o ViewTheVisibilityController(_r27)
+	:o LargerFont(_r28)
+		:g (_id_4) [1,1] 
+			: SizeFive(_r29)
+			: SizeFour(_r30)
+			: SizeOne(_r31)
+			: SizeTwo(_r32)
+			: SizeSix(_r33)
+			: SizeThree(_r34)
+	:o ActivatedLabels(_r35)
+	:o BoldText(_r36)
+	:o ButtonShape(_r37)
+	:o ShadesOfGray(_r38)
+</feature_tree>
+<constraints>
+C0:~_r9 or _r10
+C1:~_r8 or _r10
+</constraints>
+</feature_model>

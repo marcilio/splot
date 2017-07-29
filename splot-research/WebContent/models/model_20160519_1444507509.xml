@@ -1,0 +1,89 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 19, 2016 - 11:35 AM  -->
+<feature_model name="Bike">
+<meta>
+<data name="description">A simple bicycle with suppliers</data>
+<data name="creator">Paul Ogris</data>
+<data name="address"></data>
+<data name="email">fubar@example.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Example.com</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Bike(_r)
+	:m Frame(_r_1)
+		:g (_r_1_3) [1,1] 
+			: Diamond(_r_1_3_4)
+				:g (_r_1_3_4_36) [1,1] 
+					: F1-D(_r_1_3_4_36_37)
+					: F2-D(_r_1_3_4_36_38)
+			: Step-Through(_r_1_3_5)
+				:g (_r_1_3_5_39) [1,1] 
+					: F1-S(_r_1_3_5_39_40)
+			: Triathlon(_r_1_3_7)
+				:g (_r_1_3_7_41) [1,1] 
+					: F2-T1(_r_1_3_7_41_42)
+					: F2-T2(_r_1_3_7_41_43)
+	:m Wheels(_r_2)
+		:g (_r_2_9) [1,1] 
+			: 20in(_r_2_9_10)
+			: 21in(_r_2_9_11)
+			: 22in(_r_2_9_12)
+			: 23in(_r_2_9_13)
+			: 24in(_r_2_9_14)
+			: 25in(_r_2_9_15)
+			: 26in(_r_2_9_16)
+			: 27in(_r_2_9_17)
+			: 28in(_r_2_9_18)
+	:o Light(_r_8)
+	:m Type(_r_20)
+		:g (_r_20_23) [1,1] 
+			: City(_r_20_23_24)
+			: Mountain(_r_20_23_25)
+			: Racing(_r_20_23_26)
+	:o Usage(_r_27)
+		:g (_r_27_28) [1,*] 
+			: Speed(_r_27_28_29)
+			: Offroad(_r_27_28_30)
+			: NightUsage(_r_27_28_31)
+			: CustomerSize(_r_27_28_32)
+				:g (_r_27_28_32_33) [1,1] 
+					: Tall(_r_27_28_32_33_34)
+					: Short(_r_27_28_32_33_35)
+	:m Supplier(_r_44)
+		:m Sup_Frame(_r_44_45)
+			:g (_r_44_45_47) [1,1] 
+				: F1(_r_44_45_47_48)
+				: F2(_r_44_45_47_49)
+		:m Sup_Wheels(_r_44_46)
+			:g (_r_44_46_55) [1,1] 
+				: W1(_r_44_46_55_56)
+				: W2(_r_44_46_55_57)
+				: W3(_r_44_46_55_58)
+		:o Sup_Light(_r_44_59)
+</feature_tree>
+<constraints>
+constraint_17:~_r_1_3_4_36_38 or _r_44_45_47_49
+constraint_18:~_r_1_3_7_41_42 or _r_44_45_47_49
+constraint_19:~_r_1_3_7_41_43 or _r_44_45_47_49
+constraint_8:_r_20_23_26 or ~_r_27_28_29
+constraint_9:_r_8 or ~_r_27_28_31
+constraint_10:_r_2_9_14 or _r_2_9_15 or _r_2_9_16 or _r_2_9_17 or _r_2_9_18 or ~_r_27_28_32_33_34
+constraint_20:~_r_44_45_47_49 or ~_r_44_59
+constraint_6:~_r_8 or ~_r_20_23_25
+constraint_11:_r_2_9_10 or _r_2_9_11 or _r_2_9_12 or _r_2_9_13 or _r_2_9_14 or ~_r_27_28_32_33_35
+constraint_7:_r_20_23_25 or ~_r_27_28_30
+constraint_12:~_r_44_45_47_49 or ~_r_44_46_55_56
+constraint_4:_r_1_3_4 or _r_1_3_7 or ~_r_20_23_26
+constraint_13:~_r_44_45_47_48 or ~_r_44_46_55_57
+constraint_14:~_r_1_3_4_36_37 or _r_44_45_47_48
+constraint_5:_r_8 or ~_r_20_23_24
+constraint_15:~_r_1_3_5_39_40 or _r_44_45_47_48
+constraint_2:_r_1_3_4 or ~_r_20_23_25
+constraint_16:~_r_1_3_5_39_40 or _r_44_45_47_48
+constraint_3:_r_1_3_4 or _r_1_3_5 or ~_r_20_23_24
+</constraints>
+</feature_model>

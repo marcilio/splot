@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jun 3, 2016 - 7:18 AM  -->
+<feature_model name="markke core asset testing">
+<meta>
+<data name="description">markke core asset testing</data>
+<data name="creator">markke</data>
+<data name="address"></data>
+<data name="email">mark_kemelman@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IS</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IdenticalCluster_3 - librarian  order or donate - system  save copy details - system  update copy status - system  notify librarian(_r)
+	:m Sub_Sent_1(_r_1)
+		:m AM-TMP -  When (_r_1_2)
+		:m A0 - a librarian(_r_1_3)
+		:g (_r_1_4) [1,1] 
+			: ACTION - order(_r_1_4_5)
+			: ACTION - donate(_r_1_4_6)
+		:g (_r_1_7) [1,1] 
+			: A1 - an additional copy of a book the library has(_r_1_7_8)
+			: A1 - a copy of a book  which the library has(_r_1_7_9)
+			: A1 - a copy of a book  which the library does not hold(_r_1_7_10)
+			: A1 - a copy which the library does not hold(_r_1_7_11)
+	:o Sub_Sent_4(_r_12)
+		:m A0 - the system(_r_12_13)
+		:m ACTION -  notify(_r_12_14)
+		:g (_r_12_15) [1,1] 
+			: A1 - the librarian that the operation succeeded(_r_12_15_16)
+			: A1 - the librarian that the operation has succeeded(_r_12_15_17)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

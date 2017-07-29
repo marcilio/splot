@@ -1,0 +1,84 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Nov 8, 2015 - 11:31 PM  -->
+<feature_model name="Nomads feature model">
+<meta>
+<data name="description">A feature model for Nomads</data>
+<data name="creator">Rogier van Dinther</data>
+<data name="address"></data>
+<data name="email">a.backwood@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Miracle Media</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Game(_r)
+	:m Gameplay(_r_1)
+		:m Buildings(_r_1_7)
+			:o Movable buildings(_r_1_7_16)
+			:m Building types(_r_1_7_41)
+				:g (_r_1_7_41_44) [1,*] 
+					: Production buildings(_r_1_7_41_44_45)
+					: Storage(_r_1_7_41_44_46)
+					: Activity buildings(_r_1_7_41_44_47)
+					: Tech buildings(_r_1_7_41_44_48)
+		:m People(_r_1_9)
+			:m Needs(_r_1_9_21)
+				:g (_r_1_9_21_22) [1,*] 
+					: Activity needs(_r_1_9_21_22_23)
+					: Consumption(_r_1_9_21_22_24)
+			:o Skills(_r_1_9_33)
+			:m Activities(_r_1_9_34)
+				:g (_r_1_9_34_35) [1,*] 
+					: Production activity(_r_1_9_34_35_36)
+					: Research activity(_r_1_9_34_35_37)
+		:o Technology(_r_1_10)
+			:g (_r_1_10_11) [1,1] 
+				: Linear tech tree(_r_1_10_11_12)
+				: Iterative improvement(_r_1_10_11_13)
+				: Linear-iterative hybrid(_r_1_10_11_14)
+		:m Playstyle(_r_1_15)
+			:g (_r_1_15_13) [1,1] 
+				: Nomadic(_r_1_15_13_14)
+				: Stationary(_r_1_15_13_15)
+		:m Resources(_r_1_38)
+			:m Raw resources(_r_1_38_39)
+			:o Manufactured resources(_r_1_38_40)
+		:m World(_r_1_41)
+			:o Local variation(_r_1_41_42)
+			:o Global variation(_r_1_41_43)
+			:m World layout(_r_1_41_44)
+				:g (_r_1_41_44_45) [1,1] 
+					: Random layout(_r_1_41_44_45_46)
+					: Longtitude-realistic layout(_r_1_41_44_45_47)
+					: Geographically realistic layout(_r_1_41_44_45_48)
+					: Orbital layout(_r_1_41_44_45_52)
+	:m Graphics(_r_2)
+		:m Dimension(_r_2_49)
+			:g (_r_2_49_50) [1,1] 
+				: 2D(_r_2_49_50_51)
+				: 2D-3D(_r_2_49_50_49)
+		:m Art(_r_2_52)
+			:g (_r_2_52_53) [1,1] 
+				: Cartoon(_r_2_52_53_54)
+				: Realistic(_r_2_52_53_55)
+				: Stylistic(_r_2_52_53_56)
+	:m Audio(_r_3)
+		:g (_r_3_26) [1,*] 
+			: Ambient sound(_r_3_26_27)
+			: Sound effects(_r_3_26_28)
+			: Background music(_r_3_26_29)
+			: UI sounds(_r_3_26_30)
+	:m UI(_r_31)
+		:g (_r_31_49) [1,1] 
+			: Mouse and Keyboard(_r_31_49_50)
+			: Touch(_r_31_49_51)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_15_13_14 or _r_1_7_16
+constraint_6:~_r_1_15_13_15 or ~_r_1_41_43
+constraint_4:~_r_1_9_34_35_37 or _r_1_10
+constraint_3:~_r_1_7_41_44_48 or _r_1_10
+</constraints>
+</feature_model>

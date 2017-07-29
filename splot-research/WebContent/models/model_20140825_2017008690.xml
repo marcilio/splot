@@ -1,0 +1,79 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Aug 25, 2014 - 12:19 PM  -->
+<feature_model name="MISO4204_2014-2_Marketplace">
+<meta>
+<data name="description">Marketplace</data>
+<data name="creator">Juan David Garcia</data>
+<data name="address"></data>
+<data name="email">jd.garcia1381@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:m Carrito(_r_1)
+		:m Agregar producto al Carrito(_r_1_2)
+		:m Eliminar producto del Carrito(_r_1_3)
+		:m Anular Carrito(_r_1_4)
+		:o Guardar Carrito(_r_1_5)
+		:o Compartir Carrito(_r_1_6)
+	:m Registro y Autenticacion(_r_7)
+		:m Registrar Comprador(_r_7_8)
+		:m Editar perfil Comprador(_r_7_9)
+		:m Cancelar Cuenta(_r_7_10)
+		:m Cambiar Contrasena(_r_7_11)
+		:m Validar por Correo(_r_7_12)
+		:m Registrar Vendedor(_r_7_13)
+		:m Editar perfil Vendedor(_r_7_14)
+		:m Hacer Login(_r_7_15)
+	:o Publicidad(_r_20)
+		:m Suscribir(_r_20_21)
+		:m Configurar preferencias de ofertas(_r_20_22)
+		:m Enviar publicidad(_r_20_24)
+		:o Analizar preferencias del Comprador(_r_20_25)
+	:o Interaccion Comprador-Vendedor(_r_26)
+		:o Contestar pregunta de Comprador(_r_26_27)
+		:o Realizar pregunta al Vendedor(_r_26_28)
+		:m Calificar Vendedor(_r_26_29)
+		:m Bloquear comentarios de usuarios indeseados(_r_26_30)
+	:m Compras y Ventas(_r_31)
+		:m Realizar compra(_r_31_31)
+		:m Procesar pago(_r_31_32)
+			:g (_r_31_32_35) [1,*] 
+				: Paypal(_r_31_32_35_36)
+				: PSE(_r_31_32_35_38)
+				: Tarjeta de credito(_r_31_32_35_39)
+		:o Compartir compra en redes sociales(_r_31_40)
+		:m Cancelar compra(_r_31_41)
+		:m Verificar estado del pedido(_r_31_42)
+		:m Consultar compras realizadas(_r_31_43)
+		:m Actualizar estado del pedido(_r_31_44)
+		:o Consultar ventas de productos(_r_31_45)
+		:o Consultar productos mas vendidos(_r_31_46)
+	:o Analytics(_r_47)
+		:m Dashboard con informacion de ventas(_r_47_48)
+		:o Market Basket Analysis(_r_47_49)
+		:o Tablero de control(_r_47_50)
+		:o Text mining de los comentarios de los productos(_r_47_51)
+	:m Gestion de Productos(_r_52)
+		:o Catalogo simple de gestion de productos(_r_52_53)
+		:o Dashboard de gestion de productos(_r_52_54)
+		:m CRUD productos(_r_52_55)
+		:m Publicar producto(_r_52_56)
+		:m Crear comentario de producto(_r_52_57)
+		:m Editar comentario de producto(_r_52_58)
+		:m Buscar ofertas y descuentos(_r_52_59)
+		:o Consultar historial de busquedas(_r_52_60)
+		:m Filtrar y categorizar la busqueda(_r_52_61)
+		:m Ver detalle producto(_r_52_62)
+		:m Crear comentario como Vendedor(_r_52_63)
+		:m Editar comentario como vendedor(_r_52_65)
+		:o Compartir producto en redes sociales(_r_52_66)
+</feature_tree>
+<constraints>
+constraint_1:~_r_52_53 or ~_r_52_54
+</constraints>
+</feature_model>

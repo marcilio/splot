@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 6, 2014 - 11:08 AM  -->
+<feature_model name="gs">
+<meta>
+<data name="description">test</data>
+<data name="creator">gs</data>
+<data name="address"></data>
+<data name="email">gs@gmail</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">isu</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r test-gs(_r)
+	:m Feature-1(_r_1)
+		:g (_r_1_8) [1,1] 
+			: Feature-9(_r_1_8_9)
+			: Feature-10(_r_1_8_10)
+			: Feature-14(_r_1_8_14)
+	:o Feature-2(_r_2)
+	:g (_r_3) [1,*] 
+		: Feature-4(_r_3_4)
+		: Feature-12(_r_3_12)
+		: Feature-13(_r_3_13)
+	:g (_r_5) [1,1] 
+		: Feature-6(_r_5_6)
+		: Feature-11(_r_5_11)
+	:o Feature-7(_r_7)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

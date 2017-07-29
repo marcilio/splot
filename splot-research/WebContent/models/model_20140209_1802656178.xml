@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jun 2, 2015 - 2:04 PM  -->
+<feature_model name="LIneFollower_1">
+<meta>
+<data name="description">Line Follower Task_1</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r LineFollower(_r0)
+	:m Algorithm(_r18)
+		:g (_id_4) [1,1] 
+			: OI(_r19)
+			: OB(_r20)
+			: ST(_r21)
+			: TI(_r22)
+	:m Speed(_r23)
+		:g (_id_5) [1,1] 
+			: 40(_r24)
+			: 10(_r25)
+			: 20(_r26)
+			: 30(_r27)
+	:m Motors(_r28)
+		:g (_id_6) [1,1] 
+			: AC(_r29)
+			: AB(_r30)
+			: BC(_r31)
+	:m Sensor(_r37)
+		:g (_r37_51) [1,1] 
+			: S1(_r37_51_52)
+			: S2(_r37_51_53)
+			: S3(_r37_51_54)
+			: S4(_r37_51_55)
+			: S1S2(_r37_51_56)
+			: S1S3(_r37_51_57)
+			: S1S4(_r37_51_59)
+			: S2S3(_r37_51_60)
+			: S2S4(_r37_51_61)
+			: S3S4(_r37_51_62)
+</feature_tree>
+<constraints>
+constraint_28:~_r22 or _r37_51_56 or _r37_51_57 or _r37_51_59 or _r37_51_60 or _r37_51_61 or _r37_51_62
+constraint_26:~_r20 or _r37_51_52 or _r37_51_53 or _r37_51_54 or _r37_51_55
+constraint_27:~_r21 or _r37_51_56 or _r37_51_57 or _r37_51_59 or _r37_51_60 or _r37_51_61 or _r37_51_62
+constraint_25:~_r19 or _r37_51_52 or _r37_51_53 or _r37_51_54 or _r37_51_55
+</constraints>
+</feature_model>

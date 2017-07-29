@@ -1,0 +1,78 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 10, 2016 - 10:57 AM  -->
+<feature_model name="Bike Configuration">
+<meta>
+<data name="description">Configure bike parts, parts and user needs</data>
+<data name="creator">mucaho</data>
+<data name="address"></data>
+<data name="email">mucaho@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Bike(_r)
+	:m Frame(_r_1)
+		:g (_r_1_4) [1,1] 
+			: Diamond(_r_1_4_5)
+				:g (_r_1_4_5_40) [1,1] 
+					: F1-D(_r_1_4_5_40_41)
+					: F2-D(_r_1_4_5_40_42)
+			: Triathlon(_r_1_4_10)
+				:g (_r_1_4_10_45) [1,1] 
+					: F1-T1(_r_1_4_10_45_46)
+					: F2-T2(_r_1_4_10_45_47)
+			: Step-through(_r_1_4_21)
+				:g (_r_1_4_21_43) [1,1] 
+					: F1-S(_r_1_4_21_43_44)
+	:m Wheels(_r_2)
+		:g (_r_2_11) [1,1] 
+			: 20in(_r_2_11_12)
+			: 21in(_r_2_11_13)
+			: 22in(_r_2_11_14)
+			: 23in(_r_2_11_15)
+			: 24in(_r_2_11_16)
+			: 25in(_r_2_11_17)
+			: 26in(_r_2_11_18)
+			: 27in(_r_2_11_19)
+			: 28in(_r_2_11_22)
+		:g (_r_2_49) [1,1] 
+			: W1(_r_2_49_50)
+			: W2(_r_2_49_51)
+			: W3(_r_2_49_52)
+	:o Light system(_r_3)
+		:m L1(_r_3_53)
+	:g (_r_24) [1,1] 
+		: Mountain bike(_r_24_26)
+		: City bike(_r_24_27)
+		: Racing bike(_r_24_28)
+	:m Sales(_r_29)
+		:g (_r_29_33) [1,*] 
+			: Offroad usage(_r_29_33_34)
+			: Speed necessity(_r_29_33_35)
+			: Night usage(_r_29_33_36)
+		:g (_r_29_37) [1,1] 
+			: Customer large(_r_29_37_38)
+			: Costomer small(_r_29_37_39)
+</feature_tree>
+<constraints>
+constraint_17:~_r_1_4_5_40_42 or ~_r_2_49_50
+constraint_18:~_r_1_4_10_45_47 or ~_r_2_49_50
+constraint_19:~_r_1_4_5_40_41 or ~_r_2_49_51
+constraint_9:~_r_3 or ~_r_24_28
+constraint_10:_r_24_26 or ~_r_29_33_34
+constraint_20:~_r_1_4_10_45_46 or ~_r_2_49_51
+constraint_6:_r_1_4_5 or _r_1_4_10 or ~_r_24_28
+constraint_11:_r_24_28 or ~_r_29_33_35
+constraint_7:_r_3 or ~_r_24_27
+constraint_12:_r_3 or ~_r_29_33_36
+constraint_4:_r_1_4_5 or ~_r_24_26
+constraint_13:_r_2_11_12 or _r_2_11_13 or _r_2_11_14 or _r_2_11_15 or _r_2_11_16 or ~_r_29_37_39
+constraint_14:_r_2_11_16 or _r_2_11_17 or _r_2_11_18 or _r_2_11_19 or _r_2_11_22 or ~_r_29_37_38
+constraint_5:_r_1_4_5 or _r_1_4_21 or ~_r_24_27
+constraint_15:~_r_1_4_10_45_47 or ~_r_3_53
+constraint_16:~_r_1_4_5_40_42 or ~_r_3_53
+</constraints>
+</feature_model>

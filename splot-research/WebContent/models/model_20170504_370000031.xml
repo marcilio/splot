@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, May 7, 2017 - 12:29 PM  -->
+<feature_model name="Educational_Robotic">
+<meta>
+<data name="description">ER System</data>
+<data name="creator">Aydil Johari</data>
+<data name="address"></data>
+<data name="email">aydiljohari@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UTM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ER system(_r)
+	:m Task(_r_9)
+		:g (_r_9_15) [1,*] 
+			: Follow Light(_r_9_15_16)
+			: Avoid Obstacle(_r_9_15_17)
+			: Follow Line(_r_9_15_18)
+			: Manual Control(_r_9_15_19)
+			: Detect Collision(_r_9_15_20)
+			: Detect Object(_r_9_15_21)
+	:m Sensor(_r_10)
+		:g (_r_10_22) [1,*] 
+			: Light Sensing(_r_10_22_23)
+			: Switch Button Sensing(_r_10_22_24)
+			: Distance Sensing(_r_10_22_25)
+			: Optical Sensing(_r_10_22_26)
+			: Accelerometer Sensing(_r_10_22_27)
+			: Sound Sensing(_r_10_22_28)
+	:m Actuator(_r_11)
+		:o LED(_r_11_29)
+		:o Voice Sound(_r_11_30)
+		:o Buzzer(_r_11_31)
+		:m Motor(_r_11_32)
+			:g (_r_11_32_33) [1,1] 
+				: Medium(_r_11_32_33_34)
+				: Large(_r_11_32_33_35)
+		:o Ball shooter(_r_11_38)
+	:m Library(_r_12)
+		:m Sensor Library(_r_12_38)
+		:m Actuator Library(_r_12_39)
+	:m Software(_r_13)
+		:g (_r_13_40) [1,1] 
+			: AvStudio(_r_13_40_41)
+			: ArduinoIDE(_r_13_40_42)
+			: EV3(_r_13_40_43)
+			: Snap(_r_13_40_44)
+	:m Communication(_r_14)
+		:g (_r_14_45) [1,*] 
+			: SPI(_r_14_45_46)
+			: Wifi(_r_14_45_47)
+			: Bluetooth(_r_14_45_48)
+			: USB Cable(_r_14_45_49)
+</feature_tree>
+<constraints>
+constraint_10:~_r_9_15_19 or _r_10_22_24
+constraint_6:~_r_9_15_21 or _r_10_22_25
+constraint_11:_r_9_15_19 or _r_10_22_27
+constraint_7:_r_9_15_18 or _r_10_22_26
+constraint_4:~_r_9_15_16 or _r_10_22_23
+constraint_5:~_r_9_15_20 or _r_10_22_24
+constraint_3:~_r_9_15_17 or _r_9_15_20 or _r_9_15_21
+</constraints>
+</feature_model>

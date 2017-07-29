@@ -1,0 +1,30 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jun 5, 2014 - 7:40 PM  -->
+<feature_model name="Website">
+<meta>
+<data name="description">Feature Model Example</data>
+<data name="creator">Reham Fadul</data>
+<data name="address"></data>
+<data name="email">rehamfadul@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">McMaster</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Online-B2C-Solution(_r)
+	:m Store Front(_r_1)
+	:m Business Management(_r_2)
+		:m Order Management(_r_2_3)
+		:o Targeting(_r_2_5)
+		:o Affiliates(_r_2_6)
+		:o Inventory Tracking(_r_2_7)
+		:o Procurement(_r_2_8)
+		:o Reporting and Analysis(_r_2_9)
+		:o External System Integration(_r_2_10)
+		:m Administration(_r_2_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

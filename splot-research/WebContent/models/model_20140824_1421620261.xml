@@ -1,0 +1,82 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Sep 12, 2014 - 11:56 AM  -->
+<feature_model name="MartketPlaceMISO-20140824">
+<meta>
+<data name="description">Subsistemas y Casos de Uso del MarketPlace</data>
+<data name="creator">Diego Hoyos</data>
+<data name="address"></data>
+<data name="email">da.hoyos10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ANDES</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MarketPlace(_r)
+	:m Busquedas(_r_1)
+		:m Buscar por nombre(_r_1_2)
+		:m Buscar por precio(_r_1_3)
+		:m Buscar por ofertas(_r_1_4)
+		:o Buscar por cercania(_r_1_5)
+	:o Pagos(_r_6)
+		:m Pagar con efectivo(_r_6_7)
+		:m Pagar con tarjeta de credito(_r_6_8)
+		:m Pagar con tarjeta debito(_r_6_9)
+		:o Pagar con bonos(_r_6_10)
+	:o Compras(_r_11)
+		:m Agregar al carrito de compras(_r_11_12)
+		:m Comprar producto(_r_11_13)
+		:m Consultar historial de compras(_r_11_14)
+		:o Consultar estado del pedido(_r_11_15)
+	:o Calificaciones(_r_17)
+		:m Calificar producto(_r_17_18)
+		:m Calificar servicio(_r_17_19)
+		:o Comentar servicio(_r_17_20)
+		:m Ver calificacion producto(_r_17_21)
+		:m Ver calificacion servicio(_r_17_22)
+		:o Ver comentarios servicio(_r_17_23)
+		:o Comentar producto(_r_17_24)
+		:o Ver comentarios producto(_r_17_25)
+	:m Productos(_r_26)
+		:m Seleccionar tipo de venta(_r_26_27)
+		:m Publicar producto - CRUD(_r_26_28)
+		:m Configurar productos en oferta(_r_26_29)
+		:o Promocionar producto(_r_26_30)
+	:o Estadisticas(_r_31)
+		:m Consultar historial de pagos(_r_31_32)
+		:m Consultar productos mas vendidos(_r_31_33)
+		:m Consultar productos menos vendidos(_r_31_34)
+		:o Consultar tendencia de mercado(_r_31_35)
+		:o Consultar productos mas buscados(_r_31_36)
+	:o Notificaciones(_r_37)
+		:m Notificar compra(_r_37_38)
+		:m Notificar producto agotado(_r_37_39)
+		:m Notificar calificacion baja(_r_37_40)
+		:o Notificar productos recomendados(_r_37_41)
+	:m Personalizacion(_r_42)
+		:m Configurar estilos(_r_42_43)
+		:o Publicar estilo personalizado(_r_42_44)
+		:m Publicar publicidad(_r_42_45)
+		:m Publicar multimedia(_r_42_46)
+	:o Catalogo(_r_47)
+		:m Subir catalogo de productos(_r_47_48)
+		:m Modificar productos del catalogo(_r_47_49)
+		:m Eliminar productos del catalogo(_r_47_50)
+		:m Eliminar todo el catalogo de productos(_r_47_51)
+</feature_tree>
+<constraints>
+constraint_57:~_r_6 or ~_r_47
+constraint_56:_r_11 or _r_47
+constraint_54:~_r_6 or _r_11
+constraint_53:_r_6 or ~_r_11
+constraint_50:~_r_11 or ~_r_47
+constraint_23:~_r_17 or ~_r_47
+constraint_10:~_r_17_20 or _r_17_23
+constraint_11:_r_17_20 or ~_r_17_23
+constraint_13:~_r_17_24 or _r_17_25
+constraint_14:_r_17_24 or ~_r_17_25
+constraint_24:~_r_31 or ~_r_47
+constraint_25:~_r_37 or ~_r_47
+</constraints>
+</feature_model>

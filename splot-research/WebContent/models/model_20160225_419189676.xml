@@ -1,0 +1,88 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Feb 25, 2016 - 7:29 PM  -->
+<feature_model name="VentaComputadores">
+<meta>
+<data name="description">VentaComputadores</data>
+<data name="creator">atroncoso10</data>
+<data name="address"></data>
+<data name="email">a.troncoso10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VentaComputadores(_r)
+	:m Tipo(_r_7)
+		:g (_r_7_51) [1,*] 
+			: Tipo-Mesa(_r_7_51_52)
+			: Tipo-Portail(_r_7_51_53)
+			: Tipo-Servidor(_r_7_51_54)
+	:m Marca(_r_8)
+		:g (_r_8_9) [1,*] 
+			: Dell(_r_8_9_10)
+			: Lenovo(_r_8_9_11)
+			: Toshiba(_r_8_9_12)
+			: Apple(_r_8_9_13)
+			: Clon(_r_8_9_14)
+	:m SO(_r_15)
+		:g (_r_15_16) [1,*] 
+			: SO-Personal(_r_15_16_17)
+				:g (_r_15_16_17_19) [1,*] 
+					: Windows(_r_15_16_17_19_20)
+					: Linux(_r_15_16_17_19_21)
+					: OS X(_r_15_16_17_19_22)
+			: SO-Servidor(_r_15_16_18)
+				:g (_r_15_16_18_23) [1,*] 
+					: Red Hat(_r_15_16_18_23_24)
+					: OS X Server(_r_15_16_18_23_25)
+	:m CPU(_r_26)
+		:m Procesador(_r_26_29)
+			:g (_r_26_29_45) [1,*] 
+				: Intel(_r_26_29_45_46)
+				: AMD(_r_26_29_45_47)
+		:m RAM(_r_26_30)
+			:g (_r_26_30_33) [1,*] 
+				: 4GB(_r_26_30_33_34)
+				: 8GB(_r_26_30_33_35)
+				: 16GB(_r_26_30_33_36)
+				: 32GB(_r_26_30_33_37)
+				: 64GB(_r_26_30_33_38)
+		:m HDD(_r_26_31)
+			:g (_r_26_31_39) [1,*] 
+				: 500GB(_r_26_31_39_40)
+				: 1TB(_r_26_31_39_41)
+				: 2TB(_r_26_31_39_42)
+				: 5TB(_r_26_31_39_43)
+				: 10TB(_r_26_31_39_44)
+		:o GPU(_r_26_32)
+			:g (_r_26_32_49) [1,*] 
+				: NVIDIA(_r_26_32_49_50)
+				: ATI(_r_26_32_49_51)
+	:o Pantalla(_r_52)
+		:m Tecnologia(_r_52_54)
+			:g (_r_52_54_56) [1,*] 
+				: 3K(_r_52_54_56_57)
+				: 4K(_r_52_54_56_58)
+		:m Tamano(_r_52_55)
+			:g (_r_52_55_59) [1,*] 
+				: 14 in(_r_52_55_59_60)
+				: 17 in(_r_52_55_59_61)
+				: 24 in(_r_52_55_59_62)
+	:o Fuente(_r_53)
+</feature_tree>
+<constraints>
+constraint_17:~_r_8_9_14 or ~_r_7_51_53
+constraint_18:_r_52 or ~_r_7_51_53
+constraint_19:~_r_52_54_56_57 or ~_r_52_54_56_58 or ~_r_7_51_53
+constraint_22:~_r_26_30_33_37 or ~_r_26_30_33_38 or ~_r_7_51_52 or ~_r_7_51_53
+constraint_23:~_r_15_16_18 or ~_r_7_51_52 or ~_r_7_51_53
+constraint_21:~_r_26_31_39_43 or ~_r_26_31_39_44 or ~_r_7_51_52 or ~_r_7_51_53
+constraint_26:_r_26_30_33_37 or _r_26_30_33_38 or ~_r_7_51_54
+constraint_13:_r_8_9_13 or _r_15_16_17_19_22 or _r_15_16_18_23_25
+constraint_27:_r_26_31_39_43 or _r_26_31_39_44 or ~_r_7_51_54
+constraint_24:~_r_8_9_13 or ~_r_15_16_17_19_20 or ~_r_15_16_17_19_21
+constraint_25:_r_15_16_18 or ~_r_7_51_54
+</constraints>
+</feature_model>

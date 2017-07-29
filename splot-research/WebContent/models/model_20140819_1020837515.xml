@@ -1,0 +1,87 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Aug 24, 2014 - 8:07 PM  -->
+<feature_model name="Marketplace_DFEA">
+<meta>
+<data name="description">Marketplace_DFEA</data>
+<data name="creator">DFEA</data>
+<data name="address"></data>
+<data name="email">danesco0507@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">DFEA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Marketplace_DFEA(_r)
+	:m Admin_productos(_r_2)
+		:m CRUD_producto(_r_2_21)
+		:m CRUD_categoria_productos(_r_2_22)
+		:m CRUD_paquete_productos(_r_2_23)
+		:o CRUD_alarma_inventario_bajo(_r_2_20)
+	:m Admin_ventas(_r_5)
+		:m consultar_historico_ventas_producto(_r_5_21)
+		:m consultar_historico_ventas_cliente(_r_5_22)
+		:m consultar_estado_pago_compra(_r_5_23)
+		:o crear_promocion_producto(_r_5_24)
+		:o consultar_historico_devoluciones_producto(_r_5_25)
+	:m Admin_envios(_r_6)
+		:m consultar_ordenes_envio(_r_6_26)
+		:m actualizar_estado_envio(_r_6_28)
+		:m consultar_envios_por_estado(_r_6_29)
+		:o consultar_estado_devoluciones(_r_6_30)
+		:o seleccionar_proveedores_envio(_r_6_31)
+	:m gestion_usuario(_r_7)
+		:m autenticar_usuario(_r_7_32)
+		:m recuperar_contrasena(_r_7_33)
+		:m CRUD_usuario(_r_7_34)
+	:m buscar_producto(_r_8)
+		:m buscar_producto(_r_8_35)
+	:m comprar_producto(_r_9)
+		:m comprar_producto(_r_9_36)
+		:m realizar_pago(_r_9_37)
+	:o calif_producto_proveedor(_r_10)
+		:m calificar_producto(_r_10_38)
+		:m calificar_proveedor(_r_10_39)
+		:m consultar_calificaciones_producto(_r_10_40)
+		:m consultar_calificaciones_proveedor(_r_10_41)
+		:o filtar_calificaciones_producto(_r_10_42)
+		:o filtrar_calificaciones_proveedor(_r_10_44)
+	:o atencion_en_linea(_r_12)
+		:m consultar_FAQ(_r_12_45)
+		:m realizar_sesion_atencion(_r_12_46)
+		:o enviar_consulta_QyA(_r_12_47)
+		:o enviar_respuesta_QyA(_r_12_48)
+		:o consultar_QyA(_r_12_49)
+	:o seguimiento_compra(_r_13)
+		:m consultar_estado_compra(_r_13_50)
+		:m solicitar_informacion_estado_distribucion(_r_13_51)
+		:o ver_ubicacion_producto_mapa(_r_13_52)
+	:o contacto_y_faq(_r_14)
+		:m consultar_informacion_contacto(_r_14_53)
+		:m consultar_preguntas_frecuentes(_r_14_54)
+		:o configurar_contenido_informacion_contacto(_r_14_55)
+		:o personalizar_informacion_contacto(_r_14_56)
+		:o configurar_contenido_preguntas_frecuentes(_r_14_57)
+		:o personalizar_preguntas_frecuentes(_r_14_58)
+	:o redes_sociales(_r_15)
+		:o iniciar_sesion(_r_15_53)
+		:o compartir_producto(_r_15_54)
+		:o like_en_red_social(_r_15_56)
+	:o soporte(_r_17)
+		:o soporte_quejas_reclamos(_r_17_18)
+			:m enviar_peticion_queja_reclamo(_r_17_18_59)
+			:m consultar_peticion_queja_reclamo(_r_17_18_60)
+			:m responder_peticion_queja_reclamo(_r_17_18_61)
+		:o soporte_tecnico(_r_17_19)
+			:m iniciar_soporte_tecnico(_r_17_19_63)
+			:m dar_soporte_tecnico(_r_17_19_64)
+</feature_tree>
+<constraints>
+constraint_6:_r_17_19_63 or ~_r_17_19_64
+constraint_7:_r_12_47 or ~_r_12_48
+constraint_4:_r_14_55 or ~_r_14_56
+constraint_5:_r_17_18_60 or ~_r_17_18_61
+constraint_3:_r_14_57 or ~_r_14_58
+</constraints>
+</feature_model>

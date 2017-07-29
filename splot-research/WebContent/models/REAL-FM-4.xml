@@ -1,10 +1,10 @@
-<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 14, 2010 - 1:23 PM  -->
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jun 6, 2016 - 3:11 AM  -->
 <feature_model name="Electronic Shopping">
 <meta>
 <data name="description">This feature model models a B2C system with fixed priced products</data>
 <data name="creator">Sean Quan Lau</data>
 <data name="address">200 University Ave. West, Waterloo, ON, Canada</data>
-<data name="email">imran@dcs.gla.ac.uk</data>
+<data name="email">czarnecki@acm.org</data>
 <data name="phone">+1-519-888-4567</data>
 <data name="website">http://gsd.uwaterloo.ca/</data>
 <data name="organization">University of Waterloo</data>
@@ -197,6 +197,10 @@
 					: E-mail(_id_142)
 					: Phone(_id_143)
 					: Mail(_id_144)
+			:g (buy_paths_288) [1,*] 
+				: Phone Ordering(buy_paths_288_289)
+					:m Digital Dialing(buy_paths_288_289_290)
+					:o Rotary Dialing(buy_paths_288_289_291)
 		:o Customer service(customer_service)
 			:g (_id_145) [1,*] 
 				: Question and feedback forms(_id_146)
@@ -353,8 +357,8 @@ c8:~services or services_fulfillment
 c7:~physical_goods or physical_goods_fulfillment
 c17:~wish_list_content or wish_list
 c2b:~registered_checkout or register_to_buy
-c16:~shipping_options or shipping
 c2a:~registered_checkout or registration_enforcement
+c16:~shipping_options or shipping
 c18:~previously_visited_pages or locally_visited_pages or external_referring_pages
 c1:~special_offers or discounts
 c11:~availability or inventory_tracking

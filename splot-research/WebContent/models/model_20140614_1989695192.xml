@@ -1,0 +1,58 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 14, 2014 - 12:15 PM  -->
+<feature_model name="MobileApps Multiplatform">
+<meta>
+<data name="description">SPL for create project multiplatform</data>
+<data name="creator">Alvaro Torres</data>
+<data name="address"></data>
+<data name="email">brjgd@walla.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">brjgd</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobileApps Multiplatform(_r)
+	:m Plataforma(_r_2)
+		:m Desarrollo(_r_2_6)
+			:g (_r_2_6_10) [1,1] 
+				: Linux(_r_2_6_10_11)
+				: Windows(_r_2_6_10_12)
+				: Mac(_r_2_6_10_13)
+		:m Implementacion(_r_2_7)
+			:g (_r_2_7_14) [1,*] 
+				: Android(_r_2_7_14_15)
+				: iOS(_r_2_7_14_16)
+				: BB10(_r_2_7_14_17)
+				: Ubuntu Mobile(_r_2_7_14_18)
+				: Firefox OS(_r_2_7_14_19)
+				: Windows Phone(_r_2_7_14_20)
+				: Windows 8(_r_2_7_14_21)
+				: Amazon Fireos(_r_2_7_14_22)
+	:m Contenidos(_r_3)
+		:m Texto(_r_3_23)
+		:o Imagen(_r_3_26)
+		:o Mapas(_r_3_27)
+		:o Video(_r_3_28)
+	:o API Plugins(_r_5)
+		:o Conecction(_r_5_29)
+		:o Geolocation(_r_5_30)
+		:o Device(_r_5_31)
+		:o InAppBrowser(_r_5_32)
+		:o Media(_r_5_33)
+		:o Notification(_r_5_34)
+		:o Storage(_r_5_35)
+		:o SplashScreen(_r_5_36)
+</feature_tree>
+<constraints>
+constraint_17:~_r_2_6_10_13 or ~_r_2_7_14_20
+constraint_19:~_r_2_6_10_13 or ~_r_2_7_14_21
+constraint_11:~_r_2_6_10_11 or ~_r_2_7_14_16
+constraint_12:~_r_2_6_10_11 or ~_r_2_7_14_17
+constraint_13:~_r_2_6_10_11 or ~_r_2_7_14_20
+constraint_14:~_r_2_6_10_11 or ~_r_2_7_14_21
+constraint_15:~_r_2_6_10_12 or ~_r_2_7_14_16
+constraint_16:~_r_2_6_10_13 or ~_r_2_7_14_17
+</constraints>
+</feature_model>

@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jun 23, 2016 - 3:05 AM  -->
+<feature_model name="Home">
+<meta>
+<data name="description">Home</data>
+<data name="creator">Home</data>
+<data name="address"></data>
+<data name="email">Home</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Home</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Home Care System(_r)
+	:m Care Plan(_r_1)
+		:o Reminder(_r_1_2)
+	:o DispalyDevice(_r_3)
+		:g (_r_3_4) [1,*] 
+			: TV(_r_3_4_5)
+			: smartphone(_r_3_4_8)
+			: tablet(_r_3_4_9)
+			: ordinaryDisplay(_r_3_4_10)
+	:m Communication(_r_11)
+		:g (_r_11_12) [1,1] 
+			: ADSL(_r_11_12_13)
+			: wifi(_r_11_12_16)
+			: 4G(_r_11_12_17)
+			: landLine(_r_11_12_18)
+</feature_tree>
+<constraints>
+constraint_2:~_r_1_2 or _r_3
+</constraints>
+</feature_model>

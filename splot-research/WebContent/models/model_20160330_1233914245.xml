@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 10:08 AM  -->
+<feature_model name="JCS">
+<meta>
+<data name="description">a chat system implemented in Java, originally from the FeatureIDE code examples</data>
+<data name="creator">Yinxing Xue</data>
+<data name="address">Blk NS1-05-01A Nanyang Avenue Singapore 639798</data>
+<data name="email">tslxuey@ntu.edu.sg</data>
+<data name="phone"></data>
+<data name="website">https://sites.google.com/site/yinxingxue</data>
+<data name="organization">NTU</data>
+<data name="department">Temasek Lab</data>
+<data name="date"></data>
+<data name="reference">ISSTA 2015</data>
+</meta>
+<feature_tree>
+:r Chat(_r)
+	:m Output(_r_1)
+		:g (_r_1_7) [1,1] 
+			: GUI(_r_1_7_8)
+			: CMD(_r_1_7_9)
+			: GUI2(_r_1_7_10)
+	:o Logging(_r_2)
+	:o Authorization(_r_3)
+	:o Color(_r_4)
+	:o Encryption(_r_5)
+		:g (_r_5_11) [1,*] 
+			: Caesar(_r_5_11_12)
+			: Reverse(_r_5_11_13)
+	:o Encryption_OR(_r_6)
+</feature_tree>
+<constraints>
+constraint_4:_r_6 or ~_r_5_11_12
+constraint_5:_r_6 or ~_r_5_11_13
+constraint_3:~_r_6 or _r_5_11_12 or _r_5_11_13
+</constraints>
+</feature_model>

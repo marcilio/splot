@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 17, 2016 - 6:57 PM  -->
+<feature_model name="GerenciaLojaVirtual">
+<meta>
+<data name="description">TEES</data>
+<data name="creator">Caio</data>
+<data name="address"></data>
+<data name="email">tyghorn@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">TEES</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r GerenciaLojaVirtual(_r)
+	:m Cliente(_r_1)
+		:m Cadastro(_r_1_20)
+			:m Gerenciamento de Dados(_r_1_20_21)
+			:o Solicitar Cancelamento de Conta(_r_1_20_22)
+			:o Contas Especiais(_r_1_20_23)
+			:o Wishlist(_r_1_20_24)
+			:o Watchlist(_r_1_20_25)
+			:o Newsletter(_r_1_20_26)
+	:m Funcionario(_r_27)
+		:m Cadastro(_r_27_28)
+			:m Gerenciamento de Dados(_r_27_28_29)
+	:m Produtos(_r_30)
+		:m Cadastro(_r_30_31)
+			:m Gerenciamento de Dados(_r_30_31_32)
+			:m Remocao de Produto(_r_30_31_33)
+		:m Visualizacao(_r_30_34)
+		:o Classificacao(_r_30_35)
+		:o Produtos em Destaque(_r_30_36)
+		:o Produtos mais Vendidos(_r_30_38)
+		:o Sugestao de Produtos(_r_30_39)
+		:o Pesquisa de Produtos(_r_30_40)
+			:o Produtos mais Pesquisados(_r_30_40_48)
+	:m Carrinho de Compras(_r_43)
+		:m Adicao de Produtos(_r_43_44)
+		:m Remocao de Produtos(_r_43_45)
+		:m Alteracao de Quantidade(_r_43_46)
+		:o Persistencia de Dados(_r_43_47)
+	:o Controle de Estoque(_r_49)
+	:m Compras(_r_50)
+		:m Realizacao de Pedidos(_r_50_51)
+		:m Cancelamento de Pedidos(_r_50_52)
+		:m Calculo de Frete(_r_50_53)
+		:o Rastreio(_r_50_55)
+	:o Contato e Informacoes(_r_56)
+		:o Informacoes da Empresa(_r_56_57)
+		:o Outros Idiomas(_r_56_58)
+		:o Contato(_r_56_59)
+			:o Contato por email(_r_56_59_60)
+			:o Contato por chat(_r_56_59_61)
+			:o Contato por telefone(_r_56_59_62)
+	:m Pagamento(_r_66)
+		:g (_r_66_69) [1,*] 
+			: Cartao(_r_66_69_70)
+			: PayPal(_r_66_69_71)
+			: Boleto(_r_66_69_72)
+			: PagSeguro(_r_66_69_73)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

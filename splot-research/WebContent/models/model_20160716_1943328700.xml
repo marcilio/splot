@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jul 16, 2016 - 3:56 PM  -->
+<feature_model name="IRIS">
+<meta>
+<data name="description">IRIS mail client</data>
+<data name="creator">Pedro Costa</data>
+<data name="address"></data>
+<data name="email">phtcosta@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNB</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IRIS(_r)
+	:m Mail(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Simple(_r_1_2_3)
+			: Secure(_r_1_2_4)
+		:m Provider(_r_1_7)
+			:g (_r_1_7_9) [1,*] 
+				: Gmail(_r_1_7_9_10)
+				: Yahoo(_r_1_7_9_11)
+				: Outlook(_r_1_7_9_12)
+	:m Persistence(_r_13)
+		:g (_r_13_14) [1,*] 
+			: Relational(_r_13_14_15)
+			: Lucene(_r_13_14_16)
+			: XML(_r_13_14_17)
+	:m UI(_r_18)
+		:g (_r_18_19) [1,*] 
+			: CLI(_r_18_19_20)
+			: GUI(_r_18_19_21)
+	:o Address Book(_r_22)
+	:o Tagging(_r_23)
+	:o Search(_r_24)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_2_3 or _r_1_2_4
+constraint_2:_r_13_14_15 or _r_13_14_16 or _r_13_14_17
+constraint_3:_r_18_19_20 or _r_18_19_21
+</constraints>
+</feature_model>

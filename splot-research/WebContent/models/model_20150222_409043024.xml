@@ -1,0 +1,79 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Feb 23, 2015 - 10:26 PM  -->
+<feature_model name="Stampidia">
+<meta>
+<data name="description">Diagrama que representan las principales características de un Market Place para estampar camisetas</data>
+<data name="creator">Mauricio Cajamarca</data>
+<data name="address"></data>
+<data name="email">lmauriciocajamarca@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Ninguna</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Stampidia(_r)
+	:m Product Design(_r_1)
+		:m Shirt Design(_r_1_11)
+			:o Custom Text(_r_1_11_35)
+			:m Shirt Size(_r_1_11_36)
+			:o Shirt Color(_r_1_11_37)
+			:o Shirt Style(_r_1_11_38)
+			:o Stamp Location(_r_1_11_39)
+		:m Stamp Design(_r_1_12)
+			:o Stamp Size(_r_1_12_40)
+			:m Stamp Style(_r_1_12_41)
+	:m Shopping Car(_r_2)
+		:m Car(_r_2_13)
+		:m Pay Method(_r_2_14)
+			:g (_r_2_14_42) [1,1] 
+				: Cash On Delivery(_r_2_14_42_43)
+				: Credit Card(_r_2_14_42_45)
+				: Bank Deposit(_r_2_14_42_46)
+				: PSE(_r_2_14_42_47)
+		:m Shipping Info(_r_2_15)
+			:g (_r_2_15_48) [1,1] 
+				: Talk2Vendor(_r_2_15_48_49)
+				: StampidiaHandLeslt(_r_2_15_48_50)
+		:m Check Out(_r_2_16)
+	:m Catalog(_r_3)
+		:g (_r_3_17) [1,1] 
+			: Search(_r_3_17_18)
+			: Filter(_r_3_17_51)
+				:g (_r_3_17_51_52) [1,1] 
+					: By Theme(_r_3_17_51_52_53)
+					: By Author(_r_3_17_51_52_54)
+					: By Rating(_r_3_17_51_52_55)
+					: By Price(_r_3_17_51_52_56)
+					: By Date(_r_3_17_51_52_57)
+	:m Product Managment(_r_4)
+	:m Admin(_r_5)
+		:m Log In(_r_5_21)
+			:g (_r_5_21_58) [1,1] 
+				: Google Plus(_r_5_21_58_59)
+				: Facebook(_r_5_21_58_60)
+				: Twitter(_r_5_21_58_61)
+		:m Sign Up(_r_5_22)
+		:m Sign Out(_r_5_23)
+		:m CRUD User(_r_5_24)
+		:m Update Profile(_r_5_25)
+	:o Post Sale(_r_6)
+		:m Create Rating(_r_6_26)
+	:o Social Networking(_r_7)
+		:o Log in(_r_7_27)
+		:o Share(_r_7_28)
+			:o Like(_r_7_28_62)
+			:o Purchase(_r_7_28_63)
+	:o Reports(_r_8)
+		:g (_r_8_29) [1,1] 
+			: By Theme(_r_8_29_30)
+			: By Stamp(_r_8_29_31)
+			: By Date(_r_8_29_34)
+	:o Auction(_r_9)
+</feature_tree>
+<constraints>
+constraint_6:~_r_6_26 or _r_3_17_51_52_55
+constraint_5:~_r_2_14_42_43 or _r_2_15_48_49
+</constraints>
+</feature_model>

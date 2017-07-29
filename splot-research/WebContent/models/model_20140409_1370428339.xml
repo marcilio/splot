@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Apr 11, 2014 - 5:16 PM  -->
+<feature_model name="agis">
+<meta>
+<data name="description">Academic Management System</data>
+<data name="creator">tabr</data>
+<data name="address"></data>
+<data name="email">aa</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">aa</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Siga(_r)
+	:o Consulta(_r_4)
+		:g (_r_4_36) [1,1] 
+			: censo(_r_4_36_37)
+			: detalhamentoDiscente(_r_4_36_38)
+			: detalhamentoDocente(_r_4_36_39)
+		:o processos administrativos(_r_4_52)
+	:o Matricula(_r_5)
+	:o Relatorio(_r_6)
+		:g (_r_6_53) [1,1] 
+			: ensino(_r_6_53_54)
+				:m ata(_r_6_53_54_56)
+				:m diario(_r_6_53_54_57)
+			: historico(_r_6_53_55)
+	:m Acessibilidade(_r_15)
+	:o Avaliacao(_r_26)
+		:g (_r_26_40) [1,1] 
+			: AvalicaoDiscente(_r_26_40_41)
+				:m Frequencia(_r_26_40_41_45)
+				:m Notas(_r_26_40_41_46)
+			: AvaliacaoInstitucional(_r_26_40_42)
+				:g (_r_26_40_42_48) [1,*] 
+					: Docentes(_r_26_40_42_48_49)
+					: Infra-Estrutura(_r_26_40_42_48_50)
+	:m Gerenciamento(_r_33)
+		:o Cursos(_r_33_34)
+		:o Pessoal(_r_33_35)
+		:m Dados pessoais(_r_33_51)
+</feature_tree>
+<constraints>
+constraint_10:~_r_33_34 or ~_r_4_36_39
+constraint_9:~_r_5 or ~_r_4_36_37
+constraint_11:~_r_33_35 or ~_r_4_36_39
+constraint_6:~_r_5 or ~_r_33_34
+constraint_7:~_r_5 or ~_r_33_35
+constraint_13:~_r_4_36_39 or ~_r_26_40_42_48_49
+constraint_4:~_r_5 or ~_r_26_40_41
+constraint_2:~_r_5 or ~_r_4_36_39
+</constraints>
+</feature_model>

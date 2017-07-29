@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 28, 2014 - 2:52 AM  -->
+<feature_model name="ScrollingText">
+<meta>
+<data name="description">ScrollingText</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ScrollingText(_r0)
+	:m Time(_r1)
+		:g (_id_0) [1,1] 
+			: 3000(_r2)
+			: 200(_r3)
+			: 500(_r4)
+			: 5000(_r5)
+	:m Activity(_r6)
+		:g (_id_1) [1,1] 
+			: PS(_r7)
+			: CT(_r8)
+	:m Priority(_r9)
+		:g (_id_2) [1,*] 
+			: PL(_r10)
+			: None(_r11)
+			: PI(_r12)
+			: PH(_r13)
+	:m Method(_r14)
+		:g (_id_3) [1,1] 
+			: PB(_r15)
+			: PR(_r16)
+	:m Level(_r17)
+		:g (_id_4) [1,1] 
+			: AD(_r18)
+			: IT(_r19)
+			: BG(_r20)
+	:m Objective(_r21)
+		:g (_id_5) [1,1] 
+			: BA(_r22)
+			: SA(_r23)
+	:m Text(_r24)
+		:g (_id_6) [1,1] 
+			: BC(_r25)
+				:m TextField(_r26)
+			: ST(_r27)
+				:m NumberOfTasks(_r28)
+</feature_tree>
+<constraints>
+constraint_8:~_r5 or _r28
+constraint_9:~_r10 or _r21
+constraint_10:~_r10 or _r24
+constraint_6:~_r23 or _r27
+constraint_11:~_r22 or _r25
+constraint_7:~_r2 or _r28
+constraint_4:~_r13 or _r14
+constraint_13:~_r12 or _r17
+constraint_5:~_r1 or _r10
+constraint_14:~_r6 or _r13
+constraint_2:~_r3 or _r26
+constraint_3:~_r4 or _r26
+</constraints>
+</feature_model>

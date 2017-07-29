@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 4, 2014 - 6:09 PM  -->
+<feature_model name="AGORA">
+<meta>
+<data name="description">Workflow</data>
+<data name="creator">Rocha, R. S., Degrossi, L. C., Horita, F. E., and Albuquerque, J. P.</data>
+<data name="address"></data>
+<data name="email">rsrocha@usp.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ICMC-USP, São Carlos, Brazil</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r AGORA(_r)
+	:m AGORA-SM(_r_1)
+		:o AGORA-VOS(_r_1_5)
+			:g (_r_1_5_15) [1,*] 
+				: Human as Sensors(_r_1_5_15_16)
+				: Web-based Crowdsourcing(_r_1_5_15_17)
+		:g (_r_1_18) [1,*] 
+			: Static Sensors(_r_1_18_19)
+			: Mobile Sensors(_r_1_18_20)
+	:m AGORA-IFM(_r_3)
+		:m Official Data(_r_3_21)
+		:g (_r_3_22) [1,*] 
+			: AGORA-QA(_r_3_22_23)
+			: AGORA-CE(_r_3_22_24)
+				:o Citizens(_r_3_22_24_26)
+	:m AGORA-DS(_r_4)
+		:o Decision Makers(_r_4_25)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

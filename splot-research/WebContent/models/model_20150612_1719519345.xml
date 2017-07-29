@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jun 12, 2015 - 10:22 AM  -->
+<feature_model name="Simplified Smart Hotel">
+<meta>
+<data name="description">Feature model of a simplified Smart Hotel.</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GReat-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Simplified Smart Hotel(_r)
+	:o Piped Music(_r_1)
+	:o Security(_r_2)
+		:o In the room detection(_r_2_4)
+			:g (_r_2_4_6) [1,*] 
+				: InfraRed Sensor(_r_2_4_6_7)
+				: Volumetric Sensor(_r_2_4_6_8)
+		:o Alarm(_r_2_5)
+			:g (_r_2_5_9) [1,1] 
+				: Silent Alarm(_r_2_5_9_10)
+				: Siren(_r_2_5_9_11)
+				: Visual Alarm(_r_2_5_9_12)
+			:o Blinking Lights(_r_2_5_14)
+	:m Automated Ilumination(_r_15)
+		:o Light by Accupancy(_r_15_16)
+	:o Accoupancy Simulation(_r_17)
+</feature_tree>
+<constraints>
+constraint_1:_r_15 or _r_17
+</constraints>
+</feature_model>

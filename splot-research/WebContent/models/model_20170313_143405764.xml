@@ -1,0 +1,99 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 13, 2017 - 5:23 PM  -->
+<feature_model name="Computador(Uniandes)">
+<meta>
+<data name="description">Ejercicio dos</data>
+<data name="creator">Sergio Bravo</data>
+<data name="address"></data>
+<data name="email">sd.bravo@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Computador(_r)
+	:m Tipo(_r_1)
+		:g (_r_1_2) [1,1] 
+			: Mesa(_r_1_2_3)
+			: Portatil(_r_1_2_4)
+			: Servidor(_r_1_2_5)
+	:m Marca(_r_12)
+		:g (_r_12_13) [1,1] 
+			: Dell(_r_12_13_14)
+			: Toshiba(_r_12_13_15)
+			: Lenovo(_r_12_13_16)
+			: Apple(_r_12_13_17)
+			: Clon(_r_12_13_18)
+	:m Sistema Operativo(_r_19)
+	:g (_r_20) [1,1] 
+		: Para personal(_r_20_21)
+			:g (_r_20_21_23) [1,1] 
+				: Windows 10(_r_20_21_23_24)
+				: Fedora de Linux(_r_20_21_23_25)
+				: OS X Yosemite(_r_20_21_23_26)
+		: Para servidor(_r_20_22)
+			:g (_r_20_22_27) [1,1] 
+				: Windows Server(_r_20_22_27_28)
+				: Red Hat de Linux(_r_20_22_27_29)
+				: OS X Server(_r_20_22_27_30)
+	:m CPU(_r_31)
+		:m Tarjeta RAM(_r_31_32)
+			:g (_r_31_32_36) [1,1] 
+				: 4 GB(_r_31_32_36_37)
+				: 8 GB(_r_31_32_36_38)
+				: 16 GB(_r_31_32_36_39)
+				: 32 GB(_r_31_32_36_40)
+				: 64 GB(_r_31_32_36_41)
+		:m Procesador(_r_31_33)
+			:g (_r_31_33_49) [1,1] 
+				: Intel(_r_31_33_49_50)
+				: AMD(_r_31_33_49_51)
+		:o Tarjeta Grafica(_r_31_35)
+			:g (_r_31_35_52) [1,1] 
+				: NVIDIA(_r_31_35_52_53)
+				: ATI Radeon(_r_31_35_52_54)
+		:m Almacenamiento(_r_31_42)
+			:g (_r_31_42_43) [1,1] 
+				: 500 GB(_r_31_42_43_44)
+				: 1 TB(_r_31_42_43_45)
+				: 2 TB(_r_31_42_43_46)
+				: 5 TB(_r_31_42_43_47)
+				: 10 TB(_r_31_42_43_48)
+	:o Pantalla(_r_55)
+		:o Tecnologia(_r_55_57)
+			:g (_r_55_57_58) [1,*] 
+				: 3D(_r_55_57_58_59)
+				: 4K(_r_55_57_58_60)
+		:m Tamano(_r_55_61)
+			:g (_r_55_61_62) [1,1] 
+				: 4 inches(_r_55_61_62_63)
+				: 17 inches(_r_55_61_62_64)
+				: 24 inches(_r_55_61_62_65)
+	:o Planta de poder(_r_56)
+</feature_tree>
+<constraints>
+constraint_17:~_r_1_2_3 or ~_r_31_42_43_48
+constraint_18:~_r_1_2_4 or ~_r_31_32_36_40
+constraint_28:~_r_1_2_5 or ~_r_31_42_43_45
+constraint_19:~_r_1_2_4 or ~_r_31_32_36_41
+constraint_29:~_r_1_2_5 or ~_r_31_42_43_46
+constraint_22:~_r_1_2_3 or ~_r_20_22
+constraint_23:~_r_1_2_5 or ~_r_31_32_36_37
+constraint_9:_r_12_13_17 or ~_r_20_21_23_26
+constraint_10:_r_12_13_17 or ~_r_20_22_27_30
+constraint_20:~_r_1_2_3 or _r_31_32_36_40
+constraint_11:~_r_1_2_4 or ~_r_12_13_18
+constraint_21:~_r_1_2_3 or ~_r_31_32_36_41
+constraint_7:~_r_1_2_5 or ~_r_20_21
+constraint_12:~_r_1_2_4 or _r_55
+constraint_13:~_r_1_2_4 or ~_r_55_57
+constraint_27:~_r_1_2_5 or ~_r_31_42_43_44
+constraint_14:~_r_1_2_4 or ~_r_31_42_43_47
+constraint_24:~_r_1_2_5 or ~_r_31_32_36_38
+constraint_15:~_r_1_2_4 or ~_r_31_42_43_48
+constraint_25:~_r_1_2_5 or ~_r_31_32_36_39
+constraint_16:~_r_1_2_3 or ~_r_31_42_43_47
+</constraints>
+</feature_model>

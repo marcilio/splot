@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 1, 2016 - 6:36 PM  -->
+<feature_model name="CTOS MODEL">
+<meta>
+<data name="description">container terminal system</data>
+<data name="creator">M.Westbroek</data>
+<data name="address"></data>
+<data name="email">westbroek@zonnet.nl</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">OUNL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r F1(_r)
+	:m F2(_r_1)
+		:m F2_1(_r_1_5)
+		:m F2_2(_r_1_6)
+	:m F3(_r_3)
+		:g (_r_3_15) [1,1] 
+			: F3_1(_r_3_15_16)
+			: F3_2(_r_3_15_17)
+			: F3_3(_r_3_15_18)
+	:m F5(_r_4)
+		:m F5_1(_r_4_9)
+		:o F5_2(_r_4_12)
+	:o F4(_r_13)
+		:o F4_1(_r_13_14)
+		:o F4_2(_r_13_20)
+</feature_tree>
+<constraints>
+constraint_1:_r_13_14 or _r_13_20
+</constraints>
+</feature_model>

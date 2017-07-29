@@ -1,0 +1,29 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jul 3, 2015 - 5:48 PM  -->
+<feature_model name="LXEP">
+<meta>
+<data name="description">LXEP Series</data>
+<data name="creator">Hubbell</data>
+<data name="address"></data>
+<data name="email">dpandya@aelux.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Columbia</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r LXEP(_r)
+	:o Size(_r_6)
+		:m 2(_r_6_12)
+		:m 4(_r_6_14)
+		:m 8(_r_6_15)
+	:m Color Temp(_r_16)
+		:m 30(_r_16_18)
+		:m 35(_r_16_19)
+		:m 40(_r_16_20)
+		:m 50(_r_16_21)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

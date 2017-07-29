@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Sep 17, 2014 - 12:30 PM  -->
+<feature_model name="Middle Office">
+<meta>
+<data name="description">MO Features Model</data>
+<data name="creator">Joel Adlerblum</data>
+<data name="address"></data>
+<data name="email">joel.adlerblum@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Pavilion Global Markets</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Middle Office(_r)
+	:o Home(_r_1)
+	:m Confirmations(_r_2)
+		:m Managers(_r_2_3)
+		:m Brokers(_r_2_4)
+	:m Orders(_r_5)
+	:m Firms(_r_6)
+	:m Reports(_r_7)
+		:m Confirmations(_r_7_8)
+			:m Confirmations Dynamic(_r_7_8_11)
+			:m Confirmations Dynamic(_r_7_8_12)
+		:m Net(_r_7_9)
+			:m Net Amount(_r_7_9_13)
+		:m Business Analysis(_r_7_10)
+			:m Principal Values(_r_7_10_14)
+			:m Manager Regions(_r_7_10_15)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

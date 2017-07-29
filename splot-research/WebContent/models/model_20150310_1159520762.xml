@@ -1,0 +1,63 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 10, 2015 - 1:56 AM  -->
+<feature_model name="TallerInmobiliaria">
+<meta>
+<data name="description">Fabricas</data>
+<data name="creator">!alejandro</data>
+<data name="address"></data>
+<data name="email">alejandr0quinter0@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:m GestionInmobiliaria(_r_1)
+		:m GestionOperativaDelInmueble(_r_1_23)
+			:o GestionInstalaciones(_r_1_23_24)
+			:o GestionActivosFisicos(_r_1_23_26)
+			:o GestionEquipamento(_r_1_23_27)
+		:o GestionSistemas(_r_1_30)
+		:o GestionProcesos(_r_1_31)
+			:o Tasaciones(_r_1_31_51)
+			:o Reservas(_r_1_31_52)
+		:o GestionRecursosHumanos(_r_1_32)
+	:m GestionCapital(_r_2)
+		:m Estructuracion(_r_2_4)
+			:g (_r_2_4_11) [1,1] 
+				: InversionAlternativa(_r_2_4_11_12)
+					:g (_r_2_4_11_12_14) [1,*] 
+						: Vehiculos(_r_2_4_11_12_14_15)
+						: FondosCapitalPrivado(_r_2_4_11_12_14_16)
+						: CarteraColectiva(_r_2_4_11_12_14_17)
+						: PatrimonioAutonomo(_r_2_4_11_12_14_19)
+				: InversionTradicional(_r_2_4_11_13)
+		:o DefinicionGobiernoCorporativo(_r_2_7)
+		:o RelacionInversores(_r_2_8)
+		:m AdquisicionActivos(_r_2_9)
+		:o VentaActivos(_r_2_10)
+	:m GestionActivos(_r_3)
+		:m AdquisicionInmueble(_r_3_33)
+		:m Alquileres(_r_3_34)
+		:m Reporting(_r_3_35)
+			:g (_r_3_35_36) [1,1] 
+				: Financiero(_r_3_35_36_37)
+				: Operativo(_r_3_35_36_38)
+		:o Valoraciones(_r_3_40)
+		:o Auditorias(_r_3_41)
+		:o RevisionesMercado(_r_3_42)
+		:o Contabilidad(_r_3_43)
+		:o Refinanciaciones(_r_3_44)
+		:o VentaInmueble(_r_3_45)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_7 or ~_r_2_8
+constraint_6:_r_1_23_24 or ~_r_1_23_26
+constraint_4:~_r_2_10 or _r_3_43
+constraint_5:_r_1_23_26 or ~_r_1_23_27
+constraint_2:~_r_3_40 or _r_3_41
+constraint_3:_r_3_40 or ~_r_3_42
+</constraints>
+</feature_model>

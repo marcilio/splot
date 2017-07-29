@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Sep 2, 2014 - 8:38 PM  -->
+<feature_model name="teste">
+<meta>
+<data name="description">teste </data>
+<data name="creator">Alexandre</data>
+<data name="address"></data>
+<data name="email">alexandre.a.giron@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SysML model(_r)
+	:m Variation Point - Barometer(_r_1)
+		:m Varibility - Barometer(_r_1_4)
+			:g (_r_1_4_5) [1,1] 
+				: BPM085 - Barometer(_r_1_4_5_6)
+				: MS5611 - Barometer(_r_1_4_5_7)
+	:m Variation Point - Camera(_r_2)
+		:m Variability - Camera(_r_2_8)
+			:g (_r_2_8_9) [1,1] 
+				: RGB - Camera(_r_2_8_9_10)
+				: Infrared - Camera(_r_2_8_9_11)
+	:m Variation Point - Servos(_r_3)
+		:m Variability - Servos(_r_3_12)
+			:g (_r_3_12_13) [1,*] 
+				: Aileron_right_left - Servos(_r_3_12_13_14)
+				: Rudder - Servos(_r_3_12_13_18)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

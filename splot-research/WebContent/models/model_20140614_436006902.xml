@@ -1,0 +1,58 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 14, 2014 - 12:54 PM  -->
+<feature_model name="MesaAyuda-Magister2014">
+<meta>
+<data name="description">Mesa de Ayuda</data>
+<data name="creator">Nelson Muñoz</data>
+<data name="address"></data>
+<data name="email">nmunozd@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Magister UFRO</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Mesa de Ayuda(_r)
+	:m Tamanio del Negocio(_r_31)
+		:g (_r_31_36) [1,1] 
+			: Medio(_r_31_36_37)
+			: Basico(_r_31_36_75)
+			: Full(_r_31_36_78)
+	:m Tipo de Soporte(_r_42)
+		:g (_r_42_43) [1,1] 
+			: Telefonico(_r_42_43_44)
+			: Remoto(_r_42_43_79)
+			: Web(_r_42_43_80)
+			: E-Mail(_r_42_43_81)
+	:m Tipo de Cliente(_r_51)
+		:g (_r_51_52) [1,1] 
+			: Corporativo(_r_51_52_53)
+			: Residencial(_r_51_52_82)
+	:m Prioridades(_r_58)
+	:g (_r_59) [1,1] 
+		: Urgente(_r_59_60)
+		: Alta(_r_59_61)
+		: Normal(_r_59_64)
+		: Baja(_r_59_65)
+	:m Entorno Grafico(_r_87)
+		:o Cambiar Logo(_r_87_88)
+		:o Cambiar Template(_r_87_89)
+	:o Seguridad(_r_91)
+		:g (_r_91_92) [1,*] 
+			: Usuario y Clave(_r_91_92_93)
+			: log de acceso(_r_91_92_94)
+			: log de Actividades(_r_91_92_95)
+</feature_tree>
+<constraints>
+constraint_8:~_r_31_36_75 or ~_r_91
+constraint_9:~_r_31_36_37 or _r_91_92_93
+constraint_11:~_r_31_36_78 or _r_91_92_93
+constraint_6:~_r_59_60 or ~_r_31_36_75
+constraint_12:~_r_31_36_78 or _r_91_92_94
+constraint_7:~_r_31_36_75 or ~_r_87_89
+constraint_13:~_r_31_36_78 or _r_91_92_95
+constraint_4:~_r_59_61 or ~_r_31_36_75
+constraint_5:~_r_59_65 or ~_r_31_36_75
+</constraints>
+</feature_model>

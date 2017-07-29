@@ -1,0 +1,73 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, May 14, 2017 - 6:15 PM  -->
+<feature_model name="ebay">
+<meta>
+<data name="description">A feature model for ebay ecommerce system</data>
+<data name="creator">Khaled Al-Sabbagh, Maximilian Kuehl, Mohammad Reza</data>
+<data name="address"></data>
+<data name="email">gusalskh@student.gu.se, guskuhma@student.gu.se</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University Of Gothenburg</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ebay(_r)
+	:m Login(_r_4)
+	:m Payment(_r_14)
+		:g (_r_14_15) [1,*] 
+			: Credit Card(_r_14_15_16)
+			: PayPal(_r_14_15_17)
+			: Cheque(_r_14_15_18)
+			: Postal Order(_r_14_15_19)
+			: Escrow(_r_14_15_20)
+	:m Search(_r_21)
+		:o Categories(_r_21_23)
+	:m Notification(_r_24)
+	:m Shipment(_r_25)
+		:g (_r_25_26) [1,*] 
+			: Premium(_r_25_26_27)
+			: Standard(_r_25_26_28)
+	:m Security(_r_29)
+		:g (_r_29_31) [1,1] 
+			: High(_r_29_31_32)
+			: Standard(_r_29_31_33)
+	:m Logout(_r_34)
+	:m Compatibility(_r_36)
+		:g (_r_36_37) [1,*] 
+			: PC(_r_36_37_38)
+			: Tablets(_r_36_37_39)
+				:g (_r_36_37_39_43) [1,*] 
+					: Windows(_r_36_37_39_43_44)
+					: Apple(_r_36_37_39_43_45)
+					: Android(_r_36_37_39_43_46)
+			: Phone(_r_36_37_40)
+				:g (_r_36_37_40_47) [1,*] 
+					: Windows(_r_36_37_40_47_48)
+					: Apple(_r_36_37_40_47_49)
+					: Android(_r_36_37_40_47_50)
+	:m Register(_r_52)
+		:g (_r_52_54) [1,1] 
+			: Retailer(_r_52_54_55)
+			: Private(_r_52_54_56)
+	:m Unregister(_r_53)
+	:m Help and Support(_r_57)
+		:g (_r_57_58) [1,*] 
+			: Email(_r_57_58_59)
+			: FAQ(_r_57_58_60)
+			: Phone(_r_57_58_61)
+			: Chat(_r_57_58_62)
+	:o Community Forum(_r_64)
+	:m Sell(_r_65)
+	:m Buy(_r_66)
+</feature_tree>
+<constraints>
+constraint_9:_r_4 or ~_r_65 or ~_r_66
+constraint_10:_r_14 or _r_25 or ~_r_65
+constraint_6:~_r_14_15_16 or _r_29_31_32
+constraint_7:~_r_4 or _r_52
+constraint_12:_r_14 or _r_25 or ~_r_66
+constraint_5:_r_4 or ~_r_24
+</constraints>
+</feature_model>

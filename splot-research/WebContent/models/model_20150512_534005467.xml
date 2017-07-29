@@ -1,0 +1,60 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 12, 2015 - 4:07 AM  -->
+<feature_model name="BC WIN">
+<meta>
+<data name="description">Feature Model of a Bike Computer</data>
+<data name="creator">Marc Ihlenfeld</data>
+<data name="address"></data>
+<data name="email">marc.ihlenfeld@uni-rostock.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University Rostock</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BC(_r)
+	:m Device(_r_1)
+		:m Energysupply(_r_1_7)
+			:g (_r_1_7_8) [1,1] 
+				: Battery(_r_1_7_8_9)
+				: Rechargeable Battery(_r_1_7_8_10)
+				: Photovoltaic Cell(_r_1_7_8_11)
+		:m Display(_r_1_14)
+		:m Controls(_r_1_15)
+			:m Speedometer(_r_1_15_16)
+			:m Total Distance(_r_1_15_17)
+			:m Trip Count(_r_1_15_18)
+			:m Clock(_r_1_15_19)
+			:o Advanced Features(_r_1_15_38)
+				:m Avarage Trip(_r_1_15_38_39)
+				:m Avarage Speed(_r_1_15_38_40)
+				:m StopWatch(_r_1_15_38_41)
+				:o Deluxe Features(_r_1_15_38_42)
+					:m Pedal Rotation(_r_1_15_38_42_43)
+					:o Heartbeat Monitor(_r_1_15_38_42_44)
+					:o GPS Navigation System(_r_1_15_38_42_45)
+	:m Bracket(_r_3)
+		:g (_r_3_4) [1,*] 
+			: Cable Ties(_r_3_4_5)
+			: O-Rings(_r_3_4_6)
+	:m Magnet(_r_12)
+	:m Sensor(_r_13)
+		:g (_r_13_27) [1,*] 
+			: Pedal Rotation S(_r_13_27_28)
+				:g (_r_13_27_28_30) [1,1] 
+					: Wireless PR(_r_13_27_28_30_31)
+					: Wired PR(_r_13_27_28_30_32)
+			: Normal(_r_13_27_29)
+				:g (_r_13_27_29_33) [1,1] 
+					: Wireless N(_r_13_27_29_33_34)
+					: Wired N(_r_13_27_29_33_35)
+</feature_tree>
+<constraints>
+constraint_8:~_r_1_15_16 or _r_13_27_29
+constraint_10:~_r_1_7_8_11 or ~_r_13_27_28_30_31
+constraint_11:~_r_1_7_8_11 or ~_r_13_27_29_33_34
+constraint_12:_r_13_27_28 or ~_r_1_15_38_42
+constraint_4:_r_12 or ~_r_1_15_16
+</constraints>
+</feature_model>

@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Feb 16, 2017 - 1:29 PM  -->
+<feature_model name="HandlingSystem">
+<meta>
+<data name="description">HandlingSystem</data>
+<data name="creator">adeng</data>
+<data name="address"></data>
+<data name="email">85134548@qq.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Beihang University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r HandlingSystem(_r)
+	:g (_r_18) [1,*] 
+		: Conveyor(_r_18_19)
+	:g (_r_20) [1,*] 
+		: AutomaticStorageRetrievalSystem(_r_20_21)
+			:g (_r_20_21_22) [1,*] 
+				: aIDC(_r_20_21_22_23)
+			:g (_r_20_21_24) [1,*] 
+				: aIDCApp(_r_20_21_24_25)
+	:g (_r_26) [1,*] 
+		: AutomaticIdentificationDataCollection(_r_26_27)
+	:g (_r_30) [1,*] 
+		: AutomaticGuidedVehicle(_r_30_31)
+			:g (_r_30_31_32) [1,*] 
+				: AGVApp(_r_30_31_32_33)
+			:g (_r_30_31_34) [1,*] 
+				: AGV(_r_30_31_34_35)
+					:g (_r_30_31_34_35_36) [1,*] 
+						: Sensor(_r_30_31_34_35_36_37)
+							:g (_r_30_31_34_35_36_37_38) [1,1] 
+								: MagneticGuideSensor(_r_30_31_34_35_36_37_38_39)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

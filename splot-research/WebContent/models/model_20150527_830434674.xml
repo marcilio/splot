@@ -1,0 +1,60 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 27, 2015 - 4:58 AM  -->
+<feature_model name="Quality Attributes ISO">
+<meta>
+<data name="description">Quality attributes from the ISO standard.</data>
+<data name="creator">José Miguel Horcas</data>
+<data name="address"></data>
+<data name="email">horcas@lcc.uma.es</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Málaga</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r QualityAttributes(_r)
+	:g (_r_1) [1,*] 
+		: Functionality(_r_1_2)
+			:g (_r_1_2_8) [1,*] 
+				: Suitability(_r_1_2_8_9)
+				: Accuracy(_r_1_2_8_10)
+				: Interoperability(_r_1_2_8_11)
+				: Security(_r_1_2_8_12)
+				: FunctionalityCompliance(_r_1_2_8_13)
+		: Reliability(_r_1_3)
+			:g (_r_1_3_15) [1,*] 
+				: Maturity(_r_1_3_15_16)
+				: FaultTorelance(_r_1_3_15_18)
+				: Recoverability(_r_1_3_15_19)
+				: ReliabilityCompliance(_r_1_3_15_20)
+		: Usability(_r_1_4)
+			:g (_r_1_4_21) [1,*] 
+				: Understandability(_r_1_4_21_22)
+				: Learnability(_r_1_4_21_23)
+				: Operability(_r_1_4_21_24)
+				: Attractiveness(_r_1_4_21_25)
+				: UsabilityCompliance(_r_1_4_21_26)
+		: Efficiency(_r_1_5)
+			:g (_r_1_5_27) [1,*] 
+				: TimeBehaviour(_r_1_5_27_28)
+				: ResourceUtilisation(_r_1_5_27_29)
+				: EfficiencyCompliance(_r_1_5_27_30)
+		: Maintainability(_r_1_6)
+			:g (_r_1_6_31) [1,*] 
+				: Analysability(_r_1_6_31_32)
+				: Changeability(_r_1_6_31_33)
+				: Stability(_r_1_6_31_34)
+				: Testability(_r_1_6_31_35)
+				: MaintainabilityCompliance(_r_1_6_31_36)
+		: Portability(_r_1_7)
+			:g (_r_1_7_37) [1,*] 
+				: Adaptability(_r_1_7_37_38)
+				: Installability(_r_1_7_37_39)
+				: CoExistence(_r_1_7_37_40)
+				: Replaceability(_r_1_7_37_41)
+				: PortabilityCompliance(_r_1_7_37_42)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

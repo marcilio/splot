@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jun 16, 2015 - 1:09 PM  -->
+<feature_model name="SysML Model">
+<meta>
+<data name="description">model for personal testing </data>
+<data name="creator">Alexandre Augusto Giron</data>
+<data name="address"></data>
+<data name="email">alexandre.a.giron@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNIOESTE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SysMLModel(_r)
+	:m DispositivoCaptura(_r_1)
+		:g (_r_1_6) [1,1] 
+			: ServidorX(_r_1_6_7)
+			: LifeCamHD(_r_1_6_8)
+	:m algLimiarizacao(_r_2)
+		:g (_r_2_9) [1,1] 
+			: LimiarizacaoARM(_r_2_9_10)
+			: LimiarizacaoDSP(_r_2_9_11)
+	:m YUYVparaRGB(_r_3)
+		:g (_r_3_12) [1,1] 
+			: ConvARM(_r_3_12_13)
+			: ConvDSP(_r_3_12_14)
+	:m algConvCinza(_r_4)
+		:g (_r_4_15) [1,1] 
+			: ConvCinzaARM(_r_4_15_16)
+			: ConvCinzaDSP(_r_4_15_17)
+	:m DispositivoSaida(_r_5)
+		:g (_r_5_18) [1,1] 
+			: VGA(_r_5_18_19)
+			: sVideo(_r_5_18_20)
+			: DVI(_r_5_18_21)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

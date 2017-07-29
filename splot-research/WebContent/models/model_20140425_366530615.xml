@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 29, 2014 - 7:04 PM  -->
+<feature_model name="NovoSiga">
+<meta>
+<data name="description">Sistema de gerenciamento escolar/universitário</data>
+<data name="creator">Micael e Samuel</data>
+<data name="address"></data>
+<data name="email">msf3@con.ufpe.br / scras@cin.ufpe,br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r NovoSiga(_r)
+	:m RegisterUser(_r_1)
+		:g (_r_1_10) [1,1] 
+			: Student(_r_1_10_11)
+			: Employee(_r_1_10_12)
+				:g (_r_1_10_12_15) [1,1] 
+					: Professor(_r_1_10_12_15_16)
+					: AdministrativeTechnician(_r_1_10_12_15_17)
+	:o WebMail(_r_18)
+	:m MonitorPublicProcess(_r_19)
+	:o AddScore(_r_20)
+	:m RegisterMatriculation(_r_22)
+	:o IntegratedServices(_r_23)
+</feature_tree>
+<constraints>
+constraint_2:~_r_1_10_11 or ~_r_20
+</constraints>
+</feature_model>

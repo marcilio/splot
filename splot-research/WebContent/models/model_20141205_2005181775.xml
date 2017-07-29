@@ -1,0 +1,59 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Dec 5, 2014 - 5:13 AM  -->
+<feature_model name="Pricing">
+<meta>
+<data name="description">Pricing of the cloud computing</data>
+<data name="creator">Eglantine</data>
+<data name="address">44 rue Gabriel Péri 59112 CARNIN France</data>
+<data name="email">ehoudart@gmail.com</data>
+<data name="phone">0664797596</data>
+<data name="website"></data>
+<data name="organization">ustl</data>
+<data name="department"></data>
+<data name="date">05 dec 2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Princing(_r)
+	:m Systeme exploitation(_r_1)
+		:g (_r_1_3) [1,*] 
+			: Linux(_r_1_3_4)
+			: Windows(_r_1_3_5)
+	:m nombre de coeurs(_r_2)
+		:g (_r_2_7) [1,*] 
+			: 1(_r_2_7_8)
+			: 2(_r_2_7_9)
+			: 4(_r_2_7_10)
+			: 8(_r_2_7_11)
+			: 16(_r_2_7_12)
+	:m usage(_r_13)
+		:g (_r_13_15) [1,*] 
+			: standard(_r_13_15_16)
+			: micro(_r_13_15_17)
+			: calcul(_r_13_15_18)
+			: memoire(_r_13_15_19)
+			: GPU(_r_13_15_20)
+			: stockage(_r_13_15_21)
+	:o services(_r_22)
+		:g (_r_22_25) [1,1] 
+			: Windows(_r_22_25_26)
+				:g (_r_22_25_26_28) [1,*] 
+					: SQL server(_r_22_25_26_28_29)
+					: SQL standard(_r_22_25_26_28_30)
+					: Biztalk(_r_22_25_26_28_31)
+					: Oracle(_r_22_25_26_28_32)
+			: Linux-windows(_r_22_25_27)
+				:g (_r_22_25_27_33) [1,*] 
+					: Big Query(_r_22_25_27_33_34)
+					: Storage(_r_22_25_27_33_35)
+					: Datastore(_r_22_25_27_33_36)
+	:m region(_r_37)
+		:g (_r_37_38) [1,1] 
+			: Europe Ouest(_r_37_38_39)
+			: Europe Est(_r_37_38_40)
+			: Amerique Nord(_r_37_38_41)
+			: Amerique Sud(_r_37_38_42)
+			: Asie Pacifique(_r_37_38_43)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Nov 19, 2014 - 5:09 PM  -->
+<feature_model name="Limerick Bike Sharing System">
+<meta>
+<data name="description">LBSS</data>
+<data name="creator">Xuebin Huang</data>
+<data name="address"></data>
+<data name="email">envlinyueru@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Limerick</data>
+<data name="department"></data>
+<data name="date">19/11/2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Limerick Bike Sharing System(_r)
+	:m Bikes(_r_1)
+		:m Unisex(_r_1_8)
+		:m Plastic fenders(_r_1_9)
+		:m Coaster brakes(_r_1_10)
+		:m Seat height indicator(_r_1_12)
+		:m Anti theft locks(_r_1_13)
+		:m Gears(_r_1_14)
+		:m Non-slip handlers(_r_1_15)
+		:m Bells(_r_1_16)
+	:m Bike Stations(_r_3)
+		:m Check-in kiosks(_r_3_17)
+		:m Bike holders(_r_3_18)
+		:m Locations(_r_3_37)
+	:m Kiosks(_r_4)
+		:m Check-in bikes(_r_4_19)
+		:m Check-out bikes(_r_4_20)
+		:m Navigation maps(_r_4_21)
+	:m Payment(_r_5)
+		:m Credit or Debit cards(_r_5_22)
+		:m Cash(_r_5_23)
+		:m Online payment(_r_5_24)
+	:m Staff(_r_6)
+		:m Bike Maintenance Team(_r_6_25)
+		:m System Maintenance Team(_r_6_26)
+		:m Helpdesk Team(_r_6_27)
+	:o Add-on Service(_r_7)
+		:g (_r_7_28) [1,*] 
+			: Helmets(_r_7_28_29)
+				:g (_r_7_28_29_30) [1,1] 
+					: Normal helmets(_r_7_28_29_30_31)
+					: Helmets with lights(_r_7_28_29_30_32)
+			: Safty jackets(_r_7_28_33)
+			: Safty bands(_r_7_28_34)
+			: Child carriges(_r_7_28_35)
+			: Baskets(_r_7_28_36)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

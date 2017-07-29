@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 31, 2016 - 9:10 PM  -->
+<feature_model name="LeSE - Learning Software Engineering">
+<meta>
+<data name="description">It is board game that aims to teach students software engineering in general</data>
+<data name="creator">Cassios Marques</data>
+<data name="address"></data>
+<data name="email">cassios.kmm@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Lese(_r)
+	:o Manage Projects(_r_1)
+		:o Jokers(_r_1_3)
+			:m Create Jokers(_r_1_3_18)
+			:m Update Jokers(_r_1_3_19)
+		:m Questions(_r_1_4)
+			:m Create Questions(_r_1_4_15)
+			:m Update Questions(_r_1_4_16)
+	:o Authentication(_r_8)
+	:m Ranking(_r_9)
+	:o Random Board(_r_11)
+	:m Number of Players(_r_12)
+		:g (_r_12_13) [1,1] 
+			: Single Player(_r_12_13_14)
+			: Multi Player(_r_12_13_17)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

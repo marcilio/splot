@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Sep 19, 2016 - 3:36 PM  -->
+<feature_model name="bib1">
+<meta>
+<data name="description">etude de cas bibliothèque</data>
+<data name="creator">nesrine khalfallah</data>
+<data name="address"></data>
+<data name="email">khalfallahnesrinee@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ENSI RIADI Lab</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r bibliotheque(_r)
+	:m abonne(_r_2)
+		:m num-abonne(_r_2_5)
+		:m coordonnee(_r_2_6)
+		:g (_r_2_21) [1,*] 
+			: point-fidelite(_r_2_21_22)
+			: solde(_r_2_21_23)
+			: preferences(_r_2_21_25)
+	:m emprunt(_r_3)
+		:m num-emprunt(_r_3_10)
+		:m date-debut(_r_3_11)
+		:m date-fin-prevu(_r_3_12)
+		:g (_r_3_26) [1,*] 
+			: cout(_r_3_26_27)
+			: date-fin-reel(_r_3_26_28)
+	:m livre(_r_4)
+		:m num-livre(_r_4_15)
+		:m titre(_r_4_17)
+		:m autheur(_r_4_18)
+		:g (_r_4_29) [1,*] 
+			: etat(_r_4_29_30)
+			: categorie(_r_4_29_31)
+			: emplacement(_r_4_29_32)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

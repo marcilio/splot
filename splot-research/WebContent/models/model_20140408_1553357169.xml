@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 8, 2014 - 9:10 AM  -->
+<feature_model name="Xor Example">
+<meta>
+<data name="description">Xor Example</data>
+<data name="creator">Ra'fat Al-msie'deen</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Lirrm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:g (_r_3) [1,1] 
+		: F1(_r_3_4)
+		: F4(_r_3_5)
+		: F5(_r_3_6)
+		: F6(_r_3_7)
+		: F7(_r_3_8)
+	:g (_r_9) [1,*] 
+		: F2(_r_9_10)
+		: F3(_r_9_11)
+	:o 1(_r_12)
+	:o 2(_r_13)
+	:o 3(_r_14)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3_6 or _r_9_10
+constraint_8:~_r_3_5 or ~_r_9_10
+constraint_9:~_r_3_8 or ~_r_9_10
+constraint_6:~_r_3_4 or ~_r_9_11
+constraint_7:~_r_3_6 or ~_r_9_11
+constraint_4:~_r_3_7 or _r_9_11
+constraint_5:~_r_3_8 or _r_9_11
+constraint_2:~_r_3_7 or _r_9_10
+</constraints>
+</feature_model>

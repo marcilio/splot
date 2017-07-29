@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 17, 2016 - 5:58 PM  -->
+<feature_model name="E-Shop, magister2014">
+<meta>
+<data name="description">ej. feature model suing e-shop study case</data>
+<data name="creator">Samuel Sepúlveda</data>
+<data name="address"></data>
+<data name="email">ssc.cursos@gmailcom</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">CEIS-DIS-UFRO</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r e-shop2014(_r)
+	:m catalogo(_r_1)
+	:m pago(_r_2)
+		:g (_r_2_5) [1,*] 
+			: transferencia(_r_2_5_6)
+			: tarj credito(_r_2_5_7)
+	:m seguridad(_r_3)
+		:g (_r_3_8) [1,1] 
+			: alta(_r_3_8_9)
+			: estandar(_r_3_8_10)
+	:o buscador(_r_4)
+		:o reporte pulico(_r_4_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

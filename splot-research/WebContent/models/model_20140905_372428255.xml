@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Sep 5, 2014 - 2:28 PM  -->
+<feature_model name="SPL Studies">
+<meta>
+<data name="description">SPL Studies</data>
+<data name="creator">Thalisson</data>
+<data name="address"></data>
+<data name="email">oliveirat@outlook.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Root(_r)
+	:g (_r_1) [1,*] 
+		: Or One(_r_1_2)
+			:g (_r_1_2_20) [1,1] 
+				: OrChain(_r_1_2_20_21)
+					:o Optional(_r_1_2_20_21_23)
+					:m Mandatory(_r_1_2_20_21_24)
+				: Childhood(_r_1_2_20_22)
+		: Or Two(_r_1_5)
+		: Child(_r_1_9)
+	:g (_r_15) [1,1] 
+		: Xor One(_r_15_16)
+			:m Mandatory1(_r_15_16_25)
+		: Xor Two(_r_15_17)
+			:m Mandatory2(_r_15_17_26)
+		: Xot Three(_r_15_18)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 21, 2015 - 10:40 AM  -->
+<feature_model name="Tienda Virtual PUJ">
+<meta>
+<data name="description">Modelo de características de tiendas virtuales</data>
+<data name="creator">Luisa Rincón</data>
+<data name="address"></data>
+<data name="email">lfrincon@javerianacali.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Pontificia Universidad Javeriana Cali</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r TiendaVirtualPUJ(_r)
+	:m Productos(_r_1)
+		:m Marcas(_r_1_4)
+		:m Categorias(_r_1_6)
+		:m CarroCompras(_r_1_7)
+			:o Cotizaciones(_r_1_7_9)
+			:g (_r_1_7_24) [1,1] 
+				: PagoContraentrega(_r_1_7_24_25)
+				: Paypal(_r_1_7_24_26)
+				: Consignacion(_r_1_7_24_27)
+		:o Busquedas(_r_1_23)
+		:o Calificacion(_r_1_28)
+	:o RegistroUsuarios(_r_2)
+	:o Contenido(_r_3)
+		:o Banners(_r_3_17)
+		:o Galeria(_r_3_19)
+		:o Redes sociales(_r_3_20)
+		:o Chat(_r_3_21)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

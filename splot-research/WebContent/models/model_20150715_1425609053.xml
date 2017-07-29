@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jul 15, 2015 - 10:32 AM  -->
+<feature_model name="This is a test">
+<meta>
+<data name="description">|This is a test</data>
+<data name="creator">This is a test</data>
+<data name="address"></data>
+<data name="email">This is a test</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">This is a test</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MyFeature(_r)
+	:m Mandatory1(_r_1)
+	:o Extension(_r_2)
+	:g (_r_3) [1,*] 
+		: Choice1(_r_3_4)
+		: Choice2(_r_3_5)
+		: Choice3(_r_3_6)
+	:m Another(_r_7)
+	:o Choice x(_r_8)
+	:o Choice y(_r_9)
+	:g (_r_10) [1,1] 
+		: Foo(_r_10_11)
+		: Bar(_r_10_12)
+		: Baz(_r_10_13)
+</feature_tree>
+<constraints>
+constraint_2:_r_2 or _r_3_5
+</constraints>
+</feature_model>

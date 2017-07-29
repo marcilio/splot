@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 5, 2015 - 3:57 PM  -->
+<feature_model name="Javed Test 2">
+<meta>
+<data name="description">a FM for stat Analysis</data>
+<data name="creator">Muhammad Javed</data>
+<data name="address">Hazara University, Pakistan</data>
+<data name="email">mjavedgohar@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IT Dept, Hazara University, Pakistan</data>
+<data name="department"></data>
+<data name="date">5-5-2015</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r a(_r)
+	:o b(_r_3)
+		:g (_r_3_11) [1,*] 
+			: e(_r_3_11_12)
+			: d(_r_3_11_13)
+			: f(_r_3_11_14)
+	:o c(_r_4)
+		:o j(_r_4_22)
+			:g (_r_4_22_24) [1,1] 
+				: l(_r_4_22_24_25)
+				: m(_r_4_22_24_26)
+		:o k(_r_4_23)
+	:o g(_r_15)
+	:o h(_r_16)
+	:o i(_r_17)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

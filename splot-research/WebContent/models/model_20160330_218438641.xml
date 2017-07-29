@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:22 PM  -->
+<feature_model name="Urna Eletrônica">
+<meta>
+<data name="description">Eleições</data>
+<data name="creator">Ana Luiza Martins</data>
+<data name="address"></data>
+<data name="email">luizamarttins@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna Eletronica - Ana Luiza(_r)
+	:m inicializacao(_r_1)
+		:m senha(_r_1_2)
+			:g (_r_1_2_3) [1,1] 
+				: titulo_de_eleitor(_r_1_2_3_4)
+				: documento(_r_1_2_3_32)
+		:m eleicao(_r_1_9)
+			:g (_r_1_9_18) [1,1] 
+				: um presidente e dois senadores(_r_1_9_18_19)
+				: um prefeito e um veriador(_r_1_9_18_20)
+				: um chefe do departamento(_r_1_9_18_21)
+					:m tipo_de_voto(_r_1_9_18_21_22)
+						:g (_r_1_9_18_21_22_23) [1,1] 
+							: professor(_r_1_9_18_21_22_23_24)
+							: tecnico_administrativo(_r_1_9_18_21_22_23_25)
+	:m termino(_r_5)
+		:m senha(_r_5_6)
+			:g (_r_5_6_7) [1,1] 
+				: TRE(_r_5_6_7_8)
+				: TSE(_r_5_6_7_14)
+				: professor_ativo(_r_5_6_7_15)
+		:m entrega_de_estatisticas(_r_5_17)
+	:m inicializar_urna(_r_26)
+		:m senha(_r_26_27)
+			:g (_r_26_27_28) [1,1] 
+				: TRE(_r_26_27_28_29)
+				: TSE(_r_26_27_28_30)
+				: professor_ativo(_r_26_27_28_31)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

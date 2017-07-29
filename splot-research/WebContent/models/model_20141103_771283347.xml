@@ -1,0 +1,34 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Nov 3, 2014 - 11:24 AM  -->
+<feature_model name="Telefono">
+<meta>
+<data name="description">Modelo de Telefono</data>
+<data name="creator">Juan Jose</data>
+<data name="address"></data>
+<data name="email">lion215@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Juan Jose</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Telefono Movil(_r)
+	:m Llamadas(_r_1)
+	:o GPS(_r_2)
+	:m Pantalla(_r_3)
+		:g (_r_3_17) [1,1] 
+			: Basica(_r_3_17_21)
+			: Color(_r_3_17_22)
+			: Alta Resolucion(_r_3_17_23)
+	:o Multimedia(_r_16)
+		:g (_r_16_24) [1,1] 
+			: MP3(_r_16_24_25)
+			: Camara(_r_16_24_26)
+</feature_tree>
+<constraints>
+constraint_1:_r_2 or ~_r_3_17_21
+constraint_5:~_r_2 or _r_3_17_21
+constraint_2:_r_3_17_23 or ~_r_16_24_26
+</constraints>
+</feature_model>

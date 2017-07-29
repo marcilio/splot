@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 10, 2015 - 5:39 PM  -->
+<feature_model name="Uniandes-MISO-Inmobiliaria">
+<meta>
+<data name="description">Diagrama para el taller #1 para la materia Fabricas de Software de la Universidad de los Andes</data>
+<data name="creator">Carlos Martínez / Hernán Nivia</data>
+<data name="address"></data>
+<data name="email">mc.carlos10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o GestionCapital(_r_1)
+		:g (_r_1_26) [1,*] 
+			: IAlternativas(_r_1_26_27)
+			: ITradicionales(_r_1_26_28)
+		:o GobiernoCorporativo(_r_1_29)
+		:o Relaciones(_r_1_30)
+		:o Adquisiciones(_r_1_31)
+		:o VentaActivos(_r_1_32)
+	:m GestionActivos(_r_2)
+		:m AdquisicionInmueble(_r_2_10)
+		:m Alquileres(_r_2_16)
+		:g (_r_2_17) [1,*] 
+			: Financiero(_r_2_17_18)
+			: Operativo(_r_2_17_19)
+		:o Valoraciones(_r_2_20)
+		:o Auditorias(_r_2_21)
+		:o RevisionesMercado(_r_2_22)
+		:o Contabilidad(_r_2_23)
+		:o Refinanciaciones(_r_2_24)
+	:m GestionInmobiliaria(_r_3)
+		:o Equipamiento(_r_3_11)
+		:o Instalaciones(_r_3_12)
+		:o ActivosFisicos(_r_3_13)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3_11 or ~_r_3_13
+constraint_6:_r_2_20 or ~_r_2_21 or ~_r_2_22
+constraint_7:_r_1_32 or ~_r_2_23
+constraint_4:~_r_2_20 or _r_2_21
+constraint_5:~_r_1_29 or ~_r_1_30
+constraint_2:~_r_3_12 or ~_r_3_13
+</constraints>
+</feature_model>

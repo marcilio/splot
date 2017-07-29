@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 11:30 PM  -->
+<feature_model name="Urna-EMF">
+<meta>
+<data name="description">Modela urna eletrônica</data>
+<data name="creator">Eduardo</data>
+<data name="address"></data>
+<data name="email">eduardomorfernandes@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna(_r)
+	:m InicializarSistema(_r_1)
+		:g (_r_1_2) [1,1] 
+			: CredenciamentoTSE(_r_1_2_3)
+			: CredenciamentoTRE(_r_1_2_4)
+			: CredenciamentoFuncionarioUniversidade(_r_1_2_5)
+	:m GerenciarVoto(_r_6)
+		:g (_r_6_7) [1,1] 
+			: EleicaoPresidenteSenador(_r_6_7_8)
+			: EleicaoPrefeitoVereador(_r_6_7_9)
+			: EleicaoChefeDepartamento(_r_6_7_10)
+	:m GerenciarVoto(_r_11)
+		:g (_r_11_12) [1,*] 
+			: VotoBranco(_r_11_12_13)
+			: VotoNulo(_r_11_12_14)
+			: VotoCandidato(_r_11_12_15)
+	:m ApresentarEstatisticas(_r_16)
+		:g (_r_16_17) [1,*] 
+			: NumeroTotal(_r_16_17_18)
+			: Percentagem(_r_16_17_19)
+	:m ApresentarResultado(_r_20)
+</feature_tree>
+<constraints>
+constraint_1:~_r_6_7_8 or _r_11_12_13
+constraint_8:~_r_6_7_9 or _r_11_12_15
+constraint_10:~_r_6_7_10 or ~_r_11_12_14
+constraint_6:~_r_6_7_10 or _r_11_12_15
+constraint_7:~_r_6_7_10 or _r_11_12_13
+constraint_4:~_r_6_7_9 or _r_11_12_13
+constraint_5:~_r_6_7_9 or _r_11_12_14
+constraint_2:~_r_6_7_8 or _r_11_12_14
+constraint_3:~_r_6_7_8 or _r_11_12_15
+</constraints>
+</feature_model>

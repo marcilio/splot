@@ -1,0 +1,62 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Feb 28, 2017 - 7:36 PM  -->
+<feature_model name="Text To Speech App">
+<meta>
+<data name="description">A basic model for Text to speech</data>
+<data name="creator">Jianghao Derek</data>
+<data name="address"></data>
+<data name="email">hokj123@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Text To Speech App(_r)
+	:m Language(_r_1)
+		:g (_r_1_4) [1,1] 
+			: English(_r_1_4_5)
+			: Spanish(_r_1_4_6)
+			: Franch(_r_1_4_7)
+	:m Voice(_r_10)
+		:g (_r_10_11) [1,1] 
+			: Samantha Voice(_r_10_11_12)
+			: Daniel Voice(_r_10_11_13)
+			: Amelie Voice(_r_10_11_14)
+	:m Add New Documents(_r_15)
+		:g (_r_15_17) [1,*] 
+			: Input Text(_r_15_17_18)
+			: Web Content(_r_15_17_19)
+			: Integration(_r_15_17_20)
+				:g (_r_15_17_20_23) [1,*] 
+					: Google Docs(_r_15_17_20_23_24)
+					: One Drive(_r_15_17_20_23_25)
+					: Dropbox(_r_15_17_20_23_26)
+	:m Document Type(_r_27)
+		:g (_r_27_28) [1,*] 
+			: txt(_r_27_28_29)
+			: PDF(_r_27_28_32)
+			: ePub(_r_27_28_33)
+			: docx(_r_27_28_34)
+	:o Reading Speed(_r_35)
+		:g (_r_35_36) [1,1] 
+			: Slow(_r_35_36_37)
+			: Normal(_r_35_36_38)
+			: Fast(_r_35_36_39)
+	:o Misc Functions(_r_40)
+		:o Bookmark(_r_40_41)
+		:o Color Preference(_r_40_42)
+			:g (_r_40_42_43) [1,1] 
+				: Black(_r_40_42_43_44)
+				: White(_r_40_42_43_45)
+				: Sephia(_r_40_42_43_46)
+	:m Playback Control(_r_47)
+		:g (_r_47_49) [1,1] 
+			: Basic(_r_47_49_50)
+			: Advanced(_r_47_49_51)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_4_6 or ~_r_10_11_14
+</constraints>
+</feature_model>

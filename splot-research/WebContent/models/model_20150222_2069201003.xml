@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 22, 2015 - 12:36 AM  -->
+<feature_model name="Stamppy">
+<meta>
+<data name="description">stamppy</data>
+<data name="creator">Stammpy Team</data>
+<data name="address"></data>
+<data name="email">jcvgalfonso@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Stamppy(_r)
+	:m PostVenta(_r_1)
+		:g (_r_1_3) [1,*] 
+			: Ofrecer Devolucion(_r_1_3_4)
+			: Ofrecer Cancelacion(_r_1_3_5)
+			: Ofrecer garantia(_r_1_3_6)
+		:o Rastrear Devolucion(_r_1_12)
+	:m Soporte(_r_7)
+		:m Live Chat(_r_7_8)
+	:m Administracion Seguridad(_r_9)
+		:m CRUD clientes(_r_9_10)
+		:o CRUD artistas(_r_9_11)
+		:m CRUD Usuarios(_r_9_13)
+		:m Administracion permisos(_r_9_14)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

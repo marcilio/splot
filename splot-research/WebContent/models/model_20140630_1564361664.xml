@@ -1,0 +1,30 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jun 30, 2014 - 5:06 AM  -->
+<feature_model name="Nudelsalat">
+<meta>
+<data name="description">...</data>
+<data name="creator">student</data>
+<data name="address"></data>
+<data name="email">student@email.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">fh</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Nudelsalat(_r)
+	:g (_r_1) [1,1] 
+		: Cappelletti(_r_1_2)
+		: Cellentani(_r_1_5)
+		: Farfalline(_r_1_6)
+		: Gigli(_r_1_7)
+		: Penne(_r_1_8)
+		: Rigatoni(_r_1_9)
+	:m Dressing(_r_10)
+		:m Wasser(_r_10_11)
+		:o Majonese(_r_10_12)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,76 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 14, 2014 - 12:15 PM  -->
+<feature_model name="sistema salud macro">
+<meta>
+<data name="description">sistemasalud</data>
+<data name="creator">Maria Jose Rioseco</data>
+<data name="address"></data>
+<data name="email">rt.mariajose@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">CeisUfro</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SistemaSalud_magister2014(_r)
+	:m Tipo sistema(_r_1)
+		:g (_r_1_13) [1,1] 
+			: publico(_r_1_13_14)
+			: privado(_r_1_13_17)
+	:m Manejo de pacientes(_r_2)
+		:m Buscador pacientes(_r_2_18)
+		:m Ver datos pacientes(_r_2_19)
+		:o Edicion pacientes(_r_2_20)
+		:o Eliminacion pacientes(_r_2_21)
+	:m Manejo de usuarios(_r_3)
+		:m Crear usuarios unitarios(_r_3_22)
+		:o Creacion usuarios masivas(_r_3_23)
+		:o Eliminacion usuarios(_r_3_24)
+		:o Actualizacion datos usuarios(_r_3_27)
+	:o Urgencia(_r_4)
+		:m Admision paciente(_r_4_28)
+		:o Categorizacion paciente(_r_4_39)
+		:o registro clinico(_r_4_40)
+			:m Anamnesis(_r_4_40_42)
+			:m examen fisico(_r_4_40_43)
+			:m cierre clinico(_r_4_40_44)
+			:o Examenes de laboratorio(_r_4_40_45)
+			:o registro actividades(_r_4_40_46)
+			:o registro procedimientos(_r_4_40_47)
+			:o registro insumos(_r_4_40_48)
+			:o receta medica(_r_4_40_49)
+			:o procedimientos medico legal(_r_4_40_50)
+			:o indicaciones medicas(_r_4_40_51)
+		:o cierre administrativo(_r_4_41)
+	:o Farmacia(_r_5)
+		:m Bodegas(_r_5_52)
+		:o Recetas(_r_5_53)
+			:m emision recetas(_r_5_53_54)
+				:g (_r_5_53_54_56) [1,*] 
+					: receta papel(_r_5_53_54_56_57)
+					: receta formulario(_r_5_53_54_56_58)
+			:o despacho recetas(_r_5_53_55)
+		:o Productos(_r_5_60)
+			:m Ingreso de productos(_r_5_60_61)
+			:o Salida de productos(_r_5_60_62)
+			:o stock de productos(_r_5_60_63)
+		:o solicitar prestamos de productos(_r_5_64)
+		:o respuesta de prestamo de productos(_r_5_65)
+	:o Referencia contra referencia(_r_6)
+		:m Registro derivacion de pacientes(_r_6_66)
+	:o Laboratorio(_r_7)
+		:m Creacion ordenes de examenes(_r_7_67)
+	:o  Agenda medica(_r_8)
+		:m asignacion de horas para atencion de profesionales clinicos(_r_8_68)
+		:m calendario de horas por profesional clinico(_r_8_69)
+	:o Atencion policlinico(_r_9)
+	:o Recaudacion(_r_10)
+	:o Estadisticas(_r_11)
+	:o Hospitalizados(_r_12)
+		:m Ficha pacientes ingresos(_r_12_70)
+</feature_tree>
+<constraints>
+constraint_1:~_r_9 or _r_4_40
+</constraints>
+</feature_model>

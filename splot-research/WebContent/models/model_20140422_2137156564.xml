@@ -1,0 +1,62 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 22, 2014 - 8:46 AM  -->
+<feature_model name="VOLKSWAGEN UP FM">
+<meta>
+<data name="description">Feature Model of VW's Up car</data>
+<data name="creator">Guilherme Cavalcanti</data>
+<data name="address"></data>
+<data name="email">gjcc@cin.ufpe.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VOLSKWAGEN UP(_r)
+	:m MODELO(_r_1)
+		:g (_r_1_2) [1,1] 
+			: TAKE(_r_1_2_3)
+			: MOVE(_r_1_2_4)
+			: HIGH(_r_1_2_5)
+	:m PORTAS(_r_9)
+		:g (_r_9_10) [1,1] 
+			: 2P(_r_9_10_11)
+			: 4P(_r_9_10_12)
+	:m SEGURANCA(_r_13)
+		:m ISOFIX(_r_13_14)
+		:m ALERTAS(_r_13_15)
+		:m A2B(_r_13_16)
+		:m ABS(_r_13_17)
+	:m CAMBIO(_r_18)
+		:g (_r_18_19) [1,1] 
+			: MEC(_r_18_19_20)
+			: DSG(_r_18_19_21)
+	:m PINTURA(_r_22)
+		:g (_r_22_23) [1,1] 
+			: SOLIDA(_r_22_23_24)
+			: METALICA(_r_22_23_25)
+			: ESPECIAL(_r_22_23_26)
+	:o OPCIONAIS(_r_27)
+		:g (_r_27_28) [1,*] 
+			: DE(_r_27_28_29)
+			: SE(_r_27_28_30)
+			: VE(_r_27_28_31)
+			: TE(_r_27_28_32)
+			: FN(_r_27_28_33)
+			: AC(_r_27_28_34)
+			: CE(_r_27_28_39)
+			: MN(_r_27_28_40)
+			: CV(_r_27_28_41)
+			: R13(_r_27_28_42)
+			: R14(_r_27_28_43)
+			: R15(_r_27_28_44)
+			: SOM(_r_27_28_45)
+			: COURO(_r_27_28_46)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_2_3 or _r_27_28_42
+constraint_2:~_r_1_2_4 or _r_27_28_29 or _r_27_28_39 or _r_27_28_40 or _r_27_28_41 or _r_27_28_43
+constraint_3:~_r_1_2_5 or _r_9_10_12 or _r_27_28_29 or _r_27_28_30 or _r_27_28_31 or _r_27_28_32 or _r_27_28_33 or _r_27_28_34 or _r_27_28_39 or _r_27_28_40 or _r_27_28_41 or _r_27_28_44 or _r_27_28_45 or _r_27_28_46
+</constraints>
+</feature_model>

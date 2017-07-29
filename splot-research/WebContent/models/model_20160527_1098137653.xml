@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 27, 2016 - 4:56 PM  -->
+<feature_model name="PawelRobo">
+<meta>
+<data name="description">RoboTest</data>
+<data name="creator">Pawel</data>
+<data name="address"></data>
+<data name="email">pawel@mb.hs-wismar.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Wismar Univ. of Appl. Scinces</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SortingApp(_r)
+	:m MUS(_r_1)
+		:m CM(_r_1_6)
+			:g (_r_1_6_8) [1,1] 
+				: identification(_r_1_6_8_9)
+				: sorting(_r_1_6_8_10)
+					:m pickPart(_r_1_6_8_10_11)
+					:m placePart(_r_1_6_8_10_12)
+		:m PM(_r_1_7)
+			:g (_r_1_7_15) [1,*] 
+				: camera(_r_1_7_15_16)
+				: buffers(_r_1_7_15_17)
+				: robot(_r_1_7_15_18)
+			:m parts(_r_1_7_19)
+	:m EF(_r_5)
+		:m G(_r_5_20)
+		:m T(_r_5_22)
+			:g (_r_5_22_28) [1,1] 
+				: T_ident(_r_5_22_28_29)
+				: T_sort(_r_5_22_28_30)
+		:m A(_r_5_24)
+			:g (_r_5_24_25) [1,1] 
+				: A_ident(_r_5_24_25_26)
+				: A_sort(_r_5_24_25_27)
+</feature_tree>
+<constraints>
+constraint_4:~_r_1_6_8_9 or _r_5_24_25_26
+constraint_2:~_r_1_6_8_9 or _r_1_7_15_16
+constraint_3:~_r_1_6_8_9 or _r_5_22_28_29
+</constraints>
+</feature_model>

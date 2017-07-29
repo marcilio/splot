@@ -1,0 +1,87 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Aug 25, 2014 - 11:02 PM  -->
+<feature_model name="Linea Producto MarketPlace">
+<meta>
+<data name="description">Caracteristicas que integran la formación de un marketplace para pequeñas y medianas empresas (Pymes)</data>
+<data name="creator">Cindy Viviana Hernández Otálora</data>
+<data name="address"></data>
+<data name="email">ja.guerrero11@uniandes.edu.co , cv.hernandez10@uniandes.edu.co , ja.rodriguez15@uniandes.edu.co , fa.viera10@uniandes.edu.co , d.cardenas10@uniandes.edu.co </data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department">Maestría en Ingeniería del Software</data>
+<data name="date">24/08/2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Linea Producto MarketPlace(_r)
+	:m Consumidor(_r_2)
+		:m Catalogo_Compras(_r_2_3)
+			:m Seleccionar_productos_del_catalogo(_r_2_3_33)
+			:m Buscar_productos(_r_2_3_34)
+				:o Comparar_productos_seleccionados(_r_2_3_34_35)
+				:o Recibir_informacion_productos_complementarios(_r_2_3_34_36)
+			:m Comprar_productos_seleccionados(_r_2_3_68)
+				:o Asignar_puntos(_r_2_3_68_69)
+			:m Consultar_informacion_producto(_r_2_3_88)
+				:o Presentar_informacion_producto_a_traves_video(_r_2_3_88_89)
+		:m Satisfaccion_Usuario(_r_2_44)
+			:m Calificar_ plataforma(_r_2_44_46)
+			:m Registrar_peticiones_quejas_reclamos(_r_2_44_47)
+			:m Consultar_respuesta_a_peticiones_quejas_reclamos(_r_2_44_48)
+			:o Redimir_puntos_por_fidelizacion(_r_2_44_49)
+			:o Publicar_recomendaciones_marketplace_por_twitter_facebook(_r_2_44_50)
+			:o Rastrear_pedidos(_r_2_44_87)
+			:m Calificar_producto(_r_2_44_90)
+		:m Pagos(_r_2_45)
+			:m Registrar_pago(_r_2_45_51)
+				:m Asegurar_transferencias_bancarias(_r_2_45_51_54)
+			:m Seleccionar_medios_pago(_r_2_45_52)
+			:o Seleccionar_moneda(_r_2_45_53)
+			:m Generar_comprobante_pago(_r_2_45_91)
+		:o Estadisticas(_r_2_55)
+			:m Visualizar_grafica_evaluacion_clientes_proveedor(_r_2_55_56)
+			:m Visualizar_grafica_productos_mejor_vendidos_proveedor(_r_2_55_57)
+			:o Generar_reportes_extracto_puntos_acumulados(_r_2_55_103)
+			:o Visualizar_grafica_comportamiento_precio_de_un_producto(_r_2_55_105)
+	:m Proveedor(_r_58)
+		:m Facturacion(_r_58_59)
+			:m Pagar_factura_servicios_recibidos(_r_58_59_60)
+				:m Asegurar_transferencias_bancarias(_r_58_59_60_62)
+			:o Consultar_reportes_facturacion(_r_58_59_61)
+			:o Consultar_reportes_consumo(_r_58_59_102)
+		:m Administracion_Productos(_r_58_63)
+			:m Configurar_productos(_r_58_63_64)
+				:o Cargar_video_producto(_r_58_63_64_93)
+			:o Crear_oferta_combos_productos(_r_58_63_66)
+			:o Rastrear_productos_vendidos(_r_58_63_67)
+			:o Cargar_productos_complementarios(_r_58_63_94)
+			:m Listar_productos(_r_58_63_95)
+		:m Configuracion_Portal(_r_58_70)
+			:m Administrar_informacion_del_marketplace(_r_58_70_71)
+			:m Personalizar_portal(_r_58_70_72)
+			:m Gestionar_copias_seguridad(_r_58_70_73)
+			:o Configurar_multimoneda(_r_58_70_74)
+		:o Mercadeo(_r_58_75)
+			:m Realizar_segmentacion_cliente(_r_58_75_76)
+				:m Realizar_atencion_personalizada(_r_58_75_76_79)
+			:m Generar_interaccion_redes_sociales(_r_58_75_77)
+				:m Publicar_promociones_concurso(_r_58_75_77_80)
+				:m Crear_publicidad(_r_58_75_77_81)
+				:o Formar_debates_productos_que_comercializa(_r_58_75_77_82)
+			:o Generar_top10_productos_mas_vendidos(_r_58_75_78)
+		:o Estadisticas(_r_58_83)
+			:m Generar_reporte_clientes_que_hacen_uso_del_marketplace(_r_58_83_84)
+			:m Generar_reporte_productos_mas_vendidos(_r_58_83_85)
+			:o Generar_reporte_informacion_demografica_consumidores(_r_58_83_104)
+			:o Construir_tabla_dinamica_informacion_trafico_red_marketplace(_r_58_83_106)
+		:o Administrar_Inventario(_r_58_96)
+			:m Ajustar_unidades_por_producto(_r_58_96_97)
+			:m Consultar_inventario(_r_58_96_99)
+			:m Consultar_rotacion_inventarios(_r_58_96_100)
+			:o Sincronizar_con_sistema_de_inventarios(_r_58_96_101)
+</feature_tree>
+<constraints>
+constraint_4:_r_2_3_88_89 or _r_58_63_64_93
+constraint_3:_r_2_3_68_69 or _r_2_44_49 or _r_2_55_103
+</constraints>
+</feature_model>

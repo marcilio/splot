@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jul 18, 2017 - 5:06 AM  -->
+<feature_model name="MobilePhone">
+<meta>
+<data name="description">SPL mobile phone</data>
+<data name="creator">rabatul aduni</data>
+<data name="address"></data>
+<data name="email">abyuni256@Gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University Technology of Malaysia</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobilePhone SPL(_r)
+	:m MobileCall(_r_1)
+		:m VoiceCall(_r_1_6)
+		:o VideoCall(_r_1_7)
+	:m MobileGPS(_r_2)
+	:m MobileMessages(_r_3)
+		:m TextMessage(_r_3_8)
+		:o VoiceMessage(_r_3_9)
+		:o VideoMessage(_r_3_10)
+	:m MobileScreen(_r_4)
+		:g (_r_4_13) [1,1] 
+			: BasicColor(_r_4_13_14)
+		:g (_r_4_15) [1,1] 
+			: HighResolution(_r_4_15_16)
+	:m MobileMedia(_r_5)
+		:g (_r_5_19) [1,*] 
+			: Camera(_r_5_19_20)
+		:g (_r_5_21) [1,*] 
+			: MusicPlayer(_r_5_21_22)
+		:g (_r_5_23) [1,*] 
+			: VoiceRecorder(_r_5_23_24)
+		:g (_r_5_25) [1,*] 
+			: Radio(_r_5_25_26)
+		:g (_r_5_27) [1,*] 
+			: VideoPlayer(_r_5_27_28)
+</feature_tree>
+<constraints>
+constraint_8:_r_3_10 or _r_4_15_16
+constraint_10:_r_4_15_16 or _r_5_19_20
+constraint_9:_r_4_15_16 or _r_5_27_28
+constraint_6:_r_2 or _r_4_13_14
+constraint_7:_r_1_7 or _r_4_15_16
+</constraints>
+</feature_model>

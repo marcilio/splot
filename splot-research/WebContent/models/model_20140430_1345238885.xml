@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 30, 2014 - 10:29 AM  -->
+<feature_model name="SIGA-lctf-fta">
+<meta>
+<data name="description">SIGA UFPE feature model</data>
+<data name="creator">Larissa Falcão</data>
+<data name="address"></data>
+<data name="email">lctf@cin.ufpe.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SIGA(_r)
+	:m Login(_r_2)
+	:m Cadastro(_r_3)
+	:m Logout(_r_4)
+	:m Perfil(_r_5)
+		:g (_r_5_6) [1,*] 
+			: Aluno(_r_5_6_7)
+			: Docente(_r_5_6_10)
+			: Funcionario(_r_5_6_11)
+	:m Consultas(_r_12)
+		:g (_r_12_15) [1,*] 
+			: Notas(_r_12_15_16)
+				:g (_r_12_15_16_17) [1,*] 
+					: Conceito(_r_12_15_16_17_18)
+					: Numerica(_r_12_15_16_17_19)
+			: Historico Escolar(_r_12_15_21)
+	:m Curriculo(_r_13)
+	:m Servicos(_r_14)
+		:o Solicitar Servicos(_r_14_22)
+	:o Webmail(_r_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

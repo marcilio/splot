@@ -1,0 +1,51 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jun 16, 2015 - 12:23 PM  -->
+<feature_model name="POOGame">
+<meta>
+<data name="description">LPS of a game</data>
+<data name="creator">Jefferson, Leuson, Rogerio, Wellington</data>
+<data name="address">Brazil</data>
+<data name="email">jefferson.sb.es@gmail.com, leusonmario@gmail.com, rogerio.carvalho.silva15@gmail.com, wellington.tylon@alu.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Federal University of Ceara</data>
+<data name="department">Campus Quixadá</data>
+<data name="date">16/06/2015</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r POOGame(_r)
+	:m Scene(_r_1)
+		:o Phase(_r_1_2)
+			:g (_r_1_2_3) [1,1] 
+				: Forest(_r_1_2_3_4)
+				: TropicalForest(_r_1_2_3_5)
+		:m Battle(_r_1_6)
+		:m Tutorial(_r_1_7)
+	:o SavePoint(_r_8)
+	:m Charachter(_r_9)
+		:g (_r_9_11) [1,*] 
+			: Humans(_r_9_11_12)
+			: Animals(_r_9_11_13)
+			: Creatures(_r_9_11_14)
+	:m Player(_r_15)
+	:o Audio(_r_16)
+		:g (_r_16_17) [1,*] 
+			: Music(_r_16_17_18)
+			: Efects(_r_16_17_19)
+	:o Help(_r_20)
+	:m Action(_r_21)
+		:o Idle(_r_21_22)
+		:o ViewDescription(_r_21_23)
+		:o ActionPlayer(_r_21_24)
+	:m Bag(_r_25)
+	:m Acessory(_r_26)
+		:g (_r_26_27) [1,*] 
+			: ManaPoint(_r_26_27_28)
+			: HealthPoint(_r_26_27_29)
+	:m Scroll(_r_30)
+</feature_tree>
+<constraints>
+constraint_6:~_r_1_2_3_4 or ~_r_9_11_13
+constraint_5:~_r_20 or _r_21_23
+</constraints>
+</feature_model>

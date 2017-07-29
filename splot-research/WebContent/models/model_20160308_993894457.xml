@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 8, 2016 - 4:32 PM  -->
+<feature_model name="Mobile Tourist Planner">
+<meta>
+<data name="description">Simplified mobile tourist planner feature model. It manages information about the weather</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MobileTouristPlanner(_r)
+	:m Weather(_r_1)
+		:g (_r_1_5) [1,1] 
+			: Global_Weather(_r_1_5_6)
+			: Weather_Forecast(_r_1_5_7)
+	:m Location(_r_2)
+	:m Transportation(_r_3)
+		:g (_r_3_8) [1,*] 
+			: Bicycle(_r_3_8_9)
+			: Bus(_r_3_8_10)
+			: Train(_r_3_8_11)
+	:o Biling(_r_4)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

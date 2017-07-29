@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 10, 2015 - 12:02 AM  -->
+<feature_model name="Proceso Analisis">
+<meta>
+<data name="description">Analisis</data>
+<data name="creator">M.Viera</data>
+<data name="address"></data>
+<data name="email">marcela.viera@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">FIng</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Proceso Analisis(_r)
+	:m Actividades(_r_18)
+		:m Analizar la arquitectura(_r_18_20)
+		:m Analizar(_r_18_21)
+			:g (_r_18_21_28) [1,1] 
+				: Analizar casos de uso(_r_18_21_28_29)
+					:m Analizar la clase(_r_18_21_28_29_31)
+					:o Analizar el paquete(_r_18_21_28_29_32)
+				: Analizar interfaz(_r_18_21_28_30)
+					:m Crear especificacion de componentes y arquitectura inicial(_r_18_21_28_30_33)
+					:m Descubrir operaciones de negocio(_r_18_21_28_30_34)
+					:o Refinar componentes y arquitectura(_r_18_21_28_30_35)
+					:o Refinar interfaces y operaciones(_r_18_21_28_30_37)
+	:m Roles(_r_19)
+		:m Analista(_r_19_38)
+		:o Disenador(_r_19_40)
+</feature_tree>
+<constraints>
+constraint_11:~_r_18_21_28_30_35 or _r_18_21_28_30_37
+constraint_12:_r_18_21_28_30_35 or ~_r_18_21_28_30_37
+constraint_5:_r_18_21_28_30_37 or ~_r_19_40
+</constraints>
+</feature_model>

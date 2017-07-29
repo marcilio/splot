@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Nov 11, 2015 - 10:48 AM  -->
+<feature_model name="Feature Model for T-mall">
+<meta>
+<data name="description">Focus on external variability</data>
+<data name="creator">Yiqun li and Yulai Zhou</data>
+<data name="address"></data>
+<data name="email">zhouyulai.wuxi@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Chalmers</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-commerce Website(_r)
+	:m Home Page(_r_1)
+		:m Search(_r_1_9)
+		:m Catalogue(_r_1_10)
+		:m Products Display(_r_1_11)
+		:o Scrolling Advertisement(_r_1_12)
+	:m Cart(_r_4)
+		:m Product Name(_r_4_34)
+		:m Number(_r_4_35)
+		:m Price(_r_4_36)
+	:m Payment(_r_5)
+		:g (_r_5_6) [1,*] 
+			: Online Bank(_r_5_6_7)
+				:g (_r_5_6_7_49) [1,*] 
+					: Quick Payment(_r_5_6_7_49_50)
+					: DigiPass(_r_5_6_7_49_51)
+			: Credit Card(_r_5_6_16)
+			: Paypal(_r_5_6_17)
+	:m Account Management(_r_8)
+		:m Register(_r_8_19)
+		:m Log in(_r_8_20)
+		:m Log out(_r_8_21)
+		:m Personal Information Management(_r_8_22)
+		:m Wish List(_r_8_23)
+		:m Bonus Management(_r_8_24)
+		:m Order Management(_r_8_25)
+	:m Product Detail(_r_13)
+		:m Picture(_r_13_26)
+		:m Description(_r_13_27)
+		:m Price(_r_13_28)
+		:o Comment(_r_13_29)
+		:m Name(_r_13_33)
+		:o Discount for Mobile-client(_r_13_52)
+	:m Contact and Help(_r_15)
+	:m Shipment(_r_18)
+		:g (_r_18_40) [1,*] 
+			: Fedex(_r_18_40_41)
+			: Ups(_r_18_40_42)
+			: DHL(_r_18_40_43)
+	:m Platform(_r_44)
+		:g (_r_44_45) [1,*] 
+			: PC(_r_44_45_46)
+			: Phone(_r_44_45_47)
+			: Tablet(_r_44_45_48)
+</feature_tree>
+<constraints>
+constraint_4:~_r_44_45_46 or _r_13_52
+constraint_2:_r_1_12 or _r_44_45_46
+constraint_3:_r_44_45_46 or _r_5_6_7_49_51
+</constraints>
+</feature_model>

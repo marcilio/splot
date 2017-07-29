@@ -1,0 +1,75 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Mar 4, 2016 - 1:54 PM  -->
+<feature_model name="DSPLFamily">
+<meta>
+<data name="description">Feature model of the  DSPL family</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r DSPLFamily(_r)
+	:m Base(_r_1)
+		:m Monitor(_r_1_2)
+			:g (_r_1_2_7) [1,*] 
+				: ContextStatus(_r_1_2_7_8)
+				: SystemStatus(_r_1_2_7_9)
+					:m QoSSensor(_r_1_2_7_9_11)
+						:g (_r_1_2_7_9_11_12) [1,*] 
+							: Availability(_r_1_2_7_9_11_12_13)
+							: Reability(_r_1_2_7_9_11_12_14)
+							: Accuracy(_r_1_2_7_9_11_12_15)
+							: Integrity(_r_1_2_7_9_11_12_16)
+							: Performance(_r_1_2_7_9_11_12_17)
+							: Robustness(_r_1_2_7_9_11_12_18)
+							: MemoryCons(_r_1_2_7_9_11_12_19)
+				: SLA(_r_1_2_7_10)
+		:m Analyse(_r_1_3)
+			:m FMStrategy(_r_1_3_20)
+				:g (_r_1_3_20_22) [1,1] 
+					: DynamicModels(_r_1_3_20_22_23)
+					: StaticModels(_r_1_3_20_22_24)
+			:o CompositionType(_r_1_3_21)
+				:m StaticComposition(_r_1_3_21_25)
+				:m DynamicComposition(_r_1_3_21_26)
+		:m Plan(_r_1_4)
+			:m AdaptationStrategy(_r_1_4_27)
+				:m SwapComponents(_r_1_4_27_28)
+				:o Rearchitecture(_r_1_4_27_29)
+			:m ServiceStrategy(_r_1_4_30)
+				:g (_r_1_4_30_31) [1,*] 
+					: PredefinedServices(_r_1_4_30_31_32)
+						:g (_r_1_4_30_31_32_34) [1,1] 
+							: DynDecision(_r_1_4_30_31_32_34_35)
+							: StaticDecision(_r_1_4_30_31_32_34_36)
+					: ServiceDescovery(_r_1_4_30_31_33)
+		:m Execute(_r_1_5)
+			:o ReconfigScripts(_r_1_5_37)
+			:m Effector(_r_1_5_38)
+				:m UnBoundComponents(_r_1_5_38_39)
+				:o DisConectService(_r_1_5_38_40)
+		:m Pattern(_r_1_6)
+			:g (_r_1_6_41) [1,1] 
+				: Centralized(_r_1_6_41_42)
+				: Descentralized(_r_1_6_41_43)
+					:g (_r_1_6_41_43_44) [1,1] 
+						: CordinatedControl(_r_1_6_41_43_44_45)
+						: InformationSharing(_r_1_6_41_43_44_46)
+						: MasterSlave(_r_1_6_41_43_44_47)
+						: RegionalPlanning(_r_1_6_41_43_44_48)
+						: Hierarchicalcontrol(_r_1_6_41_43_44_49)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_2_7_10 or ~_r_1_4_30_31_33
+constraint_6:~_r_1_3_20_22_24 or ~_r_1_4_30_31_33
+constraint_4:~_r_1_3_20_22_24 or ~_r_1_4_27_29
+constraint_5:~_r_1_4_27_29 or _r_1_5_37
+constraint_2:~_r_1_2_7_10 or _r_1_4_30_31_33
+constraint_3:~_r_1_3_20_22_24 or _r_1_4_30_31_32_34_36
+</constraints>
+</feature_model>

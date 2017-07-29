@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Jun 14, 2014 - 11:50 AM  -->
+<feature_model name="MC_PortalesCeis_Magister">
+<meta>
+<data name="description">MC_PortalesCeis_Magister</data>
+<data name="creator">Jean Ribet - Karin Faundez</data>
+<data name="address"></data>
+<data name="email">jean.ribet@ceisufro.cl</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Ceisufro</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Portal(_r)
+	:m SeccionPublica(_r_1)
+		:m Inicio(_r_1_4)
+		:o QuienesSomos(_r_1_6)
+		:o Contacto(_r_1_7)
+		:o PreguntasFrecuentes(_r_1_8)
+		:o Noticias(_r_1_9)
+		:o MapaSitio(_r_1_10)
+		:o CatalogoProductos(_r_1_11)
+		:o RedesSociales(_r_1_13)
+		:o SitiosRelacionados(_r_1_14)
+		:o Buscador(_r_1_15)
+	:o SeccionPrivada(_r_3)
+		:m ComponenteAdhoc(_r_3_18)
+	:o Autentificacion(_r_19)
+		:m Login(_r_19_20)
+		:o Registro(_r_19_21)
+		:o MiCuenta(_r_19_28)
+	:o TecnologiaMovil(_r_23)
+		:g (_r_23_24) [1,*] 
+			: Android(_r_23_24_25)
+			: IOS(_r_23_24_26)
+	:o Servicios(_r_27)
+</feature_tree>
+<constraints>
+constraint_2:~_r_3 or _r_19
+constraint_3:~_r_23 or _r_27
+</constraints>
+</feature_model>

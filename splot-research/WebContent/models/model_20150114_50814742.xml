@@ -1,0 +1,71 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jan 14, 2015 - 5:42 AM  -->
+<feature_model name="Robot Calibration">
+<meta>
+<data name="description">NXT robot calibration</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Straight Line Movement(_r)
+	:m Priorities(_r_1)
+		:g (_r_1_2) [1,*] 
+			: High(_r_1_2_3)
+			: Medium(_r_1_2_4)
+			: Low(_r_1_2_5)
+	:m Topic(_r_6)
+		:m Sequential algorithms(_r_6_7)
+	:m Learning Activity(_r_8)
+		:g (_r_8_9) [1,1] 
+			: Case Study(_r_8_9_10)
+			: Practice(_r_8_9_11)
+	:m Learning Method(_r_12)
+		:g (_r_12_13) [1,1] 
+			: Project-based(_r_12_13_14)
+			: Problem-based(_r_12_13_15)
+	:m Learners Level(_r_16)
+		:g (_r_16_17) [1,1] 
+			: Beginner(_r_16_17_18)
+			: Intermediate(_r_16_17_19)
+			: Advanced(_r_16_17_20)
+	:m Calibration Algorithm(_r_26)
+		:g (_r_26_29) [1,1] 
+			: Without Corrections(_r_26_29_30)
+			: PID(_r_26_29_31)
+			: Using Motors Synchronization(_r_26_29_34)
+	:m Motors(_r_35)
+		:g (_r_35_36) [1,1] 
+			: AB(_r_35_36_37)
+			: AC(_r_35_36_38)
+			: BC(_r_35_36_39)
+	:m Speed(_r_40)
+		:g (_r_40_43) [1,1] 
+			: 30(_r_40_43_44)
+			: 50(_r_40_43_45)
+			: 70(_r_40_43_46)
+	:m Movement Time(_r_47)
+		:g (_r_47_48) [1,1] 
+			: 1000(_r_47_48_49)
+			: 3000(_r_47_48_50)
+			: 5000(_r_47_48_51)
+</feature_tree>
+<constraints>
+constraint_28:~_r_16_17_19 or ~_r_26_29_34
+constraint_22:_r_1_2_4 or ~_r_26
+constraint_23:_r_1_2_5 or ~_r_35
+constraint_21:_r_1_2_4 or ~_r_16
+constraint_26:~_r_16_17_18 or ~_r_26_29_31
+constraint_27:~_r_16_17_18 or ~_r_26_29_34
+constraint_14:_r_1_2_3 or ~_r_6
+constraint_24:_r_1_2_5 or ~_r_40
+constraint_15:_r_1_2_3 or ~_r_8
+constraint_25:_r_1_2_5 or ~_r_47
+constraint_16:_r_1_2_3 or ~_r_12
+</constraints>
+</feature_model>

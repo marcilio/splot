@@ -1,0 +1,339 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Nov 28, 2016 - 1:11 PM  -->
+<feature_model name="Nákladný automobil">
+<meta>
+<data name="description">Nákladný automobil</data>
+<data name="creator">Nákladný automobil</data>
+<data name="address"></data>
+<data name="email">bbb@bbb.sk</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Nákladný automobil</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Truck(_r)
+	:m Vehicle type(_r_1)
+		:g (_r_1_8) [1,1] 
+			: 18t(_r_1_8_9)
+			: 20-5t(_r_1_8_10)
+			: 26t 6x2 ENA(_r_1_8_11)
+			: 26t 6x4(_r_1_8_12)
+			: 26t 6x2 4(_r_1_8_13)
+			: 26t 6x2 DNA(_r_1_8_14)
+			: 33t(_r_1_8_15)
+			: tractor unit 18t(_r_1_8_16)
+			: tractor unit 20-5(_r_1_8_17)
+			: tractor unit 21-5t(_r_1_8_18)
+			: tractor unit 25t 6x2 2(_r_1_8_19)
+			: tractor unit 25t 6x2 4(_r_1_8_20)
+			: tractor unit 26t 6x2 ENA(_r_1_8_21)
+			: tractor unit 26t 6x4(_r_1_8_22)
+			: tractor unit 26t 6x2 DNA(_r_1_8_23)
+			: tractor unit 33t(_r_1_8_24)
+	:m Engine(_r_2)
+		:g (_r_2_25) [1,1] 
+			: 175kw(_r_2_25_26)
+			: 200kw(_r_2_25_27)
+			: 220kw(_r_2_25_28)
+			: 235kw(_r_2_25_29)
+			: 240kw(_r_2_25_30)
+			: 260kw(_r_2_25_31)
+			: 265kw(_r_2_25_32)
+			: 290kw(_r_2_25_33)
+			: 310kw(_r_2_25_34)
+			: 315kw(_r_2_25_35)
+			: 330kw(_r_2_25_36)
+			: 335kw(_r_2_25_37)
+			: 350kw(_r_2_25_38)
+			: 375kw(_r_2_25_39)
+			: 380kw(_r_2_25_40)
+			: 390kw(_r_2_25_41)
+			: 425kw(_r_2_25_42)
+			: 460kw(_r_2_25_43)
+	:m CAB(_r_3)
+		:g (_r_3_44) [1,1] 
+			: 2-3m  SS-LF(_r_3_44_45)
+			: 2-3m CS-LF(_r_3_44_46)
+			: 2-3m SS-170(_r_3_44_47)
+			: 2-3m CS-170(_r_3_44_48)
+			: 2-3m SS-320(_r_3_44_49)
+			: 2-3m CS-320(_r_3_44_50)
+			: 2-5m GS-LF(_r_3_44_51)
+			: 2-5m BS-LF(_r_3_44_52)
+			: 2-5m SS-LF(_r_3_44_53)
+	:m Suspension(_r_4)
+		:g (_r_4_54) [1,1] 
+			: AIR suspension(_r_4_54_55)
+			: REAR air suspension(_r_4_54_56)
+	:m Wheelbase(_r_5)
+		:g (_r_5_57) [1,1] 
+			: 2650(_r_5_57_58)
+			: 2990(_r_5_57_59)
+			: 3250(_r_5_57_60)
+			: 3400(_r_5_57_61)
+			: 3550(_r_5_57_62)
+			: 3700(_r_5_57_63)
+			: 3850(_r_5_57_64)
+			: 4000(_r_5_57_65)
+			: 4150(_r_5_57_66)
+			: 4300(_r_5_57_67)
+			: 4600(_r_5_57_68)
+			: 4900(_r_5_57_69)
+			: 5200(_r_5_57_70)
+			: 5500(_r_5_57_71)
+			: 5800(_r_5_57_72)
+			: 6100(_r_5_57_73)
+			: 6400(_r_5_57_74)
+			: 6700(_r_5_57_75)
+</feature_tree>
+<constraints>
+constraint_86:~_r_1_8_14 or ~_r_5_57_62
+constraint_87:~_r_1_8_14 or ~_r_5_57_66
+constraint_88:~_r_1_8_14 or ~_r_5_57_74
+constraint_89:~_r_1_8_14 or ~_r_5_57_59
+constraint_109:~_r_1_8_16 or ~_r_5_57_67
+constraint_108:~_r_1_8_16 or ~_r_5_57_66
+constraint_107:~_r_1_8_16 or ~_r_5_57_61
+constraint_106:~_r_1_8_16 or ~_r_5_57_60
+constraint_103:~_r_1_8_16 or ~_r_5_57_59
+constraint_102:~_r_1_8_16 or ~_r_5_57_58
+constraint_90:~_r_1_8_14 or ~_r_5_57_63
+constraint_92:~_r_1_8_14 or ~_r_5_57_60
+constraint_91:~_r_1_8_14 or ~_r_5_57_75
+constraint_94:~_r_1_8_14 or ~_r_5_57_61
+constraint_93:~_r_1_8_14 or ~_r_5_57_64
+constraint_95:~_r_1_8_16 or ~_r_4_54_55
+constraint_77:~_r_1_8_12 or ~_r_5_57_64
+constraint_78:~_r_1_8_12 or ~_r_5_57_61
+constraint_75:~_r_1_8_12 or ~_r_5_57_75
+constraint_76:~_r_1_8_12 or ~_r_5_57_60
+constraint_79:~_r_1_8_12 or ~_r_5_57_73
+constraint_117:~_r_1_8_16 or ~_r_5_57_73
+constraint_116:~_r_1_8_16 or ~_r_5_57_72
+constraint_119:~_r_1_8_16 or ~_r_5_57_75
+constraint_118:~_r_1_8_16 or ~_r_5_57_74
+constraint_112:~_r_1_8_16 or ~_r_5_57_69
+constraint_115:~_r_1_8_16 or ~_r_5_57_71
+constraint_114:~_r_1_8_16 or ~_r_5_57_70
+constraint_111:~_r_1_8_16 or ~_r_5_57_68
+constraint_81:~_r_1_8_14 or ~_r_2_25_26
+constraint_80:~_r_1_8_14 or ~_r_4_54_55
+constraint_85:~_r_1_8_14 or ~_r_5_57_58
+constraint_84:~_r_1_8_14 or ~_r_2_25_43
+constraint_83:~_r_1_8_14 or ~_r_2_25_42
+constraint_82:~_r_1_8_14 or ~_r_2_25_40
+constraint_126:~_r_1_8_22 or ~_r_2_25_26
+constraint_125:~_r_1_8_20 or _r_5_57_58
+constraint_124:~_r_1_8_20 or ~_r_4_54_55
+constraint_123:~_r_1_8_20 or ~_r_2_25_26
+constraint_129:~_r_1_8_22 or ~_r_5_57_59
+constraint_128:~_r_1_8_22 or ~_r_5_57_58
+constraint_127:~_r_1_8_22 or ~_r_4_54_55
+constraint_121:~_r_1_8_18 or ~_r_4_54_55
+constraint_122:~_r_1_8_18 or _r_5_57_59
+constraint_120:~_r_1_8_18 or ~_r_2_25_26
+constraint_135:~_r_1_8_22 or ~_r_5_57_68
+constraint_134:~_r_1_8_22 or ~_r_5_57_67
+constraint_137:~_r_1_8_22 or ~_r_5_57_70
+constraint_136:~_r_1_8_22 or ~_r_5_57_69
+constraint_139:~_r_1_8_22 or ~_r_5_57_72
+constraint_266:~_r_2_25_43 or ~_r_5_57_66
+constraint_138:~_r_1_8_22 or ~_r_5_57_71
+constraint_262:~_r_2_25_41 or ~_r_3_44_49
+constraint_263:~_r_2_25_41 or ~_r_3_44_50
+constraint_264:~_r_2_25_43 or ~_r_3_44_49
+constraint_265:~_r_2_25_43 or ~_r_3_44_50
+constraint_130:~_r_1_8_22 or ~_r_5_57_63
+constraint_131:~_r_1_8_22 or ~_r_5_57_64
+constraint_260:~_r_2_25_39 or ~_r_3_44_49
+constraint_132:~_r_1_8_22 or ~_r_5_57_66
+constraint_261:~_r_2_25_39 or ~_r_3_44_50
+constraint_43:~_r_1_8_13 or ~_r_5_57_75
+constraint_42:~_r_1_8_13 or ~_r_5_57_74
+constraint_45:~_r_1_8_15 or ~_r_2_25_28
+constraint_44:~_r_1_8_15 or ~_r_2_25_26
+constraint_47:~_r_1_8_15 or ~_r_2_25_29
+constraint_46:~_r_1_8_15 or ~_r_2_25_27
+constraint_49:~_r_1_8_15 or ~_r_4_54_55
+constraint_48:~_r_1_8_15 or ~_r_2_25_31
+constraint_50:~_r_1_8_15 or ~_r_5_57_58
+constraint_51:~_r_1_8_15 or ~_r_5_57_62
+constraint_52:~_r_1_8_15 or ~_r_5_57_66
+constraint_39:~_r_1_8_13 or ~_r_5_57_71
+constraint_34:~_r_1_8_13 or ~_r_5_57_67
+constraint_33:~_r_1_8_13 or ~_r_5_57_65
+constraint_32:~_r_1_8_13 or ~_r_5_57_63
+constraint_31:~_r_1_8_13 or ~_r_5_57_61
+constraint_38:~_r_1_8_13 or ~_r_5_57_70
+constraint_37:~_r_1_8_13 or ~_r_5_57_69
+constraint_36:~_r_1_8_13 or ~_r_5_57_68
+constraint_40:~_r_1_8_13 or ~_r_5_57_72
+constraint_41:~_r_1_8_13 or ~_r_5_57_73
+constraint_69:~_r_1_8_12 or ~_r_2_25_26
+constraint_68:~_r_1_8_12 or ~_r_4_54_55
+constraint_65:~_r_1_8_10 or ~_r_5_57_60
+constraint_64:~_r_1_8_10 or ~_r_5_57_59
+constraint_67:~_r_1_8_10 or ~_r_5_57_61
+constraint_66:~_r_1_8_10 or ~_r_5_57_64
+constraint_71:~_r_1_8_12 or ~_r_5_57_62
+constraint_72:~_r_1_8_12 or ~_r_5_57_66
+constraint_73:~_r_1_8_12 or ~_r_5_57_74
+constraint_74:~_r_1_8_12 or ~_r_5_57_59
+constraint_70:~_r_1_8_12 or ~_r_5_57_58
+constraint_59:~_r_1_8_15 or ~_r_5_57_73
+constraint_58:~_r_1_8_15 or ~_r_5_57_61
+constraint_57:~_r_1_8_15 or ~_r_5_57_64
+constraint_56:~_r_1_8_15 or ~_r_5_57_60
+constraint_55:~_r_1_8_15 or ~_r_5_57_75
+constraint_54:~_r_1_8_15 or ~_r_5_57_59
+constraint_53:~_r_1_8_15 or ~_r_5_57_74
+constraint_62:~_r_1_8_10 or ~_r_5_57_62
+constraint_63:~_r_1_8_10 or ~_r_5_57_66
+constraint_60:~_r_1_8_10 or ~_r_4_54_55
+constraint_61:~_r_1_8_10 or ~_r_5_57_58
+constraint_185:~_r_1_8_21 or ~_r_5_57_59
+constraint_186:~_r_1_8_21 or ~_r_5_57_63
+constraint_187:~_r_1_8_21 or ~_r_5_57_64
+constraint_188:~_r_1_8_21 or ~_r_5_57_65
+constraint_181:~_r_1_8_19 or _r_5_57_58
+constraint_182:~_r_1_8_21 or ~_r_2_25_26
+constraint_183:~_r_1_8_21 or _r_4_54_55
+constraint_184:~_r_1_8_21 or ~_r_5_57_58
+constraint_210:~_r_1_8_23 or ~_r_5_57_68
+constraint_180:~_r_1_8_19 or ~_r_4_54_55
+constraint_17:~_r_1_8_11 or ~_r_5_57_74
+constraint_219:~_r_2_25_26 or ~_r_3_44_46
+constraint_18:~_r_1_8_11 or ~_r_5_57_59
+constraint_19:~_r_1_8_11 or ~_r_5_57_63
+constraint_212:~_r_1_8_23 or ~_r_5_57_70
+constraint_10:~_r_1_8_11 or ~_r_5_57_58
+constraint_211:~_r_1_8_23 or ~_r_5_57_69
+constraint_214:~_r_1_8_23 or ~_r_5_57_72
+constraint_213:~_r_1_8_23 or ~_r_5_57_71
+constraint_216:~_r_1_8_23 or ~_r_5_57_74
+constraint_215:~_r_1_8_23 or ~_r_5_57_73
+constraint_14:~_r_1_8_11 or ~_r_5_57_66
+constraint_189:~_r_1_8_21 or ~_r_5_57_66
+constraint_218:~_r_2_25_26 or ~_r_3_44_45
+constraint_217:~_r_1_8_23 or ~_r_5_57_75
+constraint_16:~_r_1_8_11 or ~_r_5_57_62
+constraint_199:~_r_1_8_21 or ~_r_5_57_74
+constraint_196:~_r_1_8_21 or ~_r_5_57_72
+constraint_197:~_r_1_8_21 or ~_r_5_57_73
+constraint_30:~_r_1_8_13 or ~_r_5_57_59
+constraint_194:~_r_1_8_21 or ~_r_5_57_70
+constraint_195:~_r_1_8_21 or ~_r_5_57_71
+constraint_192:~_r_1_8_21 or ~_r_5_57_69
+constraint_190:~_r_1_8_21 or ~_r_5_57_67
+constraint_191:~_r_1_8_21 or ~_r_5_57_68
+constraint_28:~_r_1_8_13 or _r_4_54_55
+constraint_209:~_r_1_8_23 or ~_r_5_57_67
+constraint_29:~_r_1_8_13 or ~_r_5_57_58
+constraint_208:~_r_1_8_23 or ~_r_5_57_66
+constraint_22:~_r_1_8_11 or ~_r_5_57_64
+constraint_203:~_r_1_8_23 or ~_r_5_57_58
+constraint_23:~_r_1_8_11 or ~_r_5_57_61
+constraint_202:~_r_1_8_23 or ~_r_4_54_55
+constraint_20:~_r_1_8_11 or ~_r_5_57_75
+constraint_201:~_r_1_8_23 or ~_r_2_25_26
+constraint_21:~_r_1_8_11 or ~_r_5_57_60
+constraint_200:~_r_1_8_21 or ~_r_5_57_75
+constraint_26:~_r_1_8_13 or ~_r_2_25_42
+constraint_207:~_r_1_8_23 or ~_r_5_57_65
+constraint_27:~_r_1_8_13 or ~_r_2_25_43
+constraint_206:~_r_1_8_23 or ~_r_5_57_64
+constraint_24:~_r_1_8_13 or ~_r_2_25_26
+constraint_205:~_r_1_8_23 or ~_r_5_57_63
+constraint_25:~_r_1_8_13 or ~_r_2_25_40
+constraint_204:~_r_1_8_23 or ~_r_5_57_59
+constraint_142:~_r_1_8_22 or ~_r_5_57_75
+constraint_141:~_r_1_8_22 or ~_r_5_57_74
+constraint_250:~_r_2_25_29 or ~_r_3_44_45
+constraint_144:~_r_1_8_24 or ~_r_2_25_28
+constraint_143:~_r_1_8_24 or ~_r_2_25_26
+constraint_252:~_r_2_25_29 or ~_r_3_44_51
+constraint_251:~_r_2_25_29 or ~_r_3_44_46
+constraint_254:~_r_2_25_37 or ~_r_3_44_53
+constraint_140:~_r_1_8_22 or ~_r_5_57_73
+constraint_253:~_r_2_25_29 or ~_r_3_44_52
+constraint_255:~_r_2_25_31 or ~_r_3_44_45
+constraint_149:~_r_1_8_24 or ~_r_5_57_58
+constraint_256:~_r_2_25_31 or ~_r_3_44_46
+constraint_257:~_r_2_25_31 or ~_r_3_44_51
+constraint_258:~_r_2_25_31 or ~_r_3_44_52
+constraint_259:~_r_2_25_31 or ~_r_3_44_53
+constraint_145:~_r_1_8_24 or ~_r_2_25_27
+constraint_146:~_r_1_8_24 or ~_r_2_25_29
+constraint_147:~_r_1_8_24 or ~_r_2_25_31
+constraint_148:~_r_1_8_24 or ~_r_4_54_55
+constraint_155:~_r_1_8_24 or ~_r_5_57_68
+constraint_154:~_r_1_8_24 or ~_r_5_57_67
+constraint_153:~_r_1_8_24 or ~_r_5_57_66
+constraint_152:~_r_1_8_24 or ~_r_5_57_64
+constraint_243:~_r_2_25_42 or ~_r_3_44_50
+constraint_151:~_r_1_8_24 or ~_r_5_57_63
+constraint_242:~_r_2_25_42 or ~_r_3_44_49
+constraint_150:~_r_1_8_24 or ~_r_5_57_59
+constraint_241:~_r_2_25_40 or ~_r_5_57_66
+constraint_240:~_r_2_25_40 or ~_r_3_44_50
+constraint_246:~_r_2_25_27 or ~_r_3_44_46
+constraint_247:~_r_2_25_27 or ~_r_3_44_51
+constraint_244:~_r_2_25_42 or ~_r_5_57_66
+constraint_245:~_r_2_25_27 or ~_r_3_44_45
+constraint_158:~_r_1_8_24 or ~_r_5_57_71
+constraint_159:~_r_1_8_24 or ~_r_5_57_72
+constraint_248:~_r_2_25_27 or ~_r_3_44_52
+constraint_156:~_r_1_8_24 or ~_r_5_57_69
+constraint_249:~_r_2_25_27 or ~_r_3_44_53
+constraint_157:~_r_1_8_24 or ~_r_5_57_70
+constraint_230:~_r_2_25_28 or ~_r_3_44_53
+constraint_160:~_r_1_8_24 or ~_r_5_57_73
+constraint_232:~_r_2_25_28 or ~_r_3_44_46
+constraint_162:~_r_1_8_24 or ~_r_5_57_75
+constraint_231:~_r_2_25_28 or ~_r_3_44_45
+constraint_161:~_r_1_8_24 or ~_r_5_57_74
+constraint_163:~_r_1_8_17 or ~_r_4_54_55
+constraint_166:~_r_1_8_17 or ~_r_5_57_59
+constraint_165:~_r_1_8_17 or ~_r_5_57_58
+constraint_237:~_r_2_25_38 or ~_r_3_44_49
+constraint_167:~_r_1_8_17 or ~_r_5_57_60
+constraint_238:~_r_2_25_38 or ~_r_3_44_50
+constraint_168:~_r_1_8_17 or ~_r_5_57_61
+constraint_239:~_r_2_25_40 or ~_r_3_44_49
+constraint_169:~_r_1_8_17 or ~_r_5_57_66
+constraint_233:~_r_2_25_34 or ~_r_3_44_49
+constraint_234:~_r_2_25_34 or ~_r_3_44_50
+constraint_235:~_r_2_25_36 or ~_r_3_44_49
+constraint_236:~_r_2_25_36 or ~_r_3_44_50
+constraint_8:~_r_1_8_9 or ~_r_5_57_61
+constraint_9:~_r_1_8_11 or ~_r_2_25_26
+constraint_6:~_r_1_8_9 or ~_r_5_57_60
+constraint_7:~_r_1_8_9 or ~_r_5_57_64
+constraint_4:~_r_1_8_9 or ~_r_5_57_66
+constraint_5:~_r_1_8_9 or ~_r_5_57_59
+constraint_2:~_r_1_8_9 or ~_r_5_57_58
+constraint_3:~_r_1_8_9 or ~_r_5_57_62
+constraint_221:~_r_2_25_26 or ~_r_3_44_52
+constraint_173:~_r_1_8_17 or ~_r_5_57_70
+constraint_220:~_r_2_25_26 or ~_r_3_44_51
+constraint_172:~_r_1_8_17 or ~_r_5_57_69
+constraint_171:~_r_1_8_17 or ~_r_5_57_68
+constraint_170:~_r_1_8_17 or ~_r_5_57_67
+constraint_177:~_r_1_8_17 or ~_r_5_57_74
+constraint_176:~_r_1_8_17 or ~_r_5_57_73
+constraint_175:~_r_1_8_17 or ~_r_5_57_72
+constraint_174:~_r_1_8_17 or ~_r_5_57_71
+constraint_228:~_r_2_25_28 or ~_r_3_44_51
+constraint_229:~_r_2_25_28 or ~_r_3_44_52
+constraint_226:~_r_2_25_26 or ~_r_5_57_61
+constraint_178:~_r_1_8_17 or ~_r_5_57_75
+constraint_227:~_r_2_25_26 or ~_r_5_57_66
+constraint_179:~_r_1_8_19 or ~_r_2_25_26
+constraint_224:~_r_2_25_26 or ~_r_5_57_59
+constraint_225:~_r_2_25_26 or ~_r_5_57_60
+constraint_222:~_r_2_25_26 or ~_r_3_44_53
+constraint_223:~_r_2_25_26 or ~_r_5_57_58
+</constraints>
+</feature_model>

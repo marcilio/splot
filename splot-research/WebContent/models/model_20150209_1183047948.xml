@@ -1,0 +1,68 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 9, 2015 - 10:45 PM  -->
+<feature_model name="GPL">
+<meta>
+<data name="description">Graph</data>
+<data name="creator">Luiz</data>
+<data name="address"></data>
+<data name="email">luizmatheus.ac@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Luiz</data>
+<data name="department">Computer</data>
+<data name="date">2</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SPL(_r)
+	:m GPL(_r_2)
+		:o Base(_r_2_3)
+		:o Benchmark(_r_2_4)
+		:o Prog(_r_2_5)
+		:m Edges(_r_2_6)
+			:g (_r_2_6_11) [1,1] 
+				: Directed(_r_2_6_11_12)
+				: Undirected(_r_2_6_11_13)
+		:o Weighted(_r_2_7)
+		:m BaseImpl(_r_2_8)
+			:m NewCompound1(_r_2_8_14)
+				:o GN_OnlyNeighbors(_r_2_8_14_16)
+				:o G_NoEdges(_r_2_8_14_17)
+				:o GEN_Edges(_r_2_8_14_18)
+			:o EdgeObjects(_r_2_8_15)
+		:o SearchI(_r_2_9)
+			:m SearchAlg(_r_2_9_19)
+				:o DFS(_r_2_9_19_20)
+				:o BFS(_r_2_9_19_21)
+				:o SearchBase(_r_2_9_19_22)
+		:m Algorithms(_r_2_10)
+			:o Number(_r_2_10_23)
+			:o Connected(_r_2_10_24)
+			:o Transpose(_r_2_10_25)
+			:o MSTPrim(_r_2_10_26)
+			:o MSTKruskal(_r_2_10_27)
+			:o Shortest(_r_2_10_28)
+			:o Cycle(_r_2_10_29)
+			:o StronglyConnected(_r_2_10_30)
+</feature_tree>
+<constraints>
+constraint_34:~_r_2_8_14_18 or _r_2_8_15
+constraint_43:_r_2_9_19_20 or ~_r_2_10_30
+constraint_42:_r_2_6_11_12 or ~_r_2_10_30
+constraint_45:_r_2_9_19_20 or ~_r_2_10_29
+constraint_44:_r_2_10_25 or ~_r_2_10_30
+constraint_38:_r_2_9_19_22 or ~_r_2_10_23
+constraint_37:~_r_2_9_19_21 or _r_2_9_19_22
+constraint_46:_r_2_8_15 or ~_r_2_10_26
+constraint_54:_r_2_7 or ~_r_2_10_28
+constraint_49:_r_2_7 or ~_r_2_10_26
+constraint_36:~_r_2_9_19_20 or _r_2_9_19_22
+constraint_53:_r_2_6_11_12 or ~_r_2_10_28
+constraint_48:_r_2_6_11_13 or ~_r_2_10_26
+constraint_40:_r_2_9_19_22 or ~_r_2_10_24
+constraint_41:_r_2_6_11_13 or ~_r_2_10_24
+constraint_50:_r_2_7 or ~_r_2_10_27
+constraint_51:_r_2_6_11_13 or ~_r_2_10_27
+constraint_52:_r_2_8_15 or ~_r_2_10_27
+constraint_25:_r_2_4 or ~_r_2_5
+</constraints>
+</feature_model>

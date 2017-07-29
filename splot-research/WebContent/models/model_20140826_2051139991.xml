@@ -1,0 +1,50 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 26, 2014 - 6:48 PM  -->
+<feature_model name="Marketplace para PYMES">
+<meta>
+<data name="description">Ejemplo de FM para un Marketplace para PYMES</data>
+<data name="creator">Jaime Chavarriaga</data>
+<data name="address"></data>
+<data name="email">ja.chavarriaga908@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Marketplace para PYMES(_r)
+	:m Catalogo de Productos(_r_1)
+		:m CRUD Productos(_r_1_11)
+		:m Buscar Producto(_r_1_12)
+		:o Publicar producto en redes sociales(_r_1_23)
+	:m Carrito de Compras(_r_3)
+		:m CRUD Carrito de Compras(_r_3_13)
+		:o Mover a Lista de deseos(_r_3_32)
+	:m Compra y Pago de Productos(_r_4)
+		:m Comprar Carrito _ Checkout(_r_4_14)
+		:m Pagar Carrito(_r_4_15)
+		:o Consultar Compras de un Cliente(_r_4_17)
+	:o Lista de Deseos(_r_6)
+		:m CRUD Lista de Deseos(_r_6_18)
+		:m Mover producto de Lista de deseos a carrito(_r_6_19)
+		:o Publicar lista de deseos en red social(_r_6_33)
+	:m Compradores(_r_7)
+		:m CRUD Datos de Pago(_r_7_24)
+		:m CRUD Direcciones de Cliente(_r_7_25)
+		:o Consultar Compras en un periodo de tiempo(_r_7_34)
+	:o Fidelizacion de Clientes(_r_8)
+		:m Consultar Puntos Acumulados(_r_8_27)
+		:m Cambiar puntos por Bonos de descuento(_r_8_28)
+		:o Consultar puntos entregados por periodo de tiempo(_r_8_29)
+		:o Consultar bonos entregados por periodo de tiempo(_r_8_32)
+	:o Calificacion de Productos(_r_9)
+		:m Calificar Producto(_r_9_33)
+		:m Consultar calificaciones de productos(_r_9_34)
+	:m Usuarios(_r_10)
+		:m Iniciar Sesion(_r_10_36)
+		:o CRUD Usuarios(_r_10_37)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Sep 5, 2014 - 3:23 PM  -->
+<feature_model name="SPL Studies">
+<meta>
+<data name="description">SPL Studies</data>
+<data name="creator">Thalisson</data>
+<data name="address"></data>
+<data name="email">oliveirat@outlook.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Root(_r)
+	:g (_r_1) [1,*] 
+		: Or One(_r_1_2)
+		: Or Two(_r_1_5)
+		: Or Three(_r_1_15)
+			:m Or(_r_1_15_16)
+		: Or Four(_r_1_21)
+		: Or Five(_r_1_22)
+	:m Teste(_r_17)
+	:g (_r_18) [1,1] 
+		: Xor One(_r_18_19)
+		: Xor (_r_18_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

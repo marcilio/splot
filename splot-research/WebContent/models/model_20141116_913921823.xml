@@ -1,0 +1,68 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Nov 16, 2014 - 1:16 PM  -->
+<feature_model name="E-commerce">
+<meta>
+<data name="description">sple feature model</data>
+<data name="creator">Nassiba</data>
+<data name="address"></data>
+<data name="email">nassiba.84@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">sple course</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-commerce(_r)
+	:o search product(_r_1)
+	:o Offers(_r_2)
+	:m Product catalogue(_r_3)
+		:m Product category(_r_3_12)
+			:m Product type(_r_3_12_13)
+				:m Product name(_r_3_12_13_14)
+				:m Product brand(_r_3_12_13_15)
+				:m Product pictures(_r_3_12_13_16)
+				:m Product price(_r_3_12_13_17)
+				:o Product quantity in the stock(_r_3_12_13_20)
+				:m add to cart(_r_3_12_13_23)
+				:o Product description(_r_3_12_13_26)
+	:m Payment(_r_4)
+		:g (_r_4_30) [1,1] 
+			: Shopping card(_r_4_30_31)
+			: Bank transfer(_r_4_30_32)
+				:m bank system(_r_4_30_32_35)
+				:m Total product price(_r_4_30_32_36)
+				:m Payment confirmation(_r_4_30_32_37)
+			: Credit card(_r_4_30_33)
+				:m Card type(_r_4_30_33_38)
+				:m Card code(_r_4_30_33_39)
+				:m Card expiry date(_r_4_30_33_40)
+				:o BVN number(_r_4_30_33_42)
+			: Billing(_r_4_30_34)
+	:m Clients(_r_5)
+		:m Registration(_r_5_43)
+			:o Activation(_r_5_43_45)
+		:m Login(_r_5_46)
+		:m Personal information(_r_5_47)
+		:m Shipping information(_r_5_49)
+		:o Shopping history(_r_5_50)
+		:m Log out(_r_5_51)
+	:m Architecture(_r_8)
+		:m PC(_r_8_52)
+		:m Phone(_r_8_53)
+			:m apple(_r_8_53_62)
+			:m android(_r_8_53_63)
+			:m windows(_r_8_53_64)
+		:m Tablet(_r_8_54)
+			:m apple(_r_8_54_65)
+			:m android(_r_8_54_66)
+			:m windows(_r_8_54_67)
+	:m shopping cart(_r_24)
+</feature_tree>
+<constraints>
+constraint_1:_r_3_12_13_23 or _r_24
+constraint_6:_r_4_30_34 or _r_5_49
+constraint_7:_r_1 or _r_3
+constraint_5:_r_4_30_34 or _r_5_47
+</constraints>
+</feature_model>

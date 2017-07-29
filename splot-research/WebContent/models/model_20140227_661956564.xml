@@ -1,0 +1,77 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Feb 27, 2014 - 11:29 AM  -->
+<feature_model name="Programación Salas Cirugía">
+<meta>
+<data name="description">Modelo Variabilidad para OR</data>
+<data name="creator">Marcial Moreno</data>
+<data name="address"></data>
+<data name="email">hack129@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Modelo Framework Salas Cirugia(_r)
+	:m Supuestos(_r_1)
+		:g (_r_1_11) [1,*] 
+			: No variabilidad duracion procedimientos(_r_1_11_12)
+			: No arribos de urgencias(_r_1_11_13)
+			: No retrasos por externos(_r_1_11_14)
+				:g (_r_1_11_14_15) [1,*] 
+					: Insumos(_r_1_11_14_15_16)
+					: Equipo(_r_1_11_14_15_17)
+					: Alistamiento sala(_r_1_11_14_15_18)
+					: Personal medico(_r_1_11_14_15_19)
+					: Paciente(_r_1_11_14_15_20)
+	:m Restricciones(_r_2)
+		:o Cirugia(_r_2_44)
+			:g (_r_2_44_48) [1,*] 
+				: Fecha Cirugia(_r_2_44_48_49)
+				: Duracion Cirugia(_r_2_44_48_50)
+				: Tipo Cirugia(_r_2_44_48_51)
+		:o Sala Cirugia(_r_2_45)
+			:g (_r_2_45_52) [1,*] 
+				: Capacidad(_r_2_45_52_53)
+				: Tipo o especialidad(_r_2_45_52_54)
+		:o Paciente(_r_2_46)
+		:o Cirujano(_r_2_47)
+			:g (_r_2_47_55) [1,*] 
+				: Especialidad(_r_2_47_55_56)
+	:m Objetivos(_r_3)
+		:g (_r_3_6) [1,*] 
+			: Reducir tiempo espera pacientes(_r_3_6_7)
+			: Minimizar riesgo no realizacion(_r_3_6_8)
+			: Reducir horas extras de utilizacion salas(_r_3_6_9)
+			: Minimizar cancelacion cirugias(_r_3_6_10)
+	:m Metodos Optimizacion(_r_4)
+		:m Tecnicas Solucion(_r_4_21)
+			:g (_r_4_21_29) [1,*] 
+				: Programacion dinamica(_r_4_21_29_30)
+				: Programacion lineal(_r_4_21_29_31)
+				: Programacion lineal entera mixta(_r_4_21_29_32)
+				: Programacion cuadratica(_r_4_21_29_33)
+				: Simulacion(_r_4_21_29_34)
+					:g (_r_4_21_29_34_36) [1,*] 
+						: Simulacion Eventos Discretos(_r_4_21_29_34_36_37)
+						: Simulacion Montecarlo(_r_4_21_29_34_36_38)
+				: Heuristico(_r_4_21_29_35)
+					:o Online(_r_4_21_29_35_57)
+					:o Offline(_r_4_21_29_35_58)
+						:g (_r_4_21_29_35_58_59) [1,*] 
+							: Best-fit decreasing(_r_4_21_29_35_58_59_60)
+							: Worst-fit decreasing(_r_4_21_29_35_58_59_61)
+		:g (_r_4_22) [1,1] 
+			: Optimizacion Uniobjetivo deterministico(_r_4_22_23)
+			: Optimizacion uniobjetivo estocasticos(_r_4_22_24)
+			: Optimizacion multiobjetivo deterministico(_r_4_22_25)
+			: Optimizacion multiobjetivo estocastico(_r_4_22_26)
+	:m Presentacion Resultados(_r_5)
+		:g (_r_5_39) [1,1] 
+			: Determinar Horarios salas cirugia(_r_5_39_40)
+			: Tener uso eficiente de salas cirugpia(_r_5_39_41)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,89 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Nov 6, 2014 - 11:22 AM  -->
+<feature_model name="BuurtPensioen">
+<meta>
+<data name="description">ANalyse de Buurtpensioen</data>
+<data name="creator">Biset Maxime</data>
+<data name="address"></data>
+<data name="email">maxime.biset@student.uclouvain.be</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UCL</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BuurrtPensoien(_r)
+	:m Modele economique(_r_1)
+		:m Public cible(_r_1_3)
+			:g (_r_1_3_9) [1,*] 
+				: Personnes physiques(_r_1_3_9_10)
+					:g (_r_1_3_9_10_12) [1,*] 
+						: -18 ans(_r_1_3_9_10_12_13)
+						: Etudiants(_r_1_3_9_10_12_14)
+						: Adultes(_r_1_3_9_10_12_15)
+						: 3eme age(_r_1_3_9_10_12_16)
+				: Personnes morales(_r_1_3_9_11)
+					:g (_r_1_3_9_11_17) [1,*] 
+						: Petits commerces(_r_1_3_9_11_17_18)
+						: Autres entreprises(_r_1_3_9_11_17_19)
+						: Services publiques(_r_1_3_9_11_17_20)
+		:o Monnaie(_r_1_4)
+		:m Objectif(_r_1_5)
+			:g (_r_1_5_6) [1,*] 
+				: Social(_r_1_5_6_7)
+				: Economique(_r_1_5_6_8)
+	:o Outil(_r_2)
+		:m Core Business(_r_2_18)
+			:m Business units(_r_2_18_32)
+				:g (_r_2_18_32_35) [1,*] 
+					: Biens - objets(_r_2_18_32_35_36)
+					: Services(_r_2_18_32_35_37)
+			:o Matching system(_r_2_18_38)
+				:g (_r_2_18_38_43) [1,*] 
+					: Manuel(_r_2_18_38_43_44)
+					: Semi-automatique(_r_2_18_38_43_45)
+						:g (_r_2_18_38_43_45_47) [1,*] 
+							: Criteres de preference(_r_2_18_38_43_45_47_48)
+					: Automatique(_r_2_18_38_43_46)
+			:m Modele offre - demande(_r_2_18_49)
+				:g (_r_2_18_49_50) [1,1] 
+					: Encode les offres(_r_2_18_49_50_51)
+					: Encode les demandes(_r_2_18_49_50_52)
+					: Encode offres et demandes(_r_2_18_49_50_53)
+		:o Gestion de profil - de son identite virtuelle(_r_2_19)
+			:o Creation(_r_2_19_54)
+			:o Types de profils(_r_2_19_56)
+			:o Edition(_r_2_19_57)
+		:o Administration(_r_2_20)
+			:o Gestion des profils(_r_2_20_58)
+				:o Creation(_r_2_20_58_59)
+				:o Suppression(_r_2_20_58_60)
+				:o Modification type de profil(_r_2_20_58_61)
+				:o Edition(_r_2_20_58_62)
+			:o Gestion Core Business(_r_2_20_63)
+				:o Gerer les offres(_r_2_20_63_64)
+				:o Gerer les demandes(_r_2_20_63_65)
+		:o Reporting(_r_2_21)
+			:m Donnees exportees(_r_2_21_66)
+				:g (_r_2_21_66_71) [1,*] 
+					: A propos des utilisateurs(_r_2_21_66_71_72)
+					: A propos des offres et demandes(_r_2_21_66_71_73)
+			:m Format d export(_r_2_21_67)
+				:g (_r_2_21_67_68) [1,*] 
+					: Excell(_r_2_21_67_68_69)
+					: SPSS(_r_2_21_67_68_70)
+		:o Support(_r_2_22)
+			:g (_r_2_22_23) [1,*] 
+				: Papier(_r_2_22_23_24)
+				: Informatique(_r_2_22_23_25)
+					:g (_r_2_22_23_25_26) [1,*] 
+						: Logiciel bureautique(_r_2_22_23_25_26_27)
+						: Logiciel specifique(_r_2_22_23_25_26_28)
+							:g (_r_2_22_23_25_26_28_29) [1,1] 
+								: Sans base de donnees(_r_2_22_23_25_26_28_29_30)
+								: Avec base de donnees(_r_2_22_23_25_26_28_29_31)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

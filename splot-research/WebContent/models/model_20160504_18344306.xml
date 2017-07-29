@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 4, 2016 - 2:35 AM  -->
+<feature_model name="Visit Indonesia Apps">
+<meta>
+<data name="description">Tourism Application Guide</data>
+<data name="creator">RPL A</data>
+<data name="address"></data>
+<data name="email">satriadeki@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Indonesia</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Visindo(_r)
+	:m Penentuan Lokasi(_r_4)
+		:g (_r_4_5) [1,*] 
+			: GPS(_r_4_5_6)
+			: BTS(_r_4_5_8)
+	:m Platform(_r_10)
+		:g (_r_10_11) [1,*] 
+			: Android(_r_10_11_12)
+			: IOS(_r_10_11_13)
+			: Web Based(_r_10_11_14)
+	:o Booking(_r_15)
+	:m Map-Routing(_r_16)
+		:g (_r_16_17) [1,1] 
+			: Localized(_r_16_17_18)
+			: Global(_r_16_17_19)
+	:m Pencarian(_r_20)
+</feature_tree>
+<constraints>
+constraint_1:~_r_4 or _r_16
+constraint_2:~_r_4 or _r_20
+</constraints>
+</feature_model>

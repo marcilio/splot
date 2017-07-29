@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:24 PM  -->
+<feature_model name="Urna eletronica Vinicius Cesar">
+<meta>
+<data name="description">Urna eletronica Vinicius Cesar</data>
+<data name="creator">Vinicius Cesar</data>
+<data name="address"></data>
+<data name="email">vini22004@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Modelo urna eletronica(_r)
+	:m Digitar titulo de eleitor e senha(_r_14)
+	:g (_r_15) [1,1] 
+		: Eleicao de um presidente e dois senadores(_r_15_16)
+			:g (_r_15_16_20) [1,1] 
+				: Digitar numero do canditado(_r_15_16_20_21)
+				: Votar em branco(_r_15_16_20_22)
+			:m Confirmar(_r_15_16_23)
+		: Eleicao de um prefeito e um vereador(_r_15_17)
+			:g (_r_15_17_24) [1,1] 
+				: Digitar numero do canditado(_r_15_17_24_25)
+				: Votar em branco(_r_15_17_24_26)
+			:m Confirmar(_r_15_17_30)
+		: Eleicao de um chefe de departamento(_r_15_18)
+			:g (_r_15_18_27) [1,1] 
+				: Digitar numero do canditado(_r_15_18_27_28)
+				: Votar em branco(_r_15_18_27_31)
+			:m Confirmar(_r_15_18_32)
+	:m Exibir estatisticas(_r_33)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Apr 27, 2014 - 11:19 PM  -->
+<feature_model name="Siga">
+<meta>
+<data name="description">Modelo de features desenvolvido para disciplina de Linhas de Produto de Software</data>
+<data name="creator">krfc</data>
+<data name="address"></data>
+<data name="email">krfc@cin.ufpe.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal de Pernambuco</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Model Siga(_r)
+	:m Autenticacao(_r_1)
+		:m Perfil(_r_1_2)
+			:g (_r_1_2_3) [1,*] 
+				: matricula(_r_1_2_3_4)
+				: orgao institucional(_r_1_2_3_7)
+				: modulo(_r_1_2_3_8)
+		:o Revisao(_r_1_12)
+			:g (_r_1_12_13) [1,*] 
+				: senha(_r_1_12_13_14)
+				: dados pessoais(_r_1_12_13_15)
+				: dados bancarios(_r_1_12_13_16)
+	:m Acessibilidade(_r_17)
+	:m Superintendencia(_r_18)
+		:o Consulta(_r_18_19)
+			:g (_r_18_19_30) [1,1] 
+				: Notas(_r_18_19_30_31)
+				: Historico(_r_18_19_30_32)
+				: Informacoes Discente(_r_18_19_30_33)
+		:o Horarios(_r_18_20)
+			:g (_r_18_20_23) [1,1] 
+				: Disciplinas(_r_18_20_23_24)
+				: Salas(_r_18_20_23_25)
+</feature_tree>
+<constraints>
+constraint_1:_r_1 or ~_r_1_2
+constraint_9:~_r_1_2 or _r_1_2_3_8
+constraint_4:_r_18_20 or ~_r_18_20_23_25
+constraint_5:~_r_1_2 or _r_1_2_3_4
+constraint_3:_r_18_20 or ~_r_18_20_23_24
+</constraints>
+</feature_model>

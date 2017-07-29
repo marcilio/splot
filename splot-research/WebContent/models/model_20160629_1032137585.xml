@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 29, 2016 - 8:44 AM  -->
+<feature_model name="SIXL">
+<meta>
+<data name="description">Simple Interlocking</data>
+<data name="creator">Gorit Maqueda</data>
+<data name="address"></data>
+<data name="email">igtorque@yahoo.es</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">My Own Business</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r IXL(_r)
+	:m SIG(_r_1)
+		:g (_r_1_7) [1,1] 
+			: SIG-ADIF(_r_1_7_8)
+			: SIG-ONCF(_r_1_7_9)
+			: SIG-DB(_r_1_7_10)
+		:o Cold fusion detection(_r_1_19)
+	:m PPOINT(_r_2)
+		:g (_r_2_11) [1,*] 
+			: 4W1PH(_r_2_11_12)
+			: 4W3PH(_r_2_11_13)
+			: 7W3PH(_r_2_11_14)
+	:m TVPD(_r_3)
+		:g (_r_3_4) [1,*] 
+			: TRC(_r_3_4_5)
+			: AXC(_r_3_4_6)
+	:o LSA(_r_15)
+		:g (_r_15_16) [1,1] 
+			: LSA-ADIF(_r_15_16_17)
+			: LSA-ONCF(_r_15_16_18)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_7_8 or ~_r_15_16_18
+constraint_2:~_r_1_7_9 or ~_r_15_16_17
+</constraints>
+</feature_model>

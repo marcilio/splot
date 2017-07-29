@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Aug 24, 2016 - 7:27 AM  -->
+<feature_model name="Linea de Productos">
+<meta>
+<data name="description">Administración de transporte</data>
+<data name="creator">Mateo Duque</data>
+<data name="address"></data>
+<data name="email">mateoro78@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">EAFIT</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Administracion del area de transporte(_r)
+	:m Login(_r_1)
+	:m Pagina principal(_r_2)
+		:m Menu(_r_2_8)
+	:m Usuarios(_r_3)
+	:m Vehiculos(_r_4)
+		:m Seguros(_r_4_9)
+		:m Tecnico-mecanica(_r_4_10)
+	:m Mantenimiento(_r_5)
+	:m Accidentes e incidentes(_r_6)
+	:o Viajes(_r_7)
+		:m Revisiones(_r_7_11)
+			:m Listas de chequeo(_r_7_11_21)
+	:o Conductores(_r_12)
+		:o Comparendos(_r_12_13)
+		:m Licencias(_r_12_14)
+	:o Rutas(_r_16)
+	:o Alertas(_r_17)
+	:o Metricas(_r_18)
+		:m Vehiculos(_r_18_19)
+		:o Conductores(_r_18_20)
+</feature_tree>
+<constraints>
+constraint_1:_r_12 or _r_18_20
+constraint_2:_r_4 or _r_18_19
+</constraints>
+</feature_model>

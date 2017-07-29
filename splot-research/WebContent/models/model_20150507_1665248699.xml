@@ -1,0 +1,37 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 7, 2015 - 12:10 AM  -->
+<feature_model name="robot experiment">
+<meta>
+<data name="description">An excerpt of the robot experiment features diagram.</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GREAT-UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Robot(_r)
+	:m GoTO Point(_r_1)
+		:m Control Velocity(_r_1_2)
+		:m Rotate(_r_1_3)
+		:o Desviate Obstacle(_r_1_5)
+			:g (_r_1_5_6) [1,1] 
+				: Defaut Deviate(_r_1_5_6_7)
+				: Smart Deviate(_r_1_5_6_8)
+					:m Size Determination(_r_1_5_6_8_9)
+	:m Detect Obstacle(_r_10)
+	:m Sensor(_r_11)
+		:o Ultrasonic(_r_11_13)
+			:o Rotate sensor(_r_11_13_16)
+		:m Touch(_r_11_14)
+		:o Light(_r_11_15)
+	:m Motor(_r_12)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_5 or _r_10 or _r_11_13
+constraint_2:_r_1_5_6_8_9 or _r_11_13_16
+</constraints>
+</feature_model>

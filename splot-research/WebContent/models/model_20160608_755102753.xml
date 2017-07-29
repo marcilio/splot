@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 8, 2016 - 6:33 PM  -->
+<feature_model name="TW SPL Hard Choices">
+<meta>
+<data name="description">HC</data>
+<data name="creator">TW</data>
+<data name="address"></data>
+<data name="email">cloves@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SPL-TW Hard Choices(_r)
+	:m Elementos(_r_1)
+		:m Tabuleiro(_r_1_2)
+		:m Dado(_r_1_3)
+		:m Pecas(_r_1_4)
+		:o Extra-UI(_r_1_5)
+	:m Movimento(_r_6)
+		:m Avancar(_r_6_7)
+		:m Recuar(_r_6_8)
+		:m Passar Ponte(_r_6_10)
+		:m Usar Carta(_r_6_11)
+		:o Can Skip(_r_6_12)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

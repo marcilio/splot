@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 1, 2016 - 4:58 AM  -->
+<feature_model name="Online shopping software">
+<meta>
+<data name="description">Online shopping</data>
+<data name="creator">Rong Zhou</data>
+<data name="address"></data>
+<data name="email">happy_zhourong@sina.cn</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">HuNan Universitiy</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Online shopping software(_r)
+	:m Shop Service(_r_1)
+		:m Shop Grade Management(_r_1_5)
+		:m Shop Information Management(_r_1_6)
+	:m Goods Service(_r_2)
+		:m Goods Information Management(_r_2_7)
+		:m Goods Specification Management(_r_2_8)
+	:m Transaction Management Service(_r_3)
+		:m Shopping Request(_r_3_9)
+			:m Add to Cart(_r_3_9_14)
+		:m Order Management(_r_3_10)
+			:m Order Editting(_r_3_10_15)
+			:m Order Submitting(_r_3_10_16)
+			:m Order State Inform(_r_3_10_17)
+		:m Payment(_r_3_11)
+		:g (_r_3_18) [1,*] 
+			: Online Payment(_r_3_18_19)
+			: Cash On Delivery(_r_3_18_20)
+			: Member Account Payment(_r_3_18_21)
+	:o Member Center Service(_r_4)
+		:m Member Account Management(_r_4_12)
+</feature_tree>
+<constraints>
+constraint_8:~_r_4_12 or _r_3_18_21
+constraint_6:~_r_3_11 or _r_3_10_16
+constraint_7:~_r_3_11 or _r_3_10_17
+constraint_4:~_r_3_9_14 or _r_3_10_15
+constraint_5:~_r_3_10_15 or _r_3_10_16
+constraint_2:~_r_1_5 or _r_2_7
+constraint_3:~_r_2_8 or _r_3_9
+</constraints>
+</feature_model>

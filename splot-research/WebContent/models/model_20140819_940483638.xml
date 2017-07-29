@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 19, 2014 - 9:53 PM  -->
+<feature_model name="1">
+<meta>
+<data name="description">1</data>
+<data name="creator">1</data>
+<data name="address"></data>
+<data name="email">1</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">1</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r root(_r)
+	:m Gestion de Usuarios(_r_1)
+		:m Iniciar sesion(_r_1_6)
+	:m Catalogo de productos(_r_2)
+	:o Servicio (_r_3)
+	:m Carro de compras(_r_4)
+	:m Pagos(_r_5)
+		:g (_r_5_8) [1,*] 
+			: Pagar con Debito(_r_5_8_9)
+			: Pagar con credito(_r_5_8_12)
+			: Pagar efectivo(_r_5_8_13)
+	:o Estadisticas(_r_7)
+</feature_tree>
+<constraints>
+constraint_1:_r_3
+</constraints>
+</feature_model>

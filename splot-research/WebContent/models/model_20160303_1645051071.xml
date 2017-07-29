@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 3, 2016 - 1:47 PM  -->
+<feature_model name="PPU">
+<meta>
+<data name="description">Pick and Place Unit</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r PPU(_r)
+	:m Crane(_r_1)
+		:g (_r_1_7) [1,1] 
+			: SRouting(_r_1_7_8)
+			: ERouting(_r_1_7_9)
+	:m Slide(_r_4)
+		:g (_r_4_10) [1,1] 
+			: Straight(_r_4_10_11)
+			: Conveyor(_r_4_10_12)
+				:g (_r_4_10_12_13) [1,1] 
+					: SSortation(_r_4_10_12_13_14)
+					: DSortation(_r_4_10_12_13_15)
+	:m Workpiece(_r_5)
+		:g (_r_5_16) [1,*] 
+			: Plastic(_r_5_16_17)
+				:g (_r_5_16_17_19) [1,*] 
+					: Light(_r_5_16_17_19_20)
+					: Dark(_r_5_16_17_19_21)
+			: Metal(_r_5_16_18)
+	:o Stamp(_r_6)
+		:g (_r_6_22) [1,1] 
+			: SPressure(_r_6_22_23)
+			: APressure(_r_6_22_24)
+</feature_tree>
+<constraints>
+constraint_1:~_r_6 or _r_5_16_18
+constraint_2:~_r_5_16_17_19_20 or _r_6_22_24
+</constraints>
+</feature_model>

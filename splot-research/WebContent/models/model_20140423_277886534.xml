@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 23, 2014 - 2:43 AM  -->
+<feature_model name="Toko">
+<meta>
+<data name="description">Toko</data>
+<data name="creator">mawar</data>
+<data name="address"></data>
+<data name="email">mawar@bunga.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">bunga</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Toko ElektroMIK(_r)
+	:m Pemesanan(_r_1)
+		:m Validasi(_r_1_20)
+		:m Pembayaran(_r_1_27)
+			:m Invoice(_r_1_27_28)
+			:m AlatPembayaran(_r_1_27_33)
+				:g (_r_1_27_33_34) [1,1] 
+					: CreditCard(_r_1_27_33_34_35)
+					: DebitCard(_r_1_27_33_34_36)
+					: BankTransfer(_r_1_27_33_34_37)
+					: PayPal(_r_1_27_33_34_38)
+	:m Katalog(_r_2)
+		:o Ulasan(_r_2_21)
+		:o Rekomendasi(_r_2_22)
+		:o Perbandingan(_r_2_23)
+	:m Laporan(_r_14)
+		:m Penjualan(_r_14_24)
+		:m Periodik(_r_14_25)
+			:m Mingguan(_r_14_25_26)
+			:o Bulanan(_r_14_25_27)
+			:o Tahunan(_r_14_25_28)
+		:o Gudang(_r_14_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

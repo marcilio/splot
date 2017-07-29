@@ -1,0 +1,56 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 10, 2015 - 4:00 AM  -->
+<feature_model name="Inmobiliarias">
+<meta>
+<data name="description">VM del caso inmobiliarias</data>
+<data name="creator">Sergio Bustos</data>
+<data name="address"></data>
+<data name="email">se-busto@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">SABG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliarias(_r)
+	:m Gestion_inmobiliaria(_r_1)
+		:o Tasaciones(_r_1_2)
+		:o Reservas(_r_1_3)
+		:o Equipamiento(_r_1_4)
+		:o Activos_fisicos(_r_1_5)
+		:o Instalaciones(_r_1_6)
+	:m Gestion_activos(_r_7)
+		:m Adquisicion_inmueble(_r_7_8)
+		:m Alquileres(_r_7_9)
+		:m Reporting(_r_7_10)
+			:g (_r_7_10_11) [1,*] 
+				: Financiero(_r_7_10_11_12)
+				: Operativo(_r_7_10_11_13)
+		:o Valoraciones(_r_7_14)
+		:o Auditorias(_r_7_15)
+		:o Revisiones_mercado(_r_7_16)
+		:o Contabilidad(_r_7_17)
+		:o Refinanciaciones(_r_7_18)
+		:o Ventas_activos(_r_7_19)
+	:o Gestion_capital(_r_20)
+		:m Inversiones_alternativas(_r_20_21)
+			:g (_r_20_21_22) [1,*] 
+				: Vehiculos(_r_20_21_22_23)
+				: Patrimonios_autonomos(_r_20_21_22_24)
+				: Fondos_capital_privado(_r_20_21_22_25)
+				: Carteras_colectivas(_r_20_21_22_26)
+		:m Inversiones_tradicionales(_r_20_27)
+		:m Adquisiciones_ventas_activos(_r_20_28)
+		:m Segmentacion_clientes(_r_20_29)
+			:g (_r_20_29_30) [1,1] 
+				: Gobierno_corporativo(_r_20_29_30_31)
+				: Relaciones_inversores(_r_20_29_30_32)
+</feature_tree>
+<constraints>
+constraint_6:_r_7_14 or ~_r_7_15
+constraint_7:~_r_7_17 or _r_7_19
+constraint_5:~_r_1_5 or ~_r_1_6
+constraint_2:~_r_1_4 or ~_r_1_5
+</constraints>
+</feature_model>

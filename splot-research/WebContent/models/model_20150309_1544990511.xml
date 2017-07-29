@@ -1,0 +1,91 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 9, 2015 - 9:47 PM  -->
+<feature_model name="CasoInmobiliarioa_IvanGarcia_MarioLancheros">
+<meta>
+<data name="description">Taller1_FabricasDeSoftWare</data>
+<data name="creator">IvanGarcia_MarioLancheros</data>
+<data name="address"></data>
+<data name="email">if.garcia11@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad De Los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r CasoInmobiliaria(_r)
+	:m GestionDeCapital(_r_1)
+		:g (_r_1_6) [1,*] 
+			: EstructuracionDelFondo(_r_1_6_7)
+				:g (_r_1_6_7_16) [1,1] 
+					: InversionesAlternativas(_r_1_6_7_16_17)
+						:g (_r_1_6_7_16_17_21) [1,1] 
+							: Vehiculos(_r_1_6_7_16_17_21_22)
+						:g (_r_1_6_7_16_17_23) [1,1] 
+							: Seguros(_r_1_6_7_16_17_23_24)
+						:g (_r_1_6_7_16_17_25) [1,1] 
+							: FondosDeCapitalPrivado(_r_1_6_7_16_17_25_26)
+						:g (_r_1_6_7_16_17_28) [1,1] 
+							: CarterasColectivas(_r_1_6_7_16_17_28_29)
+				:g (_r_1_6_7_19) [1,1] 
+					: InversionesTradicionales(_r_1_6_7_19_20)
+		:g (_r_1_8) [1,*] 
+			: DefinicionGobiernoCorporativo(_r_1_8_9)
+		:g (_r_1_10) [1,*] 
+			: RelacionesConinvervsores(_r_1_10_11)
+		:g (_r_1_12) [1,*] 
+			: Adquisiciones(_r_1_12_13)
+		:g (_r_1_14) [1,*] 
+			: VentasDeActivos(_r_1_14_15)
+	:m GestionDeActivos(_r_2)
+		:m Inversion(_r_2_30)
+			:g (_r_2_30_44) [1,1] 
+				: Adquisicion(_r_2_30_44_45)
+			:g (_r_2_30_46) [1,1] 
+				: Gestioninmobiliaria(_r_2_30_46_47)
+			:g (_r_2_30_48) [1,1] 
+				: Alquileres(_r_2_30_48_49)
+			:g (_r_2_30_52) [1,1] 
+				: Inversion(_r_2_30_52_53)
+					:g (_r_2_30_52_53_54) [1,1] 
+						: ReportingFinanciero(_r_2_30_52_53_54_55)
+					:g (_r_2_30_52_53_56) [1,1] 
+						: PresupuestosOperativos(_r_2_30_52_53_56_57)
+		:o Venta(_r_2_31)
+			:g (_r_2_31_32) [1,*] 
+				: Valoraciones(_r_2_31_32_33)
+			:g (_r_2_31_34) [1,*] 
+				: Auditorias(_r_2_31_34_35)
+			:g (_r_2_31_36) [1,*] 
+				: RevisionesDeMercado(_r_2_31_36_37)
+			:g (_r_2_31_38) [1,*] 
+				: Contabilidad(_r_2_31_38_39)
+			:g (_r_2_31_40) [1,*] 
+				: Refinanciaciones(_r_2_31_40_41)
+			:g (_r_2_31_42) [1,*] 
+				: VentasDeActivos(_r_2_31_42_43)
+	:m GestionInmobiliaria(_r_3)
+		:g (_r_3_58) [1,*] 
+			: GestionEquipamento(_r_3_58_59)
+		:g (_r_3_60) [1,*] 
+			: Instalaciones(_r_3_60_61)
+		:g (_r_3_62) [1,*] 
+			: Reservas(_r_3_62_63)
+				:o OfertaReserva(_r_3_62_63_38)
+				:o ControlReserva(_r_3_62_63_39)
+				:o VigenciaReserva(_r_3_62_63_40)
+				:o AceptacionReserva(_r_3_62_63_41)
+		:g (_r_3_64) [1,*] 
+			: ActivosFisicos(_r_3_64_65)
+		:g (_r_3_66) [1,*] 
+			: Tasacciones(_r_3_66_67)
+				:o Capacitacion(_r_3_66_67_68)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_8_9 or ~_r_1_10_11
+constraint_4:~_r_3_58_59 or _r_3_64_65
+constraint_5:~_r_3_60_61 or _r_3_64_65
+constraint_2:_r_2_31_32_33 or _r_2_31_34_35
+constraint_3:_r_2_31_38_39 or _r_2_31_42_43
+</constraints>
+</feature_model>

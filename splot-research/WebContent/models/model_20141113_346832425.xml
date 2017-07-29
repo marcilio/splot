@@ -1,0 +1,92 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Nov 14, 2014 - 5:04 AM  -->
+<feature_model name="e-commerce">
+<meta>
+<data name="description">Web shop</data>
+<data name="creator">Ivar Thorvaldsson</data>
+<data name="address"></data>
+<data name="email">ivarda@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Chalmers</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r e-commerce(_r)
+	:m Browse(_r_4)
+		:g (_r_4_10) [1,*] 
+			: Search(_r_4_10_11)
+				:g (_r_4_10_11_13) [1,*] 
+					: Text(_r_4_10_11_13_14)
+					: Voice(_r_4_10_11_13_104)
+			: Menu(_r_4_10_12)
+			: URL(_r_4_10_107)
+	:m Payment methods(_r_5)
+		:g (_r_5_17) [1,*] 
+			: Credit card(_r_5_17_18)
+			: Bank transfer(_r_5_17_19)
+			: Invoice(_r_5_17_20)
+			: PayPal(_r_5_17_24)
+			: Monthly payment_Klarna(_r_5_17_26)
+	:o Cart(_r_7)
+	:o Account(_r_16)
+		:m Login(_r_16_96)
+			:g (_r_16_96_97) [1,*] 
+				: Finger prints(_r_16_96_97_98)
+				: Password(_r_16_96_97_100)
+				: OAuth_Facebook(_r_16_96_97_101)
+				: Two-factor authentication(_r_16_96_97_103)
+	:m Platform(_r_43)
+		:g (_r_43_59) [1,*] 
+			: Desktop(_r_43_59_60)
+				:g (_r_43_59_60_62) [1,*] 
+					: Apple(_r_43_59_60_62_63)
+					: Windows(_r_43_59_60_62_65)
+			: Phone(_r_43_59_61)
+				:g (_r_43_59_61_67) [1,*] 
+					: Apple(_r_43_59_61_67_68)
+					: Android(_r_43_59_61_67_69)
+					: Windows(_r_43_59_61_67_70)
+			: Tablet(_r_43_59_64)
+				:g (_r_43_59_64_72) [1,*] 
+					: Apple(_r_43_59_64_72_73)
+					: Android(_r_43_59_64_72_74)
+					: Windows(_r_43_59_64_72_75)
+	:o Promotions and news(_r_48)
+		:g (_r_48_49) [1,*] 
+			: RSS(_r_48_49_50)
+			: Mail(_r_48_49_51)
+			: E-mail(_r_48_49_52)
+			: Twitter(_r_48_49_53)
+			: Facebook(_r_48_49_54)
+			: YouTube(_r_48_49_57)
+			: Front page(_r_48_49_59)
+			: Notification(_r_48_49_105)
+	:o Sales(_r_60)
+		:g (_r_60_61) [1,*] 
+			: Gift cards(_r_60_61_62)
+			: Discount codes(_r_60_61_63)
+			: Discount(_r_60_61_64)
+	:o Support(_r_65)
+		:g (_r_65_70) [1,*] 
+			: E-mail(_r_65_70_71)
+			: Chat(_r_65_70_72)
+			: Phone(_r_65_70_73)
+			: Contact form(_r_65_70_74)
+	:o Reward program(_r_78)
+	:m Security(_r_79)
+		:g (_r_79_82) [1,1] 
+			: Low(_r_79_82_83)
+			: Standard(_r_79_82_84)
+			: High(_r_79_82_85)
+	:o Receipt history(_r_86)
+</feature_tree>
+<constraints>
+constraint_9:_r_43_59_61 or ~_r_48_49_105
+constraint_11:_r_43_59_64 or ~_r_48_49_105
+constraint_7:~_r_5_17_19 or _r_79_82_85
+constraint_4:_r_16 or ~_r_78
+constraint_5:_r_16 or ~_r_86
+</constraints>
+</feature_model>

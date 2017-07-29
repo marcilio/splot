@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 19, 2014 - 9:55 PM  -->
+<feature_model name="MarketPlace-Sample">
+<meta>
+<data name="description">Sample of a market place</data>
+<data name="creator">David Jimenez</data>
+<data name="address"></data>
+<data name="email">--</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">MISO4204</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r rootSample - MP(_r)
+	:m Registro(_r_1)
+		:m Crear cuenta de usuario(_r_1_6)
+		:m Crear cuenta de proveedor(_r_1_7)
+		:m Editar perfil de cuenta(_r_1_8)
+		:m Cancelar cuenta(_r_1_9)
+		:m Recordar contrasenia(_r_1_10)
+	:m Carrito de compras(_r_2)
+	:m Buscador(_r_3)
+	:o Publicidad(_r_4)
+		:m Suscribir(_r_4_11)
+		:m Configurar preferencias de ofertas(_r_4_12)
+		:o Analizar preferencias de usuario(_r_4_13)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

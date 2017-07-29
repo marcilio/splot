@@ -1,0 +1,57 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Mar 9, 2015 - 9:47 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Caso Inmobililiaria </data>
+<data name="creator">Mauricio Cajamarca - Alex Chacon</data>
+<data name="address">Av. Jimenez No. 4 -16 </data>
+<data name="email">lmauriciocajamarca@gmail.com</data>
+<data name="phone"></data>
+<data name="website">http://www.uniandes.edu.co</data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department">MISO</data>
+<data name="date">2015-03-09</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:m Gestion_Inversiones(_r_1)
+		:m Inversiones(_r_1_4)
+			:g (_r_1_4_34) [1,*] 
+				: Tradicionales(_r_1_4_34_35)
+				: Alternativos(_r_1_4_34_37)
+		:o Gobierno_Corporativo(_r_1_5)
+		:o Relacion_Inversioines(_r_1_6)
+		:o Activos(_r_1_7)
+			:o Adquisiciones(_r_1_7_9)
+			:o Venta_Activos(_r_1_7_10)
+	:m Gestion_Activos(_r_2)
+		:m Adquisicion_Inmueble(_r_2_11)
+		:m Gestion_Inmobiliaria(_r_2_12)
+			:o Transacciones(_r_2_12_13)
+			:o Reservas(_r_2_12_14)
+		:m Alquiler(_r_2_15)
+		:o Reporting(_r_2_17)
+			:o Financiero(_r_2_17_18)
+			:o Operativo(_r_2_17_19)
+		:o Valoraciones(_r_2_20)
+		:o Auditorias(_r_2_21)
+		:o Revisiones_Mercado(_r_2_22)
+		:o Contabilidad(_r_2_23)
+		:o Refinanciaciones(_r_2_24)
+		:o Ventas(_r_2_25)
+	:m Gestion_Inmobiliaria(_r_3)
+		:g (_r_3_26) [1,*] 
+			: Gestion_Equipamentos(_r_3_26_27)
+			: Instalaciones(_r_3_26_28)
+			: Activos_Fisicos(_r_3_26_29)
+				:m Sistemas(_r_3_26_29_30)
+				:m Recurso_Humano(_r_3_26_29_31)
+</feature_tree>
+<constraints>
+constraint_8:_r_3_26_27 or ~_r_3_26_29
+constraint_10:_r_1_5 or ~_r_1_6
+constraint_9:_r_3_26_28 or ~_r_3_26_29
+constraint_6:_r_2_20 or _r_2_21
+constraint_7:_r_2_23 or _r_2_25
+</constraints>
+</feature_model>

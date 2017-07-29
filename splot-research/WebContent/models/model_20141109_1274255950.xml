@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Nov 9, 2014 - 9:57 AM  -->
+<feature_model name="Webshop_SPLE2014_Chalmers">
+<meta>
+<data name="description">Webshop_SPLE2014_Chalmers</data>
+<data name="creator">Antonio Martini</data>
+<data name="address"></data>
+<data name="email">antonio.martini@chalmers.se</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Chalmers University of Technology</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Webshop(_r)
+	:m Catalogue(_r_1)
+	:m Payment(_r_2)
+		:g (_r_2_5) [1,*] 
+			: Bank Transfer(_r_2_5_6)
+			: Credit Card(_r_2_5_7)
+	:m Security(_r_3)
+		:g (_r_3_8) [1,1] 
+			: High(_r_3_8_9)
+			: Standard(_r_3_8_10)
+	:o Search(_r_4)
+	:m Contacts(_r_11)
+	:m Home Page(_r_12)
+</feature_tree>
+<constraints>
+constraint_3:~_r_2_5_7 or _r_3_8_9
+</constraints>
+</feature_model>

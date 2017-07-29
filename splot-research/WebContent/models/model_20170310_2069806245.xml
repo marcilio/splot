@@ -1,0 +1,92 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Mar 12, 2017 - 10:26 PM  -->
+<feature_model name="CompuCorp">
+<meta>
+<data name="description">Módelo de Variabilidad de una empresa de computadoras</data>
+<data name="creator">Daniel Bohórquez</data>
+<data name="address"></data>
+<data name="email">df.bohorquez11@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Empresa de Computadoras(_r)
+	:m Marca(_r_1)
+		:g (_r_1_6) [1,1] 
+			: Apple(_r_1_6_7)
+			: Dell(_r_1_6_8)
+			: Lenovo(_r_1_6_9)
+			: Toshiba(_r_1_6_10)
+			: Clon(_r_1_6_11)
+	:m Sistema Operativo(_r_2)
+		:g (_r_2_12) [1,1] 
+			: SO Personal(_r_2_12_13)
+				:g (_r_2_12_13_15) [1,1] 
+					: OS X Yosemite(_r_2_12_13_15_16)
+					: Fedora(_r_2_12_13_15_17)
+					: Windows 10(_r_2_12_13_15_18)
+			: SO Servidor(_r_2_12_14)
+				:g (_r_2_12_14_20) [1,1] 
+					: Red Hat(_r_2_12_14_20_21)
+					: Windows Server(_r_2_12_14_20_22)
+					: OS X Server(_r_2_12_14_20_23)
+	:m CPU(_r_3)
+		:m Procesador(_r_3_24)
+			:g (_r_3_24_37) [1,1] 
+				: Intel(_r_3_24_37_38)
+				: AMD(_r_3_24_37_39)
+		:m Memoria RAM(_r_3_25)
+			:g (_r_3_25_40) [1,1] 
+				: 4 GB(_r_3_25_40_41)
+				: 8 GB(_r_3_25_40_42)
+				: 16 GB(_r_3_25_40_43)
+				: 32 GB(_r_3_25_40_44)
+				: 64 GB(_r_3_25_40_45)
+		:m Disco Duro(_r_3_26)
+			:g (_r_3_26_46) [1,1] 
+				: 500 GB(_r_3_26_46_47)
+				: 1 TB(_r_3_26_46_48)
+				: 2 TB(_r_3_26_46_49)
+				: 5 TB(_r_3_26_46_50)
+				: 10 TB(_r_3_26_46_51)
+		:o Tarjeta de Video(_r_3_27)
+			:g (_r_3_27_34) [1,1] 
+				: NVIDIA(_r_3_27_34_35)
+				: ATI Radeon(_r_3_27_34_36)
+	:m Modelo(_r_4)
+		:g (_r_4_29) [1,1] 
+			: Portatil(_r_4_29_30)
+			: Escritorio(_r_4_29_31)
+			: Servidor(_r_4_29_33)
+	:o Pantalla(_r_5)
+		:m Tecnologia(_r_5_52)
+			:g (_r_5_52_54) [1,*] 
+				: LCD(_r_5_52_54_55)
+				: 3D(_r_5_52_54_56)
+				: 4K(_r_5_52_54_57)
+		:m Tamano(_r_5_53)
+			:g (_r_5_53_58) [1,1] 
+				: 14 Pulgadas(_r_5_53_58_59)
+				: 17 Pulgadas(_r_5_53_58_60)
+				: 24 Pulgadas(_r_5_53_58_61)
+	:o Planta de Poder(_r_50)
+</feature_tree>
+<constraints>
+constraint_30:_r_4_29_30 or ~_r_5_52_54_56 or ~_r_5_52_54_57
+constraint_34:~_r_3_25_40_44 or ~_r_3_25_40_45 or _r_4_29_30
+constraint_33:~_r_3_26_46_50 or ~_r_3_26_46_51 or _r_4_29_31
+constraint_32:~_r_3_26_46_50 or ~_r_3_26_46_51 or _r_4_29_30
+constraint_49:~_r_2_12_14 or _r_4_29_30 or _r_4_29_31
+constraint_53:~_r_2_12_14 or _r_4_29_30 or _r_4_29_31
+constraint_35:~_r_3_25_40_44 or ~_r_3_25_40_45 or _r_4_29_31
+constraint_48:_r_1_6_7 or ~_r_2_12_13_15_17 or ~_r_2_12_13_15_18 or ~_r_2_12_14_20_21 or ~_r_2_12_14_20_22
+constraint_19:_r_1_6_11 or ~_r_4_29_30
+constraint_29:_r_4_29_30 or _r_5
+constraint_50:_r_2_12_14 or _r_4_29_33
+constraint_51:_r_3_25_40_41 or _r_3_25_40_42 or _r_3_25_40_43 or ~_r_4_29_33
+constraint_52:_r_3_26_46_47 or _r_3_26_46_48 or _r_3_26_46_49 or ~_r_4_29_33
+</constraints>
+</feature_model>

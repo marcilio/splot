@@ -1,0 +1,75 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 29, 2014 - 5:41 AM  -->
+<feature_model name="Assessment_Lina">
+<meta>
+<data name="description">Assessment_Lina</data>
+<data name="creator">Lina</data>
+<data name="address"></data>
+<data name="email">linute.cibulskaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">VU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Assessment(_r)
+	:m Objective(_r_1)
+		:g (_r_1_8) [1,1] 
+			: Remembering(_r_1_8_9)
+			: Understanding(_r_1_8_10)
+			: Applying(_r_1_8_11)
+			: Analyzing(_r_1_8_13)
+			: Evaluating(_r_1_8_14)
+			: Creating(_r_1_8_15)
+	:m Questions type(_r_2)
+		:g (_r_2_16) [1,*] 
+			: Closed(_r_2_16_17)
+			: Semi-0pen(_r_2_16_18)
+			: Open(_r_2_16_19)
+	:m Preferences(_r_4)
+		:m Level(_r_4_20)
+			:g (_r_4_20_21) [1,*] 
+				: Beginner(_r_4_20_21_22)
+				: Intermediate(_r_4_20_21_23)
+				: Advanced(_r_4_20_21_24)
+		:m Style(_r_4_25)
+			:g (_r_4_25_26) [1,*] 
+				: Visual(_r_4_25_26_27)
+				: Audial(_r_4_25_26_28)
+				: Kinesthetic(_r_4_25_26_29)
+	:m Content(_r_50)
+		:g (_r_50_51) [1,*] 
+			: T1(_r_50_51_52)
+				:g (_r_50_51_52_55) [1,1] 
+					: T11(_r_50_51_52_55_56)
+					: T12(_r_50_51_52_55_59)
+					: T13(_r_50_51_52_55_60)
+			: T2(_r_50_51_53)
+				:g (_r_50_51_53_61) [1,1] 
+					: T21(_r_50_51_53_61_62)
+					: T22(_r_50_51_53_61_63)
+					: T23(_r_50_51_53_61_64)
+			: T3(_r_50_51_54)
+				:g (_r_50_51_54_65) [1,1] 
+					: T31(_r_50_51_54_65_66)
+					: T32(_r_50_51_54_65_67)
+					: T33(_r_50_51_54_65_68)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_8_11 or _r_2_16_18
+constraint_39:~_r_1_8_10 or _r_50_51_53
+constraint_43:~_r_1_8_14 or _r_50_51_54_65_68
+constraint_42:~_r_1_8_13 or _r_50_51_53_61_63
+constraint_44:~_r_1_8_15 or _r_50_51_53_61_64
+constraint_38:~_r_1_8_10 or _r_50_51_52
+constraint_37:~_r_1_8_9 or _r_50_51_53
+constraint_36:~_r_1_8_9 or _r_50_51_52_55_56
+constraint_35:~_r_4 or _r_50
+constraint_40:~_r_1_8_10 or _r_50_51_54
+constraint_41:~_r_1_8_11 or _r_50_51_54_65_67
+constraint_4:~_r_1_8_14 or _r_2_16_19
+constraint_2:~_r_1_8_11 or _r_2_16_19
+constraint_3:~_r_1_8_14 or _r_2_16_18
+</constraints>
+</feature_model>

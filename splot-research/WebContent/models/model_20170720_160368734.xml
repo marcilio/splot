@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jul 20, 2017 - 5:33 AM  -->
+<feature_model name="Smartwatch">
+<meta>
+<data name="description">SW</data>
+<data name="creator">Ali</data>
+<data name="address"></data>
+<data name="email">NAZAKATALI2@GMAIL.COM</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Smartwatch(_r)
+	:m Display(_r_1)
+		:m Buttons(_r_1_3)
+			:g (_r_1_3_4) [1,1] 
+				: Touch(_r_1_3_4_5)
+			:g (_r_1_3_6) [1,1] 
+				: Press(_r_1_3_6_7)
+			:g (_r_1_3_8) [1,1] 
+				: Rotate(_r_1_3_8_9)
+		:o Icon(_r_1_10)
+		:m TimeUnit(_r_1_13)
+			:o Hour(_r_1_13_15)
+			:o Minutes(_r_1_13_16)
+			:o Second(_r_1_13_17)
+			:o Hunderedth(_r_1_13_18)
+		:o Date(_r_1_14)
+	:m Applications(_r_2)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

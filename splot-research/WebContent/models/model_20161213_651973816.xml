@@ -1,0 +1,52 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Dec 13, 2016 - 3:01 PM  -->
+<feature_model name="Robot SPLE">
+<meta>
+<data name="description">ROBOT</data>
+<data name="creator">Chalmers</data>
+<data name="address"></data>
+<data name="email">huish@student.chalmers.se</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">chalmers</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Robots navigation funcationality(_r)
+	:m Obstacle avoidance(_r_1)
+		:g (_r_1_2) [1,*] 
+			: DWA(_r_1_2_3)
+			: SND(_r_1_2_4)
+	:m Trajectory following(_r_5)
+		:g (_r_5_6) [1,*] 
+			: Differential drive(_r_5_6_7)
+			: Omnidirectional(_r_5_6_8)
+	:m Localization(_r_9)
+		:g (_r_9_10) [1,1] 
+			: Geometric map(_r_9_10_11)
+			: Visual markers(_r_9_10_12)
+	:m Obstacle detection(_r_13)
+		:g (_r_13_20) [1,*] 
+			: Appearance based(_r_13_20_21)
+			: Distance based(_r_13_20_22)
+	:m Robot equipment(_r_23)
+		:m Rover(_r_23_24)
+			:g (_r_23_24_26) [1,1] 
+				: Youbot(_r_23_24_26_27)
+				: Pioneer(_r_23_24_26_28)
+		:m Sensors(_r_23_25)
+			:g (_r_23_25_31) [1,*] 
+				: Hokuyo laser(_r_23_25_31_32)
+				: Kinect depth sensor(_r_23_25_31_33)
+				: Bumblebee stereo camera(_r_23_25_31_23)
+</feature_tree>
+<constraints>
+constraint_8:~_r_9_10_12 or _r_23_25_31_23
+constraint_6:~_r_23_24_26_27 or ~_r_23_24_26_28
+constraint_7:_r_23_25_31_32 or ~_r_23_25_31_33 or ~_r_23_25_31_23
+constraint_4:~_r_9_10_11 or ~_r_9_10_12
+constraint_5:~_r_13_20_21 or _r_23_25_31_23
+constraint_3:~_r_9_10_11 or _r_23_25_31_33
+</constraints>
+</feature_model>

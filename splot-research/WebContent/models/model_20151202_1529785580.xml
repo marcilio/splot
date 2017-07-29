@@ -1,0 +1,66 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Dec 18, 2015 - 5:53 PM  -->
+<feature_model name="VMTools-RA">
+<meta>
+<data name="description">Reference Architecture for Variability Management Tools</data>
+<data name="creator">Ana</data>
+<data name="address"></data>
+<data name="email">ana.allian@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UEM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VMToolsRA(_r)
+	:m Variability Management(_r_1)
+		:m Variability Modeling(_r_1_2)
+			:m Composition Rules(_r_1_2_15)
+				:o Cardinality(_r_1_2_15_18)
+				:g (_r_1_2_15_19) [1,*] 
+					: Constraints(_r_1_2_15_19_20)
+					: Dependency(_r_1_2_15_19_21)
+			:o Traceability(_r_1_2_16)
+			:m Variability Model Management(_r_1_2_17)
+				:m Notation(_r_1_2_17_22)
+					:g (_r_1_2_17_22_25) [1,1] 
+						: Feature Model(_r_1_2_17_22_25_26)
+						: Decision Model(_r_1_2_17_22_25_27)
+						: Orthodonal(_r_1_2_17_22_25_28)
+						: Other(_r_1_2_17_22_25_29)
+				:m Variants(_r_1_2_17_23)
+				:m Variation Point(_r_1_2_17_24)
+		:o Variability Validation(_r_1_3)
+			:o Verification Reports(_r_1_3_30)
+			:g (_r_1_3_31) [1,*] 
+				: Logic Solvers(_r_1_3_31_32)
+				: Reasoners(_r_1_3_31_33)
+				: Other(_r_1_3_31_34)
+		:o Variability Decision(_r_1_4)
+			:m Variability Binding Management(_r_1_4_35)
+				:m Binding Time(_r_1_4_35_37)
+					:g (_r_1_4_35_37_40) [1,*] 
+						: Compile Time(_r_1_4_35_37_40_41)
+						: Runtime(_r_1_4_35_37_40_42)
+						: Other(_r_1_4_35_37_40_43)
+				:m Variability Mechanism(_r_1_4_35_38)
+		:o Variability Evolution(_r_1_5)
+			:m Variability Control Evolution(_r_1_5_44)
+				:m Impact Analysis(_r_1_5_44_45)
+	:o Organizational(_r_6)
+		:o Planning Management(_r_6_10)
+		:o Communication Sharing(_r_6_11)
+		:o Guidance(_r_6_12)
+		:o Trade Off Analysis(_r_6_13)
+		:o Notifying Feedback(_r_6_14)
+	:o Domain Analysis(_r_7)
+		:m Domain Assets(_r_7_8)
+		:o Requirement Specifications(_r_7_9)
+</feature_tree>
+<constraints>
+constraint_8:_r_1_4_35_37 or ~_r_1_4_35_38
+constraint_9:~_r_1 or _r_7_8
+constraint_5:~_r_1 or _r_6
+</constraints>
+</feature_model>

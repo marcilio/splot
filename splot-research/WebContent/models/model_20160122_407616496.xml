@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Jan 22, 2016 - 1:24 PM  -->
+<feature_model name="VR application">
+<meta>
+<data name="description">Global FM for VR</data>
+<data name="creator">GLM</data>
+<data name="address"></data>
+<data name="email">gwendal.lemoulec@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IRISA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VRApplication(_r)
+	:m Physics(_r_1)
+	:m Devices(_r_2)
+		:m Display(_r_2_24)
+			:g (_r_2_24_30) [1,1] 
+				: CAVE(_r_2_24_30_31)
+				: HMD(_r_2_24_30_32)
+				: Screen(_r_2_24_30_33)
+		:m Interactors(_r_2_25)
+			:g (_r_2_25_26) [1,*] 
+				: Joystick(_r_2_25_26_27)
+				: Data gloves(_r_2_25_26_28)
+				: Mouse(_r_2_25_26_29)
+	:m 3DScene(_r_3)
+	:o Interactions(_r_4)
+		:g (_r_4_20) [1,1] 
+			: Simple interactors(_r_4_20_21)
+			: Collaborative interactors(_r_4_20_22)
+		:m Effect(_r_4_23)
+	:o Controller(_r_5)
+		:m Setup(_r_5_18)
+		:m Scenario(_r_5_19)
+	:o Animation(_r_6)
+		:g (_r_6_14) [1,*] 
+			: Character animation(_r_6_14_15)
+				:o Crowd animation(_r_6_14_15_17)
+			: Physics animation(_r_6_14_16)
+	:o Collaboration(_r_7)
+		:g (_r_7_9) [1,1] 
+			: Level1(_r_7_9_10)
+			: Level 2(_r_7_9_11)
+			: Level 3(_r_7_9_12)
+				:m Synchronization module(_r_7_9_12_13)
+	:o ObjectRelations(_r_8)
+</feature_tree>
+<constraints>
+constraint_1:~_r_7_9_12 or _r_4_20_22
+constraint_2:~_r_4 or _r_6_14_16
+</constraints>
+</feature_model>

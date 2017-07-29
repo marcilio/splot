@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 10, 2015 - 2:36 AM  -->
+<feature_model name="Inmobiliaria_Taller">
+<meta>
+<data name="description">taller de inmobiliaria</data>
+<data name="creator">alejandro!!</data>
+<data name="address"></data>
+<data name="email">alejandr0quinter0@yahoo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmmobiliaria(_r)
+	:o DepartamentoGestionCapital(_r_1)
+		:m Inversiones(_r_1_5)
+			:g (_r_1_5_6) [1,1] 
+				: Alternativas(_r_1_5_6_7)
+				: Tradicionales(_r_1_5_6_8)
+		:o DefinicionGobiernoCorporativo(_r_1_10)
+		:o Relaciones Con Inversores(_r_1_11)
+		:m Adquisicion y Venta de Activos(_r_1_12)
+	:m DepartamentoGestionActivos(_r_3)
+		:g (_r_3_17) [1,*] 
+			: AdquisicionInmueble(_r_3_17_18)
+			: Gestion Inmobiliaria(_r_3_17_19)
+			: Alquileres(_r_3_17_20)
+			: Reporting(_r_3_17_21)
+			: Valoraciones(_r_3_17_22)
+			: Auditorias(_r_3_17_23)
+			: Revisiones De Mercado(_r_3_17_24)
+			: Contabilidad(_r_3_17_25)
+			: Refinanciacion(_r_3_17_26)
+			: Venta De Activos(_r_3_17_27)
+	:m DepartamentoGestionInmobiliaria(_r_4)
+		:o Gestion De Procesos(_r_4_29)
+			:o Tasaciones(_r_4_29_30)
+			:o Reservas(_r_4_29_31)
+		:o Gestion de Sistemas(_r_4_32)
+		:o Gestiona Recursos Humanos(_r_4_33)
+		:m Gestion Operativa de los Inmuebles(_r_4_34)
+		:g (_r_4_35) [1,*] 
+			: Gestion de Instalaciones(_r_4_35_36)
+			: Gestion de Activos Fisicos(_r_4_35_37)
+			: Gestion del Equipamiento(_r_4_35_38)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3_17_22 or _r_3_17_23
+constraint_4:~_r_4_35_37 or ~_r_4_35_38
+constraint_2:~_r_3_17_25 or _r_3_17_27
+constraint_3:~_r_4_35_36 or ~_r_4_35_37
+</constraints>
+</feature_model>

@@ -1,0 +1,63 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Aug 25, 2014 - 10:16 AM  -->
+<feature_model name="Marketplace">
+<meta>
+<data name="description">Marketplace Project</data>
+<data name="creator">David Espinal Ruiz</data>
+<data name="address"></data>
+<data name="email">d.espinal10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Marketplace(_r)
+	:m Carrito(_r_3)
+		:m Agregar al Carrito(_r_3_23)
+		:m Eliminar del Carrito(_r_3_24)
+		:o Anular Carrito(_r_3_25)
+		:m Realizar Compra(_r_3_26)
+		:m Verificar Estado Pedido(_r_3_27)
+	:m RegistroAutenticacion(_r_4)
+		:m Hacer Login(_r_4_28)
+		:m Validar por correo(_r_4_29)
+		:m Registrar Usuario(_r_4_30)
+		:m Registrar Usuario Proveedor(_r_4_31)
+		:m Editar Perfil(_r_4_32)
+		:m Editar Perfil Proveedor(_r_4_33)
+		:m Cancelar Cuenta(_r_4_34)
+		:m Cambiar Contrasena(_r_4_35)
+	:m Pagos(_r_5)
+		:m Procesar Pago(_r_5_41)
+		:m Pagar con Tarjeta de Credito(_r_5_42)
+		:o Pagar con PSE(_r_5_43)
+		:o Pagar con Paypal(_r_5_44)
+	:m Anuncios(_r_6)
+		:m Crear Anuncio(_r_6_52)
+		:m Dar de baja a Anuncio(_r_6_53)
+		:m Publicar Anuncio(_r_6_54)
+		:o Consultar Anuncio Similares de Otros Proovedores(_r_6_55)
+	:o Reportes(_r_7)
+		:m Consultar compras realizadas(_r_7_16)
+		:o Consultar Historial de mis Productos(_r_7_19)
+		:o Consultar historial de mis Proveedores(_r_7_20)
+		:o Consulta Historial de Busqueda(_r_7_21)
+		:o Consulta Productos mas vendidos(_r_7_22)
+	:o InteraccionClienteProveedor(_r_8)
+		:o Obtener Datos de contacto de proveedor(_r_8_36)
+		:m Calificar Proveedor(_r_8_37)
+		:m Realizar Pregunta al Proveedor(_r_8_38)
+		:m Contestar pregunta de cliente(_r_8_39)
+		:m Calificar Cliente(_r_8_40)
+	:o Publicidad(_r_10)
+		:m Suscribir(_r_10_48)
+		:o Analizar Preferencias de Usuario(_r_10_49)
+		:m Enviar Publicidad(_r_10_50)
+		:m Configurar Preferencias de Ofertas(_r_10_51)
+</feature_tree>
+<constraints>
+constraint_3:_r_8_38 or ~_r_8_39
+</constraints>
+</feature_model>

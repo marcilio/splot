@@ -1,0 +1,56 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 31, 2016 - 10:39 AM  -->
+<feature_model name="Ligne des sites Web">
+<meta>
+<data name="description">Modele de feautures</data>
+<data name="creator">Houssem CHEMINGUI</data>
+<data name="address"></data>
+<data name="email">houss.chemingui@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Univ Sorbonne</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Website(_r)
+	:m Performance(_r_1)
+		:g (_r_1_4) [1,1] 
+			: Minutes(_r_1_4_5)
+			: Millisecondes(_r_1_4_6)
+			: Secondes(_r_1_4_7)
+	:o Additional Service(_r_2)
+		:o Searches(_r_2_9)
+		:o Statistics(_r_2_10)
+		:m Reports(_r_2_12)
+		:m Banners(_r_2_13)
+			:m Images(_r_2_13_14)
+			:o Flash(_r_2_13_15)
+	:m Webserver(_r_3)
+		:m Content(_r_3_16)
+			:m Static(_r_3_16_17)
+			:o Dynamic(_r_3_16_18)
+				:g (_r_3_16_18_19) [1,*] 
+					: ASP(_r_3_16_18_19_20)
+					: PHP(_r_3_16_18_19_21)
+					: JSP(_r_3_16_18_19_22)
+		:o Protocols(_r_3_23)
+			:g (_r_3_23_24) [1,*] 
+				: HTTPS(_r_3_23_24_25)
+				: FTP(_r_3_23_24_26)
+		:o Logging(_r_3_27)
+			:g (_r_3_27_28) [1,1] 
+				: Database(_r_3_27_28_29)
+				: File(_r_3_27_28_31)
+</feature_tree>
+<constraints>
+constraint_18:~_r_3_16 or _r_3_23
+constraint_19:~_r_3_16_18 or _r_3_23_24_25
+constraint_20:_r_3_23_24_26 or ~_r_3_27_28_31
+constraint_21:~_r_1_4_6 or ~_r_3_23_24_25
+constraint_4:_r_1 or ~_r_2
+constraint_14:_r_1_4_7 or ~_r_2_10
+constraint_5:_r_1_4_7 or ~_r_2_9
+constraint_16:~_r_2_12 or _r_3_27_28_31
+</constraints>
+</feature_model>

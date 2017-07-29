@@ -1,0 +1,108 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 27, 2015 - 5:37 AM  -->
+<feature_model name="Quality Attributes Functionalities">
+<meta>
+<data name="description">Variability of the functionalities required by Quality Attributes</data>
+<data name="creator">José Miguel Horcas</data>
+<data name="address"></data>
+<data name="email">horcas@lcc.uma.es</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Málaga</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Quality Attributes Functionalities(_r)
+	:g (_r_1) [1,*] 
+		: Security(_r_1_2)
+			:g (_r_1_2_6) [1,*] 
+				: Authentication(_r_1_2_6_7)
+					:g (_r_1_2_6_7_10) [1,1] 
+						: SocialIdentity(_r_1_2_6_7_10_11)
+						: DigitalCertificate(_r_1_2_6_7_10_12)
+							:o PseudonymousCertificate(_r_1_2_6_7_10_12_16)
+							:m privateKey(_r_1_2_6_7_10_12_17)
+						: BiometricAuth(_r_1_2_6_7_10_13)
+						: UserPassword(_r_1_2_6_7_10_14)
+							:g (_r_1_2_6_7_10_14_19) [1,1] 
+								: Ping(_r_1_2_6_7_10_14_19_20)
+								: TextBased(_r_1_2_6_7_10_14_19_21)
+									:g (_r_1_2_6_7_10_14_19_21_24) [1,1] 
+										: Alphanumeric(_r_1_2_6_7_10_14_19_21_24_25)
+										: Numeric(_r_1_2_6_7_10_14_19_21_24_26)
+										: AlphanumericSpecialChars(_r_1_2_6_7_10_14_19_21_24_27)
+								: MatrixCode(_r_1_2_6_7_10_14_19_28)
+									:m rows(_r_1_2_6_7_10_14_19_28_29)
+									:m columns(_r_1_2_6_7_10_14_19_28_30)
+							:m passLength(_r_1_2_6_7_10_14_23)
+					:o AuthLogging(_r_1_2_6_7_15)
+					:o LimitedSession(_r_1_2_6_7_18)
+				: Encryption(_r_1_2_6_8)
+					:g (_r_1_2_6_8_31) [1,1] 
+						: Asymmetric(_r_1_2_6_8_31_32)
+							:g (_r_1_2_6_8_31_32_37) [1,1] 
+								: DSA(_r_1_2_6_8_31_32_37_38)
+								: RSA(_r_1_2_6_8_31_32_37_39)
+								: ECDSA(_r_1_2_6_8_31_32_37_40)
+						: Symmetric(_r_1_2_6_8_31_33)
+							:g (_r_1_2_6_8_31_33_34) [1,1] 
+								: AES(_r_1_2_6_8_31_33_34_35)
+								: DES(_r_1_2_6_8_31_33_34_36)
+					:m KeyStorage(_r_1_2_6_8_41)
+				: Hashing(_r_1_2_6_9)
+					:g (_r_1_2_6_9_45) [1,1] 
+						: MD5(_r_1_2_6_9_45_46)
+						: SHA1(_r_1_2_6_9_45_47)
+						: SHA2(_r_1_2_6_9_45_48)
+							:g (_r_1_2_6_9_45_48_49) [1,1] 
+								: SHA2-256(_r_1_2_6_9_45_48_49_50)
+								: SHA2-512(_r_1_2_6_9_45_48_49_51)
+		: Usability(_r_1_3)
+			:g (_r_1_3_52) [1,*] 
+				: UserProfile(_r_1_3_52_53)
+				: Feedback(_r_1_3_52_54)
+					:g (_r_1_3_52_54_64) [1,*] 
+						: InteractionFeedback(_r_1_3_52_54_64_65)
+						: ProgressFeedback(_r_1_3_52_54_64_66)
+						: SystemStatusDisplay(_r_1_3_52_54_64_67)
+						: Warnings(_r_1_3_52_54_64_68)
+					:o Logs(_r_1_3_52_54_73)
+					:g (_r_1_3_52_54_74) [1,*] 
+						: HistoryLog(_r_1_3_52_54_74_75)
+						: ErrorLog(_r_1_3_52_54_74_76)
+							:o TraceFile(_r_1_3_52_54_74_76_77)
+				: ExecutionControl(_r_1_3_52_55)
+					:g (_r_1_3_52_55_60) [1,*] 
+						: Undo(_r_1_3_52_55_60_61)
+						: Redo(_r_1_3_52_55_60_62)
+						: Cancel(_r_1_3_52_55_60_63)
+						: GoBack(_r_1_3_52_55_60_69)
+				: Shortcuts(_r_1_3_52_56)
+				: ContextualHelp(_r_1_3_52_57)
+					:o Wizard(_r_1_3_52_57_72)
+				: Internationalization(_r_1_3_52_58)
+					:m locale(_r_1_3_52_58_59)
+		: Persistence(_r_1_4)
+			:g (_r_1_4_78) [1,*] 
+				: TemporalStorage(_r_1_4_78_79)
+					:o TemporalSchema(_r_1_4_78_79_82)
+				: DatabaseStorage(_r_1_4_78_80)
+					:o DatabaseSchema(_r_1_4_78_80_84)
+					:o SecureDatabase(_r_1_4_78_80_85)
+				: FilesStorage(_r_1_4_78_81)
+					:o FileSchema(_r_1_4_78_81_83)
+		: ContextAwareness(_r_1_5)
+			:g (_r_1_5_86) [1,*] 
+				: LocationAware(_r_1_5_86_87)
+					:g (_r_1_5_86_87_88) [1,*] 
+						: GPS(_r_1_5_86_87_88_89)
+						: WifiLocation(_r_1_5_86_87_88_90)
+				: TimeAware(_r_1_5_86_91)
+				: DeviceAware(_r_1_5_86_92)
+				: UserAware(_r_1_5_86_93)
+				: EnvironmentAware(_r_1_5_86_94)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

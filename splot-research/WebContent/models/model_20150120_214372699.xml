@@ -1,0 +1,61 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Feb 26, 2015 - 11:28 AM  -->
+<feature_model name="WISE">
+<meta>
+<data name="description">weather forecast</data>
+<data name="creator">Leonardo Tizzei</data>
+<data name="address"></data>
+<data name="email">leotizzei@yahoo.com.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IBM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r WISE(_r)
+	:m Environmental properties(_r_1)
+		:g (_r_1_2) [1,*] 
+			: Air pollution(_r_1_2_3)
+			: Visibility(_r_1_2_4)
+			: Wind(_r_1_2_5)
+			: Air temperature(_r_1_2_6)
+			: Rain precipitation(_r_1_2_7)
+			: 2m air temperature(_r_1_2_25)
+			: Snow precipitation(_r_1_2_26)
+			: Ice pellets precipitation(_r_1_2_27)
+			: Freezing rain precipitation(_r_1_2_28)
+			: pm2_5 dry mass(_r_1_2_29)
+			: pm10 dry mass(_r_1_2_30)
+			: SO_2 mixing ratio(_r_1_2_31)
+			: Sulf mixing ratio(_r_1_2_32)
+			: NO_2 mixing ratio(_r_1_2_33)
+			: NO mixing ratio(_r_1_2_34)
+			: O_3 mixing ratio(_r_1_2_35)
+			: HNO_3 mixing ratio(_r_1_2_36)
+			: NH_3 mixing ratio(_r_1_2_37)
+			: CO mixing ratio(_r_1_2_38)
+			: metric rain intensity(_r_1_2_39)
+			: Rain rate(_r_1_2_40)
+			: accumulated rain(_r_1_2_41)
+			: 2m dewpoint temperature(_r_1_2_42)
+			: 2m relative humidity(_r_1_2_43)
+			: CAPE(_r_1_2_44)
+			: Convective inhibition(_r_1_2_45)
+			: Wind gust(_r_1_2_46)
+			: Lifted(_r_1_2_47)
+	:m Alert protocols(_r_8)
+	:m Storage(_r_10)
+	:m Base maps(_r_11)
+		:g (_r_11_16) [1,1] 
+			: Google maps(_r_11_16_17)
+			: ArcGIS(_r_11_16_18)
+	:o Forecast verification(_r_19)
+	:m Forecast availability(_r_20)
+		:m Time intervals(_r_20_21)
+		:m Timespans(_r_20_23)
+		:m Grids(_r_20_24)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

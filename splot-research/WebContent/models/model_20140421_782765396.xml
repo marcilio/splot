@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Apr 20, 2015 - 6:21 AM  -->
+<feature_model name="Toko">
+<meta>
+<data name="description">Toko</data>
+<data name="creator">mawar</data>
+<data name="address">jalan mawar no. bunga</data>
+<data name="email">mawar@bunga.com</data>
+<data name="phone"></data>
+<data name="website">bungan mawar</data>
+<data name="organization">bunga</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Toko ElektroMIK(_r)
+	:o Pemesanan(_r_1)
+	:m Katalog(_r_2)
+	:m Screen(_r_14)
+		:o Basic(_r_14_16)
+		:o Color(_r_14_17)
+		:o High Resolution(_r_14_18)
+	:m Feature-15(_r_15)
+		:o Camera(_r_15_19)
+			:m Feature-11(_r_15_19_11)
+				:o Feature-12(_r_15_19_11_12)
+			:o Feature-13(_r_15_19_13)
+		:o MP3(_r_15_20)
+	:m Feature-15(__r_15)
+		:o Camera(__r_15_19)
+			:m Feature-11(__r_15_19_11)
+				:o Feature-12(__r_15_19_11_12)
+			:o Feature-13(__r_15_19_13)
+		:o MP3(__r_15_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

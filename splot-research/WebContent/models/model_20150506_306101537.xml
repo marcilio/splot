@@ -1,0 +1,52 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 6, 2015 - 11:20 PM  -->
+<feature_model name="ADS">
+<meta>
+<data name="description">LPS para Assistência Domiciliar `a Saude .</data>
+<data name="creator">Gabriel Goulart</data>
+<data name="address"></data>
+<data name="email">gabrielgoulart@great.ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">GREAT_UFC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ADS(_r)
+	:m Modulo de decisao(_r_1)
+		:m Dados coletados(_r_1_2)
+		:m Regras Medicas(_r_1_3)
+			:o Insuficiencia Cardiaca(_r_1_3_6)
+			:o Hipertensao(_r_1_3_7)
+		:o Perfil do Paciente(_r_1_4)
+	:m Alarme para Central(_r_8)
+	:m Sensores(_r_9)
+		:o Acelerometro(_r_9_10)
+		:o Botao do panico(_r_9_11)
+		:m Sensores Fisiologicos(_r_9_12)
+			:o Pessao Arterial(_r_9_12_17)
+			:o Frequencia Cardiaca(_r_9_12_18)
+			:o Balanca(_r_9_12_19)
+		:m Sensores Ambientes(_r_9_20)
+			:o Temperatura(_r_9_20_21)
+			:o Umidade(_r_9_20_22)
+	:m Plano de cuidados(_r_23)
+	:m Layout da casa(_r_24)
+	:m Servicos de contextos(_r_25)
+		:o Servico de Localizacao(_r_25_26)
+		:m Monitoramento(_r_25_27)
+		:m Descoberta de Recursos(_r_25_29)
+	:m Notificacao ao paciente(_r_30)
+	:m Dispositivos(_r_31)
+		:o Tv(_r_31_32)
+		:o Monitor da CSR(_r_31_34)
+		:o Celular(_r_31_35)
+	:m Comunicacao(_r_37)
+		:o Internet(_r_37_38)
+		:o Linha Fixa(_r_37_39)
+		:o Linha Celular(_r_37_40)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

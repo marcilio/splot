@@ -1,0 +1,32 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 20, 2014 - 5:57 PM  -->
+<feature_model name="Observatorio">
+<meta>
+<data name="description">modelo de observatorio</data>
+<data name="creator">Andres Torres</data>
+<data name="address"></data>
+<data name="email">adncuantico@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UdeA</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Observatorio(_r)
+	:m Montura(_r_4)
+		:m Telescopio Optico(_r_4_5)
+			:m Camara CCD noche(_r_4_5_10)
+				:o Camara AstroVID(_r_4_5_10_11)
+				:o Rueda de Filtros(_r_4_5_10_12)
+					:g (_r_4_5_10_12_18) [1,*] 
+						: filtros(_r_4_5_10_12_18_19)
+		:m Telescopio Solar(_r_4_7)
+			:o Camara CCD dia(_r_4_7_9)
+				:g (_r_4_7_9_20) [1,*] 
+					: Oculares(_r_4_7_9_20_21)
+	:m Cupula(_r_22)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

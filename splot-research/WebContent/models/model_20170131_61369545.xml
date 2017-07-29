@@ -1,0 +1,58 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jan 31, 2017 - 10:08 PM  -->
+<feature_model name="KernelLinuxFM">
+<meta>
+<data name="description">a FM based on Kernel Linux to be extended by VERONTO</data>
+<data name="creator">Sonzini Soledad, Vegetti Marcela, Leone Horacio</data>
+<data name="address">Avellaneda 3657</data>
+<data name="email">solesonzini@hotmail.com</data>
+<data name="phone">03424554809</data>
+<data name="website">www.ingar.santafe-conicet.gov.ar</data>
+<data name="organization">INGAR</data>
+<data name="department"></data>
+<data name="date">31-01-2017</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r KernelLinux Configurator(_r)
+	:m GeneralSetup(_r_1)
+		:o Prompt for Development(_r_1_17)
+		:o Posix Message Queues(_r_1_18)
+		:m Kernel Config Support(_r_1_19)
+			:m Kernel Log Buffer Size(_r_1_19_22)
+			:o Enable access to config(_r_1_19_23)
+		:m IRQ Subsystem(_r_1_20)
+		:m Control Group(_r_1_21)
+	:o Enable Loadable Module Support(_r_2)
+		:o Force Module Loading(_r_2_24)
+		:o Module Versioning Support(_r_2_26)
+		:o Source Checksum for all Modules(_r_2_28)
+	:o Enable the Block Layer(_r_3)
+		:o Support for large 2TB block devices ans files(_r_3_29)
+		:o Block Layer SG support v4(_r_3_30)
+		:o Block Layer SG support v4 helper lib(_r_3_31)
+	:m Processor Type and Feature(_r_4)
+		:o High Resolution Timer Support(_r_4_46)
+		:o Symmetric Multiprocessing Support(_r_4_47)
+		:o Generic x86 Support(_r_4_48)
+		:o Tickless system(_r_4_49)
+	:m Power Management and ACPI(_r_5)
+		:o Power Management Support(_r_5_39)
+		:o Suspend to RAM and Standby(_r_5_40)
+		:o Hibernation(_r_5_42)
+		:o ACPI Interface(_r_5_43)
+		:o SFI Interface(_r_5_44)
+		:o APM Bios Support(_r_5_45)
+	:m Firmware Driver(_r_9)
+	:o Networking Support(_r_10)
+		:o Amateur Radio Support(_r_10_34)
+		:o Bluetooth Subsystem Support(_r_10_35)
+		:o Wireless(_r_10_36)
+		:m WiMax Wireless Broadband Support(_r_10_37)
+	:m File System(_r_11)
+	:m Kernel Hacking(_r_12)
+	:m Security Options(_r_13)
+	:o Virtualization(_r_15)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

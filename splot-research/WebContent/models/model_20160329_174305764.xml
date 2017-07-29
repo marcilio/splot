@@ -1,0 +1,80 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 2:16 AM  -->
+<feature_model name="urnas-thiago-marques-viana">
+<meta>
+<data name="description">Modelo dos tres tipos de Urna</data>
+<data name="creator">Thiago Marques Viana</data>
+<data name="address"></data>
+<data name="email">thiago_mv12@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r urnas(_r)
+	:m Usuario Administrador(_r_1)
+		:m Senhas dos Administradores(_r_1_2)
+		:m Cadastro de Administrador(_r_1_26)
+		:o Tipos de Administradores(_r_1_28)
+		:m Login do Administrador(_r_1_48)
+	:m Fluxo da Eleicao(_r_3)
+		:m Inicio da Eleicao(_r_3_4)
+		:m Fim da Eleicao(_r_3_5)
+		:m Contagem de votos(_r_3_7)
+			:m Estatistica dos resultados(_r_3_7_33)
+				:g (_r_3_7_33_71) [1,1] 
+					: Por tipo de Eleitor(_r_3_7_33_71_72)
+					: Geral(_r_3_7_33_71_73)
+			:m Resultados dos Candidatos(_r_3_7_34)
+	:m Eleitores(_r_6)
+		:m Cadastrar eleitor(_r_6_8)
+		:m Pesquisar Eleitor(_r_6_9)
+			:g (_r_6_9_29) [1,1] 
+				: Pelo Titulo(_r_6_9_29_30)
+				: Pela Identidade(_r_6_9_29_31)
+				: Pelo CPF(_r_6_9_29_32)
+		:m Confirmacao dos dados(_r_6_10)
+		:m Manutencao de Eleitores Faltantes(_r_6_11)
+		:m Contagem de Eleitores(_r_6_31)
+		:m Tipo de Eleitor(_r_6_62)
+			:g (_r_6_62_63) [1,1] 
+				: Cidadao(_r_6_62_63_64)
+				: Funcionario(_r_6_62_63_65)
+					:g (_r_6_62_63_65_66) [1,*] 
+						: Professor(_r_6_62_63_65_66_67)
+						: Tecnico Administrativo(_r_6_62_63_65_66_68)
+					:m Peso do Voto(_r_6_62_63_65_69)
+	:m Voto(_r_13)
+		:m Tipo de Candidato(_r_13_14)
+			:g (_r_13_14_17) [1,*] 
+				: Prefeito(_r_13_14_17_18)
+				: Vereador(_r_13_14_17_19)
+				: Presidente(_r_13_14_17_53)
+				: Senador(_r_13_14_17_54)
+				: Chefe de Departamento(_r_13_14_17_56)
+					:m Controle de Professores Ativos(_r_13_14_17_56_61)
+			:m Numero de Candidatos(_r_13_14_70)
+		:m Tipo de Voto(_r_13_15)
+			:m Valido(_r_13_15_36)
+			:g (_r_13_15_37) [1,*] 
+				: Branco(_r_13_15_37_38)
+				: Nulo(_r_13_15_37_39)
+			:g (_r_13_15_44) [1,1] 
+				: Obrigatorio(_r_13_15_44_45)
+				: Facultativo(_r_13_15_44_46)
+</feature_tree>
+<constraints>
+constraint_1:_r_1 or ~_r_3
+constraint_8:_r_3_5 or ~_r_6_11
+constraint_9:_r_3_7 or ~_r_6_31
+constraint_10:_r_3_7_33 or _r_3_7_34 or ~_r_3_7
+constraint_11:~_r_3_4 or _r_1_48
+constraint_12:~_r_3_5 or _r_1_48
+constraint_4:_r_3_5 or ~_r_3_7
+constraint_14:_r_6_62_63_65 or ~_r_3_7_33_71_72
+constraint_5:_r_6 or ~_r_13
+constraint_3:_r_3_4 or ~_r_3_5
+</constraints>
+</feature_model>

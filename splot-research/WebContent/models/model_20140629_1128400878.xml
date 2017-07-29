@@ -1,0 +1,68 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 29, 2014 - 8:31 AM  -->
+<feature_model name="DBdesign">
+<meta>
+<data name="description">Describe the variability across THE DATABASE LIFE-CYCLE</data>
+<data name="creator">Selma BOUARAR</data>
+<data name="address">France</data>
+<data name="email">gardens_sky@hotmail.com</data>
+<data name="phone">+33645663728</data>
+<data name="website"></data>
+<data name="organization">LIAS/ENSMA</data>
+<data name="department">France</data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r DBDesign(_r)
+	:m ConceptualDesign(_r_2)
+		:m ER(_r_2_5)
+		:m UML(_r_2_6)
+		:m Express(_r_2_7)
+		:m Semantic(_r_2_8)
+	:m LogicalDesign(_r_3)
+		:m LogicalMapping(_r_3_19)
+		:m DataModel(_r_3_22)
+			:g (_r_3_22_23) [1,1] 
+				: Network(_r_3_22_23_24)
+				: Relational(_r_3_22_23_26)
+					:g (_r_3_22_23_26_30) [1,1] 
+						: NF1(_r_3_22_23_26_30_31)
+						: NF2(_r_3_22_23_26_30_32)
+						: NF3(_r_3_22_23_26_30_33)
+						: BCNF(_r_3_22_23_26_30_34)
+				: Object(_r_3_22_23_27)
+				: ObjectRelational(_r_3_22_23_28)
+				: MultiDim(_r_3_22_23_29)
+					:m Star(_r_3_22_23_29_35)
+					:m SnowFlake(_r_3_22_23_29_36)
+	:m PhysicalDesign(_r_4)
+		:m DeploymentModel(_r_4_37)
+			:m DeploymentLayout(_r_4_37_40)
+				:g (_r_4_37_40_42) [1,*] 
+					: Vertical(_r_4_37_40_42_43)
+					: Horizontal(_r_4_37_40_42_44)
+					: Binary(_r_4_37_40_42_45)
+			:o DeploymentArchitecure(_r_4_37_41)
+				:g (_r_4_37_41_46) [1,1] 
+					: TypeI(_r_4_37_41_46_47)
+					: TypeII(_r_4_37_41_46_48)
+					: TypeIII(_r_4_37_41_46_49)
+		:m OptimizationStructures(_r_4_38)
+			:g (_r_4_38_50) [1,*] 
+				: Index(_r_4_38_50_51)
+				: MV(_r_4_38_50_52)
+				: Partitioning(_r_4_38_50_53)
+		:m Storage(_r_4_39)
+			:m StorageTech(_r_4_39_54)
+				:g (_r_4_39_54_56) [1,*] 
+					: HDD(_r_4_39_54_56_57)
+					: SSD(_r_4_39_54_56_58)
+					: RAID(_r_4_39_54_56_59)
+			:m Paradigm(_r_4_39_55)
+				:g (_r_4_39_55_61) [1,1] 
+					: Centralized(_r_4_39_55_61_62)
+					: Parallel(_r_4_39_55_61_63)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 22, 2017 - 6:03 PM  -->
+<feature_model name="Match engine">
+<meta>
+<data name="description">A LPS basead on a generic match engine</data>
+<data name="creator">Igor</data>
+<data name="address"></data>
+<data name="email">igorabrandao@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFRN</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Match engine(_r)
+	:m Search(_r_1)
+		:g (_r_1_7) [1,1] 
+			: Simple match(_r_1_7_8)
+		:g (_r_1_9) [1,*] 
+			: Multiple match(_r_1_9_10)
+	:m Crud(_r_2)
+	:m Publish(_r_3)
+	:o Comment(_r_4)
+	:o Rate(_r_5)
+	:o Spread(_r_6)
+	:o Chat(_r_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

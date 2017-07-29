@@ -1,0 +1,38 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 22, 2016 - 9:28 PM  -->
+<feature_model name="Automóvil">
+<meta>
+<data name="description">Ejemplo de diagrama de caracerísticas</data>
+<data name="creator">Roberto Beán Castelló</data>
+<data name="address"></data>
+<data name="email">robcbean@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNED</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r automovil(_r)
+	:m ruedas(_r_1)
+		:g (_r_1_14) [1,1] 
+			: rojas(_r_1_14_15)
+			: azules(_r_1_14_16)
+			: aluminio(_r_1_14_17)
+	:m lunas(_r_2)
+		:o tintadas(_r_2_9)
+	:m color_carroceria(_r_3)
+		:g (_r_3_18) [1,1] 
+			: blanca(_r_3_18_19)
+			: azul(_r_3_18_20)
+			: roja(_r_3_18_21)
+	:m opciones(_r_4)
+		:g (_r_4_22) [1,1] 
+			: llantas_aleacion(_r_4_22_23)
+			: aparcamiento_asistido(_r_4_22_24)
+			: retrovisores_electricos(_r_4_22_25)
+</feature_tree>
+<constraints>
+constraint_2:~_r_1_14_16 or ~_r_3_18_21
+</constraints>
+</feature_model>

@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 29, 2016 - 10:43 PM  -->
+<feature_model name="CassVotingMachine">
+<meta>
+<data name="description">A voting machine developed as an assignment to my software reuse class</data>
+<data name="creator">Cassios Marques</data>
+<data name="address"></data>
+<data name="email">cassios.kmm@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VotingMachine(_r)
+	:m CandidateManagement(_r_13)
+		:m RegisterCandidate(_r_13_14)
+		:m DeleteCandidate(_r_13_15)
+		:m EditCandidate(_r_13_16)
+	:m Voting(_r_17)
+		:m ValidatePersonID(_r_17_21)
+			:g (_r_17_21_22) [1,*] 
+				: ElectoralID(_r_17_21_22_23)
+				: CPF(_r_17_21_22_32)
+				: RG(_r_17_21_22_33)
+		:m RegisterVote(_r_17_30)
+			:m Candidates(_r_17_30_31)
+			:m Blank(_r_17_30_32)
+			:o Null(_r_17_30_33)
+		:m ShowStatistics(_r_17_35)
+			:o ByEmployeeCategory(_r_17_35_36)
+			:o AbsoluteResult(_r_17_35_37)
+			:o PercentageToValidVotes(_r_17_35_38)
+		:m CalculateResult(_r_17_39)
+			:o WeightedVoting(_r_17_39_40)
+			:o ParliamentaryVoting(_r_17_39_41)
+	:m Access(_r_18)
+		:m Login(_r_18_19)
+		:m Logout(_r_18_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

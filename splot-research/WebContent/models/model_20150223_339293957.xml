@@ -1,0 +1,58 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Feb 23, 2015 - 4:37 AM  -->
+<feature_model name="HelpSystem_2">
+<meta>
+<data name="description">Help_system_with_constraints</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r HelpSystem(_r0)
+	:m Priority(_r1)
+		:g (_id_0) [1,*] 
+			: PL(_r2)
+			: PI(_r3)
+			: PH(_r4)
+	:m Level(_r5)
+		:g (_id_1) [1,1] 
+			: IT(_r6)
+			: AD(_r7)
+			: BG(_r8)
+	:m Method(_r9)
+		:g (_id_2) [1,1] 
+			: PR(_r10)
+			: PB(_r11)
+	:m Activity(_r12)
+		:g (_id_3) [1,1] 
+			: PS(_r13)
+			: CT(_r14)
+	:m SensorInput(_r15)
+		:g (_id_4) [1,1] 
+			: S1(_r16)
+			: S2(_r17)
+			: S3(_r18)
+			: S4(_r19)
+	:m SensorPosition(_r20)
+		:m NotPressed(_r21)
+		:m Pressed(_r22)
+	:m Sound(_r23)
+		:g (_id_5) [1,1] 
+			: Sound1(_r24)
+			: Sound2(_r25)
+</feature_tree>
+<constraints>
+C4:~_r20 or _r2
+C3:~_r22 or _r23
+C6:~_r15 or _r3
+C5:~_r12 or _r4
+C0:~_r5 or _r4
+C1:~_r23 or _r2
+C2:~_r9 or _r4
+</constraints>
+</feature_model>

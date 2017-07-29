@@ -1,0 +1,49 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 14, 2015 - 9:40 AM  -->
+<feature_model name="Bike">
+<meta>
+<data name="description">family of bikes from bike-sharing system</data>
+<data name="creator">Maurice ter Beek</data>
+<data name="address"></data>
+<data name="email">maurice.terbeek@isti.cnr.it</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">ISTI-CNR, Pisa, Italy</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Bike(_r)
+	:o Light(_r_13)
+	:o Engine(_r_17)
+	:o CompUnit(_r_18)
+		:o Tablet(_r_18_20)
+			:o MapsApp(_r_18_20_22)
+			:o NaviApp(_r_18_20_23)
+			:o GuideApp(_r_18_20_24)
+			:o Music(_r_18_20_25)
+		:o GPS(_r_18_21)
+	:o Basket(_r_26)
+	:m Wheels(_r_31)
+		:g (_r_31_32) [1,1] 
+			: AllYear(_r_31_32_33)
+			: Summer(_r_31_32_34)
+			: Winter(_r_31_32_35)
+	:m Frame(_r_36)
+		:g (_r_36_37) [1,1] 
+			: Diamond(_r_36_37_38)
+			: StepThru(_r_36_37_39)
+	:o Energy(_r_40)
+		:g (_r_40_41) [1,*] 
+			: Dynamo(_r_40_41_42)
+			: Battery(_r_40_41_43)
+</feature_tree>
+<constraints>
+constraint_1:~_r_13 or _r_40
+constraint_6:_r_18_21 or ~_r_36_37_38
+constraint_4:_r_18_20_22 or ~_r_18_20_23
+constraint_5:~_r_18_21 or _r_36_37_38
+constraint_2:~_r_17 or _r_40_41_43
+constraint_3:~_r_18 or _r_40_41_43
+</constraints>
+</feature_model>

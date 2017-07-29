@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Oct 29, 2014 - 8:54 AM  -->
+<feature_model name="E-commerce system1">
+<meta>
+<data name="description">E-commerce system</data>
+<data name="creator">Kestutis</data>
+<data name="address"></data>
+<data name="email">kestutis.valincius@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r E-commerce system(_r)
+	:o Manufacturers catalogue(_r_1)
+		:m Manufacturer categories(_r_1_3)
+		:m Manufacturer(_r_1_4)
+			:m Title(_r_1_4_5)
+			:o Photos(_r_1_4_6)
+			:m Description(_r_1_4_7)
+			:m Products(_r_1_4_8)
+	:m Products catalogue(_r_2)
+		:m Product categories(_r_2_9)
+		:m Product items(_r_2_10)
+		:m Product variations(_r_2_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,67 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 6:03 PM  -->
+<feature_model name="Urna Eletrônica">
+<meta>
+<data name="description">Sistema de votação</data>
+<data name="creator">Leonardo Apolinário</data>
+<data name="address"></data>
+<data name="email">leonardoapolinario@live.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal de Minas Gerais</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna Eletronica(_r)
+	:m Eleicao Presidente e dois Senadores(_r_1)
+		:m Voto Unico(_r_1_6)
+			:m 3 candidatos(_r_1_6_7)
+				:m Presidente(_r_1_6_7_22)
+				:m Senador 1(_r_1_6_7_23)
+				:m Senador 2(_r_1_6_7_24)
+			:g (_r_1_6_36) [1,*] 
+				: Escolhe(_r_1_6_36_37)
+				: Branco(_r_1_6_36_38)
+				: Nulo(_r_1_6_36_39)
+		:m Estatisticas(_r_1_9)
+			:m Numero de votos(_r_1_9_13)
+			:m Percentagens(_r_1_9_14)
+		:g (_r_1_15) [1,*] 
+			: Eleitos e Derrotados(_r_1_15_16)
+		:m Credenciado TSE(_r_1_19)
+	:m Eleicao Prefeito e um Vereador(_r_17)
+		:m Credenciado TRE(_r_17_20)
+		:m Voto Unico(_r_17_21)
+			:m 2 canditados(_r_17_21_25)
+				:m Prefeito(_r_17_21_25_26)
+				:m Vereador(_r_17_21_25_27)
+			:g (_r_17_21_40) [1,*] 
+				: Escolhe(_r_17_21_40_41)
+				: Branco(_r_17_21_40_42)
+				: Nulo(_r_17_21_40_43)
+		:m Estatisticas(_r_17_30)
+			:m Numero de Votos(_r_17_30_31)
+			:m Percentagens(_r_17_30_32)
+	:m Inicializacao e termino com senhas(_r_18)
+	:m Chefe de Departamento(_r_33)
+		:m Candidato(_r_33_34)
+		:o Voto Unico(_r_33_35)
+			:g (_r_33_35_46) [1,1] 
+				: Escolhe(_r_33_35_46_47)
+				: Nulo(_r_33_35_46_48)
+			:m Peso(_r_33_35_49)
+				:m Professor(_r_33_35_49_50)
+				:m Tecnico(_r_33_35_49_51)
+		:m Estatisticas(_r_33_52)
+			:m Numero de votos por categoria(_r_33_52_53)
+			:m Resultado(_r_33_52_54)
+</feature_tree>
+<constraints>
+constraint_17:_r_33_35
+constraint_9:_r_1_9
+constraint_14:_r_33_34
+constraint_15:_r_1_6
+constraint_16:_r_17_21
+</constraints>
+</feature_model>

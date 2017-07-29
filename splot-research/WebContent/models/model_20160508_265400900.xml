@@ -1,0 +1,78 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, May 8, 2016 - 11:55 PM  -->
+<feature_model name="Smart UMKM 2">
+<meta>
+<data name="description">feature model SMARTUMKM</data>
+<data name="creator">hnr</data>
+<data name="address"></data>
+<data name="email">hadiyannr@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UI</data>
+<data name="department"></data>
+<data name="date">9 5 16</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SMART UMKM(_r)
+	:m Buyer Service(_r_2)
+		:m Shopping Cart(_r_2_26)
+			:m Cart Management(_r_2_26_27)
+				:m Add to Cart(_r_2_26_27_64)
+				:m Delete From Cart(_r_2_26_27_65)
+			:m Checkout(_r_2_26_42)
+		:m Browse(_r_2_35)
+		:g (_r_2_38) [1,*] 
+			: Search(_r_2_38_40)
+			: Review Management(_r_2_38_41)
+		:m Payment(_r_2_44)
+		:g (_r_2_45) [1,*] 
+			: COD(_r_2_45_46)
+			: Online Debit(_r_2_45_47)
+			: Online Credit(_r_2_45_48)
+			: ATM(_r_2_45_92)
+		:m Shipping Management(_r_2_50)
+		:g (_r_2_51) [1,*] 
+			: Tiki(_r_2_51_53)
+			: Go-Kilat(_r_2_51_54)
+			: JNE(_r_2_51_55)
+			: POS(_r_2_51_56)
+		:o Shipping Tracking(_r_2_59)
+	:m Seller Service(_r_3)
+		:m Catalogue Management(_r_3_57)
+			:m Adding Goods(_r_3_57_60)
+			:m Editing Goods Information(_r_3_57_61)
+			:m Deleting Goods(_r_3_57_62)
+		:m Order Management(_r_3_66)
+		:o Selling Report Management(_r_3_70)
+		:g (_r_3_71) [1,*] 
+			: Daily(_r_3_71_72)
+			: Weekly(_r_3_71_73)
+			: Monthly(_r_3_71_74)
+	:o Admin Service(_r_8)
+		:o KTP Validation(_r_8_10)
+		:o Announcement Management(_r_8_94)
+		:g (_r_8_99) [1,*] 
+			: E-Mail(_r_8_99_100)
+			: Web Notification(_r_8_99_101)
+	:m Registration(_r_13)
+		:m Buyer(_r_13_78)
+		:m Seller(_r_13_79)
+	:m Platform(_r_81)
+	:g (_r_87) [1,*] 
+		: Web(_r_87_88)
+		: Android(_r_87_89)
+		: IOS(_r_87_90)
+	:o Member Service Management(_r_102)
+	:g (_r_103) [1,*] 
+		: Chat with customer Service(_r_103_104)
+		: Reward Point Management(_r_103_105)
+</feature_tree>
+<constraints>
+constraint_10:~_r_2_50 or _r_2_51_55
+constraint_11:~_r_2_50 or _r_2_51_53
+constraint_12:~_r_2_44 or _r_2_45_92
+constraint_13:~_r_81 or _r_87_88
+constraint_14:~_r_8_94 or _r_8_99_101
+constraint_15:_r_3_70 or ~_r_103_105
+</constraints>
+</feature_model>

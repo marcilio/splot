@@ -1,0 +1,46 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 12, 2017 - 9:16 AM  -->
+<feature_model name="Charger">
+<meta>
+<data name="description">Chrg</data>
+<data name="creator">crns</data>
+<data name="address"></data>
+<data name="email">ceren.sahin@vestel.com.tr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">vestel</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Charger(_r)
+	:o Test Circuit(_r_1)
+		:m Cable(_r_1_27)
+			:g (_r_1_27_28) [1,*] 
+				: Cable1(_r_1_27_28_29)
+				: Cable2(_r_1_27_28_30)
+				: Cable3(_r_1_27_28_31)
+				: Cable4(_r_1_27_28_32)
+	:m Typical Pilot(_r_2)
+		:m A1(_r_2_3)
+		:o A2(_r_2_4)
+		:o B1(_r_2_5)
+		:o B2(_r_2_8)
+		:o RFID-B1(_r_2_11)
+		:o RFID_B2(_r_2_12)
+		:o D1(_r_2_13)
+		:o D2(_r_2_14)
+		:o RFID_D(_r_2_15)
+			:g (_r_2_15_16) [1,*] 
+				: Button(_r_2_15_16_17)
+				: RFIDButton(_r_2_15_16_18)
+		:o RFIDC1(_r_2_19)
+		:o RFID_C2(_r_2_22)
+		:o C2(_r_2_23)
+			:g (_r_2_23_24) [1,*] 
+				: TuneCR(_r_2_23_24_25)
+				: TuneCH(_r_2_23_24_26)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

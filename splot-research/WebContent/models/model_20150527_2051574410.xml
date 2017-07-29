@@ -1,0 +1,56 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 27, 2015 - 5:55 AM  -->
+<feature_model name="Quality Attribute Functionalities Simple">
+<meta>
+<data name="description">Quality Attribute Functionalities Simplified</data>
+<data name="creator">José Miguel Horcas</data>
+<data name="address"></data>
+<data name="email">horcas@lcc.uma.es</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Málaga</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Quality Attribute Functionalities Simple(_r)
+	:g (_r_1) [1,*] 
+		: Security(_r_1_2)
+			:g (_r_1_2_5) [1,*] 
+				: Authentication(_r_1_2_5_6)
+					:g (_r_1_2_5_6_22) [1,1] 
+						: SocialIdentity(_r_1_2_5_6_22_23)
+						: DigitalCertificate(_r_1_2_5_6_22_24)
+						: BiometricAuth(_r_1_2_5_6_22_25)
+						: UserPassword(_r_1_2_5_6_22_26)
+				: Integrity(_r_1_2_5_7)
+				: Hashing(_r_1_2_5_8)
+				: Encryption(_r_1_2_5_9)
+					:g (_r_1_2_5_9_10) [1,1] 
+						: Asymmetric(_r_1_2_5_9_10_11)
+							:g (_r_1_2_5_9_10_11_18) [1,1] 
+								: DSA(_r_1_2_5_9_10_11_18_19)
+								: ECDSA(_r_1_2_5_9_10_11_18_20)
+								: RSA(_r_1_2_5_9_10_11_18_21)
+						: Symmetric(_r_1_2_5_9_10_12)
+							:g (_r_1_2_5_9_10_12_14) [1,1] 
+								: DES(_r_1_2_5_9_10_12_14_15)
+								: AES(_r_1_2_5_9_10_12_14_16)
+		: Persistence(_r_1_3)
+		: Usability(_r_1_4)
+			:g (_r_1_4_27) [1,*] 
+				: Feedback(_r_1_4_27_28)
+					:m Notifications(_r_1_4_27_28_34)
+					:o Logs(_r_1_4_27_28_35)
+						:g (_r_1_4_27_28_35_36) [1,*] 
+							: Errors(_r_1_4_27_28_35_36_37)
+							: History(_r_1_4_27_28_35_36_38)
+				: ContextualHelp(_r_1_4_27_29)
+				: UI(_r_1_4_27_30)
+					:g (_r_1_4_27_30_31) [1,*] 
+						: TextBased(_r_1_4_27_30_31_32)
+						: SpeechBased(_r_1_4_27_30_31_33)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

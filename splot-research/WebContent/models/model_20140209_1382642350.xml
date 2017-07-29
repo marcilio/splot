@@ -1,0 +1,75 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 9, 2014 - 4:41 PM  -->
+<feature_model name="LightFollower">
+<meta>
+<data name="description">Light Follower</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r LightFollower(_r)
+	:m Priority(_r_1)
+		:g (_r_1_2) [1,*] 
+			: PH(_r_1_2_3)
+			: PI(_r_1_2_4)
+			: PL(_r_1_2_5)
+			: None(_r_1_2_6)
+	:m CO(_r_7)
+		:m LC(_r_7_8)
+	:m LA(_r_9)
+		:g (_r_9_10) [1,1] 
+			: CT(_r_9_10_11)
+			: PS(_r_9_10_12)
+			: AK(_r_9_10_13)
+	:m LL(_r_14)
+		:g (_r_14_15) [1,1] 
+			: BG(_r_14_15_16)
+			: IT(_r_14_15_17)
+			: AD(_r_14_15_18)
+	:m M(_r_19)
+		:g (_r_19_20) [1,1] 
+			: PR(_r_19_20_21)
+			: PB(_r_19_20_22)
+	:m PM(_r_23)
+		:g (_r_23_24) [1,1] 
+			: 23(_r_23_24_25)
+			: 32(_r_23_24_26)
+			: 24(_r_23_24_27)
+			: 42(_r_23_24_28)
+			: 34(_r_23_24_29)
+			: 43(_r_23_24_30)
+	:m PS(_r_31)
+		:g (_r_31_32) [1,1] 
+			: 12(_r_31_32_33)
+			: 21(_r_31_32_34)
+			: 13(_r_31_32_35)
+			: 31(_r_31_32_36)
+			: 23(_r_31_32_37)
+			: 32(_r_31_32_38)
+	:m DL(_r_39)
+		:g (_r_39_40) [1,1] 
+			: 25(_r_39_40_41)
+			: 50(_r_39_40_42)
+			: 75(_r_39_40_43)
+	:m MD(_r_44)
+		:g (_r_44_45) [1,1] 
+			: R(_r_44_45_46)
+			: L(_r_44_45_47)
+			: S(_r_44_45_48)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_2_3 or _r_7
+constraint_6:~_r_1_2_5 or _r_39
+constraint_7:~_r_1_2_5 or _r_44
+constraint_4:~_r_1_2_4 or _r_23
+constraint_5:~_r_1_2_4 or _r_31
+constraint_2:~_r_1_2_3 or _r_9
+constraint_3:~_r_1_2_3 or _r_19
+</constraints>
+</feature_model>

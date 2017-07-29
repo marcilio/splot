@@ -1,0 +1,63 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Jul 29, 2014 - 4:02 AM  -->
+<feature_model name="DelayBlockSemSpec">
+<meta>
+<data name="description">Delay block semantics specification</data>
+<data name="creator">Arnaud Dieumegard</data>
+<data name="address"></data>
+<data name="email">arnaud.dieumegard@enseeiht.fr</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">IRIT - ENSEEIHT</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r DelayBlock(DelayBlock)
+	:m v_output(v_output)
+	:m u_input(u_input)
+	:o structuralFeature(rootFeature)
+		:o variable_delay(variable_delay)
+			:m d_input(d_input)
+		:o resettable(resettable)
+			:m res_input(res_input)
+		:o external_init_value(external_init_value)
+			:m ic_input(ic_input)
+		:o enable_via_input(enable_via_input)
+			:m e_input(e_input)
+	:o d_parameter(d_parameter)
+	:o ic_parameter(ic_parameter)
+	:m semantics(semantics)
+		:g (_id_0) [1,1] 
+			: sem(sem)
+			: sem_reset(sem_reset)
+			: sem_enable(sem_enable)
+			: sem_reset_enable(sem_reset_enable)
+			: sem_variable_delay(sem_variable_delay)
+			: sem_reset_variable_delay(sem_reset_variable_delay)
+			: sem_reset_enable_variable_delay(sem_reset_enable_variable_delay)
+	:m m_memory(DelayBlock_23)
+</feature_tree>
+<constraints>
+C16:~sem_reset_variable_delay or resettable
+C8:~sem_reset or resettable
+C17:~sem_reset_variable_delay or ~enable_via_input
+C7:~sem_enable or ~resettable
+C18:~sem_reset_enable_variable_delay or variable_delay
+C19:~sem_reset_enable_variable_delay or resettable
+C9:~sem_reset or ~enable_via_input
+C4:~sem or ~resettable
+C3:~sem or d_parameter
+C6:~sem_enable or enable_via_input
+C5:~sem or ~enable_via_input
+C10:~sem_reset_enable or enable_via_input
+C11:~sem_reset_enable or resettable
+C12:~sem_variable_delay or variable_delay
+C13:~sem_variable_delay or ~resettable
+C14:~sem_variable_delay or ~enable_via_input
+C20:~sem_reset_enable_variable_delay or enable_via_input
+C15:~sem_reset_variable_delay or variable_delay
+C1:~ic_parameter or ~external_init_value
+C2:~d_parameter or ~variable_delay
+</constraints>
+</feature_model>

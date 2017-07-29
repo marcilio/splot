@@ -1,0 +1,61 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 15, 2014 - 2:42 PM  -->
+<feature_model name="Physiological computing feature model">
+<meta>
+<data name="description">Describes physioloccal computing domain  </data>
+<data name="creator">Mindaugas Vasiljevas</data>
+<data name="address"></data>
+<data name="email">vasiljevasm@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Kaunas University of Technology</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Physiological computing system(_r)
+	:m Physiological signal(_r_2)
+		:g (_r_2_3) [1,*] 
+			: EEG(_r_2_3_4)
+			: EMG(_r_2_3_5)
+			: EOG(_r_2_3_6)
+			: ECG(_r_2_3_7)
+			: GSR(_r_2_3_8)
+	:o Prepocessing method(_r_9)
+		:o Filter(_r_9_13)
+			:g (_r_9_13_14) [1,1] 
+				: Low-pass filter(_r_9_13_14_15)
+				: High-pass filter(_r_9_13_14_16)
+		:o CSP filter(_r_9_21)
+		:o PCA(_r_9_22)
+	:m Classification method(_r_10)
+		:g (_r_10_23) [1,1] 
+			: Neural networks(_r_10_23_24)
+				:m Number of layers(_r_10_23_24_32)
+				:m Number of neurons(_r_10_23_24_33)
+			: SVM(_r_10_23_25)
+				:m Kernel function(_r_10_23_25_43)
+				:g (_r_10_23_25_44) [1,1] 
+					: Nonlinear(_r_10_23_25_44_46)
+					: Linear(_r_10_23_25_44_47)
+			: Random forest(_r_10_23_26)
+				:m Number of trees(_r_10_23_26_37)
+			: K-means(_r_10_23_27)
+	:m Learning procedure(_r_11)
+		:g (_r_11_40) [1,1] 
+			: Supervised(_r_11_40_41)
+			: Unspervised(_r_11_40_42)
+	:m Application domain(_r_12)
+		:g (_r_12_28) [1,*] 
+			: Control(_r_12_28_29)
+			: Monitoring(_r_12_28_30)
+	:m User(_r_31)
+		:g (_r_31_49) [1,1] 
+			: On-line mode(_r_31_49_50)
+			: Off-line mode(_r_31_49_51)
+</feature_tree>
+<constraints>
+constraint_1:_r_2 or _r_31
+constraint_2:_r_10 or _r_11
+</constraints>
+</feature_model>

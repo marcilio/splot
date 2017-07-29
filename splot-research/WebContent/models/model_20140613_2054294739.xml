@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, May 29, 2017 - 6:43 PM  -->
+<feature_model name="eshop">
+<meta>
+<data name="description">eshop</data>
+<data name="creator">maria jose rioseco</data>
+<data name="address"></data>
+<data name="email">rt.mariajose@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Ufro</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r eshop(_r)
+	:m catalogo(_r_1)
+	:m pago(_r_2)
+		:g (_r_2_5) [1,*] 
+			: transferencias(_r_2_5_6)
+			: tarjeta credito(_r_2_5_7)
+	:m seguridad(_r_3)
+		:g (_r_3_8) [1,1] 
+			: alta(_r_3_8_9)
+			: estandar(_r_3_8_10)
+	:o buscador(_r_4)
+		:o reporte publico(_r_4_11)
+</feature_tree>
+<constraints>
+constraint_4:~_r_3_8_9 or ~_r_4_11
+constraint_3:~_r_2_5_7 or _r_3_8_9
+</constraints>
+</feature_model>

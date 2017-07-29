@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Jun 21, 2015 - 2:24 PM  -->
+<feature_model name="ConferenceContext">
+<meta>
+<data name="description">Model for context as a dynamic product line of  a conference</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ConferenceContext(_r)
+	:o Person(_r_1)
+		:g (_r_1_2) [1,*] 
+			: Location(_r_1_2_3)
+				:g (_r_1_2_3_4) [1,*] 
+					: RoomResolution(_r_1_2_3_4_5)
+					: BuildingResolution(_r_1_2_3_4_6)
+			: Role(_r_1_2_7)
+				:g (_r_1_2_7_8) [1,1] 
+					: StaticRole(_r_1_2_7_8_9)
+					: CurrentRole(_r_1_2_7_8_10)
+			: Publications(_r_1_2_11)
+				:g (_r_1_2_11_12) [1,*] 
+					: ConferencePapers(_r_1_2_11_12_13)
+					: JournalPapers(_r_1_2_11_12_14)
+					: BookChapters(_r_1_2_11_12_15)
+			: ContactDetails(_r_1_2_16)
+	:o Conference(_r_17)
+		:o Venue(_r_17_18)
+		:o PartipatingPeople(_r_17_19)
+			:g (_r_17_19_20) [1,*] 
+				: PhDStudent(_r_17_19_20_21)
+				: Experts(_r_17_19_20_22)
+					:g (_r_17_19_20_22_23) [1,1] 
+						: HavingAwards(_r_17_19_20_22_23_24)
+						: HavingJournalPublications(_r_17_19_20_22_23_25)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

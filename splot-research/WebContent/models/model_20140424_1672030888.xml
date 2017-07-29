@@ -1,0 +1,109 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 24, 2014 - 8:27 AM  -->
+<feature_model name="ClassicShell">
+<meta>
+<data name="description">Used in TAES</data>
+<data name="creator">Marcello (mclv)</data>
+<data name="address"></data>
+<data name="email">mclv@cin.ufpe.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFPE</data>
+<data name="department">CIn</data>
+<data name="date">April 24, 2014</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ClassicShell(_r)
+	:m StartMenuStyle(_r_1)
+		:m Style(_r_1_7)
+			:g (_r_1_7_9) [1,1] 
+				: ClassicStyle(_r_1_7_9_10)
+				: ClassicWithTwoColumns(_r_1_7_9_11)
+				: Windows7Style(_r_1_7_9_12)
+		:o ReplaceStartButton(_r_1_8)
+			:g (_r_1_8_13) [1,1] 
+				: Aero(_r_1_8_13_14)
+				: Classic(_r_1_8_13_15)
+				: Custom(_r_1_8_13_16)
+	:m BasicSettings(_r_2)
+		:o LeftClickOpens(_r_2_17)
+			:g (_r_2_17_29) [1,1] 
+				: ClassicStartMenu(_r_2_17_29_30)
+				: WindowsStartScreen(_r_2_17_29_31)
+		:o ShiftClickOpens(_r_2_18)
+			:g (_r_2_18_32) [1,1] 
+				: ClassicStartMenu(_r_2_18_32_33)
+				: WindowsStartScreen(_r_2_18_32_34)
+		:o WindowsKeyOpens(_r_2_19)
+			:g (_r_2_19_35) [1,1] 
+				: ClassicStartMenu(_r_2_19_35_36)
+				: WindowsStartScreen(_r_2_19_35_37)
+				: SMDeskSSMetro(_r_2_19_35_38)
+				: SMDeskAndDeskMetro(_r_2_19_35_39)
+		:o ShiftWinOpens(_r_2_20)
+			:g (_r_2_20_40) [1,1] 
+				: ClassicStartMenu(_r_2_20_40_41)
+				: WindowsStartScreen(_r_2_20_40_42)
+				: SMDeskSSMetro(_r_2_20_40_43)
+		:o ShowRecentOrFequent(_r_2_21)
+			:g (_r_2_21_44) [1,1] 
+				: RecentPrograms(_r_2_21_44_45)
+				: FequentPrograms(_r_2_21_44_46)
+		:o ShutdownCommand(_r_2_23)
+			:g (_r_2_23_47) [1,1] 
+				: Shutdown(_r_2_23_47_48)
+				: Restart(_r_2_23_47_49)
+				: LogOff(_r_2_23_47_50)
+				: Sleep(_r_2_23_47_51)
+				: Hibernate(_r_2_23_47_52)
+				: Lock(_r_2_23_47_53)
+				: SwitchUser(_r_2_23_47_54)
+				: ShutdownDialog(_r_2_23_47_55)
+		:o StartAutomatically(_r_2_24)
+		:o ShowSearchBox(_r_2_25)
+			:g (_r_2_25_56) [1,1] 
+				: AccessNormally(_r_2_25_56_57)
+				: AccessWithTab(_r_2_25_56_58)
+		:o SkipMetroScreen(_r_2_26)
+		:o Computer(_r_2_71)
+			:g (_r_2_71_75) [1,1] 
+				: DisplayAsLink(_r_2_71_75_76)
+				: DisplayAsMenu(_r_2_71_75_77)
+				: DisplayAsList(_r_2_71_75_78)
+		:o Favorites(_r_2_72)
+			:g (_r_2_72_79) [1,1] 
+				: DisplayAsLink(_r_2_72_79_80)
+				: DisplayAsMenu(_r_2_72_79_81)
+		:o RecentDocuments(_r_2_73)
+			:g (_r_2_73_82) [1,1] 
+				: DisplayAsLink(_r_2_73_82_83)
+				: DisplayAsMenu(_r_2_73_82_84)
+		:o ControlPanel(_r_2_74)
+			:g (_r_2_74_85) [1,1] 
+				: DisplayAsLink(_r_2_74_85_86)
+				: DisplayAsMenu(_r_2_74_85_87)
+	:o Skin(_r_3)
+		:g (_r_3_59) [1,1] 
+			: ClassicSkin(_r_3_59_60)
+			: Windows8(_r_3_59_61)
+			: WindowsAero(_r_3_59_62)
+			: FullGlass(_r_3_59_67)
+			: SmokedGlass(_r_3_59_68)
+			: WindowsBasic(_r_3_59_69)
+			: WindowsXPLuna(_r_3_59_70)
+	:o CustomizeStartMenu(_r_4)
+</feature_tree>
+<constraints>
+constraint_8:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_3_59_70
+constraint_10:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_2_72
+constraint_9:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_2_71
+constraint_11:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_2_73
+constraint_6:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_3_59_68
+constraint_12:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_2_74
+constraint_7:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_3_59_69
+constraint_13:_r_1_7_9_12 or ~_r_2_23_47_48
+constraint_5:_r_1_7_9_10 or _r_1_7_9_11 or ~_r_3_59_67
+constraint_2:_r_4 or ~_r_1_7_9_12
+constraint_3:~_r_4 or _r_1_7_9_12
+</constraints>
+</feature_model>

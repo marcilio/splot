@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 30, 2016 - 9:05 PM  -->
+<feature_model name="Urna - Edipo - UFMG">
+<meta>
+<data name="description">Urna - Edipo - UFMG</data>
+<data name="creator">Edipo Fernandes</data>
+<data name="address"></data>
+<data name="email">edipofernandes7@outlook.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Urna - Edipo - UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Urna - Edipo - UFMG(_r)
+	:m inicializar_votacao(_r_27)
+		:m senha(_r_27_28)
+			:g (_r_27_28_29) [1,1] 
+				: Titulo de eleitor(_r_27_28_29_30)
+				: identidade e cpf(_r_27_28_29_31)
+		:m eleicao(_r_27_51)
+			:g (_r_27_51_52) [1,1] 
+				: eleicao um presidente e dois senadores(_r_27_51_52_53)
+				: eleicao um prefeito e um veriador(_r_27_51_52_54)
+				: eleicao de um chefe de departamento(_r_27_51_52_55)
+					:m tipo de voto(_r_27_51_52_55_60)
+						:g (_r_27_51_52_55_60_61) [1,1] 
+							: Professor(_r_27_51_52_55_60_61_62)
+							: tecnico administrativo(_r_27_51_52_55_60_61_63)
+	:m finalizar(_r_34)
+		:m senha(_r_34_37)
+			:g (_r_34_37_38) [1,1] 
+				: TRE(_r_34_37_38_39)
+				: TSE(_r_34_37_38_40)
+				: Professor Ativo(_r_34_37_38_41)
+		:m entrega de estatisticas(_r_34_56)
+	:m inicializar_urna(_r_44)
+		:m senha(_r_44_45)
+			:g (_r_44_45_46) [1,1] 
+				: TRE(_r_44_45_46_47)
+				: TSE(_r_44_45_46_48)
+				: Professor ativo(_r_44_45_46_49)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

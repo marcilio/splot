@@ -1,0 +1,294 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Apr 29, 2017 - 5:54 PM  -->
+<feature_model name="Marketplace notebooks">
+<meta>
+<data name="description">Marketplace notebooks</data>
+<data name="creator">Daniel Ortiz</data>
+<data name="address"></data>
+<data name="email">danielortiz.dos@outlook.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UPC</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Marketplace notebooks(_r)
+	:o Marca(_r_2)
+		:g (_r_2_5) [1,*] 
+			: Acer(_r_2_5_6)
+			: Asus(_r_2_5_7)
+			: Apple(_r_2_5_8)
+			: HP(_r_2_5_9)
+			: Kalley(_r_2_5_11)
+			: Lenovo(_r_2_5_12)
+			: LG(_r_2_5_13)
+			: MSI(_r_2_5_14)
+			: PC smart(_r_2_5_15)
+	:o Pantalla(_r_16)
+		:g (_r_16_17) [1,*] 
+			: 7 a 12 pulgadas(_r_16_17_18)
+			: 13 a 18 pulgadas(_r_16_17_19)
+			: 18 a 22 pulgadas(_r_16_17_20)
+	:o Disco duro(_r_24)
+		:g (_r_24_25) [1,*] 
+			: 32 GB(_r_24_25_26)
+			: 128 GB(_r_24_25_29)
+			: 256 GB(_r_24_25_30)
+			: 500 GB(_r_24_25_31)
+			: 512 GB(_r_24_25_32)
+			: 1 TB(_r_24_25_33)
+	:o Marca procesador(_r_44)
+		:g (_r_44_47) [1,1] 
+			: AMD(_r_44_47_48)
+				:g (_r_44_47_48_52) [1,*] 
+					: AMD A-Series(_r_44_47_48_52_53)
+					: AMD A10 8700P(_r_44_47_48_52_54)
+			: Intel(_r_44_47_49)
+				:g (_r_44_47_49_55) [1,*] 
+					: Intel Core i7(_r_44_47_49_55_56)
+						:g (_r_44_47_49_55_56_64) [1,1] 
+							: Intel 7ta generacion core i7(_r_44_47_49_55_56_64_65)
+							: Intel 6ta generacion core i7(_r_44_47_49_55_56_64_66)
+							: Intel 5 generacion core i7(_r_44_47_49_55_56_64_67)
+					: Intel Core i5(_r_44_47_49_55_57)
+						:g (_r_44_47_49_55_57_68) [1,1] 
+							: Intel 7ta generacion core i5(_r_44_47_49_55_57_68_69)
+							: Intel 6ta generacion core i5(_r_44_47_49_55_57_68_70)
+							: Intel 5ta generacion core i5(_r_44_47_49_55_57_68_72)
+					: Intel Core i3(_r_44_47_49_55_58)
+						:g (_r_44_47_49_55_58_74) [1,1] 
+							: Intel 7ta generacion core i3(_r_44_47_49_55_58_74_75)
+							: Intel 6ta generacion core i3(_r_44_47_49_55_58_74_76)
+							: Intel 5ta generacion core i3(_r_44_47_49_55_58_74_77)
+					: Intel Atom(_r_44_47_49_55_59)
+					: Intel Pentium(_r_44_47_49_55_60)
+					: Intel Celeron(_r_44_47_49_55_61)
+					: Intel Core M(_r_44_47_49_55_62)
+	:o Sistema operativo(_r_99)
+		:g (_r_99_100) [1,1] 
+			: Windows 10(_r_99_100_101)
+			: Windows 10 Home(_r_99_100_102)
+			: OSX(_r_99_100_103)
+			: OSX El Capitan(_r_99_100_104)
+	:o Conectividad(_r_105)
+		:g (_r_105_106) [1,*] 
+			: Bluetooth(_r_105_106_107)
+			: HDMI(_r_105_106_108)
+			: USB(_r_105_106_109)
+			: USB 3 0(_r_105_106_110)
+			: Wifi(_r_105_106_111)
+	:o Precio(_r_112)
+		:g (_r_112_115) [1,*] 
+			: 500000 - 2500000(_r_112_115_116)
+			: 2500000 - 4500000(_r_112_115_117)
+			: 4500000 - 6500000(_r_112_115_118)
+			: 6500000 - 8500000(_r_112_115_119)
+			: 8500000 - MAX(_r_112_115_120)
+</feature_tree>
+<constraints>
+constraint_86:~_r_2_5_11 or ~_r_16_17_19
+constraint_87:~_r_2_5_11 or ~_r_16_17_20
+constraint_88:~_r_2_5_11 or ~_r_24_25_29
+constraint_89:~_r_2_5_11 or ~_r_24_25_30
+constraint_106:~_r_2_5_11 or ~_r_105_106_110
+constraint_105:~_r_2_5_11 or ~_r_105_106_108
+constraint_104:~_r_2_5_11 or ~_r_99_100_104
+constraint_103:~_r_2_5_11 or ~_r_99_100_103
+constraint_102:~_r_2_5_11 or ~_r_99_100_102
+constraint_101:~_r_2_5_11 or ~_r_44_47_48
+constraint_90:~_r_2_5_11 or ~_r_24_25_31
+constraint_92:~_r_2_5_11 or ~_r_24_25_33
+constraint_91:~_r_2_5_11 or ~_r_24_25_32
+constraint_94:~_r_2_5_11 or ~_r_44_47_49_55_57
+constraint_93:~_r_2_5_11 or ~_r_44_47_49_55_56
+constraint_96:~_r_2_5_11 or ~_r_44_47_49_55_60
+constraint_95:~_r_2_5_11 or ~_r_44_47_49_55_58
+constraint_77:~_r_2_5_11 or _r_24_25_26
+constraint_78:~_r_2_5_11 or _r_44_47_49_55_59
+constraint_75:~_r_2_5_9 or ~_r_112_115_120
+constraint_76:~_r_2_5_11 or _r_16_17_18
+constraint_79:~_r_2_5_11 or _r_44_47_49
+constraint_117:~_r_2_5_11 or ~_r_44_47_49_55_57_68_70
+constraint_116:~_r_2_5_11 or ~_r_44_47_49_55_57_68_69
+constraint_119:~_r_2_5_11 or ~_r_44_47_49_55_57_68_72
+constraint_113:~_r_2_5_11 or ~_r_44_47_49_55_56_64_65
+constraint_115:~_r_2_5_11 or ~_r_44_47_49_55_56_64_67
+constraint_114:~_r_2_5_11 or ~_r_44_47_49_55_56_64_66
+constraint_81:~_r_2_5_11 or _r_105_106_107
+constraint_80:~_r_2_5_11 or _r_99_100_101
+constraint_85:~_r_2_5_11 or _r_112_115_116
+constraint_84:~_r_2_5_11 or _r_105_106_111
+constraint_82:~_r_2_5_11 or _r_105_106_109
+constraint_126:~_r_2_5_11 or ~_r_112_115_120
+constraint_125:~_r_2_5_11 or ~_r_112_115_119
+constraint_124:~_r_2_5_11 or ~_r_112_115_118
+constraint_123:~_r_2_5_11 or ~_r_112_115_117
+constraint_129:~_r_2_5_12 or ~_r_99_100_103
+constraint_128:~_r_2_5_12 or ~_r_44_47_48
+constraint_127:~_r_2_5_12 or ~_r_24_25_32
+constraint_121:~_r_2_5_11 or ~_r_44_47_49_55_58_74_76
+constraint_122:~_r_2_5_11 or ~_r_44_47_49_55_58_74_77
+constraint_120:~_r_2_5_11 or ~_r_44_47_49_55_58_74_75
+constraint_97:~_r_2_5_11 or ~_r_44_47_49_55_61
+constraint_98:~_r_2_5_11 or ~_r_44_47_49_55_62
+constraint_135:~_r_2_5_12 or ~_r_44_47_49_55_57_68_72
+constraint_134:~_r_2_5_12 or ~_r_44_47_49_55_56_64_67
+constraint_137:~_r_2_5_12 or ~_r_112_115_120
+constraint_136:~_r_2_5_12 or ~_r_44_47_49_55_58_74_77
+constraint_130:~_r_2_5_12 or ~_r_99_100_104
+constraint_131:~_r_2_5_12 or ~_r_105_106_108
+constraint_132:~_r_2_5_12 or ~_r_105_106_110
+constraint_43:~_r_2_5_8 or ~_r_44_47_49_55_57_68_69
+constraint_42:~_r_2_5_8 or ~_r_44_47_49_55_56_64_67
+constraint_45:~_r_2_5_6 or ~_r_44_47_49_55_56_64_66
+constraint_44:~_r_2_5_8 or ~_r_44_47_49_55_57_68_70
+constraint_47:~_r_2_5_8 or ~_r_44_47_49_55_58_74_75
+constraint_46:~_r_2_5_8 or ~_r_44_47_49_55_57_68_72
+constraint_49:~_r_2_5_8 or ~_r_44_47_49_55_58_74_77
+constraint_48:~_r_2_5_8 or ~_r_44_47_49_55_58_74_76
+constraint_50:~_r_2_5_8 or ~_r_112_115_116
+constraint_51:~_r_2_5_7 or ~_r_16_17_20
+constraint_52:~_r_2_5_7 or ~_r_24_25_26
+constraint_34:~_r_2_5_8 or ~_r_99_100_102
+constraint_33:~_r_2_5_8 or ~_r_99_100_101
+constraint_32:~_r_2_5_6 or ~_r_99_100_102
+constraint_31:~_r_2_5_8 or ~_r_44_47_48
+constraint_37:~_r_2_5_8 or ~_r_105_106_109
+constraint_36:~_r_2_5_8 or ~_r_105_106_108
+constraint_35:~_r_2_5_8 or ~_r_105_106_107
+constraint_40:~_r_2_5_8 or ~_r_44_47_49_55_56_64_65
+constraint_41:~_r_2_5_8 or ~_r_44_47_49_55_56_64_66
+constraint_69:~_r_2_5_9 or ~_r_44_47_49_55_62
+constraint_68:~_r_2_5_9 or ~_r_44_47_49_55_60
+constraint_65:~_r_2_5_9 or ~_r_24_25_29
+constraint_64:~_r_2_5_9 or ~_r_24_25_26
+constraint_67:~_r_2_5_9 or ~_r_44_47_49_55_59
+constraint_66:~_r_2_5_9 or ~_r_24_25_32
+constraint_71:~_r_2_5_9 or ~_r_99_100_103
+constraint_72:~_r_2_5_9 or ~_r_99_100_104
+constraint_73:~_r_2_5_9 or ~_r_112_115_118
+constraint_74:~_r_2_5_9 or ~_r_112_115_119
+constraint_70:~_r_2_5_9 or ~_r_44_47_48_52_53
+constraint_59:~_r_2_5_8 or ~_r_99_100_104
+constraint_58:~_r_2_5_7 or ~_r_99_100_103
+constraint_57:~_r_2_5_7 or ~_r_99_100_102
+constraint_56:~_r_2_5_7 or ~_r_44_47_48_52_54
+constraint_55:~_r_2_5_7 or ~_r_44_47_49_55_59
+constraint_54:~_r_2_5_7 or ~_r_44_47_49_55_58
+constraint_53:~_r_2_5_7 or ~_r_24_25_29
+constraint_62:~_r_2_5_8 or ~_r_112_115_120
+constraint_63:~_r_2_5_9 or ~_r_16_17_20
+constraint_60:~_r_2_5_8 or ~_r_112_115_118
+constraint_61:~_r_2_5_8 or ~_r_112_115_119
+constraint_185:~_r_2_5_14 or _r_105_106_109
+constraint_186:~_r_2_5_14 or _r_105_106_110
+constraint_187:~_r_2_5_14 or _r_105_106_111
+constraint_188:~_r_2_5_14 or ~_r_44_47_49_55_56_64_67
+constraint_181:~_r_2_5_14 or ~_r_99_100_103
+constraint_182:~_r_2_5_14 or ~_r_99_100_104
+constraint_183:~_r_2_5_14 or _r_105_106_107
+constraint_184:~_r_2_5_14 or _r_105_106_108
+constraint_210:~_r_2_5_15 or ~_r_44_47_49_55_62
+constraint_180:~_r_2_5_14 or ~_r_44_47_48
+constraint_17:~_r_2_5_6 or ~_r_44_47_49_55_57_68_70
+constraint_18:~_r_2_5_8 or ~_r_16_17_20
+constraint_219:~_r_2_5_15 or ~_r_105_106_110
+constraint_19:~_r_2_5_8 or ~_r_24_25_26
+constraint_212:~_r_2_5_7 or ~_r_44_47_49_55_56_64_67
+constraint_10:~_r_2_5_6 or ~_r_44_47_48
+constraint_211:~_r_2_5_15 or ~_r_44_47_48
+constraint_214:~_r_2_5_15 or _r_99_100_101
+constraint_213:~_r_2_5_7 or ~_r_44_47_49_55_57_68_72
+constraint_12:~_r_2_5_6 or ~_r_44_47_49_55_58
+constraint_13:~_r_2_5_6 or ~_r_44_47_49_55_59
+constraint_216:~_r_2_5_15 or ~_r_99_100_103
+constraint_14:~_r_2_5_6 or ~_r_44_47_49_55_60
+constraint_189:~_r_2_5_14 or ~_r_44_47_49_55_57_68_72
+constraint_215:~_r_2_5_15 or ~_r_99_100_102
+constraint_15:~_r_2_5_6 or ~_r_44_47_49_55_62
+constraint_218:~_r_2_5_15 or ~_r_105_106_108
+constraint_217:~_r_2_5_15 or ~_r_99_100_104
+constraint_198:~_r_2_5_15 or _r_24_25_26
+constraint_199:~_r_2_5_15 or ~_r_24_25_29
+constraint_196:~_r_2_5_15 or ~_r_16_17_19
+constraint_197:~_r_2_5_15 or ~_r_16_17_20
+constraint_30:~_r_2_5_6 or ~_r_105_106_110
+constraint_194:~_r_2_5_14 or ~_r_112_115_120
+constraint_195:~_r_2_5_15 or _r_16_17_18
+constraint_192:~_r_2_5_14 or ~_r_112_115_116
+constraint_193:~_r_2_5_14 or ~_r_112_115_119
+constraint_191:~_r_2_5_14 or ~_r_44_47_49_55_58_74_77
+constraint_28:~_r_2_5_6 or ~_r_99_100_104
+constraint_209:~_r_2_5_15 or ~_r_44_47_49_55_61
+constraint_29:~_r_2_5_6 or ~_r_105_106_107
+constraint_208:~_r_2_5_15 or ~_r_44_47_49_55_60
+constraint_22:~_r_2_5_8 or ~_r_44_47_49_55_58
+constraint_203:~_r_2_5_15 or ~_r_24_25_33
+constraint_23:~_r_2_5_6 or ~_r_112_115_120
+constraint_202:~_r_2_5_15 or ~_r_24_25_32
+constraint_20:~_r_2_5_8 or ~_r_24_25_31
+constraint_201:~_r_2_5_15 or ~_r_24_25_31
+constraint_21:~_r_2_5_8 or ~_r_24_25_33
+constraint_200:~_r_2_5_15 or ~_r_24_25_30
+constraint_26:~_r_2_5_8 or ~_r_44_47_49_55_60
+constraint_207:~_r_2_5_15 or _r_44_47_49_55_59
+constraint_27:~_r_2_5_8 or ~_r_44_47_49_55_61
+constraint_206:~_r_2_5_15 or ~_r_44_47_49_55_58
+constraint_24:~_r_2_5_6 or ~_r_112_115_119
+constraint_205:~_r_2_5_15 or ~_r_44_47_49_55_57
+constraint_25:~_r_2_5_8 or ~_r_44_47_49_55_59
+constraint_204:~_r_2_5_15 or ~_r_44_47_49_55_56
+constraint_142:~_r_2_5_13 or ~_r_16_17_20
+constraint_141:~_r_2_5_13 or _r_16_17_19
+constraint_144:~_r_2_5_13 or ~_r_24_25_30
+constraint_143:~_r_2_5_13 or ~_r_24_25_26
+constraint_140:~_r_2_5_13 or ~_r_16_17_18
+constraint_149:~_r_2_5_13 or ~_r_44_47_49_55_59
+constraint_145:~_r_2_5_13 or ~_r_24_25_32
+constraint_146:~_r_2_5_13 or ~_r_24_25_33
+constraint_147:~_r_2_5_13 or ~_r_44_47_49_55_56
+constraint_148:~_r_2_5_13 or ~_r_44_47_49_55_58
+constraint_155:~_r_2_5_13 or ~_r_44_47_49_55_56_64_67
+constraint_154:~_r_2_5_13 or ~_r_105_106_110
+constraint_153:~_r_2_5_13 or _r_99_100_101
+constraint_152:~_r_2_5_13 or ~_r_44_47_48
+constraint_151:~_r_2_5_13 or ~_r_44_47_49_55_62
+constraint_150:~_r_2_5_13 or ~_r_44_47_49_55_61
+constraint_158:~_r_2_5_13 or ~_r_44_47_49_55_57_68_69
+constraint_159:~_r_2_5_13 or ~_r_44_47_49_55_57_68_72
+constraint_157:~_r_2_5_13 or ~_r_44_47_49_55_56_64_65
+constraint_160:~_r_2_5_13 or ~_r_44_47_49_55_58_74_75
+constraint_162:~_r_2_5_13 or ~_r_112_115_116
+constraint_161:~_r_2_5_13 or ~_r_44_47_49_55_58_74_77
+constraint_164:~_r_2_5_13 or ~_r_112_115_120
+constraint_163:~_r_2_5_13 or ~_r_112_115_119
+constraint_166:~_r_2_5_14 or _r_16_17_19
+constraint_165:~_r_2_5_14 or ~_r_16_17_18
+constraint_167:~_r_2_5_14 or ~_r_16_17_20
+constraint_168:~_r_2_5_14 or ~_r_24_25_26
+constraint_169:~_r_2_5_14 or ~_r_24_25_29
+constraint_8:~_r_2_5_6 or ~_r_24_25_30
+constraint_9:~_r_2_5_6 or ~_r_24_25_32
+constraint_7:~_r_2_5_6 or ~_r_24_25_26
+constraint_5:~_r_2_5_6 or ~_r_16_17_20
+constraint_221:~_r_2_5_15 or ~_r_112_115_117
+constraint_173:~_r_2_5_14 or _r_24_25_33
+constraint_220:~_r_2_5_15 or _r_112_115_116
+constraint_172:~_r_2_5_14 or ~_r_24_25_32
+constraint_171:~_r_2_5_14 or ~_r_24_25_31
+constraint_170:~_r_2_5_14 or ~_r_24_25_30
+constraint_177:~_r_2_5_14 or ~_r_44_47_49_55_61
+constraint_176:~_r_2_5_14 or ~_r_44_47_49_55_60
+constraint_175:~_r_2_5_14 or ~_r_44_47_49_55_59
+constraint_174:~_r_2_5_14 or ~_r_44_47_49_55_58
+constraint_228:~_r_2_5_7 or ~_r_112_115_118
+constraint_226:~_r_2_5_7 or ~_r_112_115_120
+constraint_179:~_r_2_5_14 or ~_r_44_47_49_55_62
+constraint_227:~_r_2_5_7 or ~_r_112_115_119
+constraint_224:~_r_2_5_7 or ~_r_44_47_49_55_58_74_77
+constraint_225:~_r_2_5_15 or ~_r_112_115_120
+constraint_222:~_r_2_5_15 or ~_r_112_115_118
+constraint_223:~_r_2_5_15 or ~_r_112_115_119
+</constraints>
+</feature_model>

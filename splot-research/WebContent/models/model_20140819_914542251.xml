@@ -1,0 +1,83 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Aug 26, 2014 - 10:51 AM  -->
+<feature_model name="Equipo 6 - Uniandes - MP">
+<meta>
+<data name="description">Es el modelo parcial para el marketplaces.</data>
+<data name="creator">Luis Felipe Mendivelso Osorio</data>
+<data name="address"></data>
+<data name="email">ing.felipe.mendivelso@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r MP-root(_r)
+	:m Pagos(_r_1)
+		:m Efectuar Pago(_r_1_10)
+		:m Selecionar forma de pago(_r_1_16)
+			:g (_r_1_16_17) [1,1] 
+				: Pagar en efectivo(_r_1_16_17_18)
+				: Pagar con tarjeta Debito(_r_1_16_17_19)
+				: Pagar con tarjeta Credito(_r_1_16_17_20)
+		:m Cancelar Compra(_r_1_43)
+		:o Consultar historico de compras(_r_1_44)
+		:m Modificar estado de pedido(_r_1_45)
+		:o Generar reporte de pedidos(_r_1_46)
+	:m Gestion de usuarios(_r_2)
+		:m Crear cuenta de usuario(_r_2_11)
+		:m Iniciar sesion de usuario(_r_2_12)
+		:m Cerrar sesion de usuario(_r_2_13)
+		:m Actualiar de datos de usuario(_r_2_21)
+	:m Catalogo de productos(_r_4)
+		:m Publicar producto(_r_4_22)
+			:o Agregar video(_r_4_22_25)
+			:o Agregar sonido(_r_4_22_26)
+		:m Agregar descuento a producto(_r_4_23)
+		:m Ver detalle de producto(_r_4_28)
+		:m Buscar producto(_r_4_29)
+		:m Agregar producto(_r_4_32)
+		:m Actualizar Producto(_r_4_33)
+		:m Eliminar Producto(_r_4_34)
+		:m Alertar escases de producto(_r_4_35)
+		:m Gestionar categoria de producto(_r_4_71)
+			:m Agregar categoria(_r_4_71_72)
+			:m Actualizar categoria(_r_4_71_73)
+			:m Eliminar categoria(_r_4_71_74)
+			:m Consultar categoria de producto(_r_4_71_75)
+	:o Estadisticas(_r_5)
+		:m Generar Reporte(_r_5_27)
+		:o Exportar a SPSS(_r_5_28)
+		:o Exportar a MS-Access(_r_5_29)
+		:o Exportar a Excel(_r_5_34)
+		:o Disenar reporte personalizado(_r_5_49)
+		:m Exportar Reporte(_r_5_50)
+			:g (_r_5_50_51) [1,1] 
+				: Exportar a PDF(_r_5_50_51_52)
+				: Exportar a XLS(_r_5_50_51_53)
+		:o Consultar tendencias de compras(_r_5_59)
+			:m Analizar tendencias de consumidores(_r_5_59_60)
+			:o Analizar patrones de consumidores(_r_5_59_61)
+			:m Almacenar Productos visitados por consumidor(_r_5_59_62)
+			:m Sugerir productos que le puedan interesar al cliente(_r_5_59_63)
+	:m Carrito(_r_37)
+		:m Agregar producto al carrito(_r_37_38)
+		:m Consulta carrito(_r_37_39)
+		:m Editar carrito(_r_37_40)
+		:o Guardar carrito(_r_37_41)
+	:m Servicio al cliente(_r_60)
+		:m Solicitar retorno del pedido(_r_60_61)
+		:m Calificar Producto(_r_60_62)
+		:m Calificar Proveedor(_r_60_63)
+		:m Comentar Producto(_r_60_64)
+		:m Solicitar garantia(_r_60_65)
+	:o Foros(_r_66)
+		:m Participar en foro(_r_66_67)
+		:m Crear foro(_r_66_68)
+		:m Actualizar foro(_r_66_69)
+		:m Cerrar foro(_r_66_70)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

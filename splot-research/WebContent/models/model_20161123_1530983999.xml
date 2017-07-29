@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Nov 23, 2016 - 9:08 PM  -->
+<feature_model name="ImpuestoalConsumo_01">
+<meta>
+<data name="description">Impuesto al Consumo</data>
+<data name="creator">AlvaroAlonso</data>
+<data name="address"></data>
+<data name="email">asuevis@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Alvaro Aloonso</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ImpuestoalConsumo01(_r)
+	:m Escenario(_r_1)
+		:m Intercompany(_r_1_7)
+			:m MismaRegion(_r_1_7_11)
+				:m Origen(_r_1_7_11_13)
+					:m Planta(_r_1_7_11_13_17)
+						:m ProductoPropio(_r_1_7_11_13_17_25)
+						:m ProductoComprado(_r_1_7_11_13_17_26)
+					:m CD(_r_1_7_11_13_18)
+						:m ProductoPropio(_r_1_7_11_13_18_27)
+						:m ProductoComprado(_r_1_7_11_13_18_28)
+				:m Destino(_r_1_7_11_14)
+					:m Planta(_r_1_7_11_14_19)
+						:m ProductoPropio(_r_1_7_11_14_19_29)
+						:m ProductoComprado(_r_1_7_11_14_19_30)
+					:m CD(_r_1_7_11_14_20)
+						:m ProductoPropio(_r_1_7_11_14_20_31)
+						:m ProductoComprado(_r_1_7_11_14_20_32)
+			:m DiferenteRegion(_r_1_7_12)
+				:m Origen(_r_1_7_12_15)
+					:m Planta(_r_1_7_12_15_21)
+						:m ProductoPropio(_r_1_7_12_15_21_33)
+						:m ProductoComprado(_r_1_7_12_15_21_34)
+					:m CD(_r_1_7_12_15_22)
+						:m ProductoPropio(_r_1_7_12_15_22_35)
+						:m ProductoComprado(_r_1_7_12_15_22_36)
+				:m Destino(_r_1_7_12_16)
+					:m Planta(_r_1_7_12_16_23)
+						:m ProductoPropio(_r_1_7_12_16_23_38)
+						:m ProductoComprado(_r_1_7_12_16_23_39)
+					:m CD(_r_1_7_12_16_24)
+						:m ProductoPropio(_r_1_7_12_16_24_40)
+						:m ProductoComprado(_r_1_7_12_16_24_41)
+		:m Intracompany(_r_1_8)
+		:m VentasPOS(_r_1_9)
+		:m Bajas(_r_1_10)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

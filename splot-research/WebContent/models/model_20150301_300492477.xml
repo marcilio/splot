@@ -1,0 +1,62 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Mar 1, 2015 - 10:16 PM  -->
+<feature_model name="Inmobiliaria">
+<meta>
+<data name="description">Caso de Inmobiliaria</data>
+<data name="creator">Camilo Baquero</data>
+<data name="address"></data>
+<data name="email">c.baquero10@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o GestionDeFondosEInversion(_r_1)
+		:o EstructuracionDelFondo(_r_1_2)
+			:g (_r_1_2_6) [1,1] 
+				: InversionesAlternativas(_r_1_2_6_7)
+					:g (_r_1_2_6_7_9) [1,1] 
+						: PatrimoniosAutonomos(_r_1_2_6_7_9_10)
+						: FondosDeCapitalPrivado(_r_1_2_6_7_9_11)
+						: CarterasColectivas(_r_1_2_6_7_9_12)
+				: InversionesTradicionales(_r_1_2_6_8)
+		:o DefDelGobCorporativo(_r_1_3)
+		:o RelConInversores(_r_1_4)
+		:o ActivosDelFondo(_r_1_5)
+			:g (_r_1_5_13) [1,*] 
+				: Adquisicion(_r_1_5_13_14)
+				: Venta(_r_1_5_13_15)
+	:m GestionDeActivos(_r_16)
+		:m AdquisicionDelInmueble(_r_16_17)
+		:m GestionInmobiliaria(_r_16_18)
+		:m Alquileres(_r_16_19)
+		:m Reportes(_r_16_20)
+			:g (_r_16_20_21) [1,*] 
+				: Financiero(_r_16_20_21_22)
+				: Operativo(_r_16_20_21_23)
+					:m Presupuestos(_r_16_20_21_23_24)
+		:o Valoraciones(_r_16_25)
+		:o Auditorias(_r_16_26)
+		:o RevDeMercado(_r_16_27)
+		:o Contabilidad(_r_16_28)
+		:o Refinanciaciones(_r_16_29)
+		:o VentasDeActivos(_r_16_30)
+	:m GestionDeInmuebles(_r_31)
+		:g (_r_31_32) [1,*] 
+			: GestionDelEquipamiento(_r_31_32_33)
+			: ActivosFisicos(_r_31_32_34)
+			: Instalaciones(_r_31_32_35)
+		:o Tasaciones(_r_31_38)
+		:o Reservas(_r_31_39)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_3 or _r_1_4
+constraint_4:_r_31_32_33 or _r_31_32_34
+constraint_5:_r_31_32_34 or _r_31_32_35
+constraint_2:~_r_16_25 or _r_16_26
+constraint_3:_r_16_28 or ~_r_16_30
+</constraints>
+</feature_model>

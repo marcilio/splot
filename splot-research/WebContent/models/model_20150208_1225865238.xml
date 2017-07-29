@@ -1,0 +1,84 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 8, 2015 - 5:35 PM  -->
+<feature_model name="Obstacle identification">
+<meta>
+<data name="description">Obstacle identification</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r ObstacleIdentification(_r)
+	:m Priority(_r_1)
+		:g (_r_1_2) [1,*] 
+			: PH(_r_1_2_3)
+			: PI(_r_1_2_4)
+			: PL(_r_1_2_5)
+	:m Method(_r_6)
+		:g (_r_6_7) [1,1] 
+			: PR(_r_6_7_8)
+			: PB(_r_6_7_9)
+	:m Level(_r_10)
+		:g (_r_10_11) [1,1] 
+			: BG(_r_10_11_12)
+			: IT(_r_10_11_13)
+			: AD(_r_10_11_14)
+	:m Activity(_r_15)
+		:g (_r_15_16) [1,1] 
+			: CT(_r_15_16_17)
+			: PS(_r_15_16_18)
+	:m Pace(_r_19)
+		:g (_r_19_20) [1,1] 
+			: Slow(_r_19_20_21)
+			: Medium(_r_19_20_22)
+			: Fast(_r_19_20_23)
+	:m SensorInput(_r_24)
+		:g (_r_24_25) [1,1] 
+			: S1(_r_24_25_26)
+			: S2(_r_24_25_27)
+			: S3(_r_24_25_28)
+			: S4(_r_24_25_29)
+	:m ObstacleDistance(_r_30)
+		:g (_r_30_31) [1,1] 
+			: 20(_r_30_31_32)
+			: 30(_r_30_31_33)
+			: 50(_r_30_31_34)
+	:m Result(_r_35)
+		:g (_r_35_36) [1,1] 
+			: OnScreen(_r_35_36_37)
+				:g (_r_35_36_37_42) [1,1] 
+					: L0(_r_35_36_37_42_43)
+					: L1(_r_35_36_37_42_44)
+					: L3(_r_35_36_37_42_45)
+					: L4(_r_35_36_37_42_46)
+					: L5(_r_35_36_37_42_47)
+					: L6(_r_35_36_37_42_48)
+					: L7(_r_35_36_37_42_49)
+					: L2(_r_35_36_37_42_42)
+			: Sound(_r_35_36_38)
+				:g (_r_35_36_38_47) [1,1] 
+					: Sound1(_r_35_36_38_47_48)
+					: Sound2(_r_35_36_38_47_49)
+					: Sound3(_r_35_36_38_47_50)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_2_3 or _r_6
+constraint_22:_r_19_20_22 or ~_r_35_36_37_42_45
+constraint_9:~_r_1_2_5 or _r_19
+constraint_11:_r_19_20_21 or ~_r_35_36_37_42_43
+constraint_20:_r_19_20_22 or ~_r_35_36_37_42_44
+constraint_12:_r_19_20_21 or ~_r_35_36_37_42_46
+constraint_7:~_r_1_2_5 or _r_35
+constraint_13:_r_19_20_21 or ~_r_35_36_38_47_48
+constraint_5:~_r_1_2_4 or _r_24
+constraint_14:~_r_1_2_4 or _r_30
+constraint_2:~_r_1_2_3 or _r_10
+constraint_3:~_r_1_2_3 or _r_15
+constraint_16:~_r_1_2_5 or _r_35_36_37
+</constraints>
+</feature_model>

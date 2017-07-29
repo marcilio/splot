@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 24, 2014 - 10:06 AM  -->
+<feature_model name="asdsfa ewtwwe">
+<meta>
+<data name="description">eerrEE  RE</data>
+<data name="creator">RErERERE</data>
+<data name="address"></data>
+<data name="email">rees@com.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">dsad sdads </data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r RootFeat(_r)
+	:m xa(_r_1)
+	:g (_r_2) [1,1] 
+		: xor1(_r_2_3)
+		: x(_r_2_4)
+		: x(_r_2_5)
+	:o xxxxxx(_r_6)
+	:g (_r_7) [1,*] 
+		: 1(_r_7_8)
+	:m rehre(_r_9)
+	:m xasaxa(_r_10)
+	:o dddddddd(_r_11)
+	:m xasdsad(_r_12)
+</feature_tree>
+<constraints>
+constraint_1:_r
+</constraints>
+</feature_model>

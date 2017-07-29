@@ -1,0 +1,42 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Apr 1, 2014 - 8:02 AM  -->
+<feature_model name="Cell-Phone-SPL-2014-Mined">
+<meta>
+<data name="description">Cell-Phone-SPL-2014-Mined</data>
+<data name="creator">Ra'fat AL-msie'deen</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Lirmm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cell_Phone(_r)
+	:o Wireless(_r_1)
+	:o Infrared(_r_2)
+	:o Bluetooth(_r_3)
+	:m Accu_Cell(_r_4)
+	:g (_r_5) [1,1] 
+		: Strong(_r_5_6)
+		: Medium(_r_5_8)
+		: Weak(_r_5_9)
+	:m Display(_r_10)
+	:m Games(_r_11)
+	:o Multi_Player(_r_12)
+	:o Single_Player(_r_13)
+		:m Artificial_Opponent(_r_13_14)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3 or ~_r_5_8
+constraint_8:~_r_3 or _r_5_6
+constraint_9:_r_1 or ~_r_12
+constraint_6:_r_1 or ~_r_2
+constraint_7:_r_1 or ~_r_3
+constraint_4:~_r_5_9 or _r_13
+constraint_5:~_r_5_9 or _r_13_14
+constraint_2:~_r_5_9 or ~_r_12
+constraint_3:~_r_3 or ~_r_5_9
+</constraints>
+</feature_model>

@@ -1,0 +1,94 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, May 31, 2016 - 7:39 PM  -->
+<feature_model name="BikeShop">
+<meta>
+<data name="description">BikeShop</data>
+<data name="creator">Manuel Schönlaub</data>
+<data name="address"></data>
+<data name="email">manuel.schoenlaub@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">none</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r BikeShop(_r)
+	:m BikeType(_r_11)
+		:g (_r_11_12) [1,1] 
+			: Mountain(_r_11_12_13)
+			: City(_r_11_12_14)
+			: Racing(_r_11_12_15)
+	:m FrameType(_r_16)
+		:g (_r_16_17) [1,1] 
+			: Diamond(_r_16_17_18)
+			: Step-Through(_r_16_17_19)
+			: Triathlon(_r_16_17_20)
+	:o Light(_r_21)
+	:m WheelSize(_r_22)
+		:g (_r_22_23) [1,1] 
+			: 20(_r_22_23_24)
+			: 22(_r_22_23_26)
+			: 24(_r_22_23_27)
+			: 26(_r_22_23_28)
+			: 28(_r_22_23_29)
+	:m Usage(_r_17)
+		:g (_r_17_18) [1,*] 
+			: Offroad(_r_17_18_19)
+			: Speed(_r_17_18_20)
+			: NightUse(_r_17_18_22)
+	:m CustomerSize(_r_31)
+		:g (_r_31_34) [1,1] 
+			: SmallCustomer(_r_31_34_35)
+			: TallCustomer(_r_31_34_36)
+	:m Supplier and parts(_r_30)
+		:m Frame supplier(_r_30_31)
+			:g (_r_30_31_32) [1,1] 
+				: F1(_r_30_31_32_33)
+				: F2(_r_30_31_32_34)
+			:m Frame part(_r_30_31_35)
+				:g (_r_30_31_35_36) [1,1] 
+					: F1D(_r_30_31_35_36_37)
+					: F2D(_r_30_31_35_36_38)
+					: F1S(_r_30_31_35_36_39)
+					: F2T1(_r_30_31_35_36_40)
+					: F2T2(_r_30_31_35_36_42)
+		:m Wheel supplier(_r_30_43)
+			:g (_r_30_43_44) [1,1] 
+				: W1(_r_30_43_44_45)
+				: W2(_r_30_43_44_46)
+				: W3(_r_30_43_44_47)
+		:o Light system supplier(_r_30_49)
+			:g (_r_30_49_50) [1,1] 
+				: L1(_r_30_49_50_51)
+</feature_tree>
+<constraints>
+constraint_30:~_r_21 or _r_30_49
+constraint_31:~_r_30_31_32_34 or ~_r_30_49_50_51
+constraint_17:~_r_22_23_24 or ~_r_31_34_36
+constraint_18:~_r_22_23_26 or ~_r_31_34_36
+constraint_28:~_r_30_31_32_33 or ~_r_30_43_44_46
+constraint_19:~_r_22_23_28 or ~_r_31_34_35
+constraint_29:_r_21 or ~_r_30_49
+constraint_22:_r_16_17_18 or ~_r_30_31_35_36_38
+constraint_8:_r_11_12_15 or ~_r_17_18_20
+constraint_23:_r_16_17_20 or ~_r_30_31_35_36_40
+constraint_9:_r_21 or ~_r_17_18_22
+constraint_6:~_r_11_12_15 or ~_r_16_17_19
+constraint_20:~_r_22_23_29 or ~_r_31_34_35
+constraint_21:_r_30_31_32_34 or ~_r_30_31_35_36_38
+constraint_7:_r_11_12_13 or ~_r_17_18_19
+constraint_26:_r_16_17_20 or ~_r_30_31_35_36_42
+constraint_13:_r_16_17_18 or ~_r_30_31_35_36_37
+constraint_4:~_r_11_12_13 or _r_16_17_18
+constraint_27:~_r_30_31_32_34 or ~_r_30_43_44_45
+constraint_14:_r_30_31_32_33 or ~_r_30_31_35_36_37
+constraint_5:~_r_11_12_14 or ~_r_16_17_20
+constraint_24:_r_30_31_32_34 or ~_r_30_31_35_36_40
+constraint_15:_r_30_31_32_33 or ~_r_30_31_35_36_39
+constraint_2:~_r_11_12_15 or ~_r_21
+constraint_25:_r_30_31_32_34 or ~_r_30_31_35_36_42
+constraint_16:_r_16_17_19 or ~_r_30_31_35_36_39
+constraint_3:~_r_11_12_14 or _r_21
+</constraints>
+</feature_model>

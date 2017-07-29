@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, May 18, 2017 - 8:40 AM  -->
+<feature_model name="smart phone">
+<meta>
+<data name="description">feature digram for feature model smart phone SPL</data>
+<data name="creator">satendra kumar</data>
+<data name="address">gkv haridwar,india</data>
+<data name="email">satendra04cs41@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">gkv haridwar</data>
+<data name="department">computer science</data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r smart_phone(_r)
+	:m calls(_r_2)
+	:m multimedia(_r_3)
+		:g (_r_3_12) [1,*] 
+			: camera (_r_3_12_13)
+			: music(_r_3_12_18)
+			: photo(_r_3_12_19)
+	:m screen(_r_4)
+		:g (_r_4_22) [1,1] 
+			: basic(_r_4_22_23)
+			: high_resolution(_r_4_22_37)
+	:m security(_r_5)
+		:g (_r_5_32) [1,*] 
+			: password(_r_5_32_33)
+			: pattern(_r_5_32_36)
+			: finger_print(_r_5_32_38)
+	:o GPS(_r_7)
+		:m Map(_r_7_40)
+</feature_tree>
+<constraints>
+constraint_4:~_r_3_12_13 or _r_4_22_37
+constraint_5:~_r_4_22_23 or ~_r_5_32_38
+</constraints>
+</feature_model>

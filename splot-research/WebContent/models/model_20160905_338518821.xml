@@ -1,0 +1,47 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Sep 5, 2016 - 1:29 PM  -->
+<feature_model name="Automoviles">
+<meta>
+<data name="description">Variabilidad automoviles</data>
+<data name="creator">Wilson Guarin</data>
+<data name="address"></data>
+<data name="email">wr.guarin234@uniandes.edu.co</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Automoviles(_r)
+	:g (_r_2) [1,*] 
+		: Compacto(_r_2_3)
+			:m Gasolina(_r_2_3_6)
+			:m 3 puertas(_r_2_3_11)
+			:o Turbo alimentador(_r_2_3_20)
+		: Sedan(_r_2_4)
+			:m Gasolina(_r_2_4_7)
+			:m 4 Puertas(_r_2_4_12)
+			:o Turbo alimentador(_r_2_4_21)
+			:m Control de traccion(_r_2_4_23)
+		: SUV(_r_2_5)
+			:g (_r_2_5_8) [1,*] 
+				: Gasolina(_r_2_5_8_9)
+				: Diesel(_r_2_5_8_10)
+			:m 5 Puertas(_r_2_5_13)
+			:m Control de traccion(_r_2_5_24)
+			:o Traccion integral 4x4(_r_2_5_25)
+	:g (_r_17) [1,*] 
+		: Caja manual 5 velocidades(_r_17_18)
+		: Caja automatica 6 velocidades(_r_17_19)
+	:m Frenos ABS y 6 airbags(_r_22)
+	:m Radio CD MP3(_r_26)
+	:o Pantalla Tactil(_r_27)
+		:o Navegacion GPS(_r_27_29)
+	:o Techo corredizo(_r_30)
+	:o Rines de Lujo(_r_31)
+	:o Silleteria en cuero(_r_32)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

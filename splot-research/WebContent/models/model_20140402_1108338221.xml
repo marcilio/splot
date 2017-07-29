@@ -1,0 +1,30 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Apr 30, 2014 - 9:44 AM  -->
+<feature_model name="Cell-Phone-SPL-2014-without">
+<meta>
+<data name="description">Cell-Phone-SPL-2014-without abstract features</data>
+<data name="creator">Ra'fat AL-msie'den</data>
+<data name="address"></data>
+<data name="email">rafatals3ode@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">lirmm</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cell_Phone(_r)
+	:o Infrared(_r_1)
+	:o Bluetooth(_r_2)
+	:g (_r_3) [1,1] 
+		: Strong(_r_3_4)
+		: Medium(_r_3_6)
+		: Weak(_r_3_7)
+	:m Display(_r_8)
+	:o Multi_Player(_r_9)
+	:o Single_Player(_r_10)
+		:m Artificial_Opponent(_r_10_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

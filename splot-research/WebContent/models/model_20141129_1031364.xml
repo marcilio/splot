@@ -1,0 +1,36 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Nov 29, 2014 - 3:06 AM  -->
+<feature_model name="Content">
+<meta>
+<data name="description">Content</data>
+<data name="creator">Nataša</data>
+<data name="address"></data>
+<data name="email">natasa.mori@fri.uni-lj.si</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UL FRI</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Content(_r)
+	:m Tasks(_r_1)
+		:g (_r_1_4) [1,*] 
+			: t1(_r_1_4_5)
+			: t2(_r_1_4_10)
+			: t3(_r_1_4_11)
+	:m Algorithms(_r_2)
+		:g (_r_2_12) [1,*] 
+			: a1(_r_2_12_13)
+			: a2(_r_2_12_14)
+			: a3(_r_2_12_15)
+	:m Data Structures(_r_3)
+		:g (_r_3_16) [1,*] 
+			: ds1(_r_3_16_17)
+			: ds2(_r_3_16_18)
+</feature_tree>
+<constraints>
+constraint_1:~_r_1_4_5 or _r_2_12_13 or _r_3_16_17
+constraint_2:~_r_1_4_10 or ~_r_2_12_14
+</constraints>
+</feature_model>

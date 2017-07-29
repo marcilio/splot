@@ -1,0 +1,62 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, May 5, 2017 - 6:15 PM  -->
+<feature_model name="Bike Computer Family">
+<meta>
+<data name="description">A Task of Bike Computers with various features</data>
+<data name="creator">Sarah Freytag</data>
+<data name="address"></data>
+<data name="email">sarah.freytag@uni-rostock.de</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universität Rostock</data>
+<data name="department"></data>
+<data name="date">05.05.2017</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Family of Bike Computers(_r)
+	:m Bracket(_r_3)
+		:g (_r_3_4) [1,1] 
+			: Cable ties(_r_3_4_5)
+			: O-rings(_r_3_4_8)
+	:m Energy source(_r_9)
+		:g (_r_9_10) [1,1] 
+			: Usual battery(_r_9_10_11)
+			: Rechargeable battery(_r_9_10_12)
+			: Solar panel(_r_9_10_13)
+	:m Sensor and Magnet(_r_14)
+		:g (_r_14_16) [1,1] 
+			: Mounted on the wheel - Speedometer(_r_14_16_17)
+				:g (_r_14_16_17_19) [1,1] 
+					: Wireless - Speedometer(_r_14_16_17_19_20)
+					: Cable - Speedometer(_r_14_16_17_19_21)
+			: Mounted on the frame - Pedal Rotation(_r_14_16_18)
+				:g (_r_14_16_18_22) [1,1] 
+					: Wireless - Pedal Rotation(_r_14_16_18_22_23)
+					: Cable - Pedal Rotation(_r_14_16_18_22_24)
+	:m Bike computer(_r_25)
+		:m Basic version(_r_25_26)
+			:m Speedometer(_r_25_26_29)
+			:m Total distance(_r_25_26_30)
+			:m Trip count(_r_25_26_31)
+			:m Clock(_r_25_26_32)
+			:o Extended version(_r_25_26_43)
+				:m Average speed(_r_25_26_43_44)
+				:m Average trip(_r_25_26_43_45)
+				:m Stopwatch(_r_25_26_43_46)
+				:o Deluxe version(_r_25_26_43_47)
+					:m Pedal rotation(_r_25_26_43_47_48)
+					:o Heartbeat monitor(_r_25_26_43_47_49)
+					:o Nike bike shoes(_r_25_26_43_47_50)
+	:g (_r_51) [1,1] 
+		: US Market(_r_51_52)
+		: Russian Market(_r_51_53)
+		: Other Markets(_r_51_56)
+</feature_tree>
+<constraints>
+constraint_8:_r_9_10_13 or ~_r_14_16_17_19_20 or ~_r_14_16_18_22_23
+constraint_9:_r_14_16_17 or _r_25_26_29
+constraint_11:_r_14_16_18 or _r_25_26_43_47_48
+constraint_14:~_r_14_16_18_22_23 or _r_51_53
+constraint_15:~_r_14_16_17_19_20 or _r_51_53
+</constraints>
+</feature_model>

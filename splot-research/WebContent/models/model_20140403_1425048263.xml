@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 3, 2014 - 10:47 AM  -->
+<feature_model name="MyDental">
+<meta>
+<data name="description">dental</data>
+<data name="creator">Michael</data>
+<data name="address"></data>
+<data name="email">michael.ngangom@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Home</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Appointment System(_r)
+	:m Person(_r_1)
+		:g (_r_1_5) [1,*] 
+			: Dentist(_r_1_5_6)
+			: Receptionist(_r_1_5_9)
+			: Patient(_r_1_5_10)
+	:m Create appointment(_r_2)
+		:m Schedule system(_r_2_11)
+	:m Payment(_r_3)
+		:m Bill(_r_3_12)
+		:g (_r_3_13) [1,*] 
+			: Product(_r_3_13_14)
+			: Treatment(_r_3_13_15)
+	:o Tracking system(_r_4)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

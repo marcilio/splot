@@ -1,0 +1,39 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 3, 2015 - 12:15 PM  -->
+<feature_model name="Game of war cards">
+<meta>
+<data name="description">This is a feature model for the game of war cards</data>
+<data name="creator">Chakroun Aiman</data>
+<data name="address"></data>
+<data name="email">aimanchakroun@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Mir@cl</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Game of war(_r)
+	:m Theme(_r_1)
+	:m Presentation(_r_3)
+		:m GUI component(_r_3_7)
+		:o Media component(_r_3_10)
+	:m Player(_r_4)
+		:o Inventory(_r_4_9)
+	:m Simulation(_r_5)
+		:m Rule(_r_5_12)
+			:m Game interaction rule(_r_5_12_13)
+			:m Game scoring rule(_r_5_12_14)
+		:m Game scenario(_r_5_15)
+		:m Dimension(_r_5_16)
+		:o Tempo(_r_5_17)
+		:m Front end display(_r_5_18)
+	:m Metric(_r_19)
+		:g (_r_19_20) [1,*] 
+			: Score(_r_19_20_21)
+			: Time(_r_19_20_23)
+			: Performance(_r_19_20_24)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

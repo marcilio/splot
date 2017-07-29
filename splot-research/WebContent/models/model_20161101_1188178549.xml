@@ -1,0 +1,71 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Nov 1, 2016 - 7:45 PM  -->
+<feature_model name="RS">
+<meta>
+<data name="description">process r service</data>
+<data name="creator">M Coetzee</data>
+<data name="address"></data>
+<data name="email">marijke.coetzee@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UJ</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r RS(_r)
+	:m Information gathering(_r_1)
+		:g (_r_1_21) [1,*] 
+			: Direct experience(_r_1_21_22)
+				:g (_r_1_21_22_26) [1,*] 
+					: Passive gathering(_r_1_21_22_26_27)
+					: Active gathering(_r_1_21_22_26_28)
+			: Indirect experience(_r_1_21_24)
+			: Feedback(_r_1_21_25)
+				:g (_r_1_21_25_62) [1,*] 
+					: Passive gathering(_r_1_21_25_62_63)
+					: Active gathering(_r_1_21_25_62_64)
+	:o Verify entity(_r_2)
+		:g (_r_2_31) [1,*] 
+			: Anomymous entities(_r_2_31_32)
+			: Registered entities(_r_2_31_33)
+	:o Data preparation(_r_3)
+		:g (_r_3_34) [1,*] 
+			: Data transformation(_r_3_34_35)
+			: Data normalisation(_r_3_34_36)
+	:o Defense mechanisms(_r_4)
+		:g (_r_4_37) [1,*] 
+			: Malicious entity protection(_r_4_37_38)
+			: Entity reliability(_r_4_37_41)
+			: Behaviour analysis(_r_4_37_42)
+	:m Reputation aggregation(_r_5)
+		:g (_r_5_43) [1,*] 
+			: Discount function(_r_5_43_44)
+			: Filter information(_r_5_43_45)
+			: Data decay(_r_5_43_46)
+			: Reputation aggregation(_r_5_43_47)
+				:g (_r_5_43_47_48) [1,*] 
+					: Calculate target rating(_r_5_43_47_48_49)
+					: Calculate rater credibility(_r_5_43_47_48_50)
+					: Calculate rater rating(_r_5_43_47_48_51)
+					: Calculate incentives(_r_5_43_47_48_52)
+	:m Store data(_r_6)
+		:g (_r_6_53) [1,*] 
+			: Process aging(_r_6_53_54)
+			: Process transaction history(_r_6_53_55)
+	:o Return reputation(_r_56)
+		:g (_r_56_57) [1,*] 
+			: Process granularity(_r_56_57_58)
+			: Send reputation(_r_56_57_59)
+			: Send feedback(_r_56_57_60)
+			: Send incentives(_r_56_57_65)
+</feature_tree>
+<constraints>
+constraint_1:_r_1_21_22 or _r_1_21_22_26_27
+constraint_6:_r_5_43_47_48_51 or _r_56_57_60
+constraint_4:_r_2_31_33 or _r_4_37_41
+constraint_5:_r_2_31_33 or _r_4_37_41
+constraint_2:_r_2 or _r_2_31_33
+constraint_3:_r_2_31_33 or _r_4_37_38
+</constraints>
+</feature_model>

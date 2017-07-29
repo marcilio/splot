@@ -1,0 +1,83 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 9, 2015 - 5:10 PM  -->
+<feature_model name="Mobile Guide">
+<meta>
+<data name="description">Mobile Visit }Guide</data>
+<data name="creator">Carla Ilane Moreira Bezerra</data>
+<data name="address"></data>
+<data name="email">carlailane@ufc.br</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">http://www.great.ufc.br/</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Mobile Visit Guide(_r)
+	:m Show Map(_r_1)
+	:m Show Location(_r_3)
+	:o Show Event(_r_5)
+	:o Set Profile(_r_6)
+	:o Set RoadMap(_r_7)
+	:o Show Profile Compativel(_r_8)
+	:m Context Management(_r_9)
+		:o Persistency(_r_9_16)
+		:m Acquisition(_r_9_17)
+			:m Capture(_r_9_17_20)
+				:g (_r_9_17_20_56) [1,*] 
+					: Via External Service(_r_9_17_20_56_57)
+					: From Sensor(_r_9_17_20_56_58)
+					: From Memory(_r_9_17_20_56_59)
+		:m Acess(_r_9_18)
+			:m Asynchronous(_r_9_18_19)
+	:m Service Discovery(_r_25)
+		:m Application Layer(_r_25_26)
+			:g (_r_25_26_60) [1,1] 
+				: Centralized(_r_25_26_60_61)
+				: Distributed(_r_25_26_60_62)
+				: Hybrid(_r_25_26_60_63)
+	:o Security(_r_29)
+		:o Privacy(_r_29_30)
+			:g (_r_29_30_64) [1,1] 
+				: Autorizathion(_r_29_30_64_65)
+				: Authentication(_r_29_30_64_66)
+	:m Service Description(_r_33)
+		:g (_r_33_73) [1,1] 
+			: Semantic(_r_33_73_74)
+				:g (_r_33_73_74_76) [1,1] 
+					: BAsed on State(_r_33_73_74_76_77)
+					: Based on Logic(_r_33_73_74_76_78)
+					: Base on Algebra(_r_33_73_74_76_79)
+			: Sintatic(_r_33_73_75)
+				:g (_r_33_73_75_80) [1,1] 
+					: Keyword(_r_33_73_75_80_81)
+					: Procedure signature(_r_33_73_75_80_82)
+	:m Mensage Exchange(_r_47)
+		:m Exchange Type(_r_47_48)
+		:g (_r_47_83) [1,1] 
+			: Asynchronous(_r_47_83_84)
+				:g (_r_47_83_84_89) [1,*] 
+					: Tuple(_r_47_83_84_89_90)
+					: Event(_r_47_83_84_89_91)
+			: Synchronous(_r_47_83_85)
+				:o Remote Procedure Call(_r_47_83_85_88)
+	:m Show Enviroment Profile(_r_56)
+		:m List Items(_r_56_57)
+			:m Show Item Porfile(_r_56_57_58)
+				:m Show Documents(_r_56_57_58_59)
+				:g (_r_56_57_58_92) [1,*] 
+					: Video(_r_56_57_58_92_93)
+					: Text(_r_56_57_58_92_94)
+						:g (_r_56_57_58_92_94_96) [1,*] 
+							: Text(_r_56_57_58_92_94_96_97)
+							: Cloud Tags(_r_56_57_58_92_94_96_98)
+					: Image(_r_56_57_58_92_95)
+						:g (_r_56_57_58_92_95_101) [1,*] 
+							: Polichromatic(_r_56_57_58_92_95_101_102)
+							: Monochromatic(_r_56_57_58_92_95_101_103)
+</feature_tree>
+<constraints>
+constraint_20:_r_6 or _r_9_17_20_56_59
+constraint_11:_r_5 or _r_9_18
+</constraints>
+</feature_model>

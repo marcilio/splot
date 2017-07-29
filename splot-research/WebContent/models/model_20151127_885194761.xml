@@ -1,0 +1,68 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Nov 27, 2015 - 10:39 AM  -->
+<feature_model name="Random">
+<meta>
+<data name="description">Random feature model for experiments</data>
+<data name="creator">Aitor  Arrieta</data>
+<data name="address"></data>
+<data name="email">aarrieta@mondragon.edu</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Mondragon Unibertsitatea</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Random(_r)
+	:o f1(_r_2)
+		:o f11(_r_2_5)
+			:g (_r_2_5_11) [1,*] 
+				: f111(_r_2_5_11_12)
+				: f112(_r_2_5_11_13)
+		:o f12(_r_2_6)
+		:m f13(_r_2_7)
+		:o f14(_r_2_8)
+			:g (_r_2_8_14) [1,1] 
+				: f141(_r_2_8_14_15)
+				: f142(_r_2_8_14_16)
+		:m f15(_r_2_9)
+		:o f16(_r_2_10)
+	:m f2(_r_17)
+		:o f21(_r_17_18)
+		:o f22(_r_17_19)
+			:g (_r_17_19_23) [1,*] 
+				: f221(_r_17_19_23_24)
+				: f222(_r_17_19_23_25)
+		:o f23(_r_17_20)
+		:o f24(_r_17_21)
+			:g (_r_17_21_26) [1,1] 
+				: f241(_r_17_21_26_27)
+				: f242(_r_17_21_26_28)
+		:o f25(_r_17_22)
+	:o f3(_r_29)
+		:m f31(_r_29_30)
+		:o f32(_r_29_31)
+		:o f33(_r_29_32)
+			:g (_r_29_32_33) [1,1] 
+				: f331(_r_29_32_33_34)
+				: f332(_r_29_32_33_35)
+				: f333(_r_29_32_33_36)
+	:m f4(_r_37)
+		:g (_r_37_38) [1,1] 
+			: f41(_r_37_38_39)
+			: f42(_r_37_38_40)
+			: f43(_r_37_38_41)
+				:g (_r_37_38_41_42) [1,*] 
+					: f431(_r_37_38_41_42_43)
+					: f432(_r_37_38_41_42_44)
+					: f433(_r_37_38_41_42_45)
+</feature_tree>
+<constraints>
+constraint_1:~_r_2_5_11_12 or _r_17_18
+constraint_6:_r_2_10 or ~_r_17_20
+constraint_7:_r_2_10 or _r_29_32_33_36
+constraint_4:~_r_2_6 or _r_37_38_40
+constraint_2:~_r_2_8_14_15 or ~_r_29_31
+constraint_3:~_r_29_32_33_34 or _r_37_38_40
+</constraints>
+</feature_model>

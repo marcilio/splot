@@ -1,0 +1,60 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Tue, Mar 10, 2015 - 4:58 PM  -->
+<feature_model name="Inmobiliaria-201522309">
+<meta>
+<data name="description">Feature model Fabricas SW y SPL</data>
+<data name="creator">Sebastian Gamba</data>
+<data name="address"></data>
+<data name="email">sebas.gamba02@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Student</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Inmobiliaria(_r)
+	:o gestionCapital(_r_1)
+		:m estructuracionFondo(_r_1_4)
+			:o inversionesTradicionales(_r_1_4_5)
+			:o InversionesAlternativas(_r_1_4_6)
+				:o vehiculos(_r_1_4_6_7)
+				:o patrimoniosAutonomos(_r_1_4_6_8)
+				:o fondosCapitalPrivado(_r_1_4_6_10)
+				:o carterasColectivas(_r_1_4_6_11)
+		:o definicionGobiernoCorporativo(_r_1_12)
+		:o relacionesInversores(_r_1_13)
+		:m adquisicionYVentaActivos(_r_1_14)
+	:m gestionInmobiliaria(_r_2)
+		:m gestionOperativa(_r_2_16)
+			:o equipamiento(_r_2_16_17)
+			:o instalaciones(_r_2_16_18)
+			:o activosFisicos(_r_2_16_19)
+		:m recursosHumanos(_r_2_20)
+		:o tasaciones(_r_2_21)
+		:o reservas(_r_2_22)
+	:m gestionActivos(_r_3)
+		:o Valoraciones(_r_3_23)
+		:o Auditorias(_r_3_24)
+		:o revisionesMercado(_r_3_25)
+		:m Alquileres(_r_3_26)
+		:m reportes(_r_3_27)
+			:g (_r_3_27_30) [1,*] 
+				: reportesFinancieros(_r_3_27_30_31)
+				: reportesOperativos(_r_3_27_30_32)
+		:o contabilidad(_r_3_33)
+		:o refinanciaciones(_r_3_34)
+		:o ventasActivos(_r_3_35)
+		:m AdquisicionInmueble(_r_3_36)
+		:o gestionInmuebles(_r_3_37)
+</feature_tree>
+<constraints>
+constraint_8:~_r_2_16_17 or ~_r_2_16_19
+constraint_9:~_r_2_16_18 or ~_r_2_16_19
+constraint_6:~_r_1_12 or ~_r_1_13
+constraint_7:~_r_3_33 or _r_3_35
+constraint_5:_r_3_23 or ~_r_3_24 or _r_3_25
+constraint_2:_r_3_24 or ~_r_3_25
+constraint_3:~_r_3_23 or ~_r_3_25
+</constraints>
+</feature_model>

@@ -1,0 +1,111 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, Feb 27, 2016 - 1:23 PM  -->
+<feature_model name="Arbol de variabilidad de computadores">
+<meta>
+<data name="description">Arbol de variabilidad de computadores</data>
+<data name="creator">Adriana Marcela Osorio</data>
+<data name="address">Bogota</data>
+<data name="email">adrianaosorio_21@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Uniandes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VariabilidadComputadores(_r)
+	:m TipoComputador(_r_2)
+		:g (_r_2_6) [1,1] 
+			: ComputadorMesa(_r_2_6_7)
+			: Portatil(_r_2_6_8)
+			: Servidor(_r_2_6_9)
+	:m Marca(_r_11)
+		:g (_r_11_12) [1,1] 
+			: Dell(_r_11_12_13)
+			: Toshiba(_r_11_12_14)
+			: Lenovo(_r_11_12_15)
+			: Clon(_r_11_12_16)
+			: Apple(_r_11_12_17)
+	:m Sistema Operativo(_r_18)
+		:g (_r_18_19) [1,1] 
+			: Para Computador Personal(_r_18_19_20)
+				:g (_r_18_19_20_24) [1,1] 
+					: Windows10(_r_18_19_20_24_25)
+					: LinuxFedora(_r_18_19_20_24_26)
+					: OS X Yosemite(_r_18_19_20_24_27)
+			: Para Servidores(_r_18_19_21)
+				:g (_r_18_19_21_32) [1,1] 
+					: WindowsServer(_r_18_19_21_32_33)
+					: RedHat Linux(_r_18_19_21_32_34)
+					: OS X Server(_r_18_19_21_32_35)
+	:m CPU(_r_36)
+		:m RAM(_r_36_37)
+			:g (_r_36_37_41) [1,1] 
+				: 4GB(_r_36_37_41_42)
+				: 8GB(_r_36_37_41_43)
+				: 16GB(_r_36_37_41_44)
+				: 32GB(_r_36_37_41_45)
+				: 64GB(_r_36_37_41_46)
+		:m Disco Duro(_r_36_38)
+			:g (_r_36_38_47) [1,1] 
+				: 500GB(_r_36_38_47_48)
+				: 1TB(_r_36_38_47_49)
+				: 2TB(_r_36_38_47_50)
+				: 5TB(_r_36_38_47_51)
+				: 10TB(_r_36_38_47_52)
+		:m Procesador(_r_36_39)
+			:g (_r_36_39_53) [1,1] 
+				: Intel(_r_36_39_53_54)
+				: AMD(_r_36_39_53_56)
+		:o Tarjeta Grafica(_r_36_40)
+			:g (_r_36_40_59) [1,1] 
+				: NVIDIA(_r_36_40_59_60)
+				: ATI Radeon(_r_36_40_59_61)
+	:o Pantalla(_r_63)
+		:g (_r_63_68) [1,1] 
+			: 14 pulgadas(_r_63_68_69)
+			: 17 pulgadas(_r_63_68_70)
+			: 24 pulgadas(_r_63_68_71)
+	:o Planta de Poder(_r_64)
+	:o Tecnologia pantalla(_r_72)
+		:g (_r_72_75) [1,*] 
+			: 3D(_r_72_75_76)
+			: 4K(_r_72_75_77)
+</feature_tree>
+<constraints>
+constraint_43:~_r_2_6_9 or ~_r_36_37_41_42
+constraint_42:~_r_11_12_16 or ~_r_18_19_21_32_35
+constraint_45:~_r_2_6_9 or ~_r_36_37_41_44
+constraint_44:~_r_2_6_9 or ~_r_36_37_41_43
+constraint_47:~_r_2_6_9 or ~_r_36_38_47_49
+constraint_46:~_r_2_6_9 or ~_r_36_38_47_48
+constraint_49:~_r_11_12_17 or ~_r_18_19_20_24_25
+constraint_48:~_r_2_6_9 or ~_r_36_38_47_50
+constraint_50:~_r_11_12_17 or ~_r_18_19_20_24_26
+constraint_51:~_r_11_12_17 or ~_r_18_19_21_32_33
+constraint_52:~_r_11_12_17 or ~_r_18_19_21_32_34
+constraint_6:~_r_2_6_8 or ~_r_63
+constraint_14:~_r_2_6_8 or ~_r_18_19_21
+constraint_5:~_r_2_6_8 or ~_r_11_12_16
+constraint_2:~_r_63 or _r_72
+constraint_39:~_r_11_12_15 or ~_r_18_19_20_24_27
+constraint_30:~_r_2_6_8 or ~_r_36_37_41_46
+constraint_32:~_r_2_6_7 or ~_r_36_37_41_46
+constraint_31:~_r_2_6_7 or ~_r_36_37_41_45
+constraint_38:~_r_11_12_14 or ~_r_18_19_21_32_35
+constraint_37:~_r_11_12_14 or ~_r_18_19_20_24_27
+constraint_36:~_r_11_12_13 or ~_r_18_19_21_32_35
+constraint_53:~_r_2_6_7 or _r_18_19_20
+constraint_35:~_r_11_12_13 or ~_r_18_19_20_24_27
+constraint_28:~_r_2_6_7 or ~_r_36_38_47_52
+constraint_29:~_r_2_6_8 or ~_r_36_37_41_45
+constraint_40:~_r_11_12_15 or ~_r_18_19_21_32_35
+constraint_41:~_r_11_12_16 or ~_r_18_19_20_24_27
+constraint_23:~_r_2_6_8 or ~_r_72_75_77
+constraint_20:~_r_2_6_9 or _r_18_19_21
+constraint_26:~_r_2_6_8 or ~_r_36_38_47_52
+constraint_27:~_r_2_6_7 or ~_r_36_38_47_51
+constraint_24:~_r_2_6_8 or ~_r_72_75_76
+constraint_25:~_r_2_6_8 or ~_r_36_38_47_51
+</constraints>
+</feature_model>

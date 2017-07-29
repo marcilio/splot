@@ -1,0 +1,55 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Mar 6, 2014 - 8:38 AM  -->
+<feature_model name="Devolution">
+<meta>
+<data name="description">Devolution</data>
+<data name="creator">Lucas Garcia</data>
+<data name="address"></data>
+<data name="email">lucas.sg@globo.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFMG</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Devolution(_r)
+	:o Addressbook(_r_1)
+	:o Mail(_r_2)
+		:m Protokolle(_r_2_8)
+			:m Verschicken(_r_2_8_12)
+				:m SMTP(_r_2_8_12_13)
+				:o AB_SMTP_Interact(_r_2_8_12_14)
+			:m Empfangen(_r_2_8_15)
+				:g (_r_2_8_15_16) [1,*] 
+					: IMAP(_r_2_8_15_16_17)
+					: POP3(_r_2_8_15_16_18)
+		:o AntiSpam(_r_2_9)
+		:m MailBase(_r_2_10)
+	:o Messaging(_r_3)
+		:m Dienste(_r_3_19)
+			:g (_r_3_19_20) [1,*] 
+				: IRC(_r_3_19_20_21)
+				: Instant(_r_3_19_20_22)
+					:m IMViews(_r_3_19_20_22_23)
+						:g (_r_3_19_20_22_23_26) [1,1] 
+							: IMTextView(_r_3_19_20_22_23_26_27)
+							: IMXMLView(_r_3_19_20_22_23_26_28)
+					:m IMProtokolle(_r_3_19_20_22_24)
+						:o Jabber(_r_3_19_20_22_24_29)
+					:m InstantBase(_r_3_19_20_22_25)
+		:o Upload(_r_3_30)
+		:o AB_IM_Interact(_r_3_31)
+	:o Kalender(_r_4)
+		:o Synchronisation(_r_4_32)
+			:g (_r_4_32_33) [1,*] 
+				: iCal(_r_4_32_33_34)
+				: CalDav(_r_4_32_33_35)
+				: GoogleCalendar(_r_4_32_33_36)
+	:o RSS(_r_5)
+	:o ToDo(_r_6)
+	:m Base(_r_7)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

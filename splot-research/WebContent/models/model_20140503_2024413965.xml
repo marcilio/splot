@@ -1,0 +1,40 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sat, May 3, 2014 - 8:45 AM  -->
+<feature_model name="a">
+<meta>
+<data name="description">b</data>
+<data name="creator">c</data>
+<data name="address"></data>
+<data name="email">d@e.f</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">g</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Pumpe(_r)
+	:m Entlueftung der Pumpe(_r_1)
+		:g (_r_1_2) [1,*] 
+			: manuell(_r_1_2_3)
+			: automatisch(_r_1_2_4)
+				:g (_r_1_2_4_6) [1,*] 
+					: Modus A(_r_1_2_4_6_7)
+					: Modus B(_r_1_2_4_6_8)
+					: Modus C(_r_1_2_4_6_9)
+			: in jeder Einbaustellung moeglich(_r_1_2_5)
+	:o data recording(_r_10)
+		:g (_r_10_11) [1,*] 
+			: nicht fluechtiger Speicher(_r_10_11_12)
+				:g (_r_10_11_12_15) [1,1] 
+					: Betriebsmodus speichern(_r_10_11_12_15_16)
+					: Betriebsmodus nicht speichern(_r_10_11_12_15_17)
+			: fluechtiger Speicher(_r_10_11_13)
+			: wechselbares Speichermedium(_r_10_11_14)
+				:g (_r_10_11_14_18) [1,1] 
+					: SD-Karten Einschub(_r_10_11_14_18_19)
+					: USB-Anschluss(_r_10_11_14_18_20)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

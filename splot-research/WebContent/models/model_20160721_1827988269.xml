@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Jul 21, 2016 - 11:24 PM  -->
+<feature_model name="Cruise Control SPL">
+<meta>
+<data name="description">Cruise Control Product Line</data>
+<data name="creator">Roselane</data>
+<data name="address">John</data>
+<data name="email">rrosy.silva@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UFBA</data>
+<data name="department">Clemson University</data>
+<data name="date">07/21/16</data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Cruise Control Product Line(_r)
+	:o Types(_r_1)
+		:g (_r_1_7) [1,*] 
+			: CC(_r_1_7_8)
+			: ACC(_r_1_7_9)
+			: CACC(_r_1_7_10)
+	:o Sensors(_r_11)
+		:o GPS(_r_11_14)
+		:o radar(_r_11_15)
+		:m speeddometer(_r_11_16)
+		:o camera(_r_11_17)
+	:m Buttons(_r_19)
+		:m Set maximum speed(_r_19_21)
+		:o save set speed(_r_19_25)
+		:o Brake(_r_19_26)
+		:m Turn ON(_r_19_38)
+	:o Platoning(_r_27)
+		:g (_r_27_28) [1,*] 
+			: Request(_r_27_28_29)
+			: Accept(_r_27_28_30)
+			: Cancel(_r_27_28_31)
+</feature_tree>
+<constraints>
+constraint_8:_r_1_7_10 or ~_r_11_15
+constraint_6:_r_1_7_10 or ~_r_27
+constraint_4:_r_1_7_9 or ~_r_19_26
+constraint_5:_r_1_7_10 or ~_r_19_26
+constraint_2:_r_1_7_9 or ~_r_11_15
+</constraints>
+</feature_model>

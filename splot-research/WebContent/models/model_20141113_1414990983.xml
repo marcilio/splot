@@ -1,0 +1,70 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Nov 17, 2014 - 7:00 AM  -->
+<feature_model name="Webshop">
+<meta>
+<data name="description">Webshop</data>
+<data name="creator">Webshop</data>
+<data name="address"></data>
+<data name="email">webshop@webshop.webshop</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Webshop</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Webshop(_r)
+	:m Payment(_r_1)
+		:g (_r_1_3) [1,*] 
+			: Credit Card(_r_1_3_4)
+			: Paypal(_r_1_3_7)
+			: Invoice(_r_1_3_8)
+			: Bank Transfer(_r_1_3_9)
+	:m Security(_r_10)
+		:g (_r_10_22) [1,1] 
+			: Advanced(_r_10_22_23)
+			: Normal(_r_10_22_24)
+	:o Search(_r_11)
+	:m Catalog(_r_12)
+		:o Categories(_r_12_15)
+		:o Filtering(_r_12_20)
+	:m Shopping Cart(_r_13)
+		:o Add Item(_r_13_41)
+		:o Remove Item(_r_13_42)
+		:o Checkout(_r_13_43)
+	:o Account(_r_14)
+	:o Advertisements(_r_16)
+		:o Google AdWords(_r_16_39)
+	:m Region(_r_17)
+		:o EU(_r_17_35)
+		:o US(_r_17_36)
+		:o Africa(_r_17_37)
+		:o Asia(_r_17_38)
+	:m Platform(_r_18)
+		:m Tablet(_r_18_19)
+			:o Windows OS(_r_18_19_23)
+			:o Apple IOS(_r_18_19_26)
+			:o Google Android(_r_18_19_29)
+			:o QR Code Reader(_r_18_19_30)
+		:m Mobile Phone(_r_18_20)
+			:o QR Code Reader(_r_18_20_24)
+			:o Apple IOS(_r_18_20_25)
+			:o Windows OS(_r_18_20_27)
+			:o Google Android(_r_18_20_28)
+			:o BankID Authentication(_r_18_20_31)
+			:o IOS Gestures(_r_18_20_40)
+		:m PC(_r_18_21)
+			:o BankID Authentication(_r_18_21_32)
+			:o Apple OSX(_r_18_21_33)
+			:o Microsoft Windows(_r_18_21_34)
+	:m Database(_r_43)
+		:o MySQL(_r_43_44)
+		:o Riak(_r_43_45)
+		:o NoSQL(_r_43_46)
+</feature_tree>
+<constraints>
+constraint_4:_r_10_22_24 or _r_43
+constraint_2:_r_10_22_23 or _r_18_20_31 or _r_18_21_32
+constraint_3:~_r_1_3_4 or _r_10_22_23
+</constraints>
+</feature_model>

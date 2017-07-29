@@ -1,0 +1,33 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, May 28, 2017 - 1:10 AM  -->
+<feature_model name="Telefonia Celular">
+<meta>
+<data name="description">Modelo de ejemplo paa el EC</data>
+<data name="creator">Carlos Castillo</data>
+<data name="address"></data>
+<data name="email">carlos.castillo94@hotmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UP</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Telefono Movil(_r)
+	:m Pantalla(_r_1)
+		:g (_r_1_9) [1,1] 
+			: Tactil(_r_1_9_10)
+			: Normal(_r_1_9_12)
+	:o Camara(_r_4)
+		:g (_r_4_18) [1,*] 
+			: Frontal(_r_4_18_19)
+			: Trasera(_r_4_18_21)
+	:o Radio(_r_5)
+	:o Auriculares(_r_6)
+	:o reconicimiento de Escritura mual(_r_8)
+</feature_tree>
+<constraints>
+constraint_2:~_r_5 or _r_6
+constraint_3:~_r_8 or ~_r_1_9_10
+</constraints>
+</feature_model>

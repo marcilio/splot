@@ -1,0 +1,35 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jun 24, 2015 - 3:57 PM  -->
+<feature_model name="SmartHotel">
+<meta>
+<data name="description">The Smart Hotel reconfigures its services according to changes in the surrounding context</data>
+<data name="creator">Jefferson da Silva Barbosa</data>
+<data name="address"></data>
+<data name="email">jefferson.sb.es@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidade Federal do Ceará</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r SmartHotel(_r)
+	:o PipedMusic(_r_1)
+	:o Security(_r_2)
+		:o InRoomDetection(_r_2_5)
+			:g (_r_2_5_8) [1,*] 
+				: InfraredSensor(_r_2_5_8_9)
+				: VolumetricSensor(_r_2_5_8_10)
+		:o Alarm(_r_2_6)
+			:g (_r_2_6_13) [1,1] 
+				: SilentAlarm(_r_2_6_13_14)
+				: Siren(_r_2_6_13_15)
+				: VisualAlarm(_r_2_6_13_16)
+	:o OccupancySimulation(_r_3)
+	:m AutomatedIlumination(_r_4)
+	:o LightingByOccupancy(_r_7)
+</feature_tree>
+<constraints>
+constraint_1:~_r_3 or ~_r_7
+</constraints>
+</feature_model>

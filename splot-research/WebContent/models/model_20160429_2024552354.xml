@@ -1,0 +1,31 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Jul 13, 2016 - 7:07 PM  -->
+<feature_model name="M-learning Requirements Catalog">
+<meta>
+<data name="description">Features extracted from a m-learning catalog</data>
+<data name="creator">Anderson Marcolino</data>
+<data name="address"></data>
+<data name="email">andersonmarcolino@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of São Paulo</data>
+<data name="department">Informatics Department</data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r M-learning Requirements Catalog(_r)
+	:o FR - Feedback and Results(_r_1)
+		:o FR - Interactions(_r_1_2)
+			:o FR - Interface and Functionalities(_r_1_2_3)
+			:o FR - Learning(_r_1_2_4)
+				:o FR - Content(_r_1_2_4_5)
+				:o FR - Activities(_r_1_2_4_6)
+				:o FR - Programming(_r_1_2_4_7)
+					:o FR - Coding(_r_1_2_4_7_8)
+					:o FR - Debbuging(_r_1_2_4_7_9)
+					:o FR - Testing(_r_1_2_4_7_10)
+					:o FR - Compiling(_r_1_2_4_7_11)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

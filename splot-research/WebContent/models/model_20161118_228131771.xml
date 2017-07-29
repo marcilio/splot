@@ -1,0 +1,109 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Fri, Nov 18, 2016 - 11:21 AM  -->
+<feature_model name="AEB">
+<meta>
+<data name="description">AEB Sample</data>
+<data name="creator">Raja</data>
+<data name="address"></data>
+<data name="email">raja.benabdessalem@uni.lu</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">SnT</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r S(_r)
+	:m s1(_r_1)
+		:m s11(_r_1_5)
+		:m s12(_r_1_6)
+		:m s13(_r_1_7)
+		:m s14(_r_1_8)
+		:m s15(_r_1_10)
+		:m s16(_r_1_11)
+		:m s17(_r_1_12)
+		:m s18(_r_1_13)
+		:m s19(_r_1_14)
+		:m s110(_r_1_15)
+		:m s111(_r_1_16)
+	:m s2(_r_2)
+		:m s21(_r_2_18)
+		:m s22(_r_2_19)
+		:m s23(_r_2_20)
+		:m s24(_r_2_21)
+		:m s25(_r_2_22)
+		:m s26(_r_2_23)
+	:m s3(_r_3)
+		:m s31(_r_3_24)
+		:m s32(_r_3_25)
+		:m s33(_r_3_26)
+		:m s34(_r_3_27)
+		:m s35(_r_3_28)
+		:m s36(_r_3_29)
+		:m s37(_r_3_30)
+		:m s38(_r_3_31)
+		:m s39(_r_3_32)
+		:m s310(_r_3_33)
+		:m s311(_r_3_34)
+		:m s312(_r_3_35)
+		:m s313(_r_3_36)
+		:m s314(_r_3_37)
+	:m s4(_r_4)
+		:m s41(_r_4_38)
+		:m s42(_r_4_39)
+		:m s43(_r_4_40)
+		:m s44(_r_4_41)
+		:m s45(_r_4_42)
+		:m s46(_r_4_43)
+		:m s47(_r_4_44)
+		:m s48(_r_4_45)
+		:m s49(_r_4_46)
+		:m s410(_r_4_47)
+		:m s411(_r_4_48)
+		:m s412(_r_4_49)
+		:m s413(_r_4_50)
+		:m s414(_r_4_51)
+		:m s415(_r_4_53)
+		:m s416(_r_4_54)
+		:m s417(_r_4_55)
+		:m s418(_r_4_56)
+		:m s419(_r_4_57)
+		:m s420(_r_4_58)
+		:m s421(_r_4_59)
+		:m s422(_r_4_60)
+		:m s423(_r_4_61)
+		:m s424(_r_4_62)
+		:m s425(_r_4_63)
+		:m s426(_r_4_64)
+		:m s427(_r_4_65)
+		:m s428(_r_4_66)
+		:m s429(_r_4_67)
+		:m s430(_r_4_68)
+</feature_tree>
+<constraints>
+constraint_1:_r_2_23 or ~_r_4_38
+constraint_17:_r_2_18 or _r_2_19 or ~_r_4_59 or ~_r_4_60 or ~_r_4_61 or ~_r_4_62 or ~_r_4_63 or ~_r_4_64
+constraint_18:~_r_2_19 or ~_r_2_20 or _r_4_54 or _r_4_55 or _r_4_56 or _r_4_57 or _r_4_58 or _r_4_59
+constraint_19:_r_2_19 or _r_2_20 or ~_r_4_54 or ~_r_4_55 or ~_r_4_56 or ~_r_4_57 or ~_r_4_58 or ~_r_4_59
+constraint_8:_r_2_20 or ~_r_4_48 or ~_r_4_49 or ~_r_4_50 or ~_r_4_51 or ~_r_4_53 or ~_r_4_54 or ~_r_4_55 or ~_r_4_56 or ~_r_4_57 or ~_r_4_58 or ~_r_4_59
+constraint_10:_r_2_21 or ~_r_4_43 or ~_r_4_44 or ~_r_4_45 or ~_r_4_46 or ~_r_4_47 or ~_r_4_48 or ~_r_4_49 or ~_r_4_50 or ~_r_4_51 or ~_r_4_53 or ~_r_4_54
+constraint_9:~_r_2_20 or _r_4_48 or _r_4_49 or _r_4_50 or _r_4_51 or _r_4_53 or _r_4_54 or _r_4_55 or _r_4_56 or _r_4_57 or _r_4_58 or _r_4_59
+constraint_11:~_r_2_21 or _r_4_43 or _r_4_44 or _r_4_45 or _r_4_46 or _r_4_47 or _r_4_48 or _r_4_49 or _r_4_50 or _r_4_51 or _r_4_53 or _r_4_54
+constraint_6:_r_2_19 or ~_r_4_54 or ~_r_4_55 or ~_r_4_56 or ~_r_4_57 or ~_r_4_58 or ~_r_4_59 or ~_r_4_60 or ~_r_4_61 or ~_r_4_62 or ~_r_4_63 or ~_r_4_64
+constraint_12:_r_2_22 or ~_r_4_39 or ~_r_4_40 or ~_r_4_41 or ~_r_4_42 or ~_r_4_43 or ~_r_4_44 or ~_r_4_45 or ~_r_4_46 or ~_r_4_47 or ~_r_4_48
+constraint_7:~_r_2_19 or _r_4_54 or _r_4_55 or _r_4_56 or _r_4_57 or _r_4_58 or _r_4_59 or _r_4_60 or _r_4_61 or _r_4_62 or _r_4_63 or _r_4_64
+constraint_13:~_r_2_22 or _r_4_39 or _r_4_40 or _r_4_41 or _r_4_42 or _r_4_43 or _r_4_44 or _r_4_45 or _r_4_46 or _r_4_47 or _r_4_48
+constraint_4:_r_2_18 or ~_r_4_59 or ~_r_4_60 or ~_r_4_61 or ~_r_4_62 or ~_r_4_63 or ~_r_4_64 or ~_r_4_65 or ~_r_4_66 or ~_r_4_67 or ~_r_4_68
+constraint_5:~_r_2_18 or _r_4_59 or _r_4_60 or _r_4_61 or _r_4_62 or _r_4_63 or _r_4_64 or _r_4_65 or _r_4_66 or _r_4_67 or _r_4_68
+constraint_14:~_r_2_18 or _r_4_64 or _r_4_65 or _r_4_66 or _r_4_67 or _r_4_68
+constraint_2:~_r_2_23 or _r_4_38
+constraint_15:_r_2_18 or ~_r_4_64 or ~_r_4_65 or ~_r_4_66 or ~_r_4_67 or ~_r_4_68
+constraint_16:~_r_2_18 or ~_r_2_19 or _r_4_59 or _r_4_60 or _r_4_61 or _r_4_62 or _r_4_63 or _r_4_64
+constraint_22:~_r_2_21 or ~_r_2_22 or _r_4_43 or _r_4_44 or _r_4_45 or _r_4_46 or _r_4_47 or _r_4_48
+constraint_23:_r_2_21 or _r_2_22 or ~_r_4_43 or ~_r_4_44 or ~_r_4_45 or ~_r_4_46 or ~_r_4_47 or ~_r_4_48
+constraint_20:~_r_2_20 or ~_r_2_21 or _r_4_48 or _r_4_49 or _r_4_50 or _r_4_51 or _r_4_53 or _r_4_54
+constraint_21:_r_2_20 or _r_2_21 or ~_r_4_48 or ~_r_4_49 or ~_r_4_50 or ~_r_4_51 or ~_r_4_53 or ~_r_4_54
+constraint_24:~_r_2_22 or _r_4_39 or _r_4_40 or _r_4_41 or _r_4_42 or _r_4_43
+constraint_25:_r_2_22 or ~_r_4_39 or ~_r_4_40 or ~_r_4_41 or ~_r_4_42 or ~_r_4_43
+</constraints>
+</feature_model>

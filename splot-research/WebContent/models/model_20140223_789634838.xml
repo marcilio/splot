@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Sun, Feb 23, 2014 - 4:56 AM  -->
+<feature_model name="e-foramation">
+<meta>
+<data name="description">describe the formation on line </data>
+<data name="creator">Lahiani </data>
+<data name="address"></data>
+<data name="email">lahiani.nesrine@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">saad dahlab university </data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r e-Formation (_r)
+	:m HMI(_r_1)
+		:o Theme(_r_1_4)
+		:m language(_r_1_5)
+			:g (_r_1_5_6) [1,1] 
+				: Arab(_r_1_5_6_7)
+				: French(_r_1_5_6_8)
+				: English(_r_1_5_6_9)
+	:m Data Base(_r_2)
+		:g (_r_2_14) [1,1] 
+			: MySQL(_r_2_14_15)
+			: SQLServer(_r_2_14_16)
+	:m Course(_r_3)
+		:m Lesson(_r_3_17)
+			:g (_r_3_17_19) [1,*] 
+				: Reading Online(_r_3_17_19_20)
+				: Download(_r_3_17_19_21)
+		:m Evaluation (_r_3_18)
+			:g (_r_3_18_22) [1,*] 
+				: Exercise(_r_3_18_22_23)
+					:g (_r_3_18_22_23_30) [1,*] 
+						: Test online (_r_3_18_22_23_30_31)
+							:g (_r_3_18_22_23_30_31_33) [1,1] 
+								: MCQ(_r_3_18_22_23_30_31_33_34)
+								: Diagram (_r_3_18_22_23_30_31_33_35)
+								: Text(_r_3_18_22_23_30_31_33_36)
+						: Work (_r_3_18_22_23_30_32)
+							:g (_r_3_18_22_23_30_32_40) [1,1] 
+								: Group Work(_r_3_18_22_23_30_32_40_41)
+								: Individual Work (_r_3_18_22_23_30_32_40_42)
+				: Scoring(_r_3_18_22_25)
+					:g (_r_3_18_22_25_26) [1,1] 
+						: Automatic (_r_3_18_22_25_26_27)
+						: Manuel (_r_3_18_22_25_26_29)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

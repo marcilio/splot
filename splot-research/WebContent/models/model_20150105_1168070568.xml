@@ -1,0 +1,41 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Jan 5, 2015 - 6:32 PM  -->
+<feature_model name="LscSpecSemantics">
+<meta>
+<data name="description">LSC specification semantics</data>
+<data name="creator">Barak Cohen</data>
+<data name="address"></data>
+<data name="email">barakcoh@tau.ac.il</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Tel Aviv University</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r LscSpecSemantics(_r)
+	:m StableState(_r_1)
+		:g (_r_1_12) [1,1] 
+			: Global(_r_1_12_13)
+			: Local(_r_1_12_14)
+	:m SysExec(_r_2)
+		:g (_r_2_9) [1,1] 
+			: Consistent(_r_2_9_10)
+			: Safe(_r_2_9_11)
+	:m ActiveCutTransitions(_r_3)
+		:g (_r_3_5) [1,1] 
+			: OnlyControllable(_r_3_5_6)
+			: PossiblyUncontrollable(_r_3_5_8)
+	:o EnvAssump(_r_4)
+		:m EnvMsgsInExpectingCut(_r_4_15)
+			:g (_r_4_15_18) [1,1] 
+				: ExpectedOrNoop(_r_4_15_18_19)
+				: PossiblySpontaneous(_r_4_15_18_20)
+		:m EnvMsgsInNonExpectingCut(_r_4_17)
+			:g (_r_4_17_21) [1,1] 
+				: SafeEvents(_r_4_17_21_22)
+				: SpontaneousEvents(_r_4_17_21_23)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

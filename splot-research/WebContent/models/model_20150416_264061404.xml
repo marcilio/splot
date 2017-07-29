@@ -1,0 +1,79 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Apr 16, 2015 - 5:16 AM  -->
+<feature_model name="Taxonomy of User Needs for Software Visualisation">
+<meta>
+<data name="description">A model of the taxonomy</data>
+<data name="creator">Leonel Merino</data>
+<data name="address"></data>
+<data name="email">merino@iam.unibe.ch</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">University of Bern</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Need(_r)
+	:m Domain(_r_1)
+		:g (_r_1_19) [1,1] 
+			: Performace(_r_1_19_20)
+			: Architecture(_r_1_19_21)
+			: Testing(_r_1_19_22)
+			: Debugging(_r_1_19_23)
+	:m Task(_r_2)
+		:m Action(_r_2_3)
+			:g (_r_2_3_24) [1,1] 
+				: Assess(_r_2_3_24_25)
+				: Present(_r_2_3_24_26)
+		:m Attribute(_r_2_4)
+			:g (_r_2_4_6) [1,1] 
+				: Quantitative(_r_2_4_6_7)
+					:g (_r_2_4_6_7_27) [1,1] 
+						: Volume(_r_2_4_6_7_27_28)
+						: Change(_r_2_4_6_7_27_29)
+						: Complexity(_r_2_4_6_7_27_30)
+						: Architectural Compliance(_r_2_4_6_7_27_31)
+						: Testing(_r_2_4_6_7_27_32)
+						: Performace(_r_2_4_6_7_27_33)
+						: Duplication(_r_2_4_6_7_27_34)
+				: Ordinal(_r_2_4_6_8)
+					:g (_r_2_4_6_8_35) [1,1] 
+						: Structure(_r_2_4_6_8_35_36)
+						: Dependency(_r_2_4_6_8_35_37)
+				: Nominal(_r_2_4_6_9)
+					:g (_r_2_4_6_9_38) [1,1] 
+						: Authorship(_r_2_4_6_9_38_39)
+		:m Subject(_r_2_5)
+			:g (_r_2_5_10) [1,*] 
+				: Data(_r_2_5_10_11)
+					:g (_r_2_5_10_11_15) [1,*] 
+						: Repository(_r_2_5_10_11_15_16)
+							:g (_r_2_5_10_11_15_16_40) [1,1] 
+								: Commit(_r_2_5_10_11_15_16_40_41)
+								: Modification Request(_r_2_5_10_11_15_16_40_42)
+						: Log(_r_2_5_10_11_15_17)
+							:g (_r_2_5_10_11_15_17_43) [1,1] 
+								: Trace(_r_2_5_10_11_15_17_43_44)
+						: Memory(_r_2_5_10_11_15_18)
+							:g (_r_2_5_10_11_15_18_45) [1,1] 
+								: Object(_r_2_5_10_11_15_18_45_46)
+				: Source Code(_r_2_5_10_12)
+					:m Language(_r_2_5_10_12_13)
+						:g (_r_2_5_10_12_13_47) [1,1] 
+							: C(_r_2_5_10_12_13_47_48)
+							: C plus plus(_r_2_5_10_12_13_47_49)
+							: Java(_r_2_5_10_12_13_47_50)
+							: Smalltalk(_r_2_5_10_12_13_47_51)
+							: XML(_r_2_5_10_12_13_47_52)
+							: SQL(_r_2_5_10_12_13_47_53)
+					:m Granularity(_r_2_5_10_12_14)
+						:g (_r_2_5_10_12_14_54) [1,1] 
+							: Method(_r_2_5_10_12_14_54_55)
+							: Class(_r_2_5_10_12_14_54_56)
+							: Statement(_r_2_5_10_12_14_54_57)
+							: Package(_r_2_5_10_12_14_54_58)
+							: File(_r_2_5_10_12_14_54_59)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

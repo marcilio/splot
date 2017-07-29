@@ -1,0 +1,45 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Aug 20, 2014 - 4:09 PM  -->
+<feature_model name="LineaDeCredito">
+<meta>
+<data name="description">Modelo para la creacion de una linea</data>
+<data name="creator">Mauricio Verano Merino</data>
+<data name="address"></data>
+<data name="email">m.verano239@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universidad de Los Andes</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r LineaCredito(_r)
+	:m TipoAmortizacion(_r_2)
+		:g (_r_2_8) [1,1] 
+			: CuotaFija(_r_2_8_9)
+			: CuotaFijaPeriodoConGracia(_r_2_8_11)
+				:m PeriodoGracia(_r_2_8_11_16)
+					:g (_r_2_8_11_16_17) [1,1] 
+						: SoloInteres(_r_2_8_11_16_17_19)
+						: SoloCapital(_r_2_8_11_16_17_20)
+			: AbonoConstanteCapital(_r_2_8_12)
+			: CuotaFijaTasaVariable(_r_2_8_14)
+			: AbonoCteCapitalTasaVariable(_r_2_8_15)
+	:o CuotaExtraordinaria(_r_3)
+	:m Interes(_r_4)
+		:m interesCorriente(_r_4_23)
+			:m TasaInteres(_r_4_23_25)
+				:g (_r_4_23_25_26) [1,1] 
+					: TrimestreAnticipado(_r_4_23_25_26_27)
+					: MesAnticipado(_r_4_23_25_26_28)
+					: EfectivoAnual(_r_4_23_25_26_29)
+		:m InteresMora(_r_4_24)
+	:m FormaDePago(_r_5)
+		:g (_r_5_29) [1,1] 
+			: Anticipado(_r_5_29_30)
+			: Vencido(_r_5_29_31)
+			: Periodico(_r_5_29_32)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

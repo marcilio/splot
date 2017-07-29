@@ -1,0 +1,44 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, Mar 5, 2014 - 5:06 AM  -->
+<feature_model name="Equation_LO">
+<meta>
+<data name="description">Logical equation</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r Equation(_r0)
+	:m LeftSide(_r1)
+		:g (_id_0) [1,1] 
+			: X(_r2)
+			: Y(_r3)
+	:m EqSign(_r4)
+	:m RightSide(_r5)
+		:m Variable(_r12)
+			:g (_id_2) [1,1] 
+				: x(_r13)
+				: b(_r14)
+				: a(_r15)
+		:m Operation(_r16)
+			:g (_id_3) [1,1] 
+				: Not(_r17)
+				: Or(_r18)
+				: And(_r19)
+		:m NumberOfVariables(_r5_29)
+			:g (_r5_29_30) [1,1] 
+				: 1(_r5_29_30_31)
+				: 2(_r5_29_30_32)
+				: 3(_r5_29_30_33)
+				: 4(_r5_29_30_34)
+				: 5(_r5_29_30_35)
+</feature_tree>
+<constraints>
+constraint_2:~_r17 or _r5_29_30_31
+</constraints>
+</feature_model>

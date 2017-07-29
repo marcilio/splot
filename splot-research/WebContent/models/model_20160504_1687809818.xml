@@ -1,0 +1,53 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Wed, May 4, 2016 - 3:19 AM  -->
+<feature_model name="Visit Indonesia">
+<meta>
+<data name="description">Featur model Aplikasi Visit Indonesia</data>
+<data name="creator">Musa</data>
+<data name="address"></data>
+<data name="email">muh.nur@ui.ac.id</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">Universitas Indonesia</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r VisIndo(_r)
+	:m Pencarian(_r_2)
+		:m Lokasi Wisata(_r_2_13)
+		:m Event Budaya(_r_2_15)
+		:m Penginapan(_r_2_16)
+		:m Rute Lokasi(_r_2_17)
+		:m Rumah Makan(_r_2_23)
+		:m Toko Souvenir(_r_2_24)
+		:g (_r_2_26) [1,*] 
+			: Penentuan Lokasi(_r_2_26_27)
+				:o GPS(_r_2_26_27_28)
+				:o Input Manual(_r_2_26_27_29)
+				:o Tap Pada Peta(_r_2_26_27_30)
+		:o Fasilitas Kesehatan(_r_2_31)
+		:o Lokasi Perbaikan Kendaraan(_r_2_32)
+		:m Detail Informasi(_r_2_33)
+	:m Pengaturan Jadwal Kunjungan(_r_3)
+		:o Notifikasi(_r_3_34)
+			:g (_r_3_34_40) [1,*] 
+				: Email(_r_3_34_40_41)
+				: Alarm(_r_3_34_40_42)
+	:m Informasi Umum(_r_4)
+	:m Pelaporan penyalahgunaan(_r_5)
+	:m Keanggotaan(_r_6)
+		:g (_r_6_43) [1,1] 
+			: Email(_r_6_43_44)
+			: Facebook(_r_6_43_45)
+			: Twitter(_r_6_43_46)
+	:g (_r_11) [1,1] 
+		: Rating(_r_11_12)
+			:m Like(_r_11_12_18)
+			:m Range(_r_11_12_19)
+	:o Chatting(_r_20)
+	:o Kamus(_r_22)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

@@ -1,0 +1,79 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Thu, Oct 30, 2014 - 8:20 PM  -->
+<feature_model name="PGE-FeatureModel_V1">
+<meta>
+<data name="description">Características Básicas</data>
+<data name="creator">Dennis Torres</data>
+<data name="address"></data>
+<data name="email">dtowong@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">UNMSM</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r PGESPL(_r)
+	:m Registro(_r_1)
+		:g (_r_1_16) [1,*] 
+			: Alumno(_r_1_16_18)
+			: Profesor(_r_1_16_19)
+			: Curso(_r_1_16_20)
+			: Lugar(_r_1_16_21)
+			: Pago(_r_1_16_22)
+			: Asistencia(_r_1_16_23)
+			: Evento(_r_1_16_24)
+	:m Database(_r_2)
+		:g (_r_2_25) [1,*] 
+			: Relacional(_r_2_25_26)
+			: NoRelacional(_r_2_25_27)
+	:m Storage(_r_3)
+		:g (_r_3_30) [1,1] 
+			: Cloud(_r_3_30_35)
+			: Local(_r_3_30_36)
+	:m Producto(_r_4)
+		:g (_r_4_37) [1,*] 
+			: Windows_Desktop(_r_4_37_38)
+			: Web_App(_r_4_37_39)
+			: Android_App(_r_4_37_40)
+			: iOS_App(_r_4_37_41)
+	:m Inscripcion(_r_5)
+		:g (_r_5_42) [1,*] 
+			: Inscr_Curso(_r_5_42_46)
+			: Inscr_Evento(_r_5_42_47)
+			: Inscr_Webinar(_r_5_42_48)
+	:m Idioma(_r_6)
+		:g (_r_6_49) [1,1] 
+			: Ingles(_r_6_49_50)
+			: Espanol(_r_6_49_51)
+	:o Mensajeria(_r_7)
+		:g (_r_7_52) [1,1] 
+			: Mensajeria_Interna(_r_7_52_53)
+			: Email(_r_7_52_54)
+	:m FormatExport(_r_8)
+		:g (_r_8_55) [1,*] 
+			: PDF(_r_8_55_56)
+			: XLSX(_r_8_55_57)
+	:o MedioPago(_r_9)
+		:g (_r_9_58) [1,*] 
+			: PayPal(_r_9_58_59)
+			: Visa(_r_9_58_60)
+			: Mastercard(_r_9_58_61)
+			: PagoEfectivo(_r_9_58_62)
+	:o CargaExamen(_r_10)
+		:g (_r_10_63) [1,1] 
+			: GoogleForm(_r_10_63_64)
+			: PDF_Exam(_r_10_63_65)
+	:o CargaClase(_r_11)
+		:g (_r_11_66) [1,*] 
+			: Lectura(_r_11_66_67)
+			: Video(_r_11_66_68)
+				:g (_r_11_66_68_69) [1,1] 
+					: MPEG4(_r_11_66_68_69_70)
+					: AVI(_r_11_66_68_69_71)
+	:m Login(_r_12)
+	:o Chat(_r_13)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>

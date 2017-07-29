@@ -1,0 +1,51 @@
+<!-- This model was created online using SPLOT's Feature Model Editor (http://www.splot-research.org) on Mon, Feb 23, 2015 - 4:24 AM  -->
+<feature_model name="HelpSystem_1">
+<meta>
+<data name="description">Help System using sensor</data>
+<data name="creator">Renata</data>
+<data name="address"></data>
+<data name="email">renata.burbaite@gmail.com</data>
+<data name="phone"></data>
+<data name="website"></data>
+<data name="organization">KTU</data>
+<data name="department"></data>
+<data name="date"></data>
+<data name="reference"></data>
+</meta>
+<feature_tree>
+:r HelpSystem(_r)
+	:m Priority(_r_1)
+		:g (_r_1_2) [1,*] 
+			: PH(_r_1_2_3)
+			: PI(_r_1_2_4)
+			: PL(_r_1_2_5)
+	:m Level(_r_6)
+		:g (_r_6_7) [1,1] 
+			: BG(_r_6_7_8)
+			: IT(_r_6_7_9)
+			: AD(_r_6_7_10)
+	:m Method(_r_11)
+		:g (_r_11_12) [1,1] 
+			: PR(_r_11_12_13)
+			: PB(_r_11_12_14)
+	:m Activity(_r_15)
+		:g (_r_15_16) [1,1] 
+			: PS(_r_15_16_17)
+			: CT(_r_15_16_18)
+	:m SensorInput(_r_19)
+		:g (_r_19_20) [1,1] 
+			: S1(_r_19_20_21)
+			: S2(_r_19_20_22)
+			: S3(_r_19_20_23)
+			: S4(_r_19_20_25)
+	:m SensorPosition(_r_26)
+		:m NotPressed(_r_26_29)
+		:m Pressed(_r_26_30)
+	:m Sound(_r_31)
+		:g (_r_31_32) [1,1] 
+			: Sound1(_r_31_32_33)
+			: Sound2(_r_31_32_34)
+</feature_tree>
+<constraints>
+</constraints>
+</feature_model>
