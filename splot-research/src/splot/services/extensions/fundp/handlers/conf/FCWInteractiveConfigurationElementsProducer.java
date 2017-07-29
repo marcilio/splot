@@ -1,6 +1,5 @@
 package splot.services.extensions.fundp.handlers.conf;
 
-import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,32 +7,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.tree.TreeNode;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
-
-
-
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 import splar.core.fm.FeatureGroup;
-import splar.core.fm.FeatureModel;
 import splar.core.fm.FeatureModelException;
 import splar.core.fm.FeatureTreeNode;
 import splar.core.fm.GroupedFeature;
 import splar.core.fm.SolitaireFeature;
-import splar.core.fm.XMLFeatureModel;
 import splar.core.fm.configuration.ConfigurationStep;
 import splot.services.extensions.fundp.utilities.FeatureCardinality;
 import splot.services.extensions.fundp.utilities.FeatureDecisionInfo;
 import splot.services.extensions.fundp.utilities.FeatureInViewCheckingResult;
 import splot.services.extensions.fundp.utilities.Methods;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 
 public class FCWInteractiveConfigurationElementsProducer {
 

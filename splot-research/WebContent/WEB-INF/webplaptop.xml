@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
 
   <display-name>SPLOT</display-name>
-  
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -11,7 +11,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+
   <servlet>
     <description></description>
     <display-name>SplotCoreServlet</display-name>
@@ -19,13 +19,14 @@
     <servlet-class>splot.core.servlets.SplotCoreServlet</servlet-class>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>SplotCoreServlet</servlet-name>
     <url-pattern>/SplotCoreServlet</url-pattern>
   </servlet-mapping>
+  
   
   <servlet>
     <description></description>
@@ -34,17 +35,18 @@
     <servlet-class>splot.services.servlets.SplotAnalysesServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>c:\apache-tomcat-6.0.18\webapps\SPLOT\models\</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>SplotAnalysesServlet</servlet-name>
     <url-pattern>/SplotAnalysesServlet</url-pattern>
   </servlet-mapping>
+  
   
   <servlet>
     <description></description>
@@ -53,11 +55,11 @@
     <servlet-class>splot.services.servlets.SplotConfigurationServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>c:\apache-tomcat-6.0.18\webapps\SPLOT\models\</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -65,18 +67,19 @@
     <url-pattern>/SplotConfigurationServlet</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  
+  <servlet>
     <description></description>
     <display-name>SplotEditorServlet</display-name>
     <servlet-name>SplotEditorServlet</servlet-name>
     <servlet-class>splot.services.servlets.SplotEditorServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>c:\apache-tomcat-6.0.18\webapps\SPLOT\models\</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -91,7 +94,7 @@
     <servlet-class>splot.services.extensions.fundp.servlets.MultiplePerspectiveConfigurationViewsServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>c:\apache-tomcat-6.0.18\webapps\SPLOT\models\</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

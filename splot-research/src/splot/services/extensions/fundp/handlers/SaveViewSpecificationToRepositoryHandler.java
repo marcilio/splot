@@ -2,43 +2,30 @@ package splot.services.extensions.fundp.handlers;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.json.JSONException;
 import org.json.simple.parser.ContainerFactory;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-
-import java.util.LinkedHashMap;
-
-import splar.core.fm.FeatureModel;
-import splar.core.fm.FeatureModelException;
-import splar.core.fm.XMLFeatureModel;
-import splot.core.Handler;
-import splot.services.extensions.fundp.utilities.Methods;
-
-import javax.xml.transform.*;
-import javax.xml.transform.dom.*;
-import javax.xml.transform.stream.*;
-
-
-import org.w3c.dom.*;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import fm.FeatureTreeNode;
+import splar.core.fm.FeatureModelException;
+import splot.core.Handler;
 
 /** SaveViewSpecificationToRepositoryHandler is used to create a file for a view and save it in the views folder.  
 * 

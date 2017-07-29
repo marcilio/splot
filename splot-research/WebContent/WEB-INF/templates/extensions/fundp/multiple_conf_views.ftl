@@ -23,7 +23,7 @@
 		<li class="first"><a href="automated_analyses.html">Automated Analysis</a></li> 
 		<li><a href="product_configuration.html">Product Configuration</a></li> 
 		<li><a href="feature_model_repository.html">Feature Model Repository</a></li> 
-		<li><a href="http://www.marcilio-mendonca.com/contact_splot.asp">Contact Us</a></li> 
+		<li><a href="contact_us.html">Contact Us</a></li> 
 	</ul> 
 </div> 
 <!-- end #menu --> 

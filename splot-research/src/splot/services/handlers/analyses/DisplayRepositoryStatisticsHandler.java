@@ -136,40 +136,6 @@ public class DisplayRepositoryStatisticsHandler extends FreeMarkerHandler {
 			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing feature model repository path":e.getMessage());
 		}
 	}
-
-	private String[] extractURLs(String urls) {
-//		return urls.split(";");
-		return urls.split("\r\n");
-	}
-	
-//	private List<Map<String,String>> listUserFeatureModels(String[] urlsList) {		
-//		List<Map<String,String>> modelList = new LinkedList<Map<String,String>>();
-//		for( String url : urlsList ) {
-//			url.trim();
-//			FeatureModel model = new XMLFeatureModel(url, XMLFeatureModel.USE_VARIABLE_NAME_AS_ID);
-//			FeatureModelStatistics stats = new FeatureModelStatistics(model);
-//			model.loadModel();
-//			stats.update();
-//			
-//	        Map<String,String> modelData = new HashMap<String, String>();
-//	        modelData.put("name", model.getName());
-//	        modelData.put("features", String.valueOf(stats.countFeatures()));
-//	        modelData.put("ecr", String.valueOf((int)(stats.getECRepresentativeness()*100)));
-//	        if ( stats.getECRepresentativeness() == 0 ) {
-//	        	modelData.put("clausedensity", "N/A");	
-//	        }
-//	        else {
-//	        	DecimalFormat format = new DecimalFormat("0.0");
-//	        	modelData.put("clausedensity", format.format(stats.getECClauseDensity()));
-//	        }
-//	        modelData.put("file", url);
-//
-//	        modelList.add(modelData);
-//		}
-//		return modelList;
-//	}
-	
-
 	
 }
 

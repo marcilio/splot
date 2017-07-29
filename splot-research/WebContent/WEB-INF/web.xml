@@ -19,7 +19,7 @@
     <servlet-class>splot.core.servlets.SplotCoreServlet</servlet-class>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -35,11 +35,11 @@
     <servlet-class>splot.services.servlets.SplotAnalysesServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>/home/marcilio/tomcat6m/webapps/SPLOT/models/</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -55,11 +55,11 @@
     <servlet-class>splot.services.servlets.SplotConfigurationServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>/home/marcilio/tomcat6m/webapps/SPLOT/models/</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -75,11 +75,11 @@
     <servlet-class>splot.services.servlets.SplotEditorServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>/home/marcilio/tomcat6m/webapps/SPLOT/models/</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
     <init-param>
       <param-name>logFilePath</param-name>
-      <param-value>c:\users\marcilio\eclipse\splot-project\webcontent\splot.err</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/splot.err</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -94,7 +94,7 @@
     <servlet-class>splot.services.extensions.fundp.servlets.MultiplePerspectiveConfigurationViewsServlet</servlet-class>
     <init-param>
       <param-name>modelsPath</param-name>
-      <param-value>/home/marcilio/tomcat6m/webapps/SPLOT/models/</param-value>
+      <param-value>/Users/marcilio/git/personal/splot/splot-research/WebContent/models/</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

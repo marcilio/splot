@@ -1,13 +1,13 @@
 <#if hasError>
 	<p><span class="errorMessage">ERROR: ${errorMessage}.</span></p>
-	<p><a href="javascript:history.back()">Back</a></p>						
+	<p><a href="javascript:history.back()">Back</a></p>
 <#else>
-	<script type="text/javascript"> 
+	<script type="text/javascript">
 	<!--
-	 function sortModels(sortBy) 
+	 function sortModels(sortBy)
 	{
 		ajax_loadContent('_model_repository','/SPLOT/SplotAnalysesServlet?action=select_model&enableSelection=${enableSelection?string}&selectionMode=${selectionMode}&serviceURL=${serviceURL}&serviceHTTPMethod=${serviceHTTPMethod}&serviceAction=${serviceAction}&sortby='+sortBy);
-	} 
+	}
 	-->
 	</script>
 	<div id="_model_repository">
@@ -16,7 +16,7 @@
 			<#if selectionMode="multiple">
 			  <form action="${serviceURL}" method="${serviceHTTPMethod}">
 			  <input type="hidden" name="action" value="${serviceAction}">
-			  <b>Please, type the URL of your own feature models AND/OR select models from the table below and</b> 
+			  <b>Please, type the URL of your own feature models AND/OR select models from the table below and</b>
 			  <input class="standardHighlight1" type="submit" value="Click Here"/>
 			  <p style="margin: 10px 0px 0px 0px">Your model's URLs (in the <a href="sxfm.html">SXFM format</a>) starting with "http://" (one per line):</p>
 			  <p style="margin: 0px 0px 10px 0px"><textarea name="userModels" rows=3 cols="80"></textarea></p>
@@ -25,14 +25,14 @@
 			  <input type="hidden" name="action" value="${serviceAction}">
 			  <input type="hidden" name="op" value="reset">
 			  <b>Type the URL of your own feature model OR select a model from the table below and</b>
-			  <input class="standardHighlight1" type="submit" value="Click Here">
+			  <input class="standardHighlight1" type="submit" value="Click Here"/>
 			  <p style="margin: 10px 0px 0px 0px">Your model's URL (in the <a href="sxfm.html">SXFM format</a>) starting with "http://":</p>
 			  <p style="margin: 0px 0px 10px 0px"><input name="userModels" type="text" size="80"></p>
 			</#if>
 			<p>If you wish to check for parsing errors in your feature model <a href="parse_feature_model_for_errors.html">click here</a>.</p>
 		</#if>
 		</#compress>
-		
+
 		<table class="standardTableStyle">
 		<tr>
 			<th>#</th>
@@ -60,7 +60,7 @@
 			<#if showModelDetails>
 			<TD align="center"><a href="/SPLOT/SplotAnalysesServlet?action=show_model_details&modelFile=${model.file}">Click</a></td>
 			</#if>
-		</tr>	
+		</tr>
 		</#list>
 		</table>
 		<#if enableSelection>

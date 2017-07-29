@@ -155,7 +155,7 @@ public class SelectFeatureModelHandler extends FreeMarkerHandler {
 				Collections.sort(modelList, modelComparator);
 		}
 		catch (Exception e) {
-			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing the feature model repository path":e.getMessage());
+			throw new HandlerExecutionException(e.getMessage()==null?"Problems locating/acessing the feature model repository path" : e.getMessage());
 		}
         return modelList;
 	}
