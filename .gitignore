@@ -5,3 +5,4 @@ splot-research/.settings/
 .metadata/
 .recommenders/
 Servers/
+*.war
