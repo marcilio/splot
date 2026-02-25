@@ -6,3 +6,15 @@ splot-research/.settings/
 .recommenders/
 Servers/
 *.war
+
+# Logs
+splot-research/WebContent/splot.log
+*.log
+
+# IDE Metadata
+splot-research/.project
+
+# User-Generated Data
+splot-research/WebContent/models/model_*.xml
+splot-research/WebContent/models/temp_models/*
+!splot-research/WebContent/models/temp_models/.keep

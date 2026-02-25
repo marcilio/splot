@@ -1,3 +1,9 @@
+/*                                    
+    * Copyright (c) 2009-2026 Marcilio Mendonca                                            
+    * Licensed under the Apache License, Version 2.0 (the "License");                      
+    * you may not use this file except in compliance with the License.                     
+    */
+
 package splot.services.extensions.fundp.utilities;
 
 /** FeatureCardinality is used when the cardinality of a feature in a feature model is calculated. 
