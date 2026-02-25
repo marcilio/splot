@@ -1,8 +1,13 @@
-# SPLOT - Feature Model Analysis Tool
+# SPLOT (Software Product Lines Online Tools)
 
 This document provides a comprehensive overview of the SPLOT project, including its architecture, main components, and the design patterns used in its implementation.
 
 Author: [Marcilio Mendonca](https://github.com/marcilio)
+
+
+## Academic Publication
+
+[SPLOT: software product lines online tools](https://dl.acm.org/doi/abs/10.1145/1639950.1640002)
 
 ## Architecture
 
@@ -36,10 +41,10 @@ graph TD
     B --> C
     C --> D
     B --> D
-    D --|> E
-    E --|> F
-    F --|> G
-    F --|> H
+    D --> E
+    E --> F
+    F --> G
+    F --> H
 ```
 
 **Description:**
@@ -99,9 +104,9 @@ classDiagram
 
     HandlerBasedServlet o-- Handler
     HandlerManager o-- Handler
-    FreeMarkerHandler --|> Handler
-    AbstractFeatureModelHandler --|> FreeMarkerHandler
-    RunFeatureModelAnalysesHandler --|> AbstractFeatureModelHandler
+    FreeMarkerHandler --> Handler
+    AbstractFeatureModelHandler --> FreeMarkerHandler
+    RunFeatureModelAnalysesHandler --> AbstractFeatureModelHandler
 ```
 
 ## Gang of Four Design Patterns
