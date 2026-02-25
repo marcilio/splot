@@ -35,6 +35,8 @@ graph TD
         F[AbstractFeatureModelHandler]
         G[RunFeatureModelAnalysesHandler]
         H[...]
+        I[...]
+        J[RunFeatureModelStatisticsHandler]
     end
 
     A --> B
@@ -45,6 +47,8 @@ graph TD
     E --> F
     F --> G
     F --> H
+    F --> I
+    F --> J
 ```
 
 **Description:**
@@ -54,60 +58,6 @@ graph TD
 3.  The servlet uses the `HandlerManager` to find the appropriate `Handler` to process the request based on the `action` parameter.
 4.  The `Handler` processes the request and generates a response.
 5.  The application services, such as `RunFeatureModelAnalysesHandler`, extend the core framework's handlers to provide specific functionality for feature model analysis.
-
-## Class Diagram
-
-The following class diagram illustrates the main interfaces, abstract classes, and concrete classes in the SPLOT project.
-
-```mermaid
-classDiagram
-    class Handler {
-        <<Abstract>>
-        +String handlerName
-        +HttpServlet servlet
-        +canHandle(HttpServletRequest request) boolean
-        +run(HttpServletRequest request, HttpServletResponse response)*
-    }
-
-    class HandlerBasedServlet {
-        <<Abstract>>
-        +Set<Handler> handlers
-        +createHandlers(ServletConfig config)*
-        +run(HttpServletRequest request, HttpServletResponse response)
-    }
-
-    class FreeMarkerHandler {
-        <<Abstract>>
-        +Template template
-        +Configuration configuration
-        +buildModel(HttpServletRequest request, HttpServletResponse response, Map templateModel)*
-        +run(HttpServletRequest request, HttpServletResponse response)
-    }
-
-    class HandlerManager {
-        <<Singleton>>
-        -static HandlerManager manager
-        -Map<String,Handler> handlers
-        +getInstance() HandlerManager
-        +addHandler(Handler handler)
-        +getHandler(String handlerName) Handler
-    }
-
-    class AbstractFeatureModelHandler {
-        <<Abstract>>
-        +buildModel(Map modelMap, Map templateModel, HttpServletRequest request)*
-    }
-
-    class RunFeatureModelAnalysesHandler {
-        +buildModel(Map modelMap, Map root, HttpServletRequest request)
-    }
-
-    HandlerBasedServlet o-- Handler
-    HandlerManager o-- Handler
-    FreeMarkerHandler --> Handler
-    AbstractFeatureModelHandler --> FreeMarkerHandler
-    RunFeatureModelAnalysesHandler --> AbstractFeatureModelHandler
-```
 
 ## Gang of Four Design Patterns
 
